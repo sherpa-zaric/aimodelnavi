@@ -1,0 +1,39 @@
+name: Daily AI Model Data Sync
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync-leaderboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Sync leaderboard data
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npx tsx scripts/sync-leaderboard.ts
+
+      - name: Generate blog drafts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npx tsx scripts/generate-blog.ts
+
+      - name: Commit changes if any
+        run: |
+          if [ -n "$(git diff --name-only)" ] || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git config user.name "aimodelnavi-bot"
+            git config user.email "bot@aimodelnavi.jp"
+            git add src/data/ src/content/
+            git commit -m "auto: daily data sync $(date +%Y-%m-%d)"
+            git push
+          fi
