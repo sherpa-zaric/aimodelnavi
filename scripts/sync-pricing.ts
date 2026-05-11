@@ -53,31 +53,31 @@ const PROVIDERS = [
   {
     name: "OpenAI",
     url: "https://openai.com/api/pricing/",
-    method: "http" as const,
+    needsJS: true,
   },
   {
     name: "Anthropic",
     url: "https://www.anthropic.com/pricing",
-    method: "http" as const,
+    needsJS: true,
   },
   {
     name: "Google DeepMind",
     url: "https://ai.google.dev/pricing",
-    method: "http" as const,
+    needsJS: false,
   },
   {
     name: "DeepSeek-AI",
     url: "https://api-docs.deepseek.com/quick_start/pricing",
-    method: "http" as const,
+    needsJS: false,
   },
   {
     name: "xAI",
     url: "https://x.ai/api-pricing",
-    method: "http" as const,
+    needsJS: true,
   },
 ];
 
-async function fetchPage(url: string): Promise<string> {
+async function fetchPageHTTP(url: string): Promise<string> {
   const res = await fetch(url, {
     headers: {
       "Accept": "text/html,application/xhtml+xml",
@@ -92,6 +92,34 @@ async function fetchPage(url: string): Promise<string> {
   }
 
   return res.text();
+}
+
+async function fetchPagePlaywright(url: string): Promise<string> {
+  let playwright: any;
+  try {
+    playwright = await import("playwright");
+  } catch {
+    throw new Error("Playwright not installed. Run: npx playwright install chromium");
+  }
+
+  const browser = await playwright.chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+  // Wait for pricing content to render
+  await page.waitForTimeout(2000);
+  const html = await page.content();
+  await browser.close();
+  return html;
+}
+
+async function fetchPage(url: string, needsJS: boolean): Promise<string> {
+  if (needsJS) {
+    console.log("    Using Playwright (JS rendering required)");
+    return fetchPagePlaywright(url);
+  }
+  console.log("    Using HTTP fetch");
+  return fetchPageHTTP(url);
+}
 }
 
 async function extractWithRetry(
@@ -185,7 +213,7 @@ async function main() {
     console.log(`[${provider.name}] ${provider.url}`);
 
     try {
-      const html = await fetchPage(provider.url);
+      const html = await fetchPage(provider.url, provider.needsJS);
       console.log(`  Fetched ${(html.length / 1024).toFixed(0)}KB`);
 
       const entries = await extractWithRetry(html, provider.name);
