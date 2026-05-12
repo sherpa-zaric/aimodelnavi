@@ -37,8 +37,7 @@ export async function syncBlog(): Promise<BlogSyncResult> {
 
   for (let i = 0; i < toProcess.length; i++) {
     const post = toProcess[i];
-    const post = posts[i];
-    console.log(`\n  [${i + 1}/${posts.length}] ${post.title_zh || post.external_slug}`);
+    console.log(`\n  [${i + 1}/${toProcess.length}] ${post.title_zh || post.external_slug}`);
 
     try {
       const bodyText = post.body_text;
