@@ -14,6 +14,7 @@ on:
 jobs:
   sync-pipeline:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
       - uses: actions/checkout@v4
 
@@ -27,29 +28,13 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run full pipeline (crawl, process, translate, generate)
+      - name: Run full pipeline (crawl, process, translate, leaderboard, pricing, blog, generate)
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'ollama' }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_MODEL: ${{ vars.LLM_MODEL || 'gemma4:31b' }}
           CRAWL_MODE: ${{ github.event.inputs.mode || 'incremental' }}
         run: npx tsx scripts/sync-all.ts
-
-      - name: Run leaderboard sync
-        if: always()
-        env:
-          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'ollama' }}
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL: ${{ vars.LLM_MODEL || 'gemma4:31b' }}
-        run: npx tsx scripts/sync-leaderboard.ts
-
-      - name: Run pricing sync
-        if: always()
-        env:
-          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'ollama' }}
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL: ${{ vars.LLM_MODEL || 'gemma4:31b' }}
-        run: npx tsx scripts/sync-pricing.ts
 
       - name: Run blog generation
         if: always()
@@ -61,10 +46,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          if [ -n "$(git status --porcelain src/data/ src/content/ data/)" ]; then
-            git config user.name "aimodelnavi-bot"
-            git config user.email "bot@aimodelnavi.jp"
-            git add src/data/ src/content/ data/
+          if [ -n "$(git status --porcelain src/data/ data/ src/content/)" ]; then
+            git config user.name "aimodelsnavi-bot"
+            git config user.email "bot@aimodelsnavi.com"
+            git add src/data/ data/ src/content/
             git commit -m "auto: daily pipeline sync $(date +%Y-%m-%d)"
             git push
           else
