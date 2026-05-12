@@ -40,6 +40,8 @@ const BASE_URL = process.env.LLM_BASE_URL || BASE_URLS[PROVIDER];
 
 // ── API call ──
 
+const LLM_TIMEOUT_MS = 120000; // 2 minutes timeout per LLM call
+
 async function callLLM(
   systemPrompt: string,
   userMessage: string,
@@ -59,12 +61,23 @@ async function callLLM(
   return callOpenAICompatible(systemPrompt, userMessage, maxTokens);
 }
 
+async function fetchWithTimeout(url: string, options: RequestInit, timeoutMs: number): Promise<Response> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    return res;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function callAnthropic(
   systemPrompt: string,
   userMessage: string,
   maxTokens: number
 ): Promise<string> {
-  const res = await fetch(BASE_URL, {
+  const res = await fetchWithTimeout(BASE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -77,7 +90,7 @@ async function callAnthropic(
       system: systemPrompt,
       messages: [{ role: "user", content: userMessage }],
     }),
-  });
+  }, LLM_TIMEOUT_MS);
 
   if (!res.ok) {
     const body = await res.text();
@@ -93,7 +106,7 @@ async function callOpenAICompatible(
   userMessage: string,
   maxTokens: number
 ): Promise<string> {
-  const res = await fetch(BASE_URL, {
+  const res = await fetchWithTimeout(BASE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -107,7 +120,7 @@ async function callOpenAICompatible(
         { role: "user", content: userMessage },
       ],
     }),
-  });
+  }, LLM_TIMEOUT_MS);
 
   if (!res.ok) {
     const body = await res.text();
@@ -205,6 +218,59 @@ Respond as JSON:
   const result = await callLLM(
     system,
     `Topic: ${topic}\n\n${sourcesBlock}`,
+    8192
+  );
+
+  const cleaned = result
+    .replace(/^```json?\s*/i, "")
+    .replace(/\s*```$/i, "")
+    .trim();
+
+  return JSON.parse(cleaned);
+}
+
+/**
+ * Process a Chinese blog article into a Japanese blog post.
+ * Translates and adapts for Japanese AI developer audience.
+ */
+export async function processBlogArticle(
+  titleZh: string,
+  bodyText: string,
+  sourceUrl: string,
+  date: string,
+  tags: string[]
+): Promise<{ title: string; content: string; excerpt: string; tag: string }> {
+  const system = `You are a Japanese tech journalist specializing in AI/ML. You are translating and adapting a Chinese AI blog article for Japanese readers.
+
+Process:
+1. Translate the article from Chinese to natural, fluent Japanese
+2. Preserve the structure (sections, key points) but adapt expressions for Japanese readers
+3. Keep all technical terms accurate — use standard Japanese AI/ML terminology
+4. Add a brief note at the end: 「本記事はDataLearnerAIの記事を翻訳・編集したものです。元記事: ${sourceUrl}」
+5. Title should be SEO-friendly Japanese (not literal translation — make it natural for Japanese readers)
+6. Provide an excerpt (2-3 Japanese sentences summarizing the key point)
+7. Choose ONE most appropriate tag: OpenAI, Anthropic, Google, オープンソース, 料金比較, ベンチマーク, チュートリアル, AIエージェント
+
+Respond as JSON:
+{
+  "title": "Japanese title",
+  "content": "Japanese article body in markdown (NO H1 heading — title rendered separately)",
+  "excerpt": "2-3 sentence Japanese summary",
+  "tag": "tag name"
+}
+
+Original tags for context: ${tags.join(", ")}
+Original date: ${date}`;
+
+  // Truncate body to fit context window (reserve ~2K for system prompt, ~4K for output)
+  const maxBodyLen = 12000;
+  const truncatedBody = bodyText.length > maxBodyLen
+    ? bodyText.slice(0, maxBodyLen) + "\n\n[文章は長いため省略されました]"
+    : bodyText;
+
+  const result = await callLLM(
+    system,
+    `Original title: ${titleZh}\n\nArticle content:\n${truncatedBody}`,
     8192
   );
 

@@ -20,14 +20,17 @@ import { crawlAll } from "./pipeline/crawl-all";
 import { processModels } from "./pipeline/process-models";
 import { translateModels } from "./pipeline/translate-models";
 import { generateDataFiles } from "./pipeline/generate-data-files";
+import { syncLeaderboard } from "./pipeline/sync-leaderboard";
+import { syncPricing } from "./pipeline/sync-pricing";
+import { syncBlog } from "./pipeline/sync-blog";
 
 const args = process.argv.slice(2);
-const fullMode = args.includes("--full");
+const fullMode = args.includes("--full") || process.env.CRAWL_MODE === "full";
 const generateOnly = args.includes("--generate");
 
 async function main() {
   console.log("═══════════════════════════════════════");
-  console.log("  AIModelNavi Pipeline Sync");
+  console.log("  AI Models Navi Pipeline Sync");
   console.log("═══════════════════════════════════════\n");
 
   const mode = fullMode ? "full" : "incremental";
@@ -59,6 +62,13 @@ async function main() {
   // Stage 3: Translate
   const translateResult = await translateModels("ja");
 
+  // Stage 3.5: Leaderboard & Pricing sync
+  const leaderboardResult = await syncLeaderboard();
+  const pricingResult = await syncPricing();
+
+  // Stage 3.6: Blog sync (DataLearnerAI articles → Japanese)
+  const blogResult = await syncBlog();
+
   // Stage 4: Generate
   const genResult = generateDataFiles();
 
@@ -72,6 +82,9 @@ async function main() {
   console.log(`  Crawled: ${crawlResult.datalearner.detailPagesFetched} pages, ${totalNew} new/changed`);
   console.log(`  Processed: ${processResult.processed} new models`);
   console.log(`  Translated: ${translateResult.translated}`);
+  console.log(`  Leaderboard: ${leaderboardResult.scoresStored} scores stored`);
+  console.log(`  Pricing: ${pricingResult.totalEntries} entries from ${pricingResult.providerResults.filter(p => p.success).length} providers`);
+  console.log(`  Blog: ${blogResult.processed} articles processed`);
   console.log(`  Generated: ${genResult.modelsGenerated} models in TypeScript`);
   console.log(`  DB: ${dbModelsBefore} → ${dbModelsAfter} models, ${dbRawBefore} → ${dbRawAfter} raw`);
 

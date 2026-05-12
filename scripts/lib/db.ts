@@ -152,20 +152,34 @@ export function migrate(): void {
       confidence    TEXT    NOT NULL DEFAULT 'medium',
       PRIMARY KEY (model_id, raw_model_id)
     );
+
+    CREATE TABLE IF NOT EXISTS blog_posts (
+      id            INTEGER PRIMARY KEY AUTOINCREMENT,
+      source_id     INTEGER NOT NULL REFERENCES data_sources(id),
+      external_slug TEXT    NOT NULL,
+      source_url    TEXT    NOT NULL,
+      title_zh      TEXT,
+      title_ja      TEXT,
+      body_text     TEXT,
+      content_hash  TEXT    NOT NULL,
+      status        TEXT    NOT NULL DEFAULT 'new',
+      local_slug    TEXT,
+      created_at    TEXT    NOT NULL DEFAULT (datetime('now')),
+      updated_at    TEXT    NOT NULL DEFAULT (datetime('now')),
+      UNIQUE(source_id, external_slug)
+    );
   `);
 
-  // Seed data_sources if empty
-  const count = db.prepare("SELECT COUNT(*) as c FROM data_sources").get() as { c: number };
-  if (count.c === 0) {
-    const insert = db.prepare(
-      "INSERT INTO data_sources (name, base_url) VALUES (?, ?)"
-    );
-    insert.run("datalearner", "https://www.datalearner.com");
-    insert.run("huggingface", "https://huggingface.co");
-    insert.run("manual", null);
-    insert.run("leaderboard", "https://lmarena.ai");
-    insert.run("pricing", null);
-  }
+  // Seed data_sources — insert any that don't exist yet
+  const insert = db.prepare(
+    "INSERT OR IGNORE INTO data_sources (name, base_url) VALUES (?, ?)"
+  );
+  insert.run("datalearner", "https://www.datalearner.com");
+  insert.run("huggingface", "https://huggingface.co");
+  insert.run("manual", null);
+  insert.run("leaderboard", "https://lmarena.ai");
+  insert.run("pricing", null);
+  insert.run("blog", "https://www.datalearner.com/blog_list");
 }
 
 // ── Content hashing ──
@@ -378,4 +392,81 @@ export function getRawModelCount(): number {
   const db = getDb();
   const row = db.prepare("SELECT COUNT(*) as c FROM raw_models WHERE is_active = 1").get() as { c: number };
   return row.c;
+}
+
+// ── Blog posts ──
+
+export interface BlogPostRecord {
+  id: number;
+  source_id: number;
+  external_slug: string;
+  source_url: string;
+  title_zh: string | null;
+  title_ja: string | null;
+  body_text: string | null;
+  content_hash: string;
+  status: string;
+  local_slug: string | null;
+}
+
+export function upsertBlogPost(input: {
+  sourceId: number;
+  externalSlug: string;
+  sourceUrl: string;
+  titleZh?: string;
+  titleJa?: string;
+  bodyText?: string;
+  contentHash: string;
+  localSlug?: string;
+}): { changed: boolean; id: number } {
+  const db = getDb();
+
+  const existing = db.prepare(
+    "SELECT id, content_hash FROM blog_posts WHERE source_id = ? AND external_slug = ?"
+  ).get(input.sourceId, input.externalSlug) as { id: number; content_hash: string } | undefined;
+
+  if (existing) {
+    if (existing.content_hash === input.contentHash) {
+      return { changed: false, id: existing.id };
+    }
+    db.prepare(
+      `UPDATE blog_posts SET title_zh = ?, title_ja = ?, body_text = ?, content_hash = ?, source_url = ?, updated_at = datetime('now') WHERE id = ?`
+    ).run(input.titleZh || null, input.titleJa || null, input.bodyText || null, input.contentHash, input.sourceUrl, existing.id);
+    return { changed: true, id: existing.id };
+  }
+
+  const result = db.prepare(
+    `INSERT INTO blog_posts (source_id, external_slug, source_url, title_zh, title_ja, body_text, content_hash, local_slug)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+  ).run(input.sourceId, input.externalSlug, input.sourceUrl, input.titleZh || null, input.titleJa || null, input.bodyText || null, input.contentHash, input.localSlug || null);
+  return { changed: true, id: result.lastInsertRowid as number };
+}
+
+export function getExistingBlogSlugs(sourceId: number): Set<string> {
+  const db = getDb();
+  const rows = db.prepare(
+    "SELECT external_slug FROM blog_posts WHERE source_id = ?"
+  ).all(sourceId) as { external_slug: string }[];
+  return new Set(rows.map((r) => r.external_slug));
+}
+
+export function getBlogPostsNeedingProcessing(sourceId: number): BlogPostRecord[] {
+  const db = getDb();
+  return db.prepare(
+    "SELECT * FROM blog_posts WHERE source_id = ? AND status = 'new' ORDER BY id"
+  ).all(sourceId) as BlogPostRecord[];
+}
+
+export function markBlogPostProcessed(id: number, localSlug: string): void {
+  const db = getDb();
+  db.prepare(
+    "UPDATE blog_posts SET status = 'processed', local_slug = ?, updated_at = datetime('now') WHERE id = ?"
+  ).run(localSlug, id);
+}
+
+export function markBlogPostPublished(id: number): void {
+  const db = getDb();
+  db.prepare(
+    "UPDATE blog_posts SET status = 'published', updated_at = datetime('now') WHERE id = ?"
+  ).run(id);
 }

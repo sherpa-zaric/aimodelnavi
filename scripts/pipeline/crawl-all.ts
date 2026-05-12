@@ -4,10 +4,12 @@
 
 import { crawlDataLearner } from "../sources/datalearner";
 import { crawlHuggingFace } from "../sources/huggingface";
+import { crawlDataLearnerBlog } from "../sources/datalearner-blog";
 
 export interface PipelineCrawlResult {
   datalearner: Awaited<ReturnType<typeof crawlDataLearner>>;
   huggingface: Awaited<ReturnType<typeof crawlHuggingFace>>;
+  datalearnerBlog: Awaited<ReturnType<typeof crawlDataLearnerBlog>>;
 }
 
 export async function crawlAll(mode: "full" | "incremental"): Promise<PipelineCrawlResult> {
@@ -15,6 +17,7 @@ export async function crawlAll(mode: "full" | "incremental"): Promise<PipelineCr
 
   const datalearner = await crawlDataLearner(mode);
   const huggingface = await crawlHuggingFace(mode);
+  const datalearnerBlog = await crawlDataLearnerBlog(mode);
 
-  return { datalearner, huggingface };
+  return { datalearner, huggingface, datalearnerBlog };
 }
