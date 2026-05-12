@@ -40,7 +40,7 @@ const BASE_URL = process.env.LLM_BASE_URL || BASE_URLS[PROVIDER];
 
 // ── API call ──
 
-const LLM_TIMEOUT_MS = 120000; // 2 minutes timeout per LLM call
+const LLM_TIMEOUT_MS = 45000; // 45 seconds timeout per LLM call
 
 async function callLLM(
   systemPrompt: string,
