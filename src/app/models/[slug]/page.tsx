@@ -1,17 +1,10 @@
-import { getModelBySlug } from '@/data/models';
+import { getModelBySlug, modelDetails } from '@/data/models';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, Lightbulb } from 'lucide-react';
 
 export function generateStaticParams() {
-  // Slugs must match the model detail data
-  const slugs = [
-    "claude-mythos-preview", "gpt-5-2", "gemini-3-0-pro", "claude-opus-4-7",
-    "deepseek-v3-2", "qwen3-6-27b", "gemma-4-31b", "gpt-5-1-codex-max", "grok-4-2-beta",
-    "plamo-2-0", "namazu-deepseek-v3-1", "llama-3-namazu-405b",
-    "llama-3-elyza-jp-8b", "elyza-thinking-1-0-qwen-32b", "youri-7b", "tsuzumi", "takane",
-  ];
-  return slugs.map((slug) => ({ slug }));
+  return modelDetails.map((model) => ({ slug: model.slug }));
 }
 
 export default async function ModelDetailPage({
