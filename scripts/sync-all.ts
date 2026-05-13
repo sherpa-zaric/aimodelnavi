@@ -96,6 +96,8 @@ async function main() {
 
   console.log("\n  Pipeline complete!");
   closeDb();
+  // Force exit — Playwright or other handles may keep the event loop alive
+  process.exit(0);
 }
 
 main().catch((err) => {
