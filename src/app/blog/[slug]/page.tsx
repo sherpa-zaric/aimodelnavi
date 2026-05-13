@@ -4,9 +4,32 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return { title: "記事が見つかりません" };
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | AI Models Navi`,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      tags: [post.tag],
+    },
+  };
 }
 
 export default async function BlogDetailPage({
@@ -19,8 +42,30 @@ export default async function BlogDetailPage({
 
   if (!post) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Organization",
+      name: "AI Models Navi",
+      url: "https://aimodelsnavi.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "AI Models Navi",
+      url: "https://aimodelsnavi.com",
+    },
+  };
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href="/blog"
         className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary-600 mb-6"

@@ -1,4 +1,4 @@
-# AIModelNavi 爬虫管道 - 项目状态与需求文档
+# AI Models Navi 爬虫管道 - 项目状态与需求文档
 
 > 生成时间: 2026-05-12 | 供模型切换后恢复上下文使用
 
@@ -6,9 +6,9 @@
 
 ## 一、项目概述
 
-**项目名称**: AIModelNavi (aimodelnavi.jp)  
-**项目目标**: 日语AI模型对比网站，仿照 DataLearnerAI (datalearner.com)  
-**技术栈**: Next.js 16.2.6 + App Router + TypeScript + Tailwind CSS v4  
+**项目名称**: AI Models Navi (aimodelsnavi.com)
+**项目目标**: 日语AI模型对比网站，仿照 DataLearnerAI (datalearner.com)
+**技术栈**: Next.js 16.2.6 + App Router + TypeScript + Tailwind CSS v4
 **部署**: Vercel (通过 GitHub: focusontec/aimodelnavi, private)  
 **本地路径**: `/Users/zhaozhenchao/codes/datalearner/web`
 
@@ -187,40 +187,40 @@ export interface ModelDetail {
 
 ## 四、分阶段实施计划
 
-### Phase 1: DataLearnerAI + SQLite + AI处理 (当前优先)
+### Phase 1: DataLearnerAI + SQLite + AI处理 ✅ 已完成
 
 | 步骤 | 任务 | 状态 |
 |------|------|------|
 | 1 | 安装 better-sqlite3 + @types/better-sqlite3 | ✅ 已完成 |
 | 2 | 创建 data/, scripts/sources/, scripts/pipeline/ 目录 | ✅ 已完成 |
-| 3 | 创建 scripts/lib/db.ts (SQLite连接、迁移、CRUD) | ❌ 待实现 |
-| 4 | 创建 scripts/lib/http.ts (限速fetch、重试) | ❌ 待实现 |
-| 5 | 创建 scripts/sources/datalearner.ts | ❌ 待实现 |
-| 6 | 创建 scripts/pipeline/crawl-all.ts | ❌ 待实现 |
-| 7 | 创建 scripts/pipeline/process-models.ts | ❌ 待实现 |
-| 8 | 创建 scripts/pipeline/translate-models.ts | ❌ 待实现 |
-| 9 | 创建 scripts/pipeline/generate-data-files.ts | ❌ 待实现 |
-| 10 | 创建 scripts/migrate-seed.ts | ❌ 待实现 |
-| 11 | 创建 scripts/sync-all.ts | ❌ 待实现 |
-| 12 | 更新 src/app/models/[slug]/page.tsx 动态slug | ❌ 待实现 |
-| 13 | 测试: npx tsx scripts/sync-all.ts --full | ❌ 待实现 |
+| 3 | 创建 scripts/lib/db.ts (SQLite连接、迁移、CRUD) | ✅ 已完成 |
+| 4 | 创建 scripts/lib/http.ts (限速fetch、重试) | ✅ 已完成 |
+| 5 | 创建 scripts/sources/datalearner.ts | ✅ 已完成 |
+| 6 | 创建 scripts/pipeline/crawl-all.ts | ✅ 已完成 |
+| 7 | 创建 scripts/pipeline/process-models.ts | ✅ 已完成 |
+| 8 | 创建 scripts/pipeline/translate-models.ts | ✅ 已完成 |
+| 9 | 创建 scripts/pipeline/generate-data-files.ts | ✅ 已完成 |
+| 10 | 创建 scripts/migrate-seed.ts | ✅ 已完成 |
+| 11 | 创建 scripts/sync-all.ts | ✅ 已完成 |
+| 12 | 更新 src/app/models/[slug]/page.tsx 动态slug | ✅ 已完成 |
+| 13 | 测试: npx tsx scripts/sync-all.ts --full | ✅ 已完成(229模型) |
 
-### Phase 2: HuggingFace日本国产模型
-
-| 步骤 | 任务 | 状态 |
-|------|------|------|
-| 14 | 创建 scripts/sources/huggingface.ts | ❌ |
-| 15 | 更新 crawl-all.ts 加入HuggingFace | ❌ |
-| 16 | 添加日本开发者映射 | ❌ |
-| 17 | 更新 process-models.ts 合并HF+DL数据 | ❌ |
-
-### Phase 3: 排行榜+定价+GitHub Actions
+### Phase 2: HuggingFace日本国产模型 ✅ 已完成
 
 | 步骤 | 任务 | 状态 |
 |------|------|------|
-| 18 | 改造 sync-leaderboard.ts 使用SQLite | ❌ |
-| 19 | 改造 sync-pricing.ts 使用SQLite | ❌ |
-| 20 | 创建 daily-pipeline.yml 工作流 | ❌ |
+| 14 | 创建 scripts/sources/huggingface.ts | ✅ 已完成 |
+| 15 | 更新 crawl-all.ts 加入HuggingFace | ✅ 已完成 |
+| 16 | 添加日本开发者映射 | ✅ 已完成 |
+| 17 | 更新 process-models.ts 合并HF+DL数据 | ✅ 已完成 |
+
+### Phase 3: 排行榜+定价+GitHub Actions (进行中)
+
+| 步骤 | 任务 | 状态 |
+|------|------|------|
+| 18 | 改造 sync-leaderboard.ts 使用SQLite | 🔄 进行中 |
+| 19 | 改造 sync-pricing.ts 使用SQLite | 🔄 进行中 |
+| 20 | 创建 daily-pipeline.yml 工作流 | ✅ 已完成 |
 
 ---
 
@@ -275,7 +275,7 @@ function inferLicenseStatus(license?: string): "open" | "closed" | "open-nc" {
 ```typescript
 // 800ms间隔，3次重试，指数退避
 async function rateLimitedFetch(url: string): Promise<string> {
-  const res = await fetch(url, { headers: { "User-Agent": "AIModelNavi/1.0" } });
+  const res = await fetch(url, { headers: { "User-Agent": "AIModelsNavi/1.0" } });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.text();
 }

@@ -77,7 +77,7 @@ export default function ModelComparePage() {
           {/* Benchmark comparison */}
           <div className="rounded-xl border border-gray-200 overflow-hidden">
             <div className="px-6 py-3 bg-gray-50 border-b border-gray-100">
-              <h3 className="text-sm font-semibold text-gray-900">ベンチマーク比較</h3>
+              <h2 className="text-sm font-semibold text-gray-900">ベンチマーク比較</h2>
             </div>
             <table className="w-full">
               <thead>
@@ -131,7 +131,7 @@ export default function ModelComparePage() {
           {pa && pb && (
             <div className="rounded-xl border border-gray-200 overflow-hidden">
               <div className="px-6 py-3 bg-gray-50 border-b border-gray-100">
-                <h3 className="text-sm font-semibold text-gray-900">API料金比較（標準モード）</h3>
+                <h2 className="text-sm font-semibold text-gray-900">API料金比較（標準モード）</h2>
               </div>
               <table className="w-full">
                 <thead>

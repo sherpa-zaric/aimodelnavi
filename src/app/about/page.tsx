@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "当サイトについて",
+  description:
+    "AI Models Naviは、最新のAIモデル（LLM）のベンチマーク比較、API料金比較、モデル仕様情報を日本語で提供するプラットフォームです。データ収集方針とお問い合わせ情報。",
+  openGraph: {
+    title: "当サイトについて | AI Models Navi",
+    description:
+      "AI Models Naviのデータ収集方針、提供する情報、お問い合わせ先。",
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -5,9 +18,9 @@ export default function AboutPage() {
 
       <div className="prose prose-gray max-w-none space-y-6">
         <section>
-          <h2 className="text-xl font-bold text-gray-900">AIモデルナビとは</h2>
+          <h2 className="text-xl font-bold text-gray-900">AI Models Naviとは</h2>
           <p className="text-gray-600 leading-relaxed">
-            AIモデルナビは、最新のAIモデル（大規模言語モデル）に関する情報を日本語で提供するプラットフォームです。
+            AI Models Naviは、最新のAIモデル（大規模言語モデル）に関する情報を日本語で提供するプラットフォームです。
             ベンチマーク比較、API料金比較、モデル仕様情報を一元化し、開発者や企業が最適なAIモデルを選定するための意思決定をサポートします。
           </p>
         </section>
@@ -44,7 +57,7 @@ export default function AboutPage() {
             当サイトに関するご意見・ご要望がございましたら、以下のメールアドレスまでお気軽にお寄せください。
           </p>
           <p className="text-primary-600 font-medium">
-            contact@aimodelnavi.jp
+            contact@aimodelsnavi.com
           </p>
         </section>
       </div>

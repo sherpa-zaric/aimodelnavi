@@ -1,6 +1,18 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { getAllPosts } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "ブログ",
+  description:
+    "AIモデルの最新ニュース、ベンチマーク分析、API料金比較、チュートリアルなど日本語のAI技術記事をお届けします。",
+  openGraph: {
+    title: "ブログ | AI Models Navi",
+    description:
+      "AIモデルの最新情報、ベンチマーク分析、料金比較に関する日本語ブログ。",
+  },
+};
 
 export default function BlogListPage() {
   const posts = getAllPosts();

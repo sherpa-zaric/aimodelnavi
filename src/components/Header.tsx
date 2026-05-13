@@ -27,7 +27,7 @@ export default function Header() {
               <Zap className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold text-gray-900">
-              AIモデル<span className="text-primary-600">ナビ</span>
+              AI Models<span className="text-primary-600"> Navi</span>
             </span>
           </Link>
 

@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AIモデルナビ — AIモデルの比較・料金・ランキング",
+  title: {
+    default: "AI Models Navi — AIモデルの比較・料金・ランキング",
+    template: "%s | AI Models Navi",
+  },
   description:
     "最新のAIモデル（LLM）のベンチマーク比較、API料金比較、モデル情報を日本語で提供。OpenAI、Anthropic、Google、DeepSeekなど主要モデルを網羅。",
   keywords: [
@@ -29,6 +32,24 @@ export const metadata: Metadata = {
     "Claude",
     "Gemini",
   ],
+  metadataBase: new URL("https://aimodelsnavi.com"),
+  openGraph: {
+    title: "AI Models Navi",
+    description: "AIモデルの比較・料金・ランキング",
+    url: "https://aimodelsnavi.com",
+    siteName: "AI Models Navi",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Models Navi",
+    description: "AIモデルの比較・料金・ランキング",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

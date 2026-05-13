@@ -49,7 +49,7 @@ async function fetchPage(url: string): Promise<string> {
   const res = await fetch(url, {
     headers: {
       "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelNavi/1.0",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelsNavi/1.0",
     },
   });
   if (!res.ok) {

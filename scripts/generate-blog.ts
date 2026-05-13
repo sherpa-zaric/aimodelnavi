@@ -43,7 +43,7 @@ const NEWS_SOURCES = [
 
 async function fetchJson(url: string): Promise<any> {
   const res = await fetch(url, {
-    headers: { "User-Agent": "AIModelNavi/1.0" },
+    headers: { "User-Agent": "AIModelsNavi/1.0" },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
@@ -132,7 +132,7 @@ Respond as JSON array of the selected items.`;
 async function fetchArticleContent(url: string): Promise<string> {
   try {
     const res = await fetch(url, {
-      headers: { "User-Agent": "AIModelNavi/1.0" },
+      headers: { "User-Agent": "AIModelsNavi/1.0" },
     });
     if (!res.ok) return "";
     const html = await res.text();

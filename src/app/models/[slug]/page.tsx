@@ -2,9 +2,33 @@ import { getModelBySlug, modelDetails } from '@/data/models';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, Lightbulb } from 'lucide-react';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return modelDetails.map((model) => ({ slug: model.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const model = getModelBySlug(slug);
+  if (!model) return { title: "モデルが見つかりません" };
+
+  const pricing = model.pricing
+    ? ` 入力$${model.pricing.inputPer1M}/1M、出力$${model.pricing.outputPer1M}/1M。`
+    : "";
+  return {
+    title: `${model.name} (${model.developer})`,
+    description: `${model.descriptionJa}${pricing} ${model.developer}の${model.type === "reasoning" ? "推論" : model.type === "coder" ? "コーディング" : "基盤"}モデル。パラメータ${model.params}、コンテキスト${model.contextWindow}。`,
+    openGraph: {
+      title: `${model.name} | AI Models Navi`,
+      description: model.descriptionJa,
+      type: "article",
+    },
+  };
 }
 
 export default async function ModelDetailPage({
@@ -17,8 +41,35 @@ export default async function ModelDetailPage({
 
   if (!model) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: model.name,
+    author: {
+      "@type": "Organization",
+      name: model.developer,
+      ...(model.developerUrl ? { url: model.developerUrl } : {}),
+    },
+    description: model.descriptionJa,
+    datePublished: model.releaseDate,
+    license: model.license,
+    applicationCategory: model.type === "coder" ? "DeveloperApplication" : "BusinessApplication",
+    ...(model.pricing ? {
+      offers: {
+        "@type": "Offer",
+        price: model.pricing.inputPer1M,
+        priceCurrency: model.pricing.currency,
+        description: `入力$${model.pricing.inputPer1M}/1Mトークン、出力$${model.pricing.outputPer1M}/1Mトークン`,
+      },
+    } : {}),
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href="/models"
         className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary-600 mb-6"

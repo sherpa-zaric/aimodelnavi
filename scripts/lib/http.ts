@@ -9,7 +9,7 @@ const DEFAULT_TIMEOUT_MS = 30000;
 const DEFAULT_RETRY_DELAY_MS = 2000;
 
 const COMMON_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelNavi/1.0",
+  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelsNavi/1.0",
   Accept: "text/html,application/xhtml+xml,application/json",
   "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
 };

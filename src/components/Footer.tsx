@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-sm text-gray-500">
-            AIモデルナビ — AIモデルの比較・料金・ランキング情報を提供する日本語プラットフォーム
+            AI Models Navi — AIモデルの比較・料金・ランキング情報を提供する日本語プラットフォーム
           </p>
           <p className="text-xs text-gray-400 mt-1">
             掲載データは各社公式情報および公開ベンチマークに基づきます。最新の正確な情報は各公式サイトをご確認ください。

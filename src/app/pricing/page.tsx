@@ -175,10 +175,10 @@ export default function PricingPage() {
 
       {/* Billing mode explanation */}
       <div className="mt-10 p-6 bg-gray-50 rounded-xl">
-        <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+        <h2 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
           <Info className="w-4 h-4" />
           課金モードについて
-        </h3>
+        </h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {(Object.entries(billingLabels) as [BillingMode, { label: string; desc: string }][]).map(
             ([mode, { label, desc }]) => (

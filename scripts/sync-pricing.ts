@@ -82,7 +82,7 @@ async function fetchPageHTTP(url: string): Promise<string> {
     headers: {
       "Accept": "text/html,application/xhtml+xml",
       "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelNavi/1.0",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AIModelsNavi/1.0",
       "Accept-Language": "en-US,en;q=0.9,ja;q=0.8",
     },
   });
