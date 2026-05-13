@@ -20,13 +20,19 @@ export async function generateMetadata({
   const pricing = model.pricing
     ? ` 入力$${model.pricing.inputPer1M}/1M、出力$${model.pricing.outputPer1M}/1M。`
     : "";
+  const description = `${model.descriptionJa.slice(0, 120)}${pricing} ${model.developer}の${model.type === "reasoning" ? "推論" : model.type === "coder" ? "コーディング" : "基盤"}モデル。`.slice(0, 160);
+
   return {
     title: `${model.name} (${model.developer})`,
-    description: `${model.descriptionJa}${pricing} ${model.developer}の${model.type === "reasoning" ? "推論" : model.type === "coder" ? "コーディング" : "基盤"}モデル。パラメータ${model.params}、コンテキスト${model.contextWindow}。`,
+    description,
     openGraph: {
       title: `${model.name} | AI Models Navi`,
-      description: model.descriptionJa,
+      description: model.descriptionJa.slice(0, 200),
       type: "article",
+      images: ["/opengraph-image"],
+    },
+    alternates: {
+      canonical: `https://aimodelsnavi.com/models/${model.slug}`,
     },
   };
 }
@@ -40,6 +46,16 @@ export default async function ModelDetailPage({
   const model = getModelBySlug(slug);
 
   if (!model) notFound();
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://aimodelsnavi.com" },
+      { "@type": "ListItem", position: 2, name: "モデル一覧", item: "https://aimodelsnavi.com/models" },
+      { "@type": "ListItem", position: 3, name: model.name },
+    ],
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -68,7 +84,7 @@ export default async function ModelDetailPage({
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbLd, jsonLd]) }}
       />
       <Link
         href="/models"

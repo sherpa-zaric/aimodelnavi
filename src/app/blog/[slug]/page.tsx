@@ -28,6 +28,10 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.date,
       tags: [post.tag],
+      images: ["/opengraph-image"],
+    },
+    alternates: {
+      canonical: `https://aimodelsnavi.com/blog/${post.slug}`,
     },
   };
 }
@@ -41,6 +45,16 @@ export default async function BlogDetailPage({
   const post = getPostBySlug(slug);
 
   if (!post) notFound();
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://aimodelsnavi.com" },
+      { "@type": "ListItem", position: 2, name: "ブログ", item: "https://aimodelsnavi.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title },
+    ],
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,7 +78,7 @@ export default async function BlogDetailPage({
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbLd, jsonLd]) }}
       />
       <Link
         href="/blog"

@@ -42,11 +42,16 @@ export const metadata: Metadata = {
     siteName: "AI Models Navi",
     locale: "ja_JP",
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Models Navi",
     description: "AIモデルの比較・料金・ランキング",
+    images: ["/opengraph-image"],
+  },
+  alternates: {
+    canonical: "https://aimodelsnavi.com",
   },
   robots: {
     index: true,

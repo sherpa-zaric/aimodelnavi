@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BarChart3,
@@ -8,6 +9,15 @@ import {
   TrendingUp,
   BookOpen,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "AI Models Navi — AIモデルの比較・料金・ランキング",
+  description:
+    "最新のAIモデル（LLM）のスペック、ベンチマーク性能、API料金を日本語で比較。OpenAI、Anthropic、Google、DeepSeek、アリババなど250以上のモデルを網羅。",
+  alternates: {
+    canonical: "https://aimodelsnavi.com",
+  },
+};
 
 function JsonLd() {
   const schema = {
