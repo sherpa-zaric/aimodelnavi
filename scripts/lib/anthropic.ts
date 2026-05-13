@@ -296,9 +296,20 @@ export async function processBlogArticle(
   titleZh: string,
   bodyText: string,
   sourceUrl: string,
-  date: string,
-  tags: string[]
+  images?: { alt: string; localPath: string }[]
 ): Promise<{ title: string; content: string; excerpt: string; tag: string }> {
+  let imageInstructions = "";
+  if (images && images.length > 0) {
+    const imageList = images.map((img, i) =>
+      `  ${i + 1}. ![](${img.localPath}) — alt: "${img.alt}"`
+    ).join("\n");
+    imageInstructions = `
+# Available images
+The following images are available for use in the article. Insert them at appropriate positions using the exact markdown syntax shown:
+${imageList}
+`;
+  }
+
   const system = `You are a Japanese tech journalist specializing in AI/ML. You are translating and adapting a Chinese AI blog article for Japanese readers.
 
 Process:
@@ -309,17 +320,14 @@ Process:
 5. Title should be SEO-friendly Japanese (not literal translation — make it natural for Japanese readers)
 6. Provide an excerpt (2-3 Japanese sentences summarizing the key point)
 7. Choose ONE most appropriate tag: OpenAI, Anthropic, Google, オープンソース, 料金比較, ベンチマーク, チュートリアル, AIエージェント
-
+${imageInstructions}
 Respond as JSON:
 {
   "title": "Japanese title",
   "content": "Japanese article body in markdown (NO H1 heading — title rendered separately)",
   "excerpt": "2-3 sentence Japanese summary",
   "tag": "tag name"
-}
-
-Original tags for context: ${tags.join(", ")}
-Original date: ${date}`;
+}`;
 
   // Truncate body to fit context window (reserve ~2K for system prompt, ~4K for output)
   const maxBodyLen = 12000;

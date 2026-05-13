@@ -2,18 +2,58 @@
  * Blog sync pipeline stage.
  *
  * Reads newly crawled blog articles from the blog_posts table,
- * processes them via LLM (Chinese → Japanese translation + adaptation),
- * and saves as Markdown files.
+ * extracts and downloads images, processes articles via LLM
+ * (Chinese → Japanese translation + adaptation), and saves as Markdown.
  */
 
 import { migrate, getSourceId, getBlogPostsNeedingProcessing, markBlogPostProcessed } from "../lib/db";
 import { processBlogArticle } from "../lib/anthropic";
 import { saveBlogPost } from "../lib/storage";
+import { rateLimitedFetch } from "../lib/http";
+import fs from "fs";
+import path from "path";
+
+interface BlogImage {
+  src: string;      // original URL
+  alt: string;
+  localPath: string; // local path for markdown
+}
 
 export interface BlogSyncResult {
   processed: number;
   skipped: number;
   errors: string[];
+}
+
+const PUBLIC_IMAGES_DIR = path.join(process.cwd(), "public", "images", "blog");
+
+function extractImages(html: string): { src: string; alt: string }[] {
+  const images: { src: string; alt: string }[] = [];
+  const imgRegex = /<img[^>]*src="([^"]+)"[^>]*(?:alt="([^"]*)")?[^>]*>/gi;
+  let match;
+  while ((match = imgRegex.exec(html)) !== null) {
+    const src = match[1];
+    // Only include article images (skip icons, logos, etc.)
+    if (src.includes("blog_images") || src.includes("resources")) {
+      images.push({ src, alt: match[2] || "" });
+    }
+  }
+  return images;
+}
+
+async function downloadImage(url: string, filepath: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "AIModelsNavi/1.0" },
+    });
+    if (!res.ok) return false;
+    const buffer = Buffer.from(await res.arrayBuffer());
+    fs.mkdirSync(path.dirname(filepath), { recursive: true });
+    fs.writeFileSync(filepath, buffer);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function syncBlog(): Promise<BlogSyncResult> {
@@ -28,7 +68,6 @@ export async function syncBlog(): Promise<BlogSyncResult> {
     return result;
   }
 
-  // Limit articles per run to avoid CI timeout (2 min timeout × max articles)
   const MAX_ARTICLES_PER_RUN = 5;
   const toProcess = posts.slice(0, MAX_ARTICLES_PER_RUN);
   const remaining = posts.length - toProcess.length;
@@ -47,19 +86,42 @@ export async function syncBlog(): Promise<BlogSyncResult> {
         continue;
       }
 
+      // Extract and download images from the original article
+      const images: BlogImage[] = [];
+      try {
+        const { body } = await rateLimitedFetch(post.source_url);
+        const rawImages = extractImages(body);
+        const imageDir = path.join(PUBLIC_IMAGES_DIR, post.local_slug || post.external_slug);
+
+        for (let j = 0; j < Math.min(rawImages.length, 5); j++) {
+          const img = rawImages[j];
+          const ext = img.src.match(/\.(webp|png|jpg|jpeg)(\?|$)/i)?.[1] || "webp";
+          const filename = `img-${j + 1}.${ext}`;
+          const localPath = `/images/blog/${post.local_slug || post.external_slug}/${filename}`;
+          const fullPath = path.join(imageDir, filename);
+
+          const ok = await downloadImage(img.src, fullPath);
+          if (ok) {
+            images.push({ src: img.src, alt: img.alt, localPath });
+          }
+        }
+        if (images.length > 0) {
+          console.log(`    Downloaded ${images.length} images`);
+        }
+      } catch {
+        console.warn("    Image extraction skipped (fetch failed)");
+      }
+
       // Process via LLM: translate Chinese → Japanese + adapt for Japanese audience
       const blogPost = await processBlogArticle(
         post.title_zh || post.external_slug,
         bodyText,
         post.source_url,
-        "", // date not stored separately in crawl
-        []  // tags not stored separately in crawl
+        images
       );
 
-      // Generate local slug
       const localSlug = post.local_slug || post.external_slug.slice(0, 80);
 
-      // Save as draft markdown
       saveBlogPost(
         localSlug,
         {

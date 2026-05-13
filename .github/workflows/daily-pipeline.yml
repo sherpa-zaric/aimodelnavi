@@ -50,10 +50,10 @@ jobs:
       - name: Commit and push changes
         if: always()
         run: |
-          if [ -n "$(git status --porcelain src/data/ data/ src/content/)" ]; then
+          if [ -n "$(git status --porcelain src/data/ data/ src/content/ public/images/)" ]; then
             git config user.name "coder"
             git config user.email "focusteczzc@163.com"
-            git add src/data/ data/ src/content/
+            git add src/data/ data/ src/content/ public/images/
             git commit -m "auto: daily pipeline sync $(date +%Y-%m-%d)"
             git pull -X ours origin main || true
             git push
