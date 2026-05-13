@@ -55,13 +55,7 @@ interface SourceConfig {
 const SOURCES: SourceConfig[] = [
   // Official blogs (RSS)
   { name: "OpenAI Blog", url: "https://openai.com/blog/rss.xml", type: "rss" },
-  { name: "Anthropic Blog", url: "https://www.anthropic.com/blog/rss.xml", type: "rss" },
   { name: "Google AI Blog", url: "https://blog.google/technology/ai/rss/", type: "rss" },
-  // X via RSSHub
-  { name: "X: @OpenAI", url: "https://rsshub.app/twitter/user/OpenAI", type: "rss" },
-  { name: "X: @AnthropicAI", url: "https://rsshub.app/twitter/user/AnthropicAI", type: "rss" },
-  { name: "X: @GoogleDeepMind", url: "https://rsshub.app/twitter/user/GoogleDeepMind", type: "rss" },
-  { name: "X: @xai", url: "https://rsshub.app/twitter/user/xai", type: "rss" },
   // Community (JSON APIs)
   { name: "HackerNews AI", url: "https://hn.algolia.com/api/v1/search_by_date?query=AI+LLM+language+model&tags=story&hitsPerPage=10", type: "json" },
   { name: "Reddit r/LocalLLaMA", url: "https://www.reddit.com/r/LocalLLaMA/hot.json?limit=10", type: "json" },
