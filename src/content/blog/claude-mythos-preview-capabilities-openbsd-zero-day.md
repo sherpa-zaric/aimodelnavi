@@ -1,0 +1,31 @@
+---
+title: "Anthropicの超弩級モデル「Claude Mythos」とは？驚異的なセキュリティ能力とProject Glasswingの全貌"
+date: "2026-05-13"
+tag: "Anthropic"
+excerpt: "Anthropicが発表した超高性能モデル「Claude Mythos」は、あまりに強力な脆弱性探索能力を持つため、一般公開されない異例の措置が取られています。本記事では、その能力の正体と、セキュリティ協力計画「Project Glasswing」の詳細を解説します。"
+draft: "true"
+---
+
+2026年3月27日、海外のリーク情報により、Anthropicが次世代の大規模言語モデル「Claude Mythos」をテストしていることが明らかになりました。その規模はOpusを遥かに凌ぎ、性能面で「階段状の飛躍（ステップアップ）」を実現したと言われています。多くのユーザーが正式リリースまでには数ヶ月かかると予想していましたが、その後、Anthropicは電撃的にこのモデルの存在を正式発表しました。
+
+Anthropicが発表したのは、**Claude Mythos Preview**の存在と、それに伴い始動したサイバーセキュリティ協力計画「**Project Glasswing**」です。しかし、今回の発表は通常のモデルリリースとは大きく異なります。Anthropicは、Mythosを一般公開しないことを明言しました。その理由は、このモデルが持つ「脆弱性の探索およびエクスプロイト（攻撃コード）の生成能力」があまりに強力であり、運営会社である同社自身が懸念を抱くレベルに達しているためです。
+
+![](/images/blog/claude-mythos-preview-capabilities-openbsd-zero-day/img-1.png)
+
+特筆すべきは、このモデルの開発スケジュールです。内部テストは2026年2月24日から開始されていましたが、3月末にAnthropicのコンテンツ管理システムの設定ミスにより、下書き状態のブログ記事が意図せず公開されたことで、世界的な注目を集めることとなりました。
+
+![](/images/blog/claude-mythos-preview-capabilities-openbsd-zero-day/img-2.png)
+
+### 驚異的な脆弱性検出能力：OpenBSDのゼロデイ攻撃を再現
+
+Claude Mythosの真価が詳しく語られたのが、その高度なセキュリティ能力です。特に注目を集めたのが、極めて堅牢なOSとして知られるOpenBSDにおけるゼロデイ脆弱性の発見と利用に関するデモンストレーションです。
+
+![](/images/blog/claude-mythos-preview-capabilities-openbsd-zero-day/img-3.png)
+
+従来のモデルでは困難だった、複雑なメモリエラーや深い論理的欠陥の特定を、Mythosは極めて短時間で完遂しました。これは単なるコード解析の域を超え、AIが自律的に高度なハッキング手法を推論し、実行可能であることを示唆しています。
+
+![](/images/blog/claude-mythos-preview-capabilities-openbsd-zero-day/img-4.png)
+
+### Project Glasswing：AI時代の安全保障へ
+
+このような強力すぎる能力を制御し、かつ社会的な利益に繋げるために策定されたのが「Project Glasswing」です。これは、厳選されたセキュリティ専門家や政府機関との連携を通じて、AIによる脆弱性診断を「防御側」にのみ活用させるためのフレームワークです。Anthropicは、AIがサイバー攻撃の武器になるリスクを最小限に抑えつつ、未知の脆弱性を先んじて修正する「AIによる防御」の体制を構築しようとしています。
