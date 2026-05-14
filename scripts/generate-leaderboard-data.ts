@@ -219,7 +219,7 @@ function generateLeaderboardData() {
   const rows = db.prepare(`
     SELECT external_id, raw_data
     FROM raw_models
-    WHERE source_id = 408
+    WHERE source_id = (SELECT id FROM data_sources WHERE name = 'datalearner-leaderboard')
     ORDER BY external_id
   `).all() as RawLeaderboardEntry[];
 
@@ -292,21 +292,58 @@ function generateMainLeaderboard(entries: LeaderboardEntry[]) {
     Object.assign(model.scores, entry.scores);
   }
 
+  // Load model types from models.ts if available
+  let modelTypes: Record<string, string> = {};
+  try {
+    const modelsPath = path.join(DATA_DIR, "models.ts");
+    if (fs.existsSync(modelsPath)) {
+      const modelsContent = fs.readFileSync(modelsPath, "utf-8");
+      // Extract type information using regex
+      const typeMatches = modelsContent.matchAll(/slug:\s*"([^"]+)"[\s\S]*?type:\s*"([^"]+)"/g);
+      for (const match of typeMatches) {
+        modelTypes[match[1]] = match[2];
+      }
+      console.log(`  Loaded ${Object.keys(modelTypes).length} model types from models.ts`);
+    }
+  } catch (err) {
+    console.warn(`  Could not load model types: ${err}`);
+  }
+
+  // Infer model type from name patterns
+  function inferModelType(name: string): string {
+    const lower = name.toLowerCase();
+    if (lower.includes("thinking") || lower.includes("reasoning") || lower.includes("o1") || lower.includes("o3") || lower.includes("o4")) {
+      return "reasoning";
+    }
+    if (lower.includes("coder") || lower.includes("code") || lower.includes("codex")) {
+      return "coder";
+    }
+    if (lower.includes("chat") || lower.includes("instruct")) {
+      return "chat";
+    }
+    return "foundation";
+  }
+
   // Convert to array and sort by HLE score
   const ranked = Array.from(modelScores.values())
-    .map((m, i) => ({
-      rank: i + 1,
-      name: m.name,
-      developer: m.developer,
-      hle: m.scores.hle ?? null,
-      arcAgi2: m.scores.arcAgi2 ?? null,
-      frontierMath: m.scores.frontierMath ?? null,
-      sweBenchVerified: m.scores.sweBenchVerified ?? null,
-      tauBench: m.scores.tauBench ?? null,
-      openSource: m.license === "闭源" ? "closed" : m.license === "免费商用" ? "open" : "open-nc",
-      type: "foundation",
-      releaseDate: "",
-    }))
+    .map((m, i) => {
+      const slug = m.name.toLowerCase().replace(/\s+/g, "-");
+      const type = modelTypes[slug] || inferModelType(m.name);
+
+      return {
+        rank: i + 1,
+        name: m.name,
+        developer: m.developer,
+        hle: m.scores.hle ?? null,
+        arcAgi2: m.scores.arcAgi2 ?? null,
+        frontierMath: m.scores.frontierMath ?? null,
+        sweBenchVerified: m.scores.sweBenchVerified ?? null,
+        tauBench: m.scores.tauBench ?? null,
+        openSource: m.license === "闭源" ? "closed" : m.license === "免费商用" ? "open" : "open-nc",
+        type: type as "reasoning" | "foundation" | "chat" | "coder",
+        releaseDate: "",
+      };
+    })
     .sort((a, b) => (b.hle ?? 0) - (a.hle ?? 0))
     .map((m, i) => ({ ...m, rank: i + 1 }));
 
