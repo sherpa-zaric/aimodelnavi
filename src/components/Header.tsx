@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart3, BookOpen, Calculator, Menu, X, Zap } from 'lucide-react';
+import { BarChart3, BookOpen, Calculator, Menu, X, Zap, Target } from 'lucide-react';
 import { useState } from 'react';
 
 const navItems = [
   { href: '/leaderboard', label: 'ランキング', icon: BarChart3 },
+  { href: '/benchmarks', label: '評価基准', icon: Target },
   { href: '/pricing', label: 'API料金', icon: Zap },
   { href: '/models', label: 'モデル一覧', icon: BookOpen },
   { href: '/blog', label: 'ブログ', icon: BookOpen },

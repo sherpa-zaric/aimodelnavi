@@ -24,6 +24,9 @@ import { syncLeaderboard } from "./pipeline/sync-leaderboard";
 import { syncPricing } from "./pipeline/sync-pricing";
 import { syncBlog } from "./pipeline/sync-blog";
 
+// Import the new leaderboard crawler (Playwright-based)
+import { execSync } from "child_process";
+
 const args = process.argv.slice(2);
 const fullMode = args.includes("--full") || process.env.CRAWL_MODE === "full";
 const generateOnly = args.includes("--generate");
@@ -65,6 +68,27 @@ async function main() {
   // Stage 3.5: Leaderboard & Pricing sync
   const leaderboardResult = await syncLeaderboard();
   const pricingResult = await syncPricing();
+
+  // Stage 3.6: DataLearner Leaderboard sync (Playwright-based)
+  console.log("\n[Stage 3.6] Syncing DataLearner Leaderboard data...");
+  try {
+    execSync("npx tsx scripts/crawl-datalearner-leaderboard.ts", {
+      cwd: process.cwd(),
+      stdio: "inherit",
+      timeout: 600000, // 10 minutes timeout
+    });
+    console.log("  DataLearner Leaderboard sync complete");
+
+    // Generate leaderboard data files
+    execSync("npx tsx scripts/generate-leaderboard-data.ts", {
+      cwd: process.cwd(),
+      stdio: "inherit",
+      timeout: 60000,
+    });
+    console.log("  Leaderboard data files generated");
+  } catch (err) {
+    console.error(`  DataLearner Leaderboard sync failed: ${err}`);
+  }
 
   // Stage 3.6: Blog sync (DataLearnerAI articles → Japanese)
   const blogResult = await syncBlog();
