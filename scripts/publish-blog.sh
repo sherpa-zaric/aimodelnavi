@@ -117,6 +117,14 @@ fi
 
 BODY_LEN=${#BODY}
 
+# ── 提取外部图片 URL ──
+
+IMAGE_URLS=$(echo "$BODY" | grep -oP '!\[[^\]]*\]\(https?://[^)]+\)' | grep -oP 'https?://[^)]+' || true)
+IMAGE_COUNT=0
+if [ -n "$IMAGE_URLS" ]; then
+  IMAGE_COUNT=$(echo "$IMAGE_URLS" | wc -l | tr -d ' ')
+fi
+
 echo "═══════════════════════════════════════"
 echo "  发布博客到 AI Models Navi"
 echo "═══════════════════════════════════════"
@@ -125,6 +133,7 @@ echo "  标题: $TITLE"
 echo "  标签: $TAG"
 echo "  摘要: ${EXCERPT:-(自动生成)}"
 echo "  正文: $BODY_LEN 字符"
+echo "  图片: $IMAGE_COUNT 张外部图片"
 echo ""
 
 # ── 确认发布 ──
@@ -141,19 +150,28 @@ fi
 echo ""
 echo "  正在触发 GitHub Actions..."
 
+# 构造图片 URL JSON 数组
+if [ "$IMAGE_COUNT" -gt 0 ]; then
+  IMAGE_URLS_JSON=$(echo "$IMAGE_URLS" | jq -R -s 'split("\n") | map(select(length > 0))')
+else
+  IMAGE_URLS_JSON="[]"
+fi
+
 # 构造 JSON payload（jq 处理转义，避免 shell 特殊字符问题）
 PAYLOAD=$(jq -n \
   --arg title "$TITLE" \
   --arg tag "$TAG" \
   --arg excerpt "$EXCERPT" \
   --arg content "$BODY" \
+  --argjson images "$IMAGE_URLS_JSON" \
   '{
     ref: "main",
     inputs: {
       title: $title,
       tag: $tag,
       excerpt: $excerpt,
-      content: $content
+      content: $content,
+      images: ($images | join(","))
     }
   }')
 
@@ -170,9 +188,13 @@ if [ "$HTTP_CODE" = "204" ] || [[ "$RESPONSE" == *"204"* ]]; then
   echo ""
   echo "  GitHub Actions 正在处理："
   echo "  1. 调用 LLM 将中文翻译成日文"
-  echo "  2. 保存到 src/content/blog/"
-  echo "  3. 自动 commit + push"
-  echo "  4. Vercel 自动部署"
+  if [ "$IMAGE_COUNT" -gt 0 ]; then
+    echo "  2. 下载 $IMAGE_COUNT 张图片到 public/images/blog/"
+    echo "  3. 保存到 src/content/blog/"
+  else
+    echo "  2. 保存到 src/content/blog/"
+  fi
+  echo "  自动 commit + push → Vercel 自动部署"
   echo ""
   echo "  查看进度："
   echo "  https://github.com/$REPO/actions/workflows/$WORKFLOW"

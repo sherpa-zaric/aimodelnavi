@@ -20,6 +20,10 @@ on:
         description: "Chinese excerpt (optional, LLM generates Japanese one if empty)"
         required: false
         type: string
+      images:
+        description: "Comma-separated image URLs to download (optional)"
+        required: false
+        type: string
 
 jobs:
   translate-and-publish:
@@ -38,6 +42,7 @@ jobs:
       - run: npm ci
 
       - name: Translate and publish blog post
+        id: translate
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'ollama' }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
@@ -53,12 +58,90 @@ jobs:
             --excerpt "$EXCERPT" \
             --stdin
 
+      - name: Download images
+        if: inputs.images != ''
+        env:
+          IMAGE_URLS: ${{ inputs.images }}
+        run: |
+          # Find the slug from the newly created blog post
+          SLUG=$(ls -t src/content/blog/*.md 2>/dev/null | head -1 | xargs basename .md)
+          if [ -z "$SLUG" ]; then
+            echo "No blog post found, skipping images"
+            exit 0
+          fi
+
+          echo "Downloading images for slug: $SLUG"
+          IMG_DIR="public/images/blog/$SLUG"
+          mkdir -p "$IMG_DIR"
+
+          # Process comma-separated URLs
+          IMG_INDEX=1
+          IFS=',' read -ra URLS <<< "$IMAGE_URLS"
+          for url in "${URLS[@]}"; do
+            url=$(echo "$url" | xargs)  # trim whitespace
+            [ -z "$url" ] && continue
+
+            # Determine extension from URL
+            EXT="webp"
+            if echo "$url" | grep -qiE '\.(jpg|jpeg)(\?|$)'; then EXT="jpg"
+            elif echo "$url" | grep -qiE '\.png(\?|$)'; then EXT="png"
+            elif echo "$url" | grep -qiE '\.gif(\?|$)'; then EXT="gif"
+            elif echo "$url" | grep -qiE '\.webp(\?|$)'; then EXT="webp"
+            fi
+
+            FILENAME="img-${IMG_INDEX}.${EXT}"
+            echo "  Downloading: $url → $IMG_DIR/$FILENAME"
+
+            if curl -sL -o "$IMG_DIR/$FILENAME" \
+              -H "User-Agent: AIModelsNavi/1.0" \
+              --max-time 15 \
+              "$url"; then
+              # Verify it's actually an image (check file size > 1KB)
+              FILESIZE=$(stat -c%s "$IMG_DIR/$FILENAME" 2>/dev/null || stat -f%z "$IMG_DIR/$FILENAME" 2>/dev/null || echo 0)
+              if [ "$FILESIZE" -gt 1024 ]; then
+                echo "    ✓ Downloaded ($FILESIZE bytes)"
+                IMG_INDEX=$((IMG_INDEX + 1))
+              else
+                echo "    ✗ File too small ($FILESIZE bytes), skipping"
+                rm -f "$IMG_DIR/$FILENAME"
+              fi
+            else
+              echo "    ✗ Download failed"
+            fi
+          done
+
+          # Update markdown image references to local paths
+          BLOG_FILE="src/content/blog/${SLUG}.md"
+          if [ "$IMG_INDEX" -gt 1 ]; then
+            echo ""
+            echo "Updating image references in $BLOG_FILE..."
+            # Replace external URLs with local paths
+            IMG_NUM=1
+            for url in "${URLS[@]}"; do
+              url=$(echo "$url" | xargs)
+              [ -z "$url" ] && continue
+
+              # Find the corresponding downloaded file
+              DOWNLOADED=$(ls "$IMG_DIR/img-${IMG_NUM}".* 2>/dev/null | head -1)
+              if [ -n "$DOWNLOADED" ]; then
+                LOCAL_PATH="/images/blog/$SLUG/$(basename "$DOWNLOADED")"
+                # Escape special chars for sed
+                ESCAPED_URL=$(echo "$url" | sed 's/[&/\]/\\&/g')
+                ESCAPED_PATH=$(echo "$LOCAL_PATH" | sed 's/[&/\]/\\&/g')
+                sed -i "s|$ESCAPED_URL|$ESCAPED_PATH|g" "$BLOG_FILE"
+                echo "  ✓ img-${IMG_NUM}: $LOCAL_PATH"
+                IMG_NUM=$((IMG_NUM + 1))
+              fi
+            done
+            echo "  Done: $((IMG_NUM - 1)) images processed"
+          fi
+
       - name: Commit and push
         run: |
-          if [ -n "$(git status --porcelain src/content/blog/)" ]; then
+          if [ -n "$(git status --porcelain src/content/blog/ public/images/)" ]; then
             git config user.name "coder"
             git config user.email "focusteczzc@163.com"
-            git add src/content/blog/
+            git add src/content/blog/ public/images/
             git commit -m "blog: publish translated post — ${{ inputs.title }}"
             git pull -X ours origin main || true
             git push
