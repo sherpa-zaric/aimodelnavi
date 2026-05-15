@@ -110,6 +110,72 @@ function generateSlug(titleJa: string): string {
   return `blog-${date}-${hash}`;
 }
 
+// ── Image URL validation ──
+
+async function cleanImageUrls(content: string): Promise<string> {
+  const imgRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  let match;
+  let cleaned = content;
+  const removals: string[] = [];
+
+  // Collect all image references
+  const images: { full: string; alt: string; url: string }[] = [];
+  while ((match = imgRegex.exec(content)) !== null) {
+    images.push({ full: match[0], alt: match[1], url: match[2] });
+  }
+
+  if (images.length === 0) return content;
+
+  console.log(`\n  Validating ${images.length} image URL(s)...`);
+
+  for (const img of images) {
+    // Check if URL is a known image file extension or image host
+    const isImageFile = /\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)/i.test(img.url) ||
+      /images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com/i.test(img.url);
+
+    if (isImageFile) {
+      // Verify the URL is actually accessible
+      try {
+        const res = await fetch(img.url, {
+          method: "HEAD",
+          headers: { "User-Agent": "AIModelsNavi/1.0" },
+          signal: AbortSignal.timeout(10000),
+        });
+        if (res.ok) {
+          const ct = res.headers.get("content-type") || "";
+          if (ct.startsWith("image/")) {
+            console.log(`  ✓ ${img.url.slice(0, 80)}`);
+            continue; // Valid image
+          }
+        }
+        console.log(`  ✗ Not an image (${res.status}): ${img.url.slice(0, 60)}`);
+        removals.push(img.full);
+      } catch {
+        console.log(`  ✗ Unreachable: ${img.url.slice(0, 60)}`);
+        removals.push(img.full);
+      }
+    } else {
+      // URL is a web page, not an image file — try to extract og:image
+      console.log(`  ✗ Web page (not image): ${img.url.slice(0, 60)}`);
+      removals.push(img.full);
+    }
+  }
+
+  // Remove broken image references
+  for (const ref of removals) {
+    cleaned = cleaned.replace(ref, "");
+  }
+
+  // Clean up extra blank lines left by removal
+  cleaned = cleaned.replace(/\n{3,}/g, "\n\n");
+
+  if (removals.length > 0) {
+    console.log(`  Removed ${removals.length} broken image reference(s)`);
+  }
+
+  return cleaned;
+}
+
 // ── Main ──
 
 async function main() {
@@ -143,6 +209,9 @@ async function main() {
   console.log(`  ✓ Tag: ${translated.tag}`);
   console.log(`  ✓ Excerpt: ${translated.excerpt.slice(0, 80)}...`);
   console.log(`  ✓ Content: ${translated.content.length} chars`);
+
+  // Step 1.5: Validate and clean image URLs
+  translated.content = await cleanImageUrls(translated.content);
 
   // Step 2: Generate slug and save
   const slug = generateSlug(translated.title);

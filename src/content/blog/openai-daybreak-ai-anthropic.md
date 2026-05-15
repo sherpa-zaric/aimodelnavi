@@ -52,8 +52,6 @@ Daybreakを支えるのは、2つの重要なプロダクトである：
 
 OpenAIは Daybreak に階層的なアクセス体系を導入した。ここが最も注目すべき詳細点である。
 
-![OpenAI Daybreak 三層モデルアクセス架构](https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/)
-
 | モデル | 特徴 | 適用シナリオ |
 |------|------|----------|
 | **GPT-5.5（デフォルト）** | 標準的な安全ガードレール | 一般的な開発、ナレッジワーク |
