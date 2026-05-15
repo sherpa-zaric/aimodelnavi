@@ -491,3 +491,73 @@ Respond as JSON: { "valid": true/false, "issues": ["..."] }`;
   const cleaned = result.replace(/^```json?\s*/i, "").replace(/\s*```$/i, "").trim();
   return JSON.parse(cleaned);
 }
+
+/**
+ * Find related blog articles using LLM semantic understanding.
+ * Given a current post and a manifest of all posts, returns the most related slugs.
+ */
+export async function findRelatedArticles(
+  currentPost: { slug: string; title: string; tag: string; excerpt: string; topics: string[] },
+  manifest: { slug: string; title: string; tag: string; excerpt: string; topics: string[] }[],
+  maxResults = 3
+): Promise<{ slug: string; reason: string }[]> {
+  // Filter out the current post itself
+  const candidates = manifest.filter((p) => p.slug !== currentPost.slug);
+
+  // Build a compact manifest for the LLM (title + tag + topics only, to save tokens)
+  const manifestText = candidates
+    .map((p) => `[${p.slug}] tag:${p.tag} topics:${p.topics.join(",")} — ${p.title}`)
+    .join("\n");
+
+  const system = `あなたはブログの内部リンク専門家です。与えられた記事と、既存記事のマニフェストを比較し、最も関連性の高い記事を${maxResults}つ選んでください。
+
+選定基準（優先順位順）：
+1. 同じトピック・同じ企業・同じモデルについての記事
+2. 互いに補完する記事（例：モデル発表 → ベンチマーク評価 → 料金比較）
+3. 読者が続けて読みたくなる記事
+
+出力形式（JSON配列）：
+[
+  {"slug": "記事のスラッグ", "reason": "関連する理由（日本語、1文）"}
+]
+
+スラッグはマニフェストに記載されたものを正確にコピーしてください。`;
+
+  const userMessage = `# 現在の記事
+タイトル: ${currentPost.title}
+タグ: ${currentPost.tag}
+トピック: ${currentPost.topics.join(", ")}
+要約: ${currentPost.excerpt}
+
+# 既存記事マニフェスト
+${manifestText}`;
+
+  try {
+    const result = await callLLM(system, userMessage, 1024, 30000);
+    const cleaned = result.replace(/^```json?\s*/i, "").replace(/\s*```$/i, "").trim();
+
+    const parsed = JSON.parse(cleaned);
+    if (Array.isArray(parsed)) {
+      // Validate slugs exist in manifest
+      const validSlugs = new Set(candidates.map((p) => p.slug));
+      return parsed
+        .filter((r: any) => r.slug && validSlugs.has(r.slug))
+        .slice(0, maxResults);
+    }
+  } catch (err) {
+    console.warn(`  ⚠ LLM related-article search failed: ${err}`);
+  }
+
+  // Fallback: find by topic overlap
+  const currentTopics = new Set(currentPost.topics);
+  const scored = candidates
+    .map((p) => {
+      const overlap = p.topics.filter((t) => currentTopics.has(t)).length;
+      return { slug: p.slug, score: overlap, reason: `共通トピック: ${p.topics.filter((t) => currentTopics.has(t)).join(", ")}` };
+    })
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, maxResults);
+
+  return scored.map((s) => ({ slug: s.slug, reason: s.reason }));
+}

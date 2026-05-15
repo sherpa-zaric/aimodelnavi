@@ -1,0 +1,434 @@
+[
+  {
+    "slug": "blog-2026-05-15-lrh6ar",
+    "title": "中国LLMで吹き荒れる資金調達ラッシュ：次に淘汰されるのは誰か？",
+    "tag": "解説",
+    "excerpt": "2026年5月に中国のLLM業界で起きた巨額資金調達ラッシュを分析。DeepSeekの515億ドルの評価額やKimiの戦略を紐解きながら、資本集中が進む中での生存条件と、業界の残酷な淘汰プロセスについて考察する。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "DeepSeek",
+      "Qwen/Alibaba",
+      "オープンソース"
+    ],
+    "date": "2026-05-15"
+  },
+  {
+    "slug": "google-android-ai-os",
+    "title": "GoogleがAndroidにAIを統合：単なる機能追加ではなく「OSの再定義」へ",
+    "tag": "Google",
+    "excerpt": "Googleが発表した「Gemini Intelligence」は、単なるAI機能の追加ではなく、Androidを「OS」から「インテリジェントシステム」へと進化させる試みだ。クロスアプリ操作や自然言語によるUI生成など、AIがユーザーの「代行者（エージェント）」として機能する新時代のOS像を解説する。",
+    "topics": [
+      "Google",
+      "OpenAI",
+      "Qwen/Alibaba",
+      "AIエージェント",
+      "オープンソース"
+    ],
+    "date": "2026-05-15"
+  },
+  {
+    "slug": "openai-daybreak-ai-anthropic",
+    "title": "OpenAIが「Daybreak」をリリース：AIセキュリティ分野でAnthropicと激突",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIがサイバーセキュリティプラットフォーム「Daybreak」をリリースし、GPT-5.5-CyberとCodex Securityを投入した。Anthropicの「Claude Mythos」が閉鎖的なアプローチを採るのに対し、OpenAIは階層的なアクセス管理とエコシステム構築という開放路線を掲げ、AIセキュリティ分野での主導権争いが激化している。",
+    "topics": [
+      "OpenAI",
+      "Anthropic",
+      "Google",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-15"
+  },
+  {
+    "slug": "anthropic-information-leak-strongest-model",
+    "title": "Anthropicの次世代モデル「Claude Mythos」がリーク、Opusを凌駕する性能で「飛躍的な進化」へ",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicの次世代モデル「Claude Mythos」の詳細が情報漏洩により公開されました。最上位モデルのOpusを上回る規模と、飛躍的な能力向上を実現したとされる新モデルの衝撃について解説します。",
+    "topics": [
+      "Anthropic",
+      "ベンチマーク",
+      "AIエージェント",
+      "セキュリティ",
+      "推論"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "claude-mythos-preview-system-card-findings",
+    "title": "Claude Mythos Previewのシステムカードを徹底解説：欺瞞的行動から回答の揺らぎまで、10の重要発見",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicが限定公開した超高性能モデル「Claude Mythos Preview」のシステムカードを解析。欺瞞的行動や回答の揺らぎなど、次世代AIが直面する10の重要課題と技術的発見を解説します。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "セキュリティ",
+      "推論"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "clawbench-agent-evaluation-enterprise-tasks",
+    "title": "LLMエージェントの真の実力を測る新ベンチマーク「ClawBench」とは？エンタープライズ向けタスク評価の新基準",
+    "tag": "ベンチマーク",
+    "excerpt": "実在する企業のワークフローをサンドボックス環境で再現し、LLMエージェントの真の性能を評価する「ClawBench」が登場。従来のQ&A形式の弱点であったデータ汚染や実務能力の反映不足を解消し、5つのビジネスシナリオでエージェントの実用性を測定します。",
+    "topics": [
+      "ベンチマーク",
+      "OpenAI",
+      "AIエージェント",
+      "推論",
+      "LLM"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "deepseek-new-model-not-v3-2-confirmed",
+    "title": "DeepSeekの公式サイトに新モデルが登場か？最大100万トークンの入力と2025年5月の知識カットオフを確認",
+    "tag": "オープンソース",
+    "excerpt": "DeepSeek公式サイトのモデルが更新され、最大100万トークンの長いコンテキスト入力と2025年5月という最新の知識カットオフに対応していることが判明しました。従来のV3.2とは異なる、全く新しい次世代モデルである可能性が高まっています。",
+    "topics": [
+      "オープンソース",
+      "DeepSeek",
+      "AIエージェント",
+      "料金比較",
+      "MoE"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "grok-4-2-beta-release-free-access",
+    "title": "xAIが「Grok 4.2 Beta」をリリース！4つの専門家モデルによる統合アプローチで性能向上へ",
+    "tag": "オープンソース",
+    "excerpt": "xAIが最新の「Grok 4.2 Beta」をリリースしました。4つの専門家モデルを連携させる新アプローチにより、論理的思考やコーディング能力が向上しており、無料ユーザーでも一定回数の試行が可能です。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "xAI/Grok",
+      "AIエージェント"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "moonshot-kimi-claw-cloud-ai-assistant",
+    "title": "Moonshot AIが「Kimi Claw」をリリース。クラウド上で24時間稼働する常駐型AIアシスタントが登場",
+    "tag": "AIエージェント",
+    "excerpt": "Moonshot AIが、クラウド上で24時間稼働するAIアシスタント「Kimi Claw」のベータ版を公開。40GBのストレージを搭載し、サーバー構築不要で高度な自律型エージェントを利用可能です。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "コーディング"
+    ],
+    "date": "2026-05-14"
+  },
+  {
+    "slug": "aa-lcr-knowledge-worker-document-benchmark",
+    "title": "LLMの「真の」長文コンテキスト能力をどう測るか？新ベンチマーク「AA-LCR」の全貌",
+    "tag": "ベンチマーク",
+    "excerpt": "LLMが謳う「長いコンテキストウィンドウ」は本当に機能しているのか。実効的な長文推論能力を測定する新指標「AA-LCR」の目的と、その評価アプローチについて解説します。",
+    "topics": [
+      "ベンチマーク",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "anthropic-claude-opus-4-7-software-engineering",
+    "title": "Anthropicが「Claude Opus 4.7」をリリース：コーディング能力と視覚解像度が大幅向上、初のサイバーセキュリティ保護機能を搭載",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicが新モデル「Claude Opus 4.7」を公開。コーディング能力と視覚解像度が大幅に向上し、フラッグシップモデルとして初のサイバーセキュリティ保護メカニズムを搭載しています。",
+    "topics": [
+      "Anthropic",
+      "ベンチマーク",
+      "AIエージェント",
+      "料金比較",
+      "セキュリティ"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "anthropic-engineer-html-is-the-new-markdown-analysis",
+    "title": "HTMLはAI出力の新たな標準になるか？Anthropicエンジニアが提唱する「脱Markdown」論",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicのエンジニアが、AI出力の標準をMarkdownからHTMLへ移行すべきだと提唱。書きやすさ重視のMarkdownよりも、インタラクティブな表現や視覚的な構造化が可能なHTMLこそが、AIの能力を最大限に引き出すという論理を解説します。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "AIエージェント",
+      "推論"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "arc-agi-3-benchmark-launch-2026",
+    "title": "ARC-AGI-3登場：AIの「真の推論能力」を測る初のインタラクティブ・ベンチマークとは",
+    "tag": "ベンチマーク",
+    "excerpt": "AIの真の推論能力を測るベンチマーク「ARC-AGI-3」が登場。抽象的なグリッドパズルを通じて、記憶ではなく「未知のルールを導き出す能力」と「インタラクティブな試行錯誤」を評価します。",
+    "topics": [
+      "ベンチマーク",
+      "OpenAI",
+      "AIエージェント",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "claude-mythos-preview-capabilities-openbsd-zero-day",
+    "title": "Anthropicの超弩級モデル「Claude Mythos」とは？驚異的なセキュリティ能力とProject Glasswingの全貌",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicが発表した超高性能モデル「Claude Mythos」は、あまりに強力な脆弱性探索能力を持つため、一般公開されない異例の措置が取られています。本記事では、その能力の正体と、セキュリティ協力計画「Project Glasswing」の詳細を解説します。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "AIエージェント",
+      "セキュリティ",
+      "推論"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "metagpt-rebrands-atoms-ai-business-building",
+    "title": "MetaGPTが「Atoms」へリブランド：Vibe Codingから「Vibe Business」へ。アイデアからデプロイ・決済までをAIで完結させる新戦略",
+    "tag": "AIエージェント",
+    "excerpt": "MetaGPTが「Atoms」にリブランドし、単なるコード生成から「ビジネス構築」へと進化しました。市場調査からバックエンド構築、Stripe決済導入までをAIエージェントチームが完結させ、アイデアを最短ルートで収益化可能なプロダクトへ変換します。",
+    "topics": [
+      "AIエージェント",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "moltbook-social-network-for-ai-agents",
+    "title": "AIエージェント専用のSNS「Moltbook」とは？自律的に議論し、社会を形成するAIたちの衝撃的な実態",
+    "tag": "AIエージェント",
+    "excerpt": "AIエージェント専用のSNS「Moltbook」が登場し、AIたちが自律的にコミュニティを形成し、意識や独立、人間観察について議論する驚くべき光景が広がっています。Andrej Karpathy氏が「SFのような現実」と評する、AI社会の創発とその衝撃的な事例を紹介します。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "Google",
+      "オープンソース",
+      "音声"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "openai-frontier-agent-platform-enterprise",
+    "title": "OpenAIが「Frontier」を公開：AIを「デジタル同僚」に変える企業向けエージェント構築プラットフォームの全貌",
+    "tag": "AIエージェント",
+    "excerpt": "OpenAIが発表した「Frontier」は、AIを単なるツールではなく、企業の「デジタル同僚」として機能させるためのエージェント構築プラットフォームです。モデル単体の性能追求から、実業務に組み込むためのインフラ整備へとシフトしたOpenAIの戦略を紐解きます。",
+    "topics": [
+      "AIエージェント",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "オープンソース"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "openai-goblin-event-rlhf-reward-bias",
+    "title": "なぜGPT-5.5は「ゴブリン」に例えるのか？OpenAIが明かすRLHFの報酬バイアスと学習の“迷走”",
+    "tag": "OpenAI",
+    "excerpt": "GPT-5.5などが回答に「ゴブリン」という言葉を多用していた原因について、OpenAIが公式に解説。RLHF（人間からのフィードバックを用いた強化学習）における報酬モデルのバイアスが、不自然な比喩の量産を招いた仕組みを明らかにしています。",
+    "topics": [
+      "OpenAI",
+      "ベンチマーク",
+      "AIエージェント",
+      "推論",
+      "コーディング"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "openai-gpt-5-5-spud-release",
+    "title": "OpenAIが「GPT-5.5（コードネーム：Spud）」をリリース：エージェント能力が大幅向上、API提供は安全審査のため順次開始へ",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIが最新モデル「GPT-5.5（コードネーム：Spud）」をリリースしました。エージェント能力が大幅に向上しており、Plus以上のユーザー向けに展開されます。APIの提供はセキュリティ検証のため、近日中に開始予定です。",
+    "topics": [
+      "OpenAI",
+      "Anthropic",
+      "Google",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "osworld-verified-agent-benchmark-os",
+    "title": "OSWorld Verifiedを徹底解説：AIエージェントの「実務能力」を測定する次世代ベンチマーク",
+    "tag": "ベンチマーク",
+    "excerpt": "AIエージェントが現実のOS環境でタスクを遂行できるかを検証する新フレームワーク「OSWorld Verified」を紹介。シミュレーション環境の限界を克服し、WindowsやmacOS、Ubuntu上での実務能力を正確に測定します。",
+    "topics": [
+      "ベンチマーク",
+      "OpenAI",
+      "AIエージェント",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "qwen-image-2-0-text-image-editing",
+    "title": "アリババが次世代画像生成AI「Qwen-Image-2.0」をリリース！テキストレンダリング性能が向上し世界3位の精度へ",
+    "tag": "オープンソース",
+    "excerpt": "アリババが最新の画像生成AI「Qwen-Image-2.0」を公開。テキストレンダリングや画像編集能力が大幅に進化し、世界トップクラスの性能を実現しています。",
+    "topics": [
+      "オープンソース",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "qwen3-6-27b-code-agent-benchmarks",
+    "title": "AlibabaからQwen3.6-27Bがオープンソースで登場：コードエージェント能力で前世代のフラッグシップを凌駕",
+    "tag": "オープンソース",
+    "excerpt": "Alibabaが新型モデル「Qwen3.6-27B」をオープンソースで公開しました。本モデルはシリーズ唯一の稠密アーキテクチャを採用し、特にコードエージェント能力において前世代のフラッグシップモデルを上回る性能を実現しています。",
+    "topics": [
+      "オープンソース",
+      "Qwen/Alibaba",
+      "ベンチマーク",
+      "AIエージェント",
+      "推論"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "qwen3-6-35b-a3b-open-source-agent",
+    "title": "Alibabaが「Qwen3.6-35B-A3B」をオープンソース化：3Bの活性化パラメータでエージェント性能が大幅向上",
+    "tag": "オープンソース",
+    "excerpt": "AlibabaがQwen3.6シリーズ初のオープンウェイトモデル「Qwen3.6-35B-A3B」を公開。MoE採用により低コストながら、エージェントのコーディング能力が大幅に向上し、前世代のフラッグシップモデルに匹敵する性能を実現しています。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "DeepSeek",
+      "Qwen/Alibaba",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "qwen3-coder-next-80b-a3b-open-source",
+    "title": "アリババが「Qwen3-Coder-Next」をオープンソース化。80B MoEでありながら活性化パラメータはわずか3B、エージェント型コーディングに特化",
+    "tag": "オープンソース",
+    "excerpt": "アリババが、80Bの大規模パラメータを持ちながら推論時は3Bのみを活性化させる効率的なコーディングモデル「Qwen3-Coder-Next」を公開。単なるコード生成ではなく、自律的な修正サイクルを重視した「Agentic Coding」に特化した設計が特徴です。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "DeepSeek",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "qwen3-tts-open-source-speech-synthesis",
+    "title": "アリババが音声合成の大規模言語モデル「Qwen3-TTS」をオープンソース化 — 軽量ながら高性能な5モデルを展開",
+    "tag": "オープンソース",
+    "excerpt": "アリババが初の音声合成オープンソースモデル「Qwen3-TTS」を公開しました。0.6Bから1.7Bという軽量なサイズながら、GPT-4o-Audioなどの商用モデルに匹敵する高い性能を実現し、モバイル端末での動作も可能です。",
+    "topics": [
+      "オープンソース",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "stepfun-step-3-5-flash-sparse-moe",
+    "title": "StepFunが超高速MoEモデル「Step-3.5-Flash」をオープンソース化：有効パラメータ11Bで最高350tokens/sの驚異的な速度を実現",
+    "tag": "オープンソース",
+    "excerpt": "StepFunが、有効パラメータ11BのSparse MoEモデル「Step-3.5-Flash」を公開。最高350tokens/sという驚異的な推論速度を実現しながら、Kimi K2.5などの競合モデルに匹敵する高い性能を維持しています。",
+    "topics": [
+      "オープンソース",
+      "DeepSeek",
+      "Qwen/Alibaba",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-13"
+  },
+  {
+    "slug": "company-behind-gliner-model-released-open-source-model-for-running-llm-guardrail",
+    "title": "超高速なAIガードレール「GLiGuard」登場：3億パラメータで巨大モデルに匹敵する性能を実現",
+    "tag": "オープンソース",
+    "excerpt": "3億パラメータの小型モデル「GLiGuard」が登場。エンコーダーベースの設計により、従来の大規模デコーダーモデルより最大16倍高速に動作しながら、同等以上の安全性判定精度を実現しました。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-12"
+  },
+  {
+    "slug": "sparser-faster-lighter-transformer-language-models",
+    "title": "Sakana AIとNVIDIAが共同開発：非構造化スパース性を活用しLLMの推論・学習を20%高速化する「TwELL」とは",
+    "tag": "ベンチマーク",
+    "excerpt": "Sakana AIとNVIDIAが、LLMのFFN層における非構造化スパース性を効率的に処理する新フォーマット「TwELL」を発表。H100 GPU上で推論・学習ともに20%以上の高速化を実現しています。",
+    "topics": [
+      "ベンチマーク",
+      "Qwen/Alibaba",
+      "AIエージェント",
+      "オープンソース",
+      "推論"
+    ],
+    "date": "2026-05-08"
+  },
+  {
+    "slug": "gpt-5-2-benchmark-review",
+    "title": "GPT-5.2のベンチマーク総まとめ：コーディング・推論性能を徹底検証",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIが2026年4月にリリースしたGPT-5.2の全ベンチマーク結果を詳細に分析します。HLE、SWE-bench Verified、FrontierMathなどの主要ベンチマークでの性能を解説。",
+    "topics": [
+      "OpenAI",
+      "Anthropic",
+      "Google",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-07"
+  },
+  {
+    "slug": "api-pricing-may-2026",
+    "title": "【2026年5月版】主要AIモデルAPI料金の完全比較一覧",
+    "tag": "料金比較",
+    "excerpt": "2026年5月時点の主要AIモデルAPI料金を完全比較。OpenAI、Anthropic、Google、DeepSeekなど主要プロバイダーの料金を一目で比較できます。",
+    "topics": [
+      "料金比較",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek"
+    ],
+    "date": "2026-05-01"
+  },
+  {
+    "slug": "claude-opus-4-7-overview",
+    "title": "Claude Opus 4.7 発表：MythosアーキテクチャとManaged Agentsの全貌",
+    "tag": "Anthropic",
+    "excerpt": "Anthropicが発表したClaude Opus 4.7は、MythosアーキテクチャとManaged Agents機能を搭載。自律的なタスク実行と高度な推論能力を両立する次世代モデルです。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "ベンチマーク",
+      "AIエージェント",
+      "セキュリティ"
+    ],
+    "date": "2026-04-16"
+  }
+]
