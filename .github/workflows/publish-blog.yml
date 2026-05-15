@@ -1,0 +1,69 @@
+name: Publish Blog Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      content:
+        description: "Chinese markdown content (body only, no frontmatter)"
+        required: true
+        type: string
+      title:
+        description: "Chinese title"
+        required: true
+        type: string
+      tag:
+        description: "Blog tag (e.g. Anthropic, OpenAI, Google)"
+        required: false
+        default: "解説"
+        type: string
+      excerpt:
+        description: "Chinese excerpt (optional, LLM generates Japanese one if empty)"
+        required: false
+        type: string
+
+jobs:
+  translate-and-publish:
+    runs-on: ubuntu-latest
+    environment: LLM_API_KEY
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Translate and publish blog post
+        env:
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'ollama' }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gemma4:31b' }}
+          CONTENT: ${{ inputs.content }}
+          TITLE: ${{ inputs.title }}
+          TAG: ${{ inputs.tag || '解説' }}
+          EXCERPT: ${{ inputs.excerpt || '' }}
+        run: |
+          printf '%s' "$CONTENT" | npx tsx scripts/translate-blog.ts \
+            --title "$TITLE" \
+            --tag "$TAG" \
+            --excerpt "$EXCERPT" \
+            --stdin
+
+      - name: Commit and push
+        run: |
+          if [ -n "$(git status --porcelain src/content/blog/)" ]; then
+            git config user.name "aimodelsnavi-bot"
+            git config user.email "bot@aimodelsnavi.com"
+            git add src/content/blog/
+            git commit -m "blog: publish translated post — ${{ inputs.title }}"
+            git pull -X ours origin main || true
+            git push
+            echo "✓ Blog post published and pushed"
+          else
+            echo "No changes detected — translation may have failed"
+            exit 1
+          fi
