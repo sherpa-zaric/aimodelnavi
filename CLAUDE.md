@@ -145,6 +145,52 @@ npx tsx scripts/sync-all.ts   # Run pipeline (incremental)
 npx tsx scripts/migrate-seed.ts  # Import hand-curated models (one-time, already done)
 ```
 
+## Blog Publishing (CN → JP)
+
+The site supports publishing Chinese-written articles that are automatically translated to Japanese.
+
+### How it works
+
+```
+Chinese Markdown → GitHub Actions → LLM translation → Japanese blog post → Vercel deploy
+```
+
+### Publish via script (recommended for OpenClaw)
+
+```bash
+./scripts/publish-blog.sh <chinese-article.md>
+```
+
+This script:
+1. Reads Chinese Markdown (with frontmatter: title, tag, excerpt)
+2. Triggers GitHub Actions `publish-blog.yml` via `gh` CLI (authenticated, no extra token needed)
+3. GitHub Actions calls LLM to translate Chinese → Japanese
+4. Saves to `src/content/blog/{slug}.md`
+5. Auto-commits and pushes → Vercel deploys
+
+### Chinese Markdown format
+
+```markdown
+---
+title: "文章标题"
+tag: "Anthropic"        # optional, default: 解説
+excerpt: "摘要"         # optional, LLM generates Japanese one if empty
+---
+
+正文内容（支持完整 Markdown：标题、代码块、列表、链接、表格等）
+```
+
+### Available tags
+
+OpenAI, Anthropic, Google, オープンソース, ベンチマーク, チュートリアル, AIエージェント, xAI, DeepSeek, 解説, 速報, 料金比較
+
+### Infrastructure
+
+- **GitHub Actions**: `.github/workflows/publish-blog.yml` (workflow_dispatch)
+- **Translation script**: `scripts/translate-blog.ts`
+- **LLM function**: `translateBlogMarkdown()` in `scripts/lib/anthropic.ts`
+- **LLM_API_KEY**: stored as GitHub Environment Secret in `LLM_API_KEY` environment (shared with daily-pipeline)
+
 ## Known Issues
 
 - **HuggingFace API connectivity**: May fail from China due to network restrictions. Code is correct, needs network access.

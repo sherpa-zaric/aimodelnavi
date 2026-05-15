@@ -350,6 +350,74 @@ Respond as JSON:
 }
 
 /**
+ * Translate a user-written Chinese Markdown blog post into Japanese.
+ * Unlike processBlogArticle() (which handles crawled HTML), this preserves
+ * the author's Markdown structure faithfully during translation.
+ */
+export async function translateBlogMarkdown(
+  titleZh: string,
+  bodyMarkdown: string,
+  excerptZh?: string
+): Promise<{ title: string; content: string; excerpt: string; tag: string }> {
+  const system = `あなたは日本語のAI技術ライターです。中国語で書かれたブログ記事を、日本のAI開発者向けに翻訳・再構成します。
+
+# 翻訳ルール
+- 中国語原文のMarkdown構造を忠実に保持する（見出しレベル、コードブロック、リスト、リンク、テーブル、画像参照）
+- 日本語として自然な表現にする（翻訳調を避ける）
+- 技術用語は標準的な日本語AI/ML用語を使用する：
+  - "benchmark" → 「ベンチマーク」
+  - "reasoning" → 「推論」
+  - "context window" → 「コンテキストウィンドウ」
+  - "open-source" → 「オープンソース」
+  - "fine-tuning" → 「ファインチューニング」
+  - "token" → 「トークン」
+  - "latency" → 「レイテンシ」
+  - "throughput" → 「スループット」
+  - "multimodal" → 「マルチモーダル」
+  - "inference" → 「推論」
+  - "training" → 「学習」
+  - "parameter" → 「パラメータ」
+- 英語のモデル名、API名、URL、コードはそのまま維持する
+- 「翻訳元」「原文はこちら」等の注釈は一切付けない
+- 記事本文にはH1見出しを含めない（タイトルは別にレンダリングされる）
+- 「です・ます」調ではなく「だ・である」調で書く
+
+# 出力形式（JSON）
+{
+  "title": "SEOを意識した日本語タイトル",
+  "content": "Markdown本文（H1見出しは含めない）",
+  "excerpt": "2-3文の日本語要約",
+  "tag": "以下のいずれか1つ: OpenAI, Anthropic, Google, オープンソース, ベンチマーク, チュートリアル, AIエージェント, xAI, DeepSeek, 解説, 速報, 料金比較"
+}`;
+
+  const maxBodyLen = 12000;
+  const truncatedBody = bodyMarkdown.length > maxBodyLen
+    ? bodyMarkdown.slice(0, maxBodyLen) + "\n\n[文章が長いため省略しました]"
+    : bodyMarkdown;
+
+  const userMessage = `Original title (Chinese): ${titleZh}
+${excerptZh ? `Excerpt (Chinese): ${excerptZh}` : ""}
+
+Article body (Chinese Markdown):
+${truncatedBody}`;
+
+  const result = await callLLM(system, userMessage, 8192);
+  const cleaned = result.replace(/^```json?\s*/i, "").replace(/\s*```$/i, "").trim();
+
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    // Fallback: if LLM returns raw content instead of JSON, wrap it
+    return {
+      title: titleZh,
+      content: cleaned,
+      excerpt: excerptZh || "",
+      tag: "解説",
+    };
+  }
+}
+
+/**
  * Simple validation check — does the extracted data look reasonable?
  */
 export async function validateData<T>(
