@@ -37,3 +37,10 @@ ClawBenchはClawBench Labsによって維持管理されており（GitHub組織
 
 これらのシナリオでは、命名規則の不一致、ディレクトリの欠損、日付に関する罠など、企業の実環境で頻発する複雑な状況をシミュレートし、モデルの堅牢性を検証します。
 
+---
+
+## 関連記事
+
+- [OSWorld Verifiedを徹底解説：AIエージェントの「実務能力」を測定する次世代ベンチマーク](/blog/osworld-verified-agent-benchmark-os)
+- [ARC-AGI-3登場：AIの「真の推論能力」を測る初のインタラクティブ・ベンチマークとは](/blog/arc-agi-3-benchmark-launch-2026)
+- [OpenAIが「Frontier」を公開：AIを「デジタル同僚」に変える企業向けエージェント構築プラットフォームの全貌](/blog/openai-frontier-agent-platform-enterprise)

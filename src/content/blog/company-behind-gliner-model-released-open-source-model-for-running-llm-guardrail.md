@@ -40,3 +40,10 @@ GLiGuardは、サイズこそ小さいものの、その性能は巨大なモデ
 GLiGuardは、GLiNER2-base-v1をベースに、87,000件の人間によるアノテーションデータ（WildGuardTrain）とGPT-4.1による合成データを組み合わせて学習されています。モデルのウェイトは **Apache 2.0 ライセンス**の下でHugging Face Hubにて公開されており、誰でも利用可能です。
 
 「巨大なモデルでなければ安全性を担保できない」という常識を覆したGLiGuardは、低レイテンシかつ低コストなAI安全層の構築において、極めて強力な選択肢となるでしょう。
+
+---
+
+## 関連記事
+
+- [OpenAIが「Daybreak」をリリース：AIセキュリティ分野でAnthropicと激突](/blog/openai-daybreak-ai-anthropic)
+- [Anthropicの超弩級モデル「Claude Mythos」とは？驚異的なセキュリティ能力とProject Glasswingの全貌](/blog/claude-mythos-preview-capabilities-openbsd-zero-day)

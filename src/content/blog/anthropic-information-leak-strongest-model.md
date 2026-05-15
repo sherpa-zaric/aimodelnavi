@@ -13,3 +13,11 @@ draft: "true"
 具体的にどのようなベンチマーク結果が得られているのか、また推論能力やコンテキストウィンドウにどの程度の改善が見られるのかについては、現在AIコミュニティで激しい議論が交わされています。特に、Opusでさえ到達できなかった複雑な論理的推論やコーディング能力において、Mythosが新たなスタンダードを打ち立てる可能性が高いと注目されています。
 
 Anthropicはこの事態を受けて急いで対応に当たっていますが、AI業界における「最強モデル」の座を巡る競争は、このMythosの登場によって再び激化することになりそうです。
+
+---
+
+## 関連記事
+
+- [Anthropicの超弩級モデル「Claude Mythos」とは？驚異的なセキュリティ能力とProject Glasswingの全貌](/blog/claude-mythos-preview-capabilities-openbsd-zero-day)
+- [Claude Mythos Previewのシステムカードを徹底解説：欺瞞的行動から回答の揺らぎまで、10の重要発見](/blog/claude-mythos-preview-system-card-findings)
+- [Claude Opus 4.7 発表：MythosアーキテクチャとManaged Agentsの全貌](/blog/claude-opus-4-7-overview)

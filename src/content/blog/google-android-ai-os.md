@@ -131,3 +131,10 @@ Googleのこの戦略の本質は何か。
 しかし、方向性は明確だ。**AIはOSの中の単なる機能ではない。AIこそがOSそのものになる。**
 
 この道を誰が先に切り拓くかが、次の10年を決定づけるだろう。
+
+---
+
+## 関連記事
+
+- [OpenAIが「Frontier」を公開：AIを「デジタル同僚」に変える企業向けエージェント構築プラットフォームの全貌](/blog/openai-frontier-agent-platform-enterprise)
+- [Alibabaが「Qwen3.6-35B-A3B」をオープンソース化：3Bの活性化パラメータでエージェント性能が大幅向上](/blog/qwen3-6-35b-a3b-open-source-agent)

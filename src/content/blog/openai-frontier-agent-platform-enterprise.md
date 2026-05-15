@@ -99,3 +99,11 @@ OpenAI Frontierは、AI産業が「モデル中心主義」から「インフラ
 3. **新たな社会課題の顕在化**：「デジタル同僚」が普及することで、人間の役割の再定義や、AIの決定に対する説明責任など、技術を超えた組織課題が表面化する。
 
 日本の企業にとって、Frontierを検討することは、単なるツールの導入ではありません。それは、自社の「未来の働き方」を設計する、基盤的なシフトなのです。
+
+---
+
+## 関連記事
+
+- [OpenAIが「GPT-5.5（コードネーム：Spud）」をリリース：エージェント能力が大幅向上、API提供は安全審査のため順次開始へ](/blog/openai-gpt-5-5-spud-release)
+- [Claude Opus 4.7 発表：MythosアーキテクチャとManaged Agentsの全貌](/blog/claude-opus-4-7-overview)
+- [MetaGPTが「Atoms」へリブランド：Vibe Codingから「Vibe Business」へ。アイデアからデプロイ・決済までをAIで完結させる新戦略](/blog/metagpt-rebrands-atoms-ai-business-building)
