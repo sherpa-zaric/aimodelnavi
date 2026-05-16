@@ -1,6 +1,6 @@
 ---
 title: "ChatGPTに個人資産管理機能が登場：米国のProユーザー向けに先行提供開始"
-date: "Fri, 15 May 2026 00:00:00 GM"
+date: "2026-05-15"
 tag: "OpenAI"
 excerpt: "OpenAIが米国のProユーザー向けに、財務アカウントを連携させてAIによる資産管理ができる新機能を発表。個人の財務コンテキストに基づいた高度なインサイト提供が可能になります。"
 source: "https://openai.com/index/personal-finance-chatgpt"

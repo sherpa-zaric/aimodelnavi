@@ -19,9 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // All model detail pages
   for (const model of modelDetails) {
+    const date = model.releaseDate ? new Date(model.releaseDate) : null;
     entries.push({
       url: `${BASE_URL}/models/${model.slug}`,
-      lastModified: model.releaseDate ? new Date(model.releaseDate) : new Date(),
+      lastModified: date && !isNaN(date.getTime()) ? date : new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     });
@@ -30,9 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // All blog posts
   const posts = getAllPosts();
   for (const post of posts) {
+    const date = new Date(post.date);
     entries.push({
       url: `${BASE_URL}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
+      lastModified: isNaN(date.getTime()) ? new Date() : date,
       changeFrequency: "weekly" as const,
       priority: 0.6,
     });
