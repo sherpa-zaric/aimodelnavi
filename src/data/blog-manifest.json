@@ -14,6 +14,20 @@
     "date": "2026-05-17"
   },
   {
+    "slug": "databricks",
+    "title": "Databricksが最新モデルを導入：エンタープライズ・エージェントの推論能力はどう進化するか",
+    "tag": "OpenAI",
+    "excerpt": "Databricksが最新のLLMをエンタープライズ向けエージェントワークフローに統合しました。高度な推論能力を持つモデルが、実務レベルのタスクにどのような影響を与えるか解説します。",
+    "topics": [
+      "OpenAI",
+      "ベンチマーク",
+      "AIエージェント",
+      "推論",
+      "LLM"
+    ],
+    "date": "2026-05-17"
+  },
+  {
     "slug": "a-new-personal-finance-experience-in-chatgpt",
     "title": "ChatGPTに個人資産管理機能が登場：米国のProユーザー向けに先行提供開始",
     "tag": "OpenAI",
