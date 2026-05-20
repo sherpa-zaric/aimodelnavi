@@ -235,7 +235,7 @@ excerpt: "摘要"         # optional, LLM generates Japanese one if empty
 
 OpenAI, Anthropic, Google, オープンソース, ベンチマーク, チュートリアル, AIエージェント, xAI, DeepSeek, 解説, 速報, 料金比較
 
-### Default workflow for OpenClaw (URL → 微調 → 発布)
+### Default workflow for Claude Code (URL → 微調 → 発布)
 
 **This is the primary workflow. Use it whenever the user provides a URL.**
 
@@ -258,7 +258,7 @@ npx tsx scripts/fetch-article.ts "<user-provided-url>" --filter-images
 - AI image filtering removes promo/ad images
 - Local translation preserves image paths
 
-### Writing rules for OpenClaw
+### Writing rules for Claude Code
 
 **CRITICAL: Every article MUST have images.** Articles without images are unacceptable.
 
@@ -276,7 +276,7 @@ npx tsx scripts/fetch-article.ts "<user-provided-url>" --filter-images
 - Keep all images (they are already downloaded locally)
 - Do NOT rewrite the article from scratch — make minimal edits
 
-### Complete workflow for OpenClaw
+### Complete workflow for Claude Code
 
 When given a Chinese article URL:
 
@@ -328,3 +328,5 @@ When given Chinese Markdown directly:
 - Language priority: Japanese first, future support for English/Korean
 - Content quality: Natural, idiomatic Japanese for developers
 - Core model content: Must be preserved (is_core=1, priority=10)
+- Blog publishing: Use Claude Code only (not OpenClaw) with fetch-article.ts + publish-blog.sh --local
+- Every article must include images from the original source
