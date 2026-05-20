@@ -280,11 +280,14 @@ if [ "$LOCAL_MODE" = true ]; then
     fi
   fi
 
-  # Step 3: 提交
-  echo "  3. コミット..."
+  # Step 3: 更新 blog manifest + 提交
+  echo "  3. マニフェスト更新 + コミット..."
   cd "$PROJECT_DIR"
 
-  FILES_TO_ADD="src/content/blog/$SLUG.md"
+  # Regenerate blog manifest so the article appears on the site
+  npx tsx scripts/blog-manifest.ts 2>/dev/null || true
+
+  FILES_TO_ADD="src/content/blog/$SLUG.md src/data/blog-manifest.json"
   if [ -d "public/images/blog/$SLUG" ]; then
     FILES_TO_ADD="$FILES_TO_ADD public/images/blog/$SLUG"
   fi
