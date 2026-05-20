@@ -5,6 +5,7 @@
  *   LLM_PROVIDER=ollama   → Ollama Cloud (OpenAI-compatible at https://ollama.com/v1)
  *   LLM_PROVIDER=anthropic → Anthropic Claude API (default for backward compat)
  *   LLM_PROVIDER=openai    → OpenAI API
+ *   LLM_PROVIDER=mimo      → Xiaomi MiMo API (Anthropic-compatible)
  *
  * Required env vars:
  *   LLM_API_KEY   — API key for the chosen provider
@@ -12,12 +13,12 @@
  *
  * Optional env vars:
  *   LLM_BASE_URL   — Override base URL (e.g. for self-hosted Ollama)
- *   LLM_PROVIDER   — "ollama" | "anthropic" | "openai" (default: "ollama")
+ *   LLM_PROVIDER   — "ollama" | "anthropic" | "openai" | "mimo" (default: "ollama")
  */
 
 // ── Configuration ──
 
-type Provider = "ollama" | "anthropic" | "openai";
+type Provider = "ollama" | "anthropic" | "openai" | "mimo";
 
 const PROVIDER = (process.env.LLM_PROVIDER || "ollama") as Provider;
 const API_KEY = process.env.LLM_API_KEY || process.env.ANTHROPIC_API_KEY || "";
@@ -26,6 +27,7 @@ const DEFAULT_MODELS: Record<Provider, string> = {
   ollama: "gemma4:31b",
   anthropic: "claude-sonnet-4-6-20250514",
   openai: "gpt-4.1",
+  mimo: "mimo-v2.5-pro",
 };
 
 const MODEL = process.env.LLM_MODEL || DEFAULT_MODELS[PROVIDER];
@@ -34,6 +36,7 @@ const BASE_URLS: Record<Provider, string> = {
   ollama: "https://ollama.com/v1/chat/completions",
   anthropic: "https://api.anthropic.com/v1/messages",
   openai: "https://api.openai.com/v1/chat/completions",
+  mimo: "https://token-plan-sgp.xiaomimimo.com/anthropic/v1/messages",
 };
 
 const BASE_URL = process.env.LLM_BASE_URL || BASE_URLS[PROVIDER];
@@ -55,7 +58,7 @@ export async function callLLM(
     );
   }
 
-  if (PROVIDER === "anthropic") {
+  if (PROVIDER === "anthropic" || PROVIDER === "mimo") {
     return callAnthropic(systemPrompt, userMessage, maxTokens, timeoutMs);
   }
   // ollama and openai both use OpenAI-compatible format
@@ -79,13 +82,20 @@ async function callAnthropic(
   maxTokens: number,
   timeoutMs: number = LLM_TIMEOUT_MS
 ): Promise<string> {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+  // MIMO uses api-key header; Anthropic uses x-api-key + version
+  if (PROVIDER === "mimo") {
+    headers["api-key"] = API_KEY;
+  } else {
+    headers["x-api-key"] = API_KEY;
+    headers["anthropic-version"] = "2023-06-01";
+  }
+
   const res = await fetchWithTimeout(BASE_URL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": API_KEY,
-      "anthropic-version": "2023-06-01",
-    },
+    headers,
     body: JSON.stringify({
       model: MODEL,
       max_tokens: maxTokens,

@@ -97,11 +97,12 @@ scripts/
 ## LLM Configuration
 
 Environment variables:
-- `LLM_PROVIDER` — "ollama" (default) | "anthropic" | "openai"
+- `LLM_PROVIDER` — "ollama" (default) | "anthropic" | "openai" | "mimo"
 - `LLM_API_KEY` — API key for the chosen provider
-- `LLM_MODEL` — Model name (default: `gemma4:31b` for Ollama)
+- `LLM_MODEL` — Model name (default: `mimo-v2.5-pro` for MIMO)
 - `LLM_BASE_URL` — Override base URL (optional)
 
+MIMO endpoint: `https://api.xiaomimimo.com/anthropic/v1/messages` (Anthropic-compatible)
 Ollama Cloud endpoint: `https://ollama.com/v1/chat/completions`
 
 ## Website Pages
