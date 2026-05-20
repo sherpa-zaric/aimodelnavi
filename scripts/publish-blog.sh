@@ -3,26 +3,50 @@
 # publish-blog.sh — 一键发布中文博客到 AI Models Navi
 #
 # 用法：
-#   ./scripts/publish-blog.sh <中文markdown文件>
+#   ./scripts/publish-blog.sh <中文markdown文件>           # 远程模式（GitHub Actions）
+#   ./scripts/publish-blog.sh <中文markdown文件> --local   # 本地模式（直接翻译+提交）
+#   ./scripts/publish-blog.sh <中文markdown文件> --yes     # 跳过确认
+#
+# 远程模式（默认）：
+#   读取中文 Markdown → 调用 GitHub Actions → 自动翻译成日文 → 发布到网站
+#   适用于：文章中有 http 图片 URL，或无图片
+#
+# 本地模式（--local）：
+#   读取中文 Markdown → 本地翻译 → 处理本地图片 → 直接 commit + push
+#   适用于：fetch-article.ts 已下载图片到本地的情况
 #
 # 前置条件：
-#   - gh CLI 已登录（gh auth login）
-#   - GitHub 仓库已配置 LLM_API_KEY secret
-#
-# 工作流程：
-#   读取中文 Markdown → 调用 GitHub Actions → 自动翻译成日文 → 发布到网站
+#   远程模式：gh CLI 已登录
+#   本地模式：LLM_API_KEY 环境变量已设置
 
 set -euo pipefail
 
 REPO="focusontec/aimodelnavi"
 WORKFLOW="publish-blog.yml"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# ── 参数检查 ──
+# ── 参数解析 ──
 
-if [ $# -lt 1 ]; then
-  echo "用法: $0 <中文markdown文件>"
+FILE=""
+AUTO_YES=false
+LOCAL_MODE=false
+
+for arg in "$@"; do
+  if [ "$arg" = "--yes" ] || [ "$arg" = "-y" ]; then
+    AUTO_YES=true
+  elif [ "$arg" = "--local" ]; then
+    LOCAL_MODE=true
+  elif [ -z "$FILE" ] && [[ "$arg" != --* ]]; then
+    FILE="$arg"
+  fi
+done
+
+if [ -z "$FILE" ]; then
+  echo "用法: $0 <中文markdown文件> [--local] [--yes]"
   echo ""
-  echo "示例: $0 ~/articles/my-post.md"
+  echo "  --local  本地翻译+提交（图片已在本地）"
+  echo "  --yes    跳过确认提示"
   echo ""
   echo "Markdown 文件格式："
   echo "  ---"
@@ -34,25 +58,8 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
-FILE="$1"
-AUTO_YES=false
-
-# Check for --yes flag
-for arg in "$@"; do
-  if [ "$arg" = "--yes" ] || [ "$arg" = "-y" ]; then
-    AUTO_YES=true
-  fi
-done
-
 if [ ! -f "$FILE" ]; then
   echo "错误：文件不存在 — $FILE"
-  exit 1
-fi
-
-# ── 检查 gh 登录状态 ──
-
-if ! gh auth status &>/dev/null; then
-  echo "错误：gh CLI 未登录，请先运行 gh auth login"
   exit 1
 fi
 
@@ -63,7 +70,6 @@ TAG="解説"
 EXCERPT=""
 BODY=""
 
-# 提取 frontmatter 和正文
 IN_FRONTMATTER=false
 FRONTMATTER_DONE=false
 LINE_NUM=0
@@ -83,7 +89,6 @@ while IFS= read -r line || [ -n "$line" ]; do
   fi
 
   if [ "$IN_FRONTMATTER" = true ]; then
-    # 解析 YAML frontmatter
     if [[ "$line" =~ ^title:\ *\"(.+)\" ]]; then
       TITLE="${BASH_REMATCH[1]}"
     elif [[ "$line" =~ ^title:\ *(.+) ]]; then
@@ -98,7 +103,6 @@ while IFS= read -r line || [ -n "$line" ]; do
       EXCERPT="${BASH_REMATCH[1]}"
     fi
   else
-    # 正文部分
     if [ -n "$BODY" ]; then
       BODY="${BODY}"$'\n'"${line}"
     else
@@ -107,14 +111,12 @@ while IFS= read -r line || [ -n "$line" ]; do
   fi
 done < "$FILE"
 
-# 去掉正文开头的空行
 BODY=$(echo "$BODY" | sed '/./,$!d')
 
 # ── 验证 ──
 
 if [ -z "$TITLE" ]; then
   echo "错误：Markdown 文件缺少 title 字段"
-  echo "请在 frontmatter 中添加: title: \"文章标题\""
   exit 1
 fi
 
@@ -125,76 +127,176 @@ fi
 
 BODY_LEN=${#BODY}
 
-# ── 提取外部图片 URL（仅限图片文件或已知图床） ──
+# ── 检测图片 ──
 
-# 第一步：提取所有 markdown 图片 URL
-ALL_IMAGE_URLS=$(echo "$BODY" | grep -oP '!\[[^\]]*\]\(https?://[^)]+\)' | grep -oP 'https?://[^)]+' || true)
-
-# 第二步：过滤出真正的图片 URL
-# - 包含图片扩展名：.jpg, .jpeg, .png, .gif, .webp, .svg, .avif
-# - 或来自已知图床域名：images.unsplash.com, pbs.twimg.com, imgur.com, cloudinary.com
-IMAGE_URLS=""
-while IFS= read -r url; do
-  [ -z "$url" ] && continue
-  # 检查是否是图片扩展名或已知图床
-  if echo "$url" | grep -qiE '\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com'; then
-    if [ -n "$IMAGE_URLS" ]; then
-      IMAGE_URLS="${IMAGE_URLS}"$'\n'"${url}"
-    else
-      IMAGE_URLS="$url"
+# 远程图片 URL（http/https）
+REMOTE_IMAGE_URLS=$(echo "$BODY" | grep -oP '!\[[^\]]*\]\(https?://[^)]+\)' | grep -oP 'https?://[^)]+' || true)
+REMOTE_COUNT=0
+if [ -n "$REMOTE_IMAGE_URLS" ]; then
+  # 只保留真正的图片 URL
+  FILTERED_URLS=""
+  while IFS= read -r url; do
+    [ -z "$url" ] && continue
+    if echo "$url" | grep -qiE '\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com|mmbiz\.qpic\.cn'; then
+      if [ -n "$FILTERED_URLS" ]; then
+        FILTERED_URLS="${FILTERED_URLS}"$'\n'"${url}"
+      else
+        FILTERED_URLS="$url"
+      fi
     fi
-  fi
-done <<< "$ALL_IMAGE_URLS"
-
-IMAGE_COUNT=0
-if [ -n "$IMAGE_URLS" ]; then
-  IMAGE_COUNT=$(echo "$IMAGE_URLS" | wc -l | tr -d ' ')
+  done <<< "$REMOTE_IMAGE_URLS"
+  REMOTE_IMAGE_URLS="$FILTERED_URLS"
+  REMOTE_COUNT=$(echo "$REMOTE_IMAGE_URLS" | grep -c '.' || echo 0)
 fi
 
-# 报告被跳过的非图片 URL
-if [ -n "$ALL_IMAGE_URLS" ]; then
-  ALL_COUNT=$(echo "$ALL_IMAGE_URLS" | wc -l | tr -d ' ')
-  SKIPPED=$((ALL_COUNT - IMAGE_COUNT))
-  if [ "$SKIPPED" -gt 0 ]; then
-    echo "  注意: 跳过 $SKIPPED 个非图片 URL（网页链接）"
-  fi
+# 本地图片路径（/images/blog/...）
+LOCAL_IMAGE_PATHS=$(echo "$BODY" | grep -oP '/images/blog/[^)]+' || true)
+LOCAL_COUNT=0
+if [ -n "$LOCAL_IMAGE_PATHS" ]; then
+  LOCAL_COUNT=$(echo "$LOCAL_IMAGE_PATHS" | grep -c '.' || echo 0)
 fi
 
+TOTAL_IMAGES=$((REMOTE_COUNT + LOCAL_COUNT))
+
 echo "═══════════════════════════════════════"
-echo "  发布博客到 AI Models Navi"
+echo "  発行: AI Models Navi"
 echo "═══════════════════════════════════════"
 echo ""
-echo "  标题: $TITLE"
-echo "  标签: $TAG"
-echo "  摘要: ${EXCERPT:-(自动生成)}"
-echo "  正文: $BODY_LEN 字符"
-echo "  图片: $IMAGE_COUNT 张外部图片"
+echo "  タイトル: $TITLE"
+echo "  タグ: $TAG"
+echo "  要約: ${EXCERPT:-(自動生成)}"
+echo "  本文: $BODY_LEN 文字"
+echo "  画像: $TOTAL_IMAGES 枚 (リモート: $REMOTE_COUNT, ローカル: $LOCAL_COUNT)"
+if [ "$LOCAL_MODE" = true ]; then
+  echo "  モード: ローカル翻訳"
+else
+  echo "  モード: GitHub Actions"
+fi
 echo ""
 
-# ── 确认发布 ──
+# ── 确认 ──
 
 if [ "$AUTO_YES" = false ]; then
-  read -p "确认发布？(y/N) " -n 1 -r
+  read -p "発行しますか？(y/N) " -n 1 -r
   echo ""
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "已取消"
+    echo "キャンセルしました"
     exit 0
   fi
 fi
 
-# ── 触发 GitHub Actions ──
+# ════════════════════════════════════════
+#  本地模式：翻译 + 图片 + 提交
+# ════════════════════════════════════════
+
+if [ "$LOCAL_MODE" = true ]; then
+  echo ""
+  echo "  ローカル翻訳モード..."
+
+  # 检查 LLM_API_KEY
+  if [ -z "${LLM_API_KEY:-}" ]; then
+    echo "エラー: LLM_API_KEY 環境変数が設定されていません"
+    echo "export LLM_API_KEY=your-key を実行してください"
+    exit 1
+  fi
+
+  # Step 1: 翻译
+  echo "  1. 中国語→日本語翻訳..."
+  cd "$PROJECT_DIR"
+
+  # 构造翻译输入（带 frontmatter）
+  TRANSLATE_INPUT=$(mktemp)
+  cat > "$TRANSLATE_INPUT" << TMPEOF
+---
+title: "$TITLE"
+tag: "$TAG"
+${EXCERPT:+excerpt: "$EXCERPT"}
+---
+
+$BODY
+TMPEOF
+
+  npx tsx scripts/translate-blog.ts "$TRANSLATE_INPUT"
+  rm -f "$TRANSLATE_INPUT"
+
+  # 找到翻译后的文件
+  TRANSLATED_FILE=$(ls -t src/content/blog/*.md 2>/dev/null | head -1)
+  if [ -z "$TRANSLATED_FILE" ]; then
+    echo "エラー: 翻訳ファイルが見つかりません"
+    exit 1
+  fi
+
+  SLUG=$(basename "$TRANSLATED_FILE" .md)
+  echo "  ✓ 翻訳完了: $SLUG"
+
+  # Step 2: 处理本地图片
+  if [ "$LOCAL_COUNT" -gt 0 ]; then
+    echo "  2. ローカル画像をコミット..."
+
+    # 检查图片是否已在 public/ 目录
+    IMG_DIR="public/images/blog/$SLUG"
+    if [ -d "$IMG_DIR" ]; then
+      IMG_FILES=$(ls "$IMG_DIR" 2>/dev/null | wc -l | tr -d ' ')
+      echo "     $IMG_FILES 枚の画像を検出"
+    else
+      # 尝试从 fetch-article.ts 的默认位置复制
+      FETCH_IMG_DIR="public/images/blog/$(echo "$SLUG" | sed 's/^blog-//')"
+      if [ -d "$FETCH_IMG_DIR" ]; then
+        mv "$FETCH_IMG_DIR" "$IMG_DIR"
+        echo "     画像を移動: $IMG_DIR"
+      fi
+    fi
+  fi
+
+  # Step 3: 提交
+  echo "  3. コミット..."
+  cd "$PROJECT_DIR"
+
+  FILES_TO_ADD="src/content/blog/$SLUG.md"
+  if [ -d "public/images/blog/$SLUG" ]; then
+    FILES_TO_ADD="$FILES_TO_ADD public/images/blog/$SLUG"
+  fi
+
+  git add $FILES_TO_ADD
+  git commit -m "blog: publish translated post — $TITLE"
+  git pull -X ours origin main || true
+  git push
+
+  echo ""
+  echo "  ✓ 発行完了！"
+  echo "  URL: /blog/$SLUG"
+  echo ""
+
+  # 清理草稿
+  DRAFT_FILE="_drafts/$(basename "$FILE")"
+  if [ -f "$DRAFT_FILE" ]; then
+    echo "  下書きを削除: $DRAFT_FILE"
+    rm -f "$DRAFT_FILE"
+  fi
+
+  exit 0
+fi
+
+# ════════════════════════════════════════
+#  远程模式：GitHub Actions
+# ════════════════════════════════════════
+
+if ! gh auth status &>/dev/null; then
+  echo "错误：gh CLI 未登录，请先运行 gh auth login"
+  exit 1
+fi
 
 echo ""
-echo "  正在触发 GitHub Actions..."
+echo "  GitHub Actions をトリガー中..."
 
-# 构造图片 URL JSON 数组
-if [ "$IMAGE_COUNT" -gt 0 ]; then
-  IMAGE_URLS_JSON=$(echo "$IMAGE_URLS" | jq -R -s 'split("\n") | map(select(length > 0))')
+# 构造图片 URL JSON
+if [ "$REMOTE_COUNT" -gt 0 ]; then
+  IMAGE_URLS_JSON=$(echo "$REMOTE_IMAGE_URLS" | jq -R -s 'split("\n") | map(select(length > 0))')
 else
   IMAGE_URLS_JSON="[]"
 fi
 
-# 构造 JSON payload（jq 处理转义，避免 shell 特殊字符问题）
+# JSON payload
 PAYLOAD=$(jq -n \
   --arg title "$TITLE" \
   --arg tag "$TAG" \
@@ -212,7 +314,6 @@ PAYLOAD=$(jq -n \
     }
   }')
 
-# 使用 gh api 发送请求（gh 自带认证，无需额外 token）
 RESPONSE=$(gh api \
   --method POST \
   -H "Accept: application/vnd.github.v3+json" \
@@ -221,25 +322,22 @@ RESPONSE=$(gh api \
   2>&1) && HTTP_CODE=204 || HTTP_CODE=$?
 
 if [ "$HTTP_CODE" = "204" ] || [[ "$RESPONSE" == *"204"* ]]; then
-  echo "  ✓ 已触发！"
+  echo "  ✓ トリガー完了！"
   echo ""
-  echo "  GitHub Actions 正在处理："
-  echo "  1. 调用 LLM 将中文翻译成日文"
-  if [ "$IMAGE_COUNT" -gt 0 ]; then
-    echo "  2. 下载 $IMAGE_COUNT 张图片到 public/images/blog/"
-    echo "  3. 保存到 src/content/blog/"
+  echo "  GitHub Actions 処理中："
+  echo "  1. LLM翻訳（中国語→日本語）"
+  if [ "$REMOTE_COUNT" -gt 0 ]; then
+    echo "  2. $REMOTE_COUNT 枚の画像をダウンロード"
+    echo "  3. src/content/blog/ に保存"
   else
-    echo "  2. 保存到 src/content/blog/"
+    echo "  2. src/content/blog/ に保存"
   fi
-  echo "  自动 commit + push → Vercel 自动部署"
+  echo "  auto commit + push → Vercel 自動デプロイ"
   echo ""
-  echo "  查看进度："
+  echo "  進捗確認："
   echo "  https://github.com/$REPO/actions/workflows/$WORKFLOW"
-  echo ""
-  echo "  通常 1-3 分钟完成部署。"
 else
-  echo "  ✗ 触发失败"
+  echo "  ✗ トリガー失敗"
   echo "  $RESPONSE"
-  echo "  请检查 gh auth status 和仓库权限"
   exit 1
 fi
