@@ -213,7 +213,7 @@ async function main() {
 
   console.log(`  ✓ Title: ${translated.title}`);
   console.log(`  ✓ Tag: ${translated.tag}`);
-  console.log(`  ✓ Excerpt: ${translated.excerpt.slice(0, 80)}...`);
+  console.log(`  ✓ Excerpt: ${(translated.excerpt || "").slice(0, 80)}...`);
   console.log(`  ✓ Content: ${translated.content.length} chars`);
 
   // Step 1.5: Validate and clean image URLs
@@ -226,8 +226,8 @@ async function main() {
   saveBlogPost(slug, {
     title: translated.title,
     date: today,
-    tag: translated.tag,
-    excerpt: translated.excerpt,
+    tag: translated.tag || "解説",
+    excerpt: translated.excerpt || "",
   }, translated.content);
 
   console.log(`\n  ✓ Published: src/content/blog/${slug}.md`);
