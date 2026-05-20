@@ -64,7 +64,7 @@ jobs:
           IMAGE_URLS: ${{ inputs.images }}
         run: |
           # Find the slug from the newly created blog post
-          SLUG=$(ls -t src/content/blog/*.md 2>/dev/null | head -1 | xargs basename .md)
+          SLUG=$(ls -t src/content/blog/*.md 2>/dev/null | head -1 | xargs -I{} basename {} .md)
           if [ -z "$SLUG" ]; then
             echo "No blog post found, skipping images"
             exit 0
