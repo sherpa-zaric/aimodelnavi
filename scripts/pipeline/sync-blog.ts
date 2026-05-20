@@ -32,12 +32,28 @@ const PUBLIC_IMAGES_DIR = path.join(process.cwd(), "public", "images", "blog");
 
 function extractImages(html: string): { src: string; alt: string; context: string }[] {
   const images: { src: string; alt: string; context: string }[] = [];
-  const imgRegex = /<img[^>]*src="([^"]+)"[^>]*(?:alt="([^"]*)")?[^>]*>/gi;
+  // Match both src and data-src (lazy loading images)
+  const imgRegex = /<img[^>]*\b(?:src|data-src)="([^"]+)"[^>]*(?:\balt="([^"]*)")?[^>]*>/gi;
   let match;
   while ((match = imgRegex.exec(html)) !== null) {
     const src = match[1];
-    if (src.includes("blog_images") || src.includes("resources")) {
-      // Capture ~200 chars of surrounding HTML for context
+    // Skip: logos, icons, avatars, base64 data URIs and non-image URLs
+    if (
+      src.startsWith("data:") ||
+      src.includes("logo") ||
+      src.includes("avatar") ||
+      src.includes("favicon") ||
+      src.includes("icon-") ||
+      src.includes("author-") ||
+      src.endsWith(".svg") ||
+      src.endsWith(".ico")
+    ) continue;
+
+    // Accept any images that have image-like extensions or known CDNs
+    const isImage = /\.(jpg|jpeg|png|gif|webp|avif)(\?|$)/i.test(src) ||
+      /mmbiz\.qpic\.cn|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|blog_images|resources/i.test(src);
+
+    if (isImage) {
       const idx = match.index;
       const context = html.slice(Math.max(0, idx - 100), idx + 300);
       images.push({ src, alt: match[2] || "", context });
@@ -51,11 +67,13 @@ function extractImages(html: string): { src: string; alt: string; context: strin
 const PROMO_KEYWORDS = [
   "微信", "公众号", "扫码", "关注", "二维码", "读者群",
   "wechat", "QR", "qrcode", "订阅", "加群", "客服",
-  "点赞", "在看", "转发", "分享", "推广",
+  "点赞", "在看", "转发", "分享", "推广", "广告",
+  "长按", "识别", "海报", "福利", "领取", "限时",
 ];
 
 const PROMO_URL_PATTERNS = [
   "wechat", "qrcode", "qr-code", "promotion", "banner", "ad-",
+  "mpmenu", "reward", "like-author",
 ];
 
 function isPromoByHeuristic(alt: string, src: string): boolean {
@@ -80,7 +98,7 @@ function isPromoByHeuristic(alt: string, src: string): boolean {
 
 // ── AI-based image filter (Gemma4 vision model) ──
 
-const VISION_MODEL = "gemma4:31b-cloud";
+const VISION_MODEL = "gemma3:27b-cloud";
 
 async function analyzeImageWithVision(
   imageUrl: string,
@@ -280,6 +298,27 @@ export async function syncBlog(): Promise<BlogSyncResult> {
 
       const localSlug = post.local_slug || post.external_slug.slice(0, 80);
 
+      // Post-processing: verify images are in the output, add if missing
+      let finalContent = blogPost.content;
+      if (images.length > 0) {
+        const imagesInContent = (finalContent.match(/!\[[^\]]*\]\(/g) || []).length;
+        if (imagesInContent < images.length) {
+          console.log(`    ⚠ LLM included ${imagesInContent}/${images.length} images — adding missing ones`);
+          // Insert missing images at section breaks
+          const missingImages = images.filter(
+            (img) => !finalContent.includes(img.localPath)
+          );
+          if (missingImages.length > 0) {
+            const sections = finalContent.split(/\n(?=## )/g);
+            for (let k = 0; k < missingImages.length; k++) {
+              const insertIdx = Math.min(k + 1, sections.length - 1);
+              sections[insertIdx] = `\n![](${missingImages[k].localPath})\n` + sections[insertIdx];
+            }
+            finalContent = sections.join("\n\n");
+          }
+        }
+      }
+
       saveBlogPost(
         localSlug,
         {
@@ -289,7 +328,7 @@ export async function syncBlog(): Promise<BlogSyncResult> {
           excerpt: blogPost.excerpt,
           draft: "true",
         },
-        blogPost.content
+        finalContent
       );
 
       markBlogPostProcessed(post.id, localSlug);

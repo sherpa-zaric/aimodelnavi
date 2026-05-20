@@ -307,10 +307,15 @@ export async function processBlogArticle(
       `  ${i + 1}. ![](${img.localPath}) — alt: "${img.alt}"`
     ).join("\n");
     imageInstructions = `
-# Available images
-The following images are available for use in the article. Insert them at appropriate positions using the exact markdown syntax shown:
+# Required images (YOU MUST INCLUDE ALL OF THESE)
+The following images MUST be inserted at appropriate positions in the article body.
+Use the EXACT markdown syntax shown for each image.
+Choose logical insertion points: after a heading, between paragraphs describing a concept, etc.
+Do NOT skip any image. Every image listed below MUST appear somewhere in the content.
+
 ${imageList}
-`;
+
+VERIFY: after writing the article, count that you included ${images.length} image references.`;
   }
 
   const system = `You are a Japanese tech journalist specializing in AI/ML. You are translating and adapting a Chinese AI blog article for Japanese readers.
