@@ -235,16 +235,33 @@ excerpt: "摘要"         # optional, LLM generates Japanese one if empty
 
 OpenAI, Anthropic, Google, オープンソース, ベンチマーク, チュートリアル, AIエージェント, xAI, DeepSeek, 解説, 速報, 料金比較
 
+### Writing rules for OpenClaw
+
+**NEVER include in articles:**
+- WeChat/微信公众号 links (https://mp.weixin.qq.com/s/...)
+- "参考" or "Source" sections at the end
+- "画像出典" or "データ出典" attributions
+- "翻译自" or "翻訳元" disclaimers
+- Raw video prompts (code blocks with video generation instructions)
+- Video references that cannot be embedded (e.g., "動画ソース：X@...")
+
+**ALWAYS do:**
+- Include images from the original source using `![alt](url)` format
+- Remove video-only content (keep text descriptions, remove raw prompts)
+- Write as original content, not as a translation
+
 ### Complete workflow for OpenClaw
 
 When given a Chinese article URL:
 
 ```bash
 # 1. Fetch article with image filtering
-npx tsx scripts/fetch-article.ts "https://mp.weixin.qq.com/s/xxx" --filter-images
+npx tsx scripts/fetch-article.ts "https://..." --filter-images
 
-# 2. Review the draft (optional)
-cat _drafts/<slug>.md
+# 2. Review and clean up the draft
+#    - Remove any WeChat links
+#    - Remove video references that can't be embedded
+#    - Verify images are present
 
 # 3. Publish with local translation
 ./scripts/publish-blog.sh _drafts/<slug>.md --local --yes
