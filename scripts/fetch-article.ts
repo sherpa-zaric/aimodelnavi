@@ -19,6 +19,7 @@
 import fs from "fs";
 import path from "path";
 import { chromium, type Browser, type Page } from "playwright";
+import { filterImages, type ImageToFilter } from "./lib/image-filter";
 
 // ── CLI args ──
 
@@ -26,11 +27,12 @@ const args = process.argv.slice(2);
 const url = args.find((a) => !a.startsWith("--"));
 const NO_IMAGES = args.includes("--no-images");
 const USE_LLM = args.includes("--llm");
+const FILTER_IMAGES = args.includes("--filter-images");
 const tagIdx = args.indexOf("--tag");
 const TAG = tagIdx !== -1 ? args[tagIdx + 1] : "";
 
 if (!url) {
-  console.error("Usage: npx tsx scripts/fetch-article.ts <URL> [--no-images] [--tag Tag] [--llm]");
+  console.error("Usage: npx tsx scripts/fetch-article.ts <URL> [--no-images] [--tag Tag] [--llm] [--filter-images]");
   process.exit(1);
 }
 
@@ -43,6 +45,10 @@ const IMG_DIR = path.join(process.cwd(), "public/images/blog");
 
 function isWeChat(targetUrl: string): boolean {
   return /mp\.weixin\.qq\.com/.test(targetUrl);
+}
+
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function generateSlug(title: string): string {
@@ -407,7 +413,38 @@ async function main() {
     const slug = generateSlug(article.title);
     console.log(`\n  Slug: ${slug}`);
 
-    const downloadedImages = await downloadImages(article.images || [], slug, url!);
+    // Filter images before downloading
+    let imagesToDownload = article.images || [];
+    if (FILTER_IMAGES && imagesToDownload.length > 0) {
+      console.log(`\n  画像フィルタリング (${imagesToDownload.length}枚)...`);
+      const imageInputs: ImageToFilter[] = imagesToDownload.map((url) => ({ url, alt: "" }));
+
+      // Try to use vision model for AI filtering
+      const apiKey = process.env.LLM_API_KEY || process.env.ANTHROPIC_API_KEY || "";
+      const baseUrl = process.env.LLM_BASE_URL || "https://ollama.com/v1/chat/completions";
+      const visionModel = process.env.VISION_MODEL || "gemma3:27b-cloud";
+
+      const { kept, rejected } = await filterImages(imageInputs, article.title, {
+        useVision: !!apiKey,
+        apiKey,
+        baseUrl,
+        model: visionModel,
+      });
+
+      imagesToDownload = kept.map((img) => img.url);
+      article.images = imagesToDownload;
+
+      // Remove rejected image references from content
+      for (const r of rejected) {
+        const imgRegex = new RegExp(`!\\[[^\\]]*\\]\\(${escapeRegex(r.image.url)}\\)`, "g");
+        article.content = article.content.replace(imgRegex, "");
+      }
+      article.content = article.content.replace(/\n{3,}/g, "\n\n");
+
+      console.log(`  → 保留: ${kept.length}枚, 除外: ${rejected.length}枚`);
+    }
+
+    const downloadedImages = await downloadImages(imagesToDownload, slug, url!);
     const filePath = saveDraft(article, url!, downloadedImages, slug);
     const fileSize = fs.statSync(filePath).size;
 
