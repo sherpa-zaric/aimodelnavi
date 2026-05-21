@@ -66,7 +66,6 @@ export default function LeaderboardPage() {
       <LeaderboardTable
         benchmarks={mainBenchmarks}
         benchmarkDefs={mainBenchmarkDefs}
-        maxRows={30}
       />
     </div>
   );

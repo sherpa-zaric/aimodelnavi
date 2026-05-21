@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return getAllPosts().flatMap((post) =>
-    ["ja", "en", "zh", "ko"].map((locale) => ({ slug: post.slug, locale }))
+    ["ja", "en", "ko"].map((locale) => ({ slug: post.slug, locale }))
   );
 }
 

@@ -40,7 +40,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/",
-    "/(ja|en|zh|ko)/:path*",
+    "/(ja|en|ko)/:path*",
     "/admin/:path*",
     "/api/admin/:path*",
   ],

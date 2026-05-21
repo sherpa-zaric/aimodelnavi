@@ -8,7 +8,6 @@ import { Globe } from "lucide-react";
 const LANGUAGES = [
   { code: "ja", label: "日本語" },
   { code: "en", label: "English" },
-  { code: "zh", label: "中文" },
   { code: "ko", label: "한국어" },
 ];
 

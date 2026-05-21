@@ -38,6 +38,7 @@ jobs:
           LLM_MODEL: ${{ vars.LLM_MODEL || 'gemma4:31b' }}
         run: |
           npx tsx scripts/blog-manifest.ts
+          npx tsx scripts/generate-english-manifest.ts || true
           npx tsx scripts/add-internal-links.ts --apply || true
 
       - name: Commit and push

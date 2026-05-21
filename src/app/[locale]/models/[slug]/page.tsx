@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return modelDetails.flatMap((model) =>
-    ["ja", "en", "zh", "ko"].map((locale) => ({ slug: model.slug, locale }))
+    ["ja", "en", "ko"].map((locale) => ({ slug: model.slug, locale }))
   );
 }
 
