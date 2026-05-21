@@ -1,112 +1,85 @@
-import Link from 'next/link';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { getAllPosts } from '@/lib/blog';
+import { setRequestLocale } from "next-intl/server";
+import Link from "next/link";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import blogManifest from "@/data/blog-manifest.json";
+import blogManifestEn from "@/data/blog-manifest-en.json";
 
 const ITEMS_PER_PAGE = 10;
 
 export default async function BlogListPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string }>;
 }) {
-  const { page: pageParam } = await searchParams;
-  const currentPage = Math.max(1, parseInt(pageParam || '1', 10) || 1);
-  const posts = getAllPosts();
-  const totalPages = Math.max(1, Math.ceil(posts.length / ITEMS_PER_PAGE));
-  const safePage = Math.min(currentPage, totalPages);
-  const start = (safePage - 1) * ITEMS_PER_PAGE;
-  const displayPosts = posts.slice(start, start + ITEMS_PER_PAGE);
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const { page } = await searchParams;
+  const currentPage = page ? parseInt(page) : 1;
+
+  // Use English manifest for en locale
+  const manifest = locale === "en" ? blogManifestEn : blogManifest;
+  const sorted = [...manifest].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const totalPages = Math.ceil(sorted.length / ITEMS_PER_PAGE);
+  const paged = sorted.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">ブログ</h1>
-        <p className="mt-2 text-sm text-gray-500">
-          AIモデルの最新情報、ベンチマーク分析、料金比較、チュートリアルをお届けします。
-          <span className="ml-2 text-gray-400">({posts.length} 記事)</span>
-        </p>
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h1 className="text-3xl font-bold text-gray-900 mb-8">
+        {locale === "en" ? "Blog" : "ブログ"}
+      </h1>
+
+      <div className="space-y-6">
+        {paged.map((post: any) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="block p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-300 hover:shadow-sm transition-all"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <span className="px-2 py-0.5 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+                {post.tag}
+              </span>
+              <time className="text-sm text-gray-400">{post.date}</time>
+            </div>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">
+              {locale === "en" ? (post.title_en || post.title) : post.title}
+            </h2>
+            <p className="text-sm text-gray-500 line-clamp-2">
+              {locale === "en"
+                ? (post.excerpt_en || post.excerpt || "")
+                : (post.excerpt || "")}
+            </p>
+          </Link>
+        ))}
       </div>
 
-      {posts.length === 0 ? (
-        <div className="p-12 bg-gray-50 rounded-xl text-center text-gray-500">
-          まだ記事がありません。
-        </div>
-      ) : (
-        <>
-          <div className="space-y-5">
-            {displayPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group block p-5 rounded-xl border border-gray-100 bg-white hover:border-primary-200 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="px-2.5 py-0.5 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
-                    {post.tag}
-                  </span>
-                  <time className="text-xs text-gray-400">{post.date}</time>
-                </div>
-                <h2 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-primary-600 transition-colors">
-                  {post.title}
-                </h2>
-                <p className="mt-1.5 text-sm text-gray-500 leading-relaxed line-clamp-2">
-                  {post.excerpt}
-                </p>
-                <div className="mt-3 flex items-center text-xs font-medium text-primary-600">
-                  続きを読む
-                  <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-1 mt-8">
-              {safePage > 1 && (
-                <Link
-                  href={`/blog?page=${safePage - 1}`}
-                  className="p-1.5 rounded-md hover:bg-gray-100"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </Link>
-              )}
-
-              {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter((p) => p === 1 || p === totalPages || Math.abs(p - safePage) <= 1)
-                .reduce<(number | 'ellipsis')[]>((acc, p, idx, arr) => {
-                  if (idx > 0 && p - arr[idx - 1] > 1) acc.push('ellipsis');
-                  acc.push(p);
-                  return acc;
-                }, [])
-                .map((item, idx) =>
-                  item === 'ellipsis' ? (
-                    <span key={`e-${idx}`} className="px-2 text-gray-300 text-xs">...</span>
-                  ) : (
-                    <Link
-                      key={item}
-                      href={`/blog?page=${item}`}
-                      className={`w-8 h-8 rounded-md text-xs font-medium transition-colors flex items-center justify-center ${
-                        safePage === item
-                          ? 'bg-primary-600 text-white'
-                          : 'hover:bg-gray-100 text-gray-600'
-                      }`}
-                    >
-                      {item}
-                    </Link>
-                  )
-                )}
-
-              {safePage < totalPages && (
-                <Link
-                  href={`/blog?page=${safePage + 1}`}
-                  className="p-1.5 rounded-md hover:bg-gray-100"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              )}
-            </div>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-4 mt-10">
+          {currentPage > 1 && (
+            <Link
+              href={`/blog?page=${currentPage - 1}`}
+              className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary-600"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              {locale === "en" ? "Previous" : "前へ"}
+            </Link>
           )}
-        </>
+          <span className="text-sm text-gray-400">
+            {currentPage} / {totalPages}
+          </span>
+          {currentPage < totalPages && (
+            <Link
+              href={`/blog?page=${currentPage + 1}`}
+              className="inline-flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700"
+            >
+              {locale === "en" ? "Next" : "次へ"}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          )}
+        </div>
       )}
     </div>
   );

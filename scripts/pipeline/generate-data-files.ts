@@ -88,7 +88,12 @@ export function generateDataFiles(): GenerateResult {
   console.log("\n═══ Stage 4: Generate ═══");
 
   const models = db.prepare(
-    "SELECT * FROM models ORDER BY priority DESC, is_japanese ASC, release_date DESC NULLS LAST, name"
+    `SELECT m.*,
+      mt_en.translated_text as description_en
+    FROM models m
+    LEFT JOIN model_translations mt_en ON mt_en.model_id = m.id
+      AND mt_en.language = 'en' AND mt_en.field_name = 'description'
+    ORDER BY m.priority DESC, m.is_japanese ASC, m.release_date DESC NULLS LAST, m.name`
   ).all() as ModelRow[];
 
   // Generate src/data/models.ts
@@ -136,6 +141,7 @@ export function generateDataFiles(): GenerateResult {
       url: ${pricing.url ? `"${escapeStr(pricing.url)}"` : "null"},
     }` : "null"},
     descriptionJa: "${escapeStr(m.description_ja || "")}",
+    descriptionEn: "${escapeStr(m.description_en || "")}",
     strengths: ${JSON.stringify(strengths)},
     weaknesses: ${JSON.stringify(weaknesses)},
     useCases: ${JSON.stringify(useCases)},
@@ -172,6 +178,7 @@ export interface ModelDetail {
     url: string | null;
   } | null;
   descriptionJa: string;
+  descriptionEn: string;
   strengths: string[];
   weaknesses: string[];
   useCases: string[];
@@ -396,4 +403,11 @@ export const pricingData: PricingEntry[] = ${data};
 
   saveDataFile("pricing.ts", pricingTs);
   console.log(`  Generated ${entries.length} pricing entries`);
+}
+
+// Allow direct execution
+if (process.argv[1]?.endsWith("generate-data-files.ts")) {
+  const { migrate } = require("../lib/db");
+  migrate();
+  generateDataFiles();
 }
