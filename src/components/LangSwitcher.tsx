@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { Globe } from "lucide-react";
 
@@ -30,8 +30,7 @@ export default function LangSwitcher() {
     const parts = pathname.split("/").filter(Boolean);
     if (["ja", "en"].includes(parts[0])) parts.shift();
     const newPath = targetLocale === "ja" ? `/${parts.join("/")}` : `/${targetLocale}/${parts.join("/")}`;
-    router.push(newPath || "/");
-    setOpen(false);
+    window.location.href = newPath || "/";
   }
 
   const currentLang = LANGUAGES.find((l) => l.code === locale);
