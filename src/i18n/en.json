@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "AI Models Navi",
+    "description": "AI model comparison site — Choose by benchmarks, API pricing, specifications"
+  },
+  "nav": {
+    "home": "Home",
+    "models": "Models",
+    "leaderboard": "Leaderboard",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "tools": "Tools",
+    "about": "About",
+    "benchmarks": "Benchmarks"
+  },
+  "home": {
+    "stats": "Site Statistics",
+    "modelsCount": "Models Count",
+    "leaderboardCount": "Leaderboard Count",
+    "blogCount": "Blog Post Count",
+    "latestBlog": "Latest Blog",
+    "viewAll": "View All"
+  },
+  "leaderboard": {
+    "title": "AI Model Rankings",
+    "description": "Comprehensive AI model rankings based on benchmarks",
+    "comprehensive": "Comprehensive Ranking",
+    "code": "Coding Ability",
+    "math": "Math Ability",
+    "agent": "AI Agent Ability",
+    "reasoning": "Reasoning Ability",
+    "general": "General Performance",
+    "benchmarks": "Benchmarks",
+    "backToList": "Back to Rankings List",
+    "loadMore": "Load More",
+    "search": "Search by model name or developer",
+    "filterAll": "All",
+    "filterReasoning": "Reasoning",
+    "filterFoundation": "Foundation",
+    "filterCoder": "Coding",
+    "filterChat": "Chat",
+    "filterOpenSource": "Open Source",
+    "filterClosed": "Closed",
+    "modelCount": "models",
+    "noResults": "No matching models found",
+    "aboutBenchmarks": "About Benchmarks"
+  },
+  "models": {
+    "title": "AI Model List",
+    "description": "Detailed information and specification comparison of major AI models"
+  },
+  "pricing": {
+    "title": "API Pricing Comparison",
+    "description": "Compare API usage costs of major AI models",
+    "inputPrice": "Input Price",
+    "outputPrice": "Output Price",
+    "perMillionTokens": "/1M tokens"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Latest news and commentary on AI models",
+    "backToList": "Back to Blog List",
+    "relatedArticles": "Related Articles",
+    "comments": "Comments",
+    "noComments": "No comments yet",
+    "commentSubmitted": "Comment submitted. It will be displayed after approval.",
+    "commentPlaceholder": "Enter comment...",
+    "namePlaceholder": "Nickname",
+    "reply": "Reply",
+    "submit": "Submit",
+    "share": "Share",
+    "copyLink": "Copy Link",
+    "copySuccess": "Copied!"
+  },
+  "tools": {
+    "costCalculator": "API Cost Calculator",
+    "modelCompare": "Model Comparison",
+    "tokenCounter": "Token Counter"
+  },
+  "common": {
+    "openSource": "Open Source",
+    "closed": "Closed",
+    "nonCommercial": "Non-Commercial",
+    "modelName": "Model Name",
+    "developer": "Developer",
+    "rank": "Rank",
+    "score": "Score",
+    "releaseDate": "Release Date",
+    "license": "License"
+  },
+  "footer": {
+    "about": "About AI Models Navi",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "copyright": "AI Models Navi. All rights reserved."
+  },
+  "lang": {
+    "ja": "Japanese",
+    "en": "English",
+    "zh": "Chinese",
+    "ko": "Korean",
+    "switchTo": "Switch Language"
+  }
+}

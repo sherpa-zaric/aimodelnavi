@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "AI Models Navi",
+    "description": "AI 모델 비교 사이트 — 벤치마크, API 요금, 사양으로 선택"
+  },
+  "nav": {
+    "home": "홈",
+    "models": "모델 목록",
+    "leaderboard": "랭킹",
+    "pricing": "요금 비교",
+    "blog": "블로그",
+    "tools": "도구",
+    "about": "에 대해",
+    "benchmarks": "벤치마크 목록"
+  },
+  "home": {
+    "stats": "사이트 통계",
+    "modelsCount": "수록 모델 수",
+    "leaderboardCount": "랭킹 게재 수",
+    "blogCount": "블로그 기사 수",
+    "latestBlog": "최신 블로그",
+    "viewAll": "모두 보기"
+  },
+  "leaderboard": {
+    "title": "AI 모델 랭킹",
+    "description": "벤치마크에 의한 AI 모델 종합 랭킹",
+    "comprehensive": "종합 랭킹",
+    "code": "코딩 능력",
+    "math": "수학 능력",
+    "agent": "AI 에이전트 능력",
+    "reasoning": "추론 능력",
+    "general": "범용 성능",
+    "benchmarks": "벤치마크",
+    "backToList": "랭킹 목록으로 돌아가기",
+    "loadMore": "더 읽어오기",
+    "search": "모델명·개발사로 검색",
+    "filterAll": "모두",
+    "filterReasoning": "추론",
+    "filterFoundation": "기반",
+    "filterCoder": "코딩",
+    "filterChat": "채팅",
+    "filterOpenSource": "오픈소스",
+    "filterClosed": "클로즈드",
+    "modelCount": "개 모델",
+    "noResults": "해당하는 모델을 찾을 수 없습니다",
+    "aboutBenchmarks": "벤치마크에 대해"
+  },
+  "models": {
+    "title": "AI 모델 목록",
+    "description": "주요 AI 모델의 상세 정보와 스펙 비교"
+  },
+  "pricing": {
+    "title": "API 요금 비교",
+    "description": "주요 AI 모델의 API 이용 요금을 비교",
+    "inputPrice": "입력 가격",
+    "outputPrice": "출력 가격",
+    "perMillionTokens": "/1M 토큰"
+  },
+  "blog": {
+    "title": "블로그",
+    "description": "AI 모델에 관한 최신 뉴스와 해설",
+    "backToList": "블로그 목록으로 돌아가기",
+    "relatedArticles": "관련 기사",
+    "comments": "댓글",
+    "noComments": "아직 댓글이 없습니다",
+    "commentSubmitted": "댓글을 게시했습니다. 승인 후에 표시됩니다.",
+    "commentPlaceholder": "댓글 입력...",
+    "namePlaceholder": "닉네임",
+    "reply": "답글",
+    "submit": "게시하기",
+    "share": "공유",
+    "copyLink": "링크 복사",
+    "copySuccess": "복사했습니다!"
+  },
+  "tools": {
+    "costCalculator": "API 비용 계산",
+    "modelCompare": "모델 비교",
+    "tokenCounter": "토큰 카운터"
+  },
+  "common": {
+    "openSource": "오픈소스",
+    "closed": "클로즈드",
+    "nonCommercial": "비상업",
+    "modelName": "모델명",
+    "developer": "개발사",
+    "rank": "순위",
+    "score": "점수",
+    "releaseDate": "공개일",
+    "license": "라이선스"
+  },
+  "footer": {
+    "about": "AI Models Navi에 대해",
+    "contact": "문의",
+    "privacy": "개인정보 보호정책",
+    "copyright": "AI Models Navi. All rights reserved."
+  },
+  "lang": {
+    "ja": "일본어",
+    "en": "English",
+    "zh": "중국어",
+    "ko": "한국어",
+    "switchTo": "언어 전환"
+  }
+}

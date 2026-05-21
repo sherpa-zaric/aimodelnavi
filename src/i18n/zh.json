@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "AI模型导航",
+    "description": "AI模型比较网站 — 根据基准、API价格和规格选择"
+  },
+  "nav": {
+    "home": "主页",
+    "models": "模型列表",
+    "leaderboard": "排行榜",
+    "pricing": "价格比较",
+    "blog": "博客",
+    "tools": "工具",
+    "about": "关于",
+    "benchmarks": "基准测试列表"
+  },
+  "home": {
+    "stats": "网站统计",
+    "modelsCount": "收录模型数",
+    "leaderboardCount": "排行榜收录数",
+    "blogCount": "博客文章数",
+    "latestBlog": "最新博客",
+    "viewAll": "查看全部"
+  },
+  "leaderboard": {
+    "title": "AI模型排行榜",
+    "description": "基于基准测试的AI模型综合排行榜",
+    "comprehensive": "综合排行榜",
+    "code": "编程能力",
+    "math": "数学能力",
+    "agent": "AI代理能力",
+    "reasoning": "推理能力",
+    "general": "通用性能",
+    "benchmarks": "基准测试",
+    "backToList": "返回排行榜列表",
+    "loadMore": "加载更多",
+    "search": "按模型名或开发元搜索",
+    "filterAll": "全部",
+    "filterReasoning": "推理",
+    "filterFoundation": "基础",
+    "filterCoder": "编程",
+    "filterChat": "聊天",
+    "filterOpenSource": "开源",
+    "filterClosed": "闭源",
+    "modelCount": "个模型",
+    "noResults": "未找到匹配的模型",
+    "aboutBenchmarks": "关于基准测试"
+  },
+  "models": {
+    "title": "AI模型列表",
+    "description": "主要AI模型的详细信息和规格比较"
+  },
+  "pricing": {
+    "title": "API价格比较",
+    "description": "比较主要AI模型的API使用费用",
+    "inputPrice": "输入价格",
+    "outputPrice": "输出价格",
+    "perMillionTokens": "/1M令牌"
+  },
+  "blog": {
+    "title": "博客",
+    "description": "AI模型的最新新闻和解说",
+    "backToList": "返回博客列表",
+    "relatedArticles": "相关文章",
+    "comments": "评论",
+    "noComments": "暂无评论",
+    "commentSubmitted": "评论已提交，审核后将显示。",
+    "commentPlaceholder": "输入评论...",
+    "namePlaceholder": "昵称",
+    "reply": "回复",
+    "submit": "提交",
+    "share": "分享",
+    "copyLink": "复制链接",
+    "copySuccess": "已复制！"
+  },
+  "tools": {
+    "costCalculator": "API成本计算",
+    "modelCompare": "模型比较",
+    "tokenCounter": "令牌计数器"
+  },
+  "common": {
+    "openSource": "开源",
+    "closed": "闭源",
+    "nonCommercial": "非商业",
+    "modelName": "模型名",
+    "developer": "开发元",
+    "rank": "排名",
+    "score": "分数",
+    "releaseDate": "发布日期",
+    "license": "许可证"
+  },
+  "footer": {
+    "about": "关于AI模型导航",
+    "contact": "联系我们",
+    "privacy": "隐私政策",
+    "copyright": "AI模型导航。保留所有权利。"
+  },
+  "lang": {
+    "ja": "日语",
+    "en": "英语",
+    "zh": "中文",
+    "ko": "韩语",
+    "switchTo": "切换语言"
+  }
+}

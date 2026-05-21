@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "AI Models Navi",
+    "description": "AIモデル比較サイト — ベンチマーク、API料金、仕様で選ぶ"
+  },
+  "nav": {
+    "home": "ホーム",
+    "models": "モデル一覧",
+    "leaderboard": "ランキング",
+    "pricing": "料金比較",
+    "blog": "ブログ",
+    "tools": "ツール",
+    "about": "について",
+    "benchmarks": "ベンチマーク一覧"
+  },
+  "home": {
+    "stats": "サイト統計",
+    "modelsCount": "収録モデル数",
+    "leaderboardCount": "ランキング掲載数",
+    "blogCount": "ブログ記事数",
+    "latestBlog": "最新ブログ",
+    "viewAll": "すべて見る"
+  },
+  "leaderboard": {
+    "title": "AIモデルランキング",
+    "description": "ベンチマークによるAIモデル総合ランキング",
+    "comprehensive": "総合ランキング",
+    "code": "コーディング能力",
+    "math": "数学能力",
+    "agent": "AIエージェント能力",
+    "reasoning": "推論能力",
+    "general": "汎用性能",
+    "benchmarks": "ベンチマーク",
+    "backToList": "ランキング一覧に戻る",
+    "loadMore": "さらに読み込む",
+    "search": "モデル名・開発元で検索",
+    "filterAll": "すべて",
+    "filterReasoning": "推論",
+    "filterFoundation": "基盤",
+    "filterCoder": "コーディング",
+    "filterChat": "チャット",
+    "filterOpenSource": "オープンソース",
+    "filterClosed": "クローズド",
+    "modelCount": "件のモデル",
+    "noResults": "該当するモデルが見つかりません",
+    "aboutBenchmarks": "ベンチマークについて"
+  },
+  "models": {
+    "title": "AIモデル一覧",
+    "description": "主要AIモデルの詳細情報とスペック比較"
+  },
+  "pricing": {
+    "title": "API料金比較",
+    "description": "主要AIモデルのAPI利用料金を比較",
+    "inputPrice": "入力価格",
+    "outputPrice": "出力価格",
+    "perMillionTokens": "/1Mトークン"
+  },
+  "blog": {
+    "title": "ブログ",
+    "description": "AIモデルに関する最新ニュースと解説",
+    "backToList": "ブログ一覧に戻る",
+    "relatedArticles": "関連記事",
+    "comments": "コメント",
+    "noComments": "まだコメントがありません",
+    "commentSubmitted": "コメントを投稿しました。承認後に表示されます。",
+    "commentPlaceholder": "コメントを入力...",
+    "namePlaceholder": "ニックネーム",
+    "reply": "返信",
+    "submit": "投稿する",
+    "share": "シェア",
+    "copyLink": "リンクをコピー",
+    "copySuccess": "コピーしました！"
+  },
+  "tools": {
+    "costCalculator": "APIコスト計算",
+    "modelCompare": "モデル比較",
+    "tokenCounter": "トークンカウンター"
+  },
+  "common": {
+    "openSource": "オープンソース",
+    "closed": "クローズド",
+    "nonCommercial": "非商用",
+    "modelName": "モデル名",
+    "developer": "開発元",
+    "rank": "順位",
+    "score": "スコア",
+    "releaseDate": "公開日",
+    "license": "ライセンス"
+  },
+  "footer": {
+    "about": "AI Models Naviについて",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "copyright": "AI Models Navi. All rights reserved."
+  },
+  "lang": {
+    "ja": "日本語",
+    "en": "English",
+    "zh": "中文",
+    "ko": "한국어",
+    "switchTo": "言語を切り替え"
+  }
+}

@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -7,7 +8,9 @@ import { benchmarksData } from "@/data/benchmarks";
 import LeaderboardTable from "@/components/LeaderboardTable";
 
 export function generateStaticParams() {
-  return categoryOrder.map((slug) => ({ category: slug }));
+  return categoryOrder.flatMap((slug) =>
+    ["ja", "en", "zh", "ko"].map((locale) => ({ category: slug, locale }))
+  );
 }
 
 export async function generateMetadata({
@@ -37,9 +40,10 @@ export async function generateMetadata({
 export default async function LeaderboardCategoryPage({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: Promise<{ category: string; locale: string }>;
 }) {
-  const { category } = await params;
+  const { category, locale } = await params;
+  setRequestLocale(locale);
   const cat = leaderboardCategories[category];
   if (!cat) notFound();
 

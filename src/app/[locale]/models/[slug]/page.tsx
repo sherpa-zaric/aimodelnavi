@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server';
 import { getModelBySlug, modelDetails } from '@/data/models';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -5,7 +6,9 @@ import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, Lightbulb } from '
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
-  return modelDetails.map((model) => ({ slug: model.slug }));
+  return modelDetails.flatMap((model) =>
+    ["ja", "en", "zh", "ko"].map((locale) => ({ slug: model.slug, locale }))
+  );
 }
 
 export async function generateMetadata({
@@ -40,9 +43,10 @@ export async function generateMetadata({
 export default async function ModelDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
   const model = getModelBySlug(slug);
 
   if (!model) notFound();
