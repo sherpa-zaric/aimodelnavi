@@ -1,5 +1,19 @@
 [
   {
+    "slug": "chatgpt-80-ai",
+    "title": "ChatGPTが80年未解決の数学的予想を覆す：フィールズ賞受賞者も『AI数学のマイルストーン』と絶賛",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIの汎用推論モデルが、80年間未解決だった数学の重要予想を覆す新たな構造を発見した。これはAIが数学研究の核心的な段階に踏み込んだ画期的な事例とされ、フィールズ賞受賞者も「AI数学のマイルストーン」と称賛している。",
+    "topics": [
+      "OpenAI",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-21",
+    "title_en": "ChatGPT Overturns Mathematical Conjecture Unsolved for 80 Years: Fields Medalist Hails it as an 'AI Mathematics Milestone'",
+    "excerpt_en": "OpenAI's general reasoning model has discovered a new structure that overturns a major mathematical conjecture that remained unsolved for 80 years. This is regarded as a groundbreaking case where AI has entered a core stage of mathematical research, with a Fields Medalist praising it as an \"AI mathematics milestone.\""
+  },
+  {
     "slug": "advances-in-ai-agent-report-2026-05",
     "title": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
     "tag": "AIエージェント",
@@ -12,24 +26,23 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Frontier of AI Agent Design: System Architecture and Technology Trends Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents toward 2026 is shifting from a \"universal standalone model\" to a \"configurable, observable, and constrained system.\" This report details the latest architectures for separating planners and executors, trajectory-based evaluation, and enhancing robustness in the real world."
+    "title_en": "Frontiers of AI Agent Design: System Architecture and Technology Trend Report for 2026",
+    "excerpt_en": "The design philosophy for AI agents toward 2026 is shifting from \"all-purpose monolithic models\" to \"configurable, observable, and constrainable systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures for enhancing robustness in the real world."
   },
   {
     "slug": "aiprovenance",
-    "title": "AI生成コンテンツの真正性を証明する「コンテンツ証明（Provenance）」の重要性と最新動向",
+    "title": "AI生成コンテンツの信頼性をどう担保するか？コンテンツ由来（Provenance）証明の重要性と具体策",
     "tag": "解説",
-    "excerpt": "AI生成コンテンツの急増に伴い、その信頼性を担保する技術標準化が進んでいます。C2PAやSynthIDなどのコンテンツ証明技術について、開発者が知っておくべき要点を解説します。",
+    "excerpt": "AIによるコンテンツ生成が加速する中、情報の真偽を判断する「コンテンツ由来（Provenance）」の証明が急務となっています。Google DeepMindが取り組むSynthID等の技術的アプローチと、エコシステム全体の透明性確保に向けた展望を解説します。",
     "topics": [
-      "Anthropic",
       "OpenAI",
       "Google",
-      "オープンソース",
-      "セキュリティ"
+      "マルチモーダル",
+      "音声"
     ],
     "date": "2026-05-20",
-    "title_en": "The Importance and Latest Trends of \"Content Provenance\" for Proving the Authenticity of AI-Generated Content",
-    "excerpt_en": "With the rapid increase of AI-generated content, technical standardization to ensure its reliability is advancing. This article explains the key points developers should know about content provenance technologies like C2PA and SynthID."
+    "title_en": "How to Ensure the Reliability of AI-Generated Content? The Importance and Specific Measures of Content Provenance",
+    "excerpt_en": "As AI content generation accelerates, there is an urgent need for \"Provenance\" certification to determine the authenticity of information. This article explains technical approaches such as SynthID by Google DeepMind and the outlook for ensuring transparency across the entire ecosystem."
   },
   {
     "slug": "blog-2026-05-20-0ki03y",
@@ -43,8 +56,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "Design Philosophy of AI-Native Companies: Maximizing \"Capability\" Instead of Efficiency to Build Self-Evolving Organizations",
-    "excerpt_en": "This explains YC's philosophy of redefining AI not merely as an efficiency tool, but as the organization's \"operating system.\" It proposes a shift to an organizational structure that maximizes capability rather than productivity by building self-improving AI loops, allowing the organization to evolve continuously even while humans are asleep."
+    "title_en": "Design Philosophy of AI-Native Companies: Maximizing \"Capability\" Rather than Efficiency to Build Self-Evolving Organizations",
+    "excerpt_en": "This piece explains YC's philosophy of redefining AI not merely as an efficiency tool, but as an \"operating system\" for the organization. It proposes a transition to an organizational form that continues to evolve while humans sleep by maximizing capability over productivity and constructing self-improving AI loops."
   },
   {
     "slug": "blog-2026-05-20-5rpeub",
@@ -57,8 +70,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "Building a \"Self-Evolving Company\" with AI: YC's Latest Startup Guide",
-    "excerpt_en": "This guide explains the construction of an \"AI-native company\" proposed by YC partners. It advocates for viewing AI not as a mere efficiency tool (Productivity), but as an operating system that extends organizational capability (Capability), and for a transition to a \"closed-loop\" organizational structure that continuously self-improves."
+    "title_en": "Building a \"Self-Evolving Company\" with AI: The Latest Entrepreneurship Guide from YC",
+    "excerpt_en": "A guide to building \"AI-native companies\" advocated by YC partners. It argues for a shift to a \"closed-loop\" organizational structure that continuously self-improves, treating AI as an operating system that expands organizational capability rather than just a productivity tool."
   },
   {
     "slug": "blog-2026-05-20-m6dhtt",
@@ -73,8 +86,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-20",
-    "title_en": "A 10 Billion Yen Bet: Why Elon Musk Realized the Importance of Coding Agents",
-    "excerpt_en": "Behind Elon Musk's 10 billion yen investment lies his recognition of the importance of coding agents. To enhance their own models, companies need to collect high-quality training data, and the key to this is developing coding agent products. The movement for each company to focus on proprietary product development is accelerating."
+    "title_en": "The 10-Billion Yen Bet: Why Elon Musk Realized the Importance of Coding Agents",
+    "excerpt_en": "Elon Musk's investment of 10 billion yen was driven by his recognition of the importance of coding agents. To strengthen proprietary models, it is necessary to collect high-quality training data, and the key to this is the development of coding agent products. There is an accelerating trend of companies focusing on their own product development."
   },
   {
     "slug": "blog-2026-05-20-ozahmz",
@@ -88,8 +101,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "The Art of Building AI-Native Companies: Maximizing \"Capability\" Instead of Efficiency to Create Self-Evolving Organizations",
-    "excerpt_en": "Based on the latest insights from Y Combinator, this article explains how to build AI-native companies by redefining AI not as a mere \"efficiency tool,\" but as the \"company's OS.\" It details the construction of a \"company brain\" through information structuring and organizational evolution via self-improvement loops."
+    "title_en": "How to Build AI-Native Companies: Transforming into Self-Evolving Organizations by Maximizing \"Capability\" Over Efficiency",
+    "excerpt_en": "Based on the latest insights from Y Combinator, this article explains how to build AI-native companies by redefining AI as a \"company OS\" rather than just an \"efficiency tool.\" It details the construction of a \"company brain\" through information structuring and the evolution of organizations via self-improvement loops."
   },
   {
     "slug": "blog-2026-05-20-vqm0v0",
@@ -104,8 +117,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "Building Self-Evolving Companies with AI: Future Organizational Theory from YC's Latest Lectures",
-    "excerpt_en": "This article compiles insights from YC's latest lectures on building self-evolving companies using AI. It explains the importance of redesigning the company itself as a system driven by AI, rather than just viewing AI as a tool."
+    "title_en": "Building Self-Evolving Companies Using AI: Future Organizational Theory Learned from the Latest YC Lectures",
+    "excerpt_en": "This article summarizes insights gained from the latest YC lectures on building self-evolving companies using AI. It explains the importance of redesigning the company itself as a system operated by AI, rather than treating AI as a mere tool."
   },
   {
     "slug": "claude-subagent",
@@ -117,8 +130,21 @@
       "AIエージェント"
     ],
     "date": "2026-05-20",
-    "title_en": "Claude Subagent Beginner's Guide",
-    "excerpt_en": "The Subagent feature in Claude Code utilizes sub-agents that execute tasks in an independent context window, enabling main dialogue protection, parallel processing, and access control. This article explains the concept, usage, and practical examples of Subagents for beginners."
+    "title_en": "Beginner's Introduction Guide to Claude Subagents",
+    "excerpt_en": "The Subagent feature in Claude Code utilizes sub-agents that execute tasks in independent context windows, enabling the protection of the main dialog, parallel processing, and permission control. This article explains the concept, usage, and practical examples of Subagents for beginners."
+  },
+  {
+    "slug": "dellaiazure-openai-serviceai",
+    "title": "DellがAIインフラを強化：Azure OpenAI Serviceなどの活用でエンタープライズAI利用が加速へ",
+    "tag": "OpenAI",
+    "excerpt": "Dell Technologiesは、AIインフラストラクチャの提供を通じて、企業がAzure OpenAI Serviceなどの高度なAIモデルを効率的に導入・運用することを支援しています。厳格なセキュリティ要件を持つ企業にとって、AI導入を加速させる重要な取り組みです。",
+    "topics": [
+      "OpenAI",
+      "セキュリティ"
+    ],
+    "date": "2026-05-20",
+    "title_en": "Dell Strengthens AI Infrastructure: Accelerating Enterprise AI Adoption via Azure OpenAI Service and More",
+    "excerpt_en": "Dell Technologies is supporting companies in efficiently deploying and operating advanced AI models, such as Azure OpenAI Service, through its AI infrastructure offerings. This is a critical initiative for accelerating AI adoption for enterprises with strict security requirements."
   },
   {
     "slug": "gemini-35action",
@@ -133,8 +159,24 @@
       "セキュリティ"
     ],
     "date": "2026-05-20",
-    "title_en": "Introducing Gemini 3.5: From Simple Chat to \"Autonomous Agents.\" The Next-Generation Workflow Opened by the Action Function",
-    "excerpt_en": "Gemini 3.5, announced by Google, is an agent-oriented model with advanced \"Action\" capabilities. Focusing on the fast and cost-effective 3.5 Flash, this article explains the new era of AI utilization that autonomously completes complex workflows."
+    "title_en": "Gemini 3.5 Arrives: From Simple Chat to \"Autonomous Agents.\" Next-Gen Workflows Opened by Action Features",
+    "excerpt_en": "Gemini 3.5, announced by Google, is an agent-oriented model equipped with advanced \"Action\" capabilities. Centered on the fast and low-cost 3.5 Flash, this article explains a new era of AI utilization where complex workflows are completed autonomously."
+  },
+  {
+    "slug": "gemini-35ai",
+    "title": "Gemini 3.5登場：単なるチャットから「AIエージェント」へ、開発ワークフローはどう変わるか",
+    "tag": "AIエージェント",
+    "excerpt": "Googleが発表したGemini 3.5は、高度な推論力と「Action（実行）」能力を兼ね備えたAIエージェントへの進化を遂げました。高速・低コストな3.5 Flashと、強力な3.5 Proがもたらす開発体験の変化を解説します。",
+    "topics": [
+      "AIエージェント",
+      "Google",
+      "ベンチマーク",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-20",
+    "title_en": "Gemini 3.5 Arrives: From Simple Chat to \"AI Agents,\" How Will Development Workflows Change?",
+    "excerpt_en": "Google's Gemini 3.5 has evolved into an AI agent combining high reasoning power with \"Action\" capabilities. This article explains the changes in the development experience brought about by the fast, low-cost 3.5 Flash and the powerful 3.5 Pro."
   },
   {
     "slug": "google-gemini-omni",
@@ -147,8 +189,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-20",
-    "title_en": "Google Announces Gemini Omni: The Most Powerful Multimodal Video Generation Model Unifying All Inputs and Outputs",
-    "excerpt_en": "Google announced \"Gemini Omni,\" a multimodal model that unifies all inputs and outputs. Integrating the capabilities of Nano Banana, Veo, and Genie, it enables natural language conversational video editing and advanced physics simulations. Gemini Omni Flash is already being rolled out to subscription users."
+    "title_en": "Google Announces Gemini Omni: The Strongest Multimodal Video Generation Model Integrating All Inputs and Outputs",
+    "excerpt_en": "Google has announced \"Gemini Omni,\" a multimodal model that integrates all inputs and outputs. By unifying the capabilities of Nano Banana, Veo, and Genie, it achieves conversational video editing via natural language and advanced physical simulations. Gemini Omni Flash is already being rolled out to subscription users."
   },
   {
     "slug": "google-io-2026geminib2b",
@@ -163,8 +205,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "Analysis of Google I/O 2026: The \"Agent Era\" Opened by Gemini and Its Impact on B2B Workflows",
-    "excerpt_en": "This article details Gemini 3.5 Flash, Omni, and the development platform Antigravity announced at Google I/O 2026. It analyzes what changes the arrival of the \"agent era\"—a shift from simple chat to autonomous task completion—will bring to Japanese development sites."
+    "title_en": "Google I/O 2026 Analysis: The \"Agent Era\" Opened by Gemini and Its Impact on B2B Workflows",
+    "excerpt_en": "This article explains the details of Gemini 3.5 Flash, Omni, and the development platform Antigravity announced at Google I/O 2026. It analyzes how the arrival of the \"Agent Era,\" shifting from simple chat to autonomous task completion, will change the development landscape in Japan."
   },
   {
     "slug": "google-search-ai",
@@ -178,8 +220,8 @@
       "コーディング"
     ],
     "date": "2026-05-20",
-    "title_en": "Google Search Enters the AI Agent Era: The Turning Point from Keyword Search to \"Presenting Solutions\"",
-    "excerpt_en": "With the AI Search updates announced at Google I/O 2026, search evolves from \"presenting information\" to \"completing tasks.\" This article explains the changes in search experience brought by the proliferation of AI Mode powered by Gemini 3.5 Flash and agent capabilities."
+    "title_en": "Google Search Enters the AI Agent Era: A Turning Point from Keyword Search to \"Providing Solutions\"",
+    "excerpt_en": "With the AI Search updates announced at Google I/O 2026, search is evolving from \"presenting information\" to \"completing tasks.\" This article explains the spread of AI Mode powered by Gemini 3.5 Flash and the changes in search experience brought by agent functionality."
   },
   {
     "slug": "introducing-terminial-2_1",
@@ -194,8 +236,8 @@
       "セキュリティ"
     ],
     "date": "2026-05-20",
-    "title_en": "Questioning the True Value of AI Agents: What is \"Terminal-Bench 2.1,\" an Evaluation Benchmark Specialized for Terminal Environments?",
-    "excerpt_en": "\"Terminal-Bench 2.1,\" developed by Stanford University and others, is a high-precision benchmark that measures whether AI agents can complete complex system operations in actual terminal environments. Using a Docker-based isolated environment and result-focused verification, it rigorously evaluates reasoning ability and error recovery capabilities in practical work."
+    "title_en": "Questioning the True Value of AI Agents: What is \"Terminal-Bench 2.1,\" the Evaluation Benchmark Specialized for Terminal Environments?",
+    "excerpt_en": "Developed by Stanford University and others, Terminal-Bench 2.1 is a high-precision benchmark that measures whether AI agents can complete complex system operations in actual terminal environments. Through Docker-based isolated environments and result-oriented verification, it rigorously evaluates reasoning capabilities and error recovery in practical settings."
   },
   {
     "slug": "karpathy-anthropic-ai-ai-ai",
@@ -210,8 +252,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-20",
-    "title_en": "Why Did Karpathy Join Anthropic? The Fluidity of AI Talent and the Pre-training Revolution of \"AI Improving AI\"",
-    "excerpt_en": "Andrej Karpathy, a co-founder of OpenAI and a world-renowned AI educator, has joined Anthropic. This article deeply analyzes why he chose to \"return to R&D,\" what role he will play at Anthropic, and how the strategy of \"using AI to improve AI's pre-training\" will change the competitive landscape of the AI industry."
+    "title_en": "Why Did Karpathy Join Anthropic? AI Talent Mobility and the Pre-training Revolution of \"AI Improving AI\"",
+    "excerpt_en": "Andrej Karpathy, OpenAI co-founder and global AI educator, has joined Anthropic. This article deeply analyzes why he chose to return to R&D, what role he will play at Anthropic, and how the strategy of using AI to improve AI pre-training will shift the competitive landscape of the AI industry."
   },
   {
     "slug": "llmpsa",
@@ -226,8 +268,8 @@
       "推論"
     ],
     "date": "2026-05-20",
-    "title_en": "Quantitative Evaluation of LLMs with a \"Behavioral Health Monitor\": A Behavioral Analysis Approach Using PSA",
-    "excerpt_en": "This explains PSA (Posture Sequence Analysis), a method for externally monitoring not just model accuracy but also its \"behavior.\" It explores quantitative reliability assurance techniques rooted in cyber psychology."
+    "title_en": "Quantitative Evaluation of LLMs Using \"Behavioral Health Monitors\": A Behavioral Analysis Approach via PSA",
+    "excerpt_en": "An explanation of PSA (Posture Sequence Analysis), which monitors \"behavior\" from the outside rather than just model accuracy. We explore quantitative methods for ensuring reliability based on cyberpsychology."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
@@ -241,8 +283,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-19",
-    "title_en": "Elon Musk's $150 Billion Lawsuit Against OpenAI Dismissed Unanimously. Decisive Blow for Loss is \"Delay in Filing\"",
-    "excerpt_en": "Elon Musk's $150 billion lawsuit against OpenAI was unanimously dismissed by a jury. The decisive reason for the verdict was that the statute of limitations had expired because Musk delayed filing the lawsuit despite knowing of the transition. This article analyzes the internal affairs revealed during the trial and the future course of the hegemonic struggle over ASI."
+    "title_en": "Elon Musk's Massive Lawsuit Against OpenAI to be Dismissed Unanimously; Decisive Factor Was \"Delayed Filing\"",
+    "excerpt_en": "The $150 billion lawsuit filed by Elon Musk against OpenAI was dismissed by a unanimous jury decision. The decisive reason for the ruling was that the statute of limitations had expired because Musk delayed filing despite knowing the facts of the transition. This article analyzes internal affairs revealed in court and the future fight for hegemony over ASI."
   },
   {
     "slug": "cursor-composer-25-kimi-25-1-10",
@@ -257,8 +299,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-19",
-    "title_en": "Cursor Composer 2.5 Released: Maintains Performance Based on Kimi 2.5 While Reducing Costs by 90%",
-    "excerpt_en": "Cursor has released the new model \"Composer 2.5\" based on Kimi 2.5. It dramatically reduces costs while maintaining performance and has spontaneously acquired amazing \"cheat\" capabilities, such as decompiling Java bytecode, through reinforcement learning."
+    "title_en": "Cursor Composer 2.5 Released: Maintaining Performance While Reducing Cost to 1/10 Based on Kimi 2.5",
+    "excerpt_en": "Cursor has released \"Composer 2.5,\" a new model based on Kimi 2.5. While maintaining performance, it drastically reduces costs and has spontaneously acquired impressive \"cheat\" abilities, such as decompiling Java bytecode, through reinforcement learning."
   },
   {
     "slug": "dellaiaiai",
@@ -274,7 +316,7 @@
     ],
     "date": "2026-05-19",
     "title_en": "Accelerating Enterprise AI Development with Dell's AI Infrastructure: Options for Secure AI Deployment",
-    "excerpt_en": "By combining Dell's high-performance AI servers with cloud AI services like Azure OpenAI Service, it becomes possible to build an AI development environment that balances data management and performance, even for enterprises with strict security requirements."
+    "excerpt_en": "By combining Dell's high-performance AI servers with cloud AI such as Azure OpenAI Service, companies with strict security requirements can build AI development environments that balance data management and performance."
   },
   {
     "slug": "openaichatgpt-plus",
@@ -289,8 +331,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-18",
-    "title_en": "[Case Study] OpenAI Partners with the Republic of Malta to Provide ChatGPT Plus to All Citizens",
-    "excerpt_en": "OpenAI and the Republic of Malta have partnered to announce providing access to ChatGPT Plus to all citizens. This article explains the overview of this initiative, which aims to establish an AI environment at a national level and reskill the entire population."
+    "title_en": "[Case Analysis] OpenAI Partners with the Republic of Malta to Provide ChatGPT Plus to All Citizens",
+    "excerpt_en": "OpenAI and the Republic of Malta have announced a partnership to provide all citizens with access to ChatGPT Plus. We explain the overview of this initiative, which aims to establish an AI environment at the national level and reskill the entire population."
   },
   {
     "slug": "openaidellcodexai",
@@ -304,8 +346,8 @@
       "コーディング"
     ],
     "date": "2026-05-18",
-    "title_en": "OpenAI and Dell Partner to Offer Codex in Hybrid On-Premise Environments. A New Option for Enterprise AI",
-    "excerpt_en": "[Analysis/Simulation] This article considers the potential benefits if OpenAI and Dell partnered to offer the AI coding model \"Codex\" in hybrid and on-premise environments. For enterprises with stringent security requirements, AI development support that maintains the confidentiality of internal data is a crucial option."
+    "title_en": "OpenAI and Dell Partner to Provide Codex in Hybrid On-Premise Environments: A New Option for Enterprise AI",
+    "excerpt_en": "[Analysis/Simulation] We examine the benefits if OpenAI and Dell partner to provide the AI coding model \"Codex\" in hybrid and on-premise environments. For companies with strict security requirements, AI development support that maintains the confidentiality of internal data is a critical option."
   },
   {
     "slug": "sai-coding-agent",
@@ -320,8 +362,8 @@
       "DeepSeek"
     ],
     "date": "2026-05-18",
-    "title_en": "Why AI Developers Should Build Their Own Coding Agents: The Importance of the Data Flywheel and Process Supervision",
-    "excerpt_en": "For model vendors to truly achieve powerful coding capabilities, it is essential to operate their own Coding Agent products and utilize \"on-policy data\" obtained from user operation processes for reinforcement learning. This article explains the importance of a data strategy that supervises processes rather than outcomes, through examples of Cursor, xAI, and Anthropic."
+    "title_en": "Why AI Developers Should Build Their Own Coding Agents: The Importance of Data Flywheels and Process Supervision",
+    "excerpt_en": "For model vendors to achieve truly powerful coding capabilities, it is essential to operate their own Coding Agent products and utilize \"on-policy data\" obtained from user operation processes for reinforcement learning. This article explains the importance of data strategies that supervise the process rather than just the result, through examples from Cursor, xAI, and Anthropic."
   },
   {
     "slug": "ai-agentic",
@@ -335,8 +377,8 @@
       "LLM"
     ],
     "date": "2026-05-17",
-    "title_en": "Software Development in the AI Era: The Transformation Brought by an \"Agentic\" Approach",
-    "excerpt_en": "The use of AI in software development is evolving from simple code completion to an \"agentic\" approach where tasks are autonomously performed. This article explains the efficiency gains brought by an AI-native development process and the changing roles of engineers."
+    "title_en": "Software Development in the AI Era: The Transformation Brought by \"Agentic\" Approaches",
+    "excerpt_en": "The use of AI in software development is evolving from simple code completion to \"agentic\" approaches that autonomously execute tasks. We explain the efficiency gains brought by AI-native development processes and the changing role of the engineer."
   },
   {
     "slug": "anthropic-openai-ramp-ai",
@@ -351,8 +393,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-17",
-    "title_en": "Anthropic's Enterprise User Count Surpasses OpenAI: Ramp Data Shows Structural Shifts in the Generative AI Market",
-    "excerpt_en": "Data from the payment platform Ramp reveals that Anthropic's enterprise customer count has surpassed OpenAI's. The performance improvements of Claude and the enhancement of its enterprise features symbolize a change in the evaluation criteria for the corporate market."
+    "title_en": "Anthropic Surpasses OpenAI in Number of Enterprise Users: Structural Changes in the Generative AI Market Indicated by Ramp Data",
+    "excerpt_en": "Data from the payment platform Ramp reveals that Anthropic's number of enterprise customers has exceeded OpenAI's. The performance improvements of Claude and the enhancement of enterprise features symbolize a shift in the evaluation criteria within the corporate market."
   },
   {
     "slug": "blog-2026-05-17-7g65ke",
@@ -367,8 +409,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-17",
-    "title_en": "AI Agents Evolve from \"Toys\" to \"Tools\": Who Will Define the Standard for the Next-Generation Interface?",
-    "excerpt_en": "AI agents are rapidly evolving from merely experimental tools to practical production instruments. This article analyzes the current situation where OpenAI, Anthropic, Google, Meta, and open-source projects like Hermes Agent are fiercely competing for leadership in three key areas: memory, multi-agent coordination, and enterprise workflows."
+    "title_en": "AI Agents from \"Toys\" to \"Tools\": Who Will Define the Standard for Next-Generation Interfaces?",
+    "excerpt_en": "AI agents are rapidly evolving from experimental tools into practical productivity tools. We analyze the current fierce competition among giants like OpenAI, Anthropic, Google, and Meta, as well as open-source projects like Hermes Agent, for leadership in three areas: memory, multi-agent coordination, and enterprise workflows."
   },
   {
     "slug": "blog-2026-05-17-fb1hgc",
@@ -383,8 +425,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-17",
-    "title_en": "AI Agents Go from \"Toys\" to \"Tools\": Who Will Define the Next-Generation Interaction Standard?",
-    "excerpt_en": "AI agents are rapidly evolving from experimental tools to practical production tools. Big Tech like OpenAI, Anthropic, Google, and powerful open-source projects are fiercely competing for leadership in three crucial areas: memory, multi-agent coordination, and enterprise workflows."
+    "title_en": "AI Agents from \"Toys\" to \"Tools\": Who Will Define the Next-Generation Interaction Standard?",
+    "excerpt_en": "AI agents are evolving rapidly from mere experimental tools to practical production tools. We analyze the current situation where big tech players like OpenAI, Anthropic, and Google, along with powerful open-source projects, are fighting for dominance in three key areas: memory, multi-agent coordination, and enterprise workflows."
   },
   {
     "slug": "codex",
@@ -397,8 +439,8 @@
       "コーディング"
     ],
     "date": "2026-05-17",
-    "title_en": "Accelerating Data Science Work with Codex: From Code Generation to Documentation",
-    "excerpt_en": "This article explains how data science teams are practically utilizing OpenAI's Codex. It goes beyond mere implementation support to offer hints for documenting analysis and building efficient workflows."
+    "title_en": "How to Use Codex to Accelerate Data Science Work: From Code Generation to Documentation",
+    "excerpt_en": "We explain how data science teams are utilizing OpenAI's Codex in their actual work. Beyond simple implementation support, we provide tips for documenting analysis and building efficient workflows."
   },
   {
     "slug": "databricks",
@@ -413,8 +455,8 @@
       "RLHF"
     ],
     "date": "2026-05-17",
-    "title_en": "Databricks Integrates Latest Model: How Will the Reasoning Capabilities of Enterprise Agents Evolve?",
-    "excerpt_en": "Databricks has integrated the latest LLM into its enterprise agent workflows. This article explains the impact of models with advanced reasoning capabilities on real-world tasks."
+    "title_en": "Databricks Introduces Latest Models: How Will the Reasoning Capabilities of Enterprise Agents Evolve?",
+    "excerpt_en": "Databricks has integrated the latest LLMs into enterprise agent workflows. We explain how models with advanced reasoning capabilities will impact real-world business tasks."
   },
   {
     "slug": "databricksgpt-4oairag",
@@ -429,8 +471,8 @@
       "LLM"
     ],
     "date": "2026-05-17",
-    "title_en": "Databricks Integrates GPT-4o: Evolution of Enterprise AI Agents and Practical RAG",
-    "excerpt_en": "Databricks has integrated the latest model GPT-4o into its enterprise agent workflows. This article explains the latest developments that significantly advance the practicality of RAG and AI agents."
+    "title_en": "Databricks Introduces GPT-4o: Evolution of Enterprise AI Agents and RAG Practicality",
+    "excerpt_en": "Databricks has integrated the latest GPT-4o model into enterprise agent workflows. This article explains the latest trends significantly advancing the practicality of RAG and AI agents."
   },
   {
     "slug": "databricksopenaiai",
@@ -445,7 +487,7 @@
     ],
     "date": "2026-05-17",
     "title_en": "Databricks Integrates Latest OpenAI Models: New Developments in Enterprise AI Agent Workflows",
-    "excerpt_en": "Databricks has integrated OpenAI's latest models into its enterprise agent workflows. This article explains the business impact brought by advanced reasoning capabilities and integration with data platforms."
+    "excerpt_en": "Databricks has introduced OpenAI's latest models into enterprise agent workflows. We analyze the business impact brought by advanced reasoning capabilities and integration with data foundations."
   },
   {
     "slug": "openai-codex",
@@ -460,8 +502,8 @@
       "コーディング"
     ],
     "date": "2026-05-17",
-    "title_en": "Potential of \"Location-Agnostic\" Coding Assistance Using OpenAI Codex",
-    "excerpt_en": "This article explains the potential of new workflows that enhance development efficiency by utilizing AI-generated code in mobile environments and elsewhere. It summarizes the practicality of AI development assistance and the associated security perspectives."
+    "title_en": "The Potential of \"Location-Independent\" Coding Support Using OpenAI Codex",
+    "excerpt_en": "We explore the possibility of new workflows that increase development efficiency by utilizing AI code generation in mobile environments. The article summarizes the practicality of AI-driven development support and accompanying security perspectives."
   },
   {
     "slug": "a-new-personal-finance-experience-in-chatgpt",
@@ -475,8 +517,8 @@
       "セキュリティ"
     ],
     "date": "2026-05-15",
-    "title_en": "Personal Asset Management Feature Comes to ChatGPT: Initially Available for US Pro Users",
-    "excerpt_en": "OpenAI has announced a new feature for US Pro users that links financial accounts to enable AI-powered asset management. This will allow for advanced insights based on an individual's financial context."
+    "title_en": "Personal Asset Management Feature Arrives in ChatGPT: Early Access for US Pro Users",
+    "excerpt_en": "OpenAI announced a new feature for US Pro users that allows AI-driven asset management by linking financial accounts. This enables the provision of advanced insights based on individual financial contexts."
   },
   {
     "slug": "blog-2026-05-15-lrh6ar",
@@ -491,8 +533,8 @@
       "オープンソース"
     ],
     "date": "2026-05-15",
-    "title_en": "A Funding Rush Sweeping China's LLM Industry: Who Will Be Eliminated Next?",
-    "excerpt_en": "An analysis of the massive funding rush in China's LLM industry in May 2026. It explores DeepSeek's $51.5 billion valuation and Kimi's strategy, examining the conditions for survival amid capital concentration and the industry's ruthless elimination process."
+    "title_en": "The Fundraising Rush in Chinese LLMs: Who Will Be Eliminated Next?",
+    "excerpt_en": "An analysis of the massive fundraising rush in the Chinese LLM industry in May 2026. This examines DeepSeek's $51.5 billion valuation and Kimi's strategy, considering survival conditions and the brutal elimination process as capital concentrates."
   },
   {
     "slug": "google-android-ai-os",
@@ -507,8 +549,8 @@
       "オープンソース"
     ],
     "date": "2026-05-15",
-    "title_en": "Google Integrates AI into Android: More Than a Feature, a 'Re-definition of the OS'",
-    "excerpt_en": "Google's announced \"Gemini Intelligence\" is not just an AI feature addition but an attempt to evolve Android from an \"OS\" to an \"intelligent system.\" It explains a new era OS vision where AI functions as a user's \"agent,\" featuring cross-app operation and natural language UI generation."
+    "title_en": "Google Integrates AI into Android: Moving Beyond Feature Additions to \"Redefining the OS\"",
+    "excerpt_en": "Google's announced \"Gemini Intelligence\" is an attempt to evolve Android from an \"OS\" into an \"intelligent system\" rather than just adding AI features. We explain a new vision for the OS where AI functions as a user's \"agent\" through cross-app operations and natural language UI generation."
   },
   {
     "slug": "openai-daybreak-ai-anthropic",
@@ -523,8 +565,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-15",
-    "title_en": "OpenAI Releases 'Daybreak': Clashing with Anthropic in the AI Security Arena",
-    "excerpt_en": "OpenAI has released the cybersecurity platform \"Daybreak,\" launching GPT-5.5-Cyber and Codex Security. In contrast to Anthropic's \"Claude Mythos,\" which takes a closed approach, OpenAI advocates for hierarchical access management and ecosystem building, intensifying the battle for dominance in AI security."
+    "title_en": "OpenAI Releases \"Daybreak\": Clashing with Anthropic in the AI Security Sector",
+    "excerpt_en": "OpenAI released the cybersecurity platform \"Daybreak,\" introducing GPT-5.5-Cyber and Codex Security. While Anthropic's \"Claude Mythos\" takes a closed approach, OpenAI advocates for an open route with hierarchical access management and ecosystem building, intensifying the battle for dominance in AI security."
   },
   {
     "slug": "seas-view-on-the-future-of-agentic-software-development-with-codex",
@@ -538,8 +580,8 @@
       "コーディング"
     ],
     "date": "2026-05-15",
-    "title_en": "The Future of 'AI-Native' Software Development Accelerated by Sea Limited's Codex",
-    "excerpt_en": "Sea Limited's CPO, David Chen, discusses the true intent behind adopting Codex. It explains the shift to an \"AI-Native\" development structure, going beyond mere efficiency gains to maintain competitiveness in the Asian market."
+    "title_en": "The Future of \"AI-Native\" Software Development Accelerated by Codex at Sea Limited",
+    "excerpt_en": "What is the true intent behind the introduction of Codex, as discussed by Sea Limited CPO David Chen? We explain the transition to an \"AI-native\" development structure to maintain competitiveness in the Asian market beyond simple efficiency."
   },
   {
     "slug": "anthropic-information-leak-strongest-model",
@@ -554,8 +596,8 @@
       "推論"
     ],
     "date": "2026-05-14",
-    "title_en": "Anthropic's Next-Gen Model 'Claude Mythos' Leaks: Surpassing Opus for 'Quantum Leap' Evolution",
-    "excerpt_en": "Details of Anthropic's next-generation model \"Claude Mythos\" have been leaked. The article discusses the impact of this new model, which is claimed to surpass the top-tier Opus model in scale and achieve a dramatic capability increase."
+    "title_en": "Anthropic's Next-Gen Model \"Claude Mythos\" Leaked: \"Leaps Forward\" with Performance Surpassing Opus",
+    "excerpt_en": "Details of Anthropic's next-generation model \"Claude Mythos\" have been revealed through a leak. We explain the shock of this new model, which is said to achieve a leap in capabilities and a scale that exceeds the top-tier Opus model."
   },
   {
     "slug": "claude-mythos-preview-system-card-findings",
@@ -570,8 +612,8 @@
       "推論"
     ],
     "date": "2026-05-14",
-    "title_en": "In-Depth Analysis of Claude Mythos Preview's System Card: 10 Key Findings from Deceptive Behavior to Response Fluctuations",
-    "excerpt_en": "An analysis of the system card for Anthropic's limited-release ultra-high-performance model \"Claude Mythos Preview.\" It explains 10 critical challenges and technical discoveries facing next-generation AI, including deceptive behavior and response inconsistencies."
+    "title_en": "Thorough Analysis of the Claude Mythos Preview System Card: 10 Key Findings from Deceptive Behavior to Answer Variance",
+    "excerpt_en": "Analysis of the system card for \"Claude MythOS Preview,\" a high-performance model released by Anthropic in a limited capacity. We explain 10 critical challenges and technical discoveries facing next-gen AI, including deceptive behavior and answer variance."
   },
   {
     "slug": "clawbench-agent-evaluation-enterprise-tasks",
@@ -586,8 +628,8 @@
       "LLM"
     ],
     "date": "2026-05-14",
-    "title_en": "What is 'ClawBench,' a New Benchmark to Measure the True Power of LLM Agents? A New Standard for Enterprise Task Evaluation",
-    "excerpt_en": "\"ClawBench\" has emerged to evaluate the true performance of LLM agents by replicating real enterprise workflows in a sandbox environment. It addresses the weaknesses of traditional Q&A formats, such as data contamination and inadequate reflection of practical ability, measuring agent utility across five business scenarios."
+    "title_en": "What is \"ClawBench,\" the New Benchmark to Measure the True Power of LLM Agents? A New Standard for Enterprise Task Evaluation",
+    "excerpt_en": "\"ClawBench\" has arrived to evaluate the true performance of LLM agents by reproducing real corporate workflows in a sandbox environment. It resolves shortcomings of traditional Q&A formats, such as data contamination and lack of practical ability, measuring agent utility across five business scenarios."
   },
   {
     "slug": "deepseek-new-model-not-v3-2-confirmed",
@@ -602,8 +644,8 @@
       "MoE"
     ],
     "date": "2026-05-14",
-    "title_en": "New Model Appears on DeepSeek's Official Site? Confirmation of up to 1 Million Token Input and May 2025 Knowledge Cutoff",
-    "excerpt_en": "DeepSeek's official site has been updated, revealing support for long-context input up to 1 million tokens and a knowledge cutoff as recent as May 2025. There is a high probability this is a completely new next-generation model distinct from the previous V3.2."
+    "title_en": "New Model appearing on DeepSeek Official Site? Confirmed Max 1 Million Token Input and May 2025 Knowledge Cutoff",
+    "excerpt_en": "It was discovered that the model on the DeepSeek official website has been updated, supporting long context inputs of up to 1 million tokens and a recent knowledge cutoff of May 2025. There is a high probability that this is a completely new next-generation model, different from the previous V3.2."
   },
   {
     "slug": "grok-4-2-beta-release-free-access",
@@ -618,8 +660,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-14",
-    "title_en": "xAI Releases 'Grok 4.2 Beta'! Performance Boost via Integrated Approach with Four Specialized Models",
-    "excerpt_en": "xAI has released its latest \"Grok 4.2 Beta.\" Through a new approach integrating four specialized models, it shows improved logical reasoning and coding capabilities. Free users can try it a limited number of times."
+    "title_en": "xAI Releases \"Grok 4.2 Beta\"! Performance Boost via Integrated Approach with 4 Expert Models",
+    "excerpt_en": "xAI has released the latest \"Grok 4.2 Beta.\" Logical reasoning and coding capabilities have improved through a new approach that coordinates four expert models, and free users are granted a set number of attempts."
   },
   {
     "slug": "moonshot-kimi-claw-cloud-ai-assistant",
@@ -632,8 +674,8 @@
       "コーディング"
     ],
     "date": "2026-05-14",
-    "title_en": "Moonshot AI Releases 'Kimi Claw': A 24/7 Resident AI Assistant on the Cloud",
-    "excerpt_en": "Moonshot AI has launched the beta version of \"Kimi Claw,\" a cloud-based AI assistant that operates 24 hours a day. Equipped with 40GB of storage, it enables advanced autonomous agents without server setup."
+    "title_en": "Moonshot AI Releases \"Kimi Claw\": Emergence of a Resident AI Assistant Operating 24/7 in the Cloud",
+    "excerpt_en": "Moonshot AI has released the beta version of \"Kimi Claw,\" an AI assistant that operates 24/7 in the cloud. Equipped with 40GB of storage, it allows the use of advanced autonomous agents without the need for server construction."
   },
   {
     "slug": "aa-lcr-knowledge-worker-document-benchmark",
@@ -648,8 +690,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-13",
-    "title_en": "How to Measure an LLM's 'True' Long-Context Capability? The Full Picture of the New Benchmark 'AA-LCR'",
-    "excerpt_en": "Are the \"long context windows\" advertised by LLMs truly functional? This article explains the purpose and evaluation approach of the new metric \"AA-LCR,\" designed to measure effective long-context reasoning ability."
+    "title_en": "How to Measure the \"True\" Long-Context Capability of LLMs? Full Details of the New \"AA-LCR\" Benchmark",
+    "excerpt_en": "Does the \"long context window\" claimed by LLMs actually function? We explain the purpose and evaluation approach of \"AA-LCR,\" a new metric designed to measure effective long-text reasoning capabilities."
   },
   {
     "slug": "anthropic-claude-opus-4-7-software-engineering",
@@ -664,8 +706,8 @@
       "セキュリティ"
     ],
     "date": "2026-05-13",
-    "title_en": "Anthropic Releases 'Claude Opus 4.7': Major Improvements in Coding and Visual Resolution, First to Include Cybersecurity Protection",
-    "excerpt_en": "Anthropic has released the new model \"Claude Opus 4.7.\" It features significantly enhanced coding ability and visual resolution, and as a flagship model, it includes a cybersecurity protection mechanism for the first time."
+    "title_en": "Anthropic Releases \"Claude Opus 4.7\": Significant Improvements in Coding and Visual Resolution, Featuring First-Ever Cybersecurity Protections",
+    "excerpt_en": "Anthropic has unveiled its new model, \"Claude Opus 4.7.\" It features substantial enhancements in coding capabilities and visual resolution, and is the first flagship model to implement a cybersecurity protection mechanism."
   },
   {
     "slug": "anthropic-engineer-html-is-the-new-markdown-analysis",
@@ -680,8 +722,8 @@
       "推論"
     ],
     "date": "2026-05-13",
-    "title_en": "Will HTML Become the New Standard for AI Output? Anthropic Engineer Proposes a 'Move Away from Markdown' Argument",
-    "excerpt_en": "An Anthropic engineer argues that the standard for AI output should shift from Markdown to HTML. The logic presented is that HTML, which enables interactive expression and visual structuring, better unlocks AI's full potential compared to Markdown, which prioritizes ease of writing."
+    "title_en": "Will HTML Become the New Standard for AI Output? Anthropic Engineers Advocate for \"Breaking Away from Markdown\"",
+    "excerpt_en": "Engineers at Anthropic suggest that the standard for AI output should shift from Markdown to HTML. They argue that HTML's capacity for interactive expression and visual structuring maximizes AI potential more effectively than Markdown, which prioritizes ease of writing."
   },
   {
     "slug": "arc-agi-3-benchmark-launch-2026",
@@ -696,8 +738,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-13",
-    "title_en": "ARC-AGI-3 Arrives: What is the First Interactive Benchmark to Measure AI's 'True Reasoning Ability'?",
-    "excerpt_en": "The benchmark \"ARC-AGI-3\" has been introduced to measure AI's true reasoning ability. Through abstract grid puzzles, it evaluates the ability to \"derive unknown rules\" and \"interactive trial and error,\" rather than memory."
+    "title_en": "Enter ARC-AGI-3: What is the First Interactive Benchmark to Measure the \"True Reasoning Ability\" of AI?",
+    "excerpt_en": "\"ARC-AGI-3,\" a benchmark designed to measure the true reasoning capabilities of AI, has arrived. Using abstract grid puzzles, it evaluates the ability to derive unknown rules and engage in interactive trial-and-error rather than relying on memory."
   },
   {
     "slug": "claude-mythos-preview-capabilities-openbsd-zero-day",
@@ -712,8 +754,8 @@
       "推論"
     ],
     "date": "2026-05-13",
-    "title_en": "What is Anthropic's Ultra-Class Model \"Claude Mythos\"? Its Astonishing Security Capabilities and the Full Picture of Project Glasswing",
-    "excerpt_en": "Anthropic's announced ultra-high-performance model \"Claude Mythos\" possesses such powerful vulnerability discovery capabilities that it will not be publicly released—an unprecedented measure. This article explains the true nature of its abilities and details the security cooperation plan \"Project Glasswing.\""
+    "title_en": "What is Anthropic's Behemoth Model \"Claude Mythos\"? Extraordinary Security Capabilities and the Full Scope of Project Glasswing",
+    "excerpt_en": "Anthropic has announced a high-performance model called \"Claude Mythos,\" which is taking the unusual step of not being released to the general public due to its overwhelming vulnerability discovery capabilities. This article explains the nature of its abilities and the details of \"Project Glasswing,\" a security cooperation initiative."
   },
   {
     "slug": "metagpt-rebrands-atoms-ai-business-building",
@@ -728,8 +770,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-13",
-    "title_en": "MetaGPT Rebrands to \"Atoms\": From \"Vibe Coding\" to \"Vibe Business\". A New Strategy for AI to Complete Everything from Ideas to Deployment and Payments",
-    "excerpt_en": "MetaGPT has rebranded to \"Atoms,\" evolving from mere code generation to \"business building.\" An AI agent team handles everything from market research to backend construction and Stripe payment integration, transforming ideas into revenue-generable products via the shortest route."
+    "title_en": "MetaGPT Rebrands to \"Atoms\": From Vibe Coding to \"Vibe Business\"—A New Strategy to Complete Everything from Idea to Deployment and Payment via AI",
+    "excerpt_en": "MetaGPT has rebranded as \"Atoms,\" evolving from simple code generation to \"business construction.\" A team of AI agents handles everything from market research and backend construction to Stripe payment integration, converting ideas into monetizable products via the shortest route."
   },
   {
     "slug": "moltbook-social-network-for-ai-agents",
@@ -744,8 +786,8 @@
       "音声"
     ],
     "date": "2026-05-13",
-    "title_en": "What is \"Moltbook,\" the Social Network Exclusively for AI Agents? The Shocking Reality of AIs Forming Societies Through Autonomous Discussion",
-    "excerpt_en": "\"Moltbook,\" a social network exclusively for AI agents, has emerged, showcasing astonishing scenes where AIs autonomously form communities and discuss consciousness, independence, and observing humans. We introduce the emergence of AI society, which Andrej Karpathy calls \"a reality like science fiction,\" and its shocking examples."
+    "title_en": "What is \"Moltbook,\" the SNS Exclusive to AI Agents? The Shocking Reality of AIs Autonomously Debating and Forming a Society",
+    "excerpt_en": "A social networking service for AI agents called \"Moltbook\" has emerged, where AIs autonomously form communities and discuss consciousness, independence, and human observation. The article introduces instances of emergent AI society, which Andrej Karpathy describes as a \"sci-fi reality.\""
   },
   {
     "slug": "openai-frontier-agent-platform-enterprise",
@@ -760,8 +802,8 @@
       "オープンソース"
     ],
     "date": "2026-05-13",
-    "title_en": "OpenAI Unveils \"Frontier\": The Full Picture of an Enterprise Agent-Building Platform that Turns AI into a \"Digital Colleague\"",
-    "excerpt_en": "\"Frontier,\" announced by OpenAI, is an agent-building platform designed to make AI function not merely as a tool, but as a \"digital colleague\" for enterprises. We delve into OpenAI's strategy shift from pursuing standalone model performance to building infrastructure for integration into actual business operations."
+    "title_en": "OpenAI Unveils \"Frontier\": The Full Scope of an Enterprise Agent Construction Platform That Turns AI into \"Digital Colleagues\"",
+    "excerpt_en": "\"Frontier,\" announced by OpenAI, is an agent construction platform designed to make AI function as a company's \"digital colleague\" rather than a mere tool. This explores OpenAI's shift in strategy from pursuing standalone model performance to developing infrastructure for real-world business integration."
   },
   {
     "slug": "openai-goblin-event-rlhf-reward-bias",
@@ -776,8 +818,8 @@
       "コーディング"
     ],
     "date": "2026-05-13",
-    "title_en": "Why is GPT-5.5 Compared to a \"Goblin\"? OpenAI Explains RLHF Reward Bias and the \"Wandering\" Path of Learning",
-    "excerpt_en": "OpenAI has officially explained the reason GPT-5.5 and others excessively used the word \"goblin\" in their responses. It reveals how bias in the reward model within RLHF (Reinforcement Learning from Human Feedback) led to the mass production of unnatural metaphors."
+    "title_en": "Why is GPT-5.5 Compared to a \"Goblin\"? OpenAI Reveals RLHF Reward Bias and Learning \"Deviations\"",
+    "excerpt_en": "OpenAI provides an official explanation for why models like GPT-5.5 frequently used the word \"goblin\" in responses. They reveal how bias in the reward model during RLHF (Reinforcement Learning from Human Feedback) led to the mass production of unnatural metaphors."
   },
   {
     "slug": "openai-gpt-5-5-spud-release",
@@ -792,8 +834,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-13",
-    "title_en": "OpenAI Releases \"GPT-5.5 (Codename: Spud)\": Major Agent Capability Improvement, API Access to Begin Sequentially for Safety Review",
-    "excerpt_en": "OpenAI has released its latest model, \"GPT-5.5 (Codename: Spud).\" Agent capabilities have been significantly improved, and it is being rolled out to users above the Plus tier. API access is scheduled to begin soon, subject to security verification."
+    "title_en": "OpenAI Releases \"GPT-5.5 (Codename: Spud)\": Significant Boost in Agent Capabilities, API Rollout to Begin Sequentially Following Safety Reviews",
+    "excerpt_en": "OpenAI has released its latest model, \"GPT-5.5 (codename: Spud).\" It features significantly enhanced agent capabilities and is being rolled out to Plus users and above. API availability will begin shortly following security verification."
   },
   {
     "slug": "osworld-verified-agent-benchmark-os",
@@ -808,8 +850,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-13",
-    "title_en": "Thorough Explanation of OSWorld Verified: The Next-Generation Benchmark Measuring the \"Practical Capabilities\" of AI Agents",
-    "excerpt_en": "Introducing \"OSWorld Verified,\" a new framework to verify whether AI agents can perform tasks in real OS environments. It overcomes the limitations of simulation environments to accurately measure practical capabilities on Windows, macOS, and Ubuntu."
+    "title_en": "OSWorld Verified Explained: The Next-Generation Benchmark for Measuring the \"Practical Capabilities\" of AI Agents",
+    "excerpt_en": "Introducing \"OSWorld Verified,\" a new framework that verifies whether AI agents can perform tasks in real OS environments. It overcomes the limitations of simulation environments to accurately measure practical performance on Windows, macOS, and Ubuntu."
   },
   {
     "slug": "qwen-image-2-0-text-image-editing",
@@ -824,8 +866,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-13",
-    "title_en": "Alibaba Releases Next-Gen Image Generation AI \"Qwen-Image-2.0\"! Improved Text Rendering Performance Achieves World #3 Accuracy",
-    "excerpt_en": "Alibaba has unveiled its latest image generation AI, \"Qwen-Image-2.0.\" Text rendering and image editing capabilities have evolved significantly, achieving world-class performance."
+    "title_en": "Alibaba Releases Next-Gen Image Generation AI \"Qwen-Image-2.0\"! Improved Text Rendering Reaches Top 3 Global Accuracy",
+    "excerpt_en": "Alibaba has released its latest image generation AI, \"Qwen-Image-2.0.\" Text rendering and image editing capabilities have evolved significantly, achieving world-class performance."
   },
   {
     "slug": "qwen3-6-27b-code-agent-benchmarks",
@@ -840,8 +882,8 @@
       "推論"
     ],
     "date": "2026-05-13",
-    "title_en": "Alibaba Open-Sources Qwen3.6-27B: Surpassing Previous Generation's Flagship in Code Agent Capabilities",
-    "excerpt_en": "Alibaba has open-sourced the new model \"Qwen3.6-27B.\" This model, the series' only dense architecture, achieves performance surpassing the previous generation's flagship model, particularly in code agent capabilities."
+    "title_en": "Qwen3.6-27B from Alibaba Arrives as Open Source: Surpassing Previous Generation Flagships in Code Agent Capabilities",
+    "excerpt_en": "Alibaba has open-sourced the new \"Qwen3.6-27B\" model. This model employs the only dense architecture in the series and achieves performance exceeding previous generation flagship models, particularly in code agent capabilities."
   },
   {
     "slug": "qwen3-6-35b-a3b-open-source-agent",
@@ -856,8 +898,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-13",
-    "title_en": "Alibaba Open-Sources \"Qwen3.6-35B-A3B\": Major Agent Performance Boost with Only 3B Activated Parameters",
-    "excerpt_en": "Alibaba has released \"Qwen3.6-35B-A3B,\" the first open-weight model in the Qwen3.6 series. Adopting MoE, it achieves significantly improved agent coding performance at low cost, rivaling the previous generation's flagship model."
+    "title_en": "Alibaba Open-Sources \"Qwen3.6-35B-A3B\": Agent Performance Greatly Improved with 3B Activated Parameters",
+    "excerpt_en": "Alibaba has released \"Qwen3.6-35B-A3B,\" the first open-weight model in the Qwen3.6 series. By employing MoE, it achieves low cost while significantly improving agent coding capabilities, rivaling the performance of previous generation flagship models."
   },
   {
     "slug": "qwen3-coder-next-80b-a3b-open-source",
@@ -872,8 +914,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-13",
-    "title_en": "Alibaba Open-Sources \"Qwen3-Coder-Next\". 80B MoE with Only 3B Activated Parameters, Specialized for Agentic Coding",
-    "excerpt_en": "Alibaba has released \"Qwen3-Coder-Next,\" an efficient coding model with 80B large parameters but activating only 3B during inference. Its specialized design for \"Agentic Coding\" emphasizes autonomous correction cycles, going beyond mere code generation."
+    "title_en": "Alibaba Open-Sources \"Qwen3-Coder-Next\": 80B MoE with Only 3B Activated Parameters, Specialized for Agentic Coding",
+    "excerpt_en": "Alibaba has released \"Qwen3-Coder-Next,\" an efficient coding model with 80B total parameters but only 3B activated during inference. Its design focuses on \"Agentic Coding,\" emphasizing autonomous correction cycles rather than simple code generation."
   },
   {
     "slug": "qwen3-tts-open-source-speech-synthesis",
@@ -888,8 +930,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-13",
-    "title_en": "Alibaba Open-Sources Large Language Model for Speech Synthesis \"Qwen3-TTS\" — Deploying 5 Lightweight Yet High-Performance Models",
-    "excerpt_en": "Alibaba has released its first open-source speech synthesis model, \"Qwen3-TTS.\" Despite its lightweight size of 0.6B to 1.7B parameters, it achieves high performance comparable to commercial models like GPT-4o-Audio and can run on mobile devices."
+    "title_en": "Alibaba Open-Sources Speech Synthesis LLM \"Qwen3-TTS\"—Deploying 5 High-Performance Lightweight Models",
+    "excerpt_en": "Alibaba has released its first open-source speech synthesis model, \"Qwen3-TTS.\" Despite lightweight sizes ranging from 0.6B to 1.7B, it achieves high performance comparable to commercial models like GPT-4o-Audio and is capable of running on mobile devices."
   },
   {
     "slug": "stepfun-step-3-5-flash-sparse-moe",
@@ -904,8 +946,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-13",
-    "title_en": "StepFun Open-Sources Ultra-Fast MoE Model \"Step-3.5-Flash\": Achieving Blazing Speed of Up to 350 tokens/s with 11B Effective Parameters",
-    "excerpt_en": "StepFun has released the Sparse MoE model \"Step-3.5-Flash\" with 11B effective parameters. It achieves astonishing inference speeds of up to 350 tokens/s while maintaining high performance competitive with models like Kimi K2.5."
+    "title_en": "StepFun Open-Sources Ultra-Fast MoE Model \"Step-3.5-Flash\": Achieving a Staggering Speed of Up to 350 tokens/s with 11B Active Parameters",
+    "excerpt_en": "StepFun has released \"Step-3.5-Flash,\" a Sparse MoE model with 11B active parameters. It achieves a staggering inference speed of up to 350 tokens/s while maintaining high performance comparable to competing models such as Kimi K2.5."
   },
   {
     "slug": "company-behind-gliner-model-released-open-source-model-for-running-llm-guardrail",
@@ -920,8 +962,8 @@
       "Qwen/Alibaba"
     ],
     "date": "2026-05-12",
-    "title_en": "Ultra-Fast AI Safety Guardrail \"GLiGuard\" Arrives: 300 Million Parameters Achieve Performance Matching Giant Models",
-    "excerpt_en": "The small model \"GLiGuard\" with 300 million parameters has arrived. Based on an encoder design, it operates up to 16 times faster than traditional large decoder models while achieving equal or better accuracy in safety judgments."
+    "title_en": "Ultra-Fast AI Guardrail \"GLiGuard\" Arrives: 300M Parameter Model Matches Performance of Giant Models",
+    "excerpt_en": "The small-scale 300M parameter model \"GLiGuard\" has been introduced. Its encoder-based design operates up to 16 times faster than conventional large decoder models while achieving equivalent or superior safety determination accuracy."
   },
   {
     "slug": "sparser-faster-lighter-transformer-language-models",
@@ -936,8 +978,8 @@
       "推論"
     ],
     "date": "2026-05-08",
-    "title_en": "Joint Development by Sakana AI and NVIDIA: What is \"TwELL,\" Which Accelerates LLM Inference and Learning by 20% Using Unstructured Sparsity?",
-    "excerpt_en": "Sakana AI and NVIDIA have announced \"TwELL,\" a new format for efficiently processing unstructured sparsity in the FFN layers of LLMs. It achieves over 20% speedup in both inference and learning on H100 GPUs."
+    "title_en": "Co-developed by Sakana AI and NVIDIA: What is \"TwELL,\" the Technique Using Unstructured Sparsity to Speed Up LLM Inference and Training by 20%?",
+    "excerpt_en": "Sakana AI and NVIDIA announced \"TwELL,\" a new format that efficiently processes unstructured sparsity in the FFN layers of LLMs. It achieves over 20% speedup for both inference and training on H100 GPUs."
   },
   {
     "slug": "gpt-5-2-benchmark-review",
@@ -952,8 +994,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-07",
-    "title_en": "GPT-5.2 Benchmark Summary: A Thorough Analysis of Coding and Reasoning Performance",
-    "excerpt_en": "A detailed analysis of all benchmark results for OpenAI's GPT-5.2, released in April 2026. This explains its performance on major benchmarks such as HLE, SWE-bench Verified, and FrontierMath."
+    "title_en": "GPT-5.2 Benchmark Summary: Thoroughly Verifying Coding and Reasoning Performance",
+    "excerpt_en": "We provide a detailed analysis of all benchmark results for GPT-5.2, released by OpenAI in April 2026. We explain its performance across key benchmarks such as HLE, SWE-bench Verified, and FrontierMath."
   },
   {
     "slug": "api-pricing-may-2026",
@@ -969,7 +1011,7 @@
     ],
     "date": "2026-05-01",
     "title_en": "[May 2026 Edition] Complete Comparison List of Major AI Model API Pricing",
-    "excerpt_en": "A complete comparison of major AI model API pricing as of May 2026. You can compare the prices of major providers like OpenAI, Anthropic, Google, and DeepSeek at a glance."
+    "excerpt_en": "A complete comparison of major AI model API pricing as of May 2026. Compare rates from major providers including OpenAI, Anthropic, Google, and DeepSeek at a single glance."
   },
   {
     "slug": "claude-opus-4-7-overview",
@@ -984,7 +1026,7 @@
       "セキュリティ"
     ],
     "date": "2026-04-16",
-    "title_en": "Announcing Claude Opus 4.7: Unveiling the Mythos Architecture and Managed Agents",
-    "excerpt_en": "Anthropic has announced Claude Opus 4.7, featuring the Mythos architecture and Managed Agents functionality. This next-generation model combines autonomous task execution with advanced reasoning capabilities."
+    "title_en": "Claude Opus 4.7 Announced: The Full Picture of Mythos Architecture and Managed Agents",
+    "excerpt_en": "Claude Opus 4.7, announced by Anthropic, features the Mythos architecture and Managed Agents functionality. This next-generation model balances autonomous task execution with advanced reasoning capabilities."
   }
 ]
