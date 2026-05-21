@@ -33,13 +33,13 @@ function loadPostFromFile(filepath: string, slug: string): BlogPost | null {
 
 export function getAllPosts(locale: string = 'ja'): BlogPost[] {
   if (locale === 'en') {
-    // EN: only return posts that have actual EN translations
-    if (!fs.existsSync(blogEnDir)) return [];
-    const files = fs.readdirSync(blogEnDir).filter((f) => f.endsWith('.md'));
+    // EN listing: return all JA posts (listing page uses manifest for EN titles)
+    // Detail page will use getPostBySlug which tries EN first, falls back to JA
+    const files = fs.readdirSync(blogDir).filter((f) => f.endsWith('.md'));
     return files
       .map((file) => {
         const slug = file.replace(/\.md$/, '');
-        return loadPostFromFile(path.join(blogEnDir, file), slug);
+        return loadPostFromFile(path.join(blogDir, file), slug);
       })
       .filter((p): p is BlogPost => p !== null)
       .sort((a, b) => (a.date > b.date ? -1 : 1));
@@ -58,9 +58,10 @@ export function getAllPosts(locale: string = 'ja'): BlogPost[] {
 
 export function getPostBySlug(slug: string, locale: string = 'ja'): BlogPost | null {
   if (locale === 'en') {
-    // EN: only return if actual EN version exists
+    // EN: try EN version first, fall back to JA
     const enPath = path.join(blogEnDir, `${slug}.md`);
-    return loadPostFromFile(enPath, slug);
+    const enPost = loadPostFromFile(enPath, slug);
+    if (enPost) return enPost;
   }
   return loadPostFromFile(path.join(blogDir, `${slug}.md`), slug);
 }
