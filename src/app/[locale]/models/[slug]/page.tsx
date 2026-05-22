@@ -74,6 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       languages: {
         ja: `https://aimodelsnavi.com/models/${model.slug}`,
         en: `https://aimodelsnavi.com/en/models/${model.slug}`,
+        "x-default": `https://aimodelsnavi.com/models/${model.slug}`,
       },
     },
   };

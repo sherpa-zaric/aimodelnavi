@@ -11,7 +11,8 @@
     "blog": "Blog",
     "tools": "Tools",
     "about": "About",
-    "benchmarks": "Benchmarks"
+    "benchmarks": "Benchmarks",
+    "info": "Info"
   },
   "home": {
     "stats": "Site Statistics",

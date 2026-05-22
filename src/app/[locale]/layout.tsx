@@ -28,10 +28,11 @@ export async function generateMetadata({
       : "AIモデルのベンチマーク比較、API料金、モデル仕様を日本語で比較。",
     metadataBase: new URL("https://aimodelsnavi.com"),
     alternates: {
-      canonical: `/${locale === "ja" ? "" : locale}`,
+      canonical: `https://aimodelsnavi.com${locale === "ja" ? "" : `/${locale}`}`,
       languages: {
         ja: "https://aimodelsnavi.com",
         en: "https://aimodelsnavi.com/en",
+        "x-default": "https://aimodelsnavi.com",
       },
     },
   };
@@ -55,8 +56,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang="${locale}"` }} />
+    <html lang={locale}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
@@ -64,5 +65,6 @@ export default async function LocaleLayout({
       <Analytics />
       <SpeedInsights />
     </NextIntlClientProvider>
+    </html>
   );
 }

@@ -70,6 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         ja: "https://aimodelsnavi.com/about",
         en: "https://aimodelsnavi.com/en/about",
+        "x-default": "https://aimodelsnavi.com/about",
       },
     },
   };
@@ -93,11 +94,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         <section>
           <h2 className="text-xl font-bold text-gray-900">{t.infoTitle}</h2>
           <ul className="text-gray-600 leading-relaxed space-y-2">
-            <li><strong>{t.info1}</strong>：{t.info1desc}</li>
-            <li><strong>{t.info2}</strong>：{t.info2desc}</li>
-            <li><strong>{t.info3}</strong>：{t.info3desc}</li>
-            <li><strong>{t.info4}</strong>：{t.info4desc}</li>
-            <li><strong>{t.info5}</strong>：{t.info5desc}</li>
+            <li><strong>{t.info1}</strong>{locale === "en" ? ": " : "：" }{t.info1desc}</li>
+            <li><strong>{t.info2}</strong>{locale === "en" ? ": " : "：" }{t.info2desc}</li>
+            <li><strong>{t.info3}</strong>{locale === "en" ? ": " : "：" }{t.info3desc}</li>
+            <li><strong>{t.info4}</strong>{locale === "en" ? ": " : "：" }{t.info4desc}</li>
+            <li><strong>{t.info5}</strong>{locale === "en" ? ": " : "：" }{t.info5desc}</li>
           </ul>
         </section>
 

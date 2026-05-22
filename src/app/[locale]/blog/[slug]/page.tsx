@@ -11,10 +11,10 @@ import type { Metadata } from 'next';
 export function generateStaticParams() {
   const jaPosts = getAllPosts("ja");
   const enPosts = getAllPosts("en");
-  const allSlugs = new Set([...jaPosts.map((p) => p.slug), ...enPosts.map((p) => p.slug)]);
-  return [...allSlugs].flatMap((slug) =>
-    ["ja", "en"].map((locale) => ({ slug, locale }))
-  );
+  const params: { slug: string; locale: string }[] = [];
+  for (const p of jaPosts) params.push({ slug: p.slug, locale: "ja" });
+  for (const p of enPosts) params.push({ slug: p.slug, locale: "en" });
+  return params;
 }
 
 export async function generateMetadata({
@@ -42,6 +42,7 @@ export async function generateMetadata({
       languages: {
         ja: `https://aimodelsnavi.com/blog/${post.slug}`,
         en: `https://aimodelsnavi.com/en/blog/${post.slug}`,
+        "x-default": `https://aimodelsnavi.com/blog/${post.slug}`,
       },
     },
   };

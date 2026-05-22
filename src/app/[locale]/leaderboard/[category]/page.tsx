@@ -41,6 +41,7 @@ export async function generateMetadata({
       languages: {
         ja: `https://aimodelsnavi.com/leaderboard/${category}`,
         en: `https://aimodelsnavi.com/en/leaderboard/${category}`,
+        "x-default": `https://aimodelsnavi.com/leaderboard/${category}`,
       },
     },
   };
@@ -67,7 +68,7 @@ export default async function LeaderboardCategoryPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: isEn ? "Home" : "ホーム", item: "https://aimodelsnavi.com" },
-      { "@type": "ListItem", position: 2, name: isEn ? "Leaderboard" : "ランキング", item: "https://aimodelsnavi.com/leaderboard" },
+      { "@type": "ListItem", position: 2, name: isEn ? "Leaderboard" : "ランキング", item: isEn ? "https://aimodelsnavi.com/en/leaderboard" : "https://aimodelsnavi.com/leaderboard" },
       { "@type": "ListItem", position: 3, name: isEn ? cat.titleEn : cat.title },
     ],
   };

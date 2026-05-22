@@ -36,7 +36,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Info</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">{t("nav.info")}</h3>
             <ul className="space-y-2">
               <li><Link href={`${prefix}/blog`} className="text-sm text-gray-600 hover:text-primary-600">{t("nav.blog")}</Link></li>
               <li><Link href={`${prefix}/about`} className="text-sm text-gray-600 hover:text-primary-600">{t("footer.about")}</Link></li>
