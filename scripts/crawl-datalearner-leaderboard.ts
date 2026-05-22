@@ -91,6 +91,18 @@ const LEADERBOARD_PAGES: PageConfig[] = [
     benchmarkKeys: ["tauBench", "terminalBench", "aiderPolyglot"],
     type: "leaderboard",
   },
+  {
+    name: "openclaw",
+    url: "https://www.datalearner.com/leaderboards/category/openclaw",
+    benchmarkKeys: ["clawBench", "pinchBench"],
+    type: "leaderboard",
+  },
+  {
+    name: "arcada-code",
+    url: "https://www.datalearner.com/leaderboards/external/arcada-code",
+    benchmarkKeys: ["arcadaCode"],
+    type: "leaderboard",
+  },
 ];
 
 const BENCHMARK_PAGES: PageConfig[] = [

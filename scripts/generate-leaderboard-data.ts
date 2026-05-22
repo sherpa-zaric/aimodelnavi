@@ -199,6 +199,33 @@ const BENCHMARK_DEFS: Record<string, BenchmarkDefinition> = {
     maxScore: null,
     unit: "Elo",
   },
+  clawBench: {
+    key: "clawBench",
+    name: "Claw Bench",
+    nameJa: "Claw Bench",
+    description: "OpenClawエージェントベンチマーク — OpenClawプラットフォームでのエージェント性能を測定",
+    category: "agent",
+    maxScore: 100,
+    unit: "score",
+  },
+  pinchBench: {
+    key: "pinchBench",
+    name: "Pinch Bench",
+    nameJa: "Pinch Bench",
+    description: "OpenClawピンチベンチマーク — OpenClawプラットフォームでのタスク遂行能力を測定",
+    category: "agent",
+    maxScore: 100,
+    unit: "score",
+  },
+  arcadaCode: {
+    key: "arcadaCode",
+    name: "Arcada Code",
+    nameJa: "Arcada Code",
+    description: "Arcadaコーディングベンチマーク — コード生成品質のCrowdsourced評価",
+    category: "coding",
+    maxScore: 100,
+    unit: "score",
+  },
 };
 
 // ── Helper functions ──
@@ -423,6 +450,7 @@ function generateMainLeaderboard(entries: LeaderboardEntry[]) {
     "liveCodeBench", "sweBenchPro",
     "terminalBench", "aiderPolyglot",
     "intelligenceIndex", "elo",
+    "clawBench", "pinchBench", "arcadaCode",
   ];
 
   // Convert to array and sort by HLE score
@@ -476,6 +504,9 @@ export interface ModelRanking {
   aiderPolyglot: number | null;
   intelligenceIndex: number | null;
   elo: number | null;
+  clawBench: number | null;
+  pinchBench: number | null;
+  arcadaCode: number | null;
   openSource: "open" | "closed" | "open-nc";
   type: "reasoning" | "foundation" | "chat" | "coder";
   releaseDate: string;
@@ -494,7 +525,7 @@ function generateBenchmarksData(byPage: Record<string, LeaderboardEntry[]>, deve
   // Build benchmark rankings
   const benchmarkRankings: Record<string, { name: string; developer: string; score: number; mode?: string }[]> = {};
 
-  // Map page names to benchmark keys
+  // Map page names to benchmark keys (single-benchmark pages)
   const pageToBenchmark: Record<string, string> = {
     hle: "hle",
     "arc-agi-2": "arcAgi2",
@@ -511,27 +542,46 @@ function generateBenchmarksData(byPage: Record<string, LeaderboardEntry[]>, deve
     "swe-bench-pro": "sweBenchPro",
     "terminalbench-hard": "terminalBench",
     "aider-benchmark": "aiderPolyglot",
+    "arcada-code": "arcadaCode",
   };
 
-  for (const [page, entries] of Object.entries(byPage)) {
-    const benchmarkKey = pageToBenchmark[page];
-    if (!benchmarkKey) continue;
+  // Map multi-benchmark pages to their benchmark keys
+  const multiBenchmarkPages: Record<string, string[]> = {
+    openclaw: ["clawBench", "pinchBench"],
+  };
 
-    const rankings = entries
+  function buildRankings(entries: LeaderboardEntry[], scoreKey?: string) {
+    return entries
       .map((e) => {
         const key = e.name.toLowerCase().replace(/\s+/g, "-");
         const dev = e.developer || developerLookup.get(key) || "";
+        const score = scoreKey ? (e.scores[scoreKey] ?? 0) : (Object.values(e.scores)[0] ?? 0);
         return {
           name: e.name,
           developer: translateDeveloper(dev),
-          score: Object.values(e.scores)[0] ?? 0,
+          score,
           mode: e.mode ? translateMode(e.mode) : undefined,
         };
       })
       .filter((r) => r.score > 0)
       .sort((a, b) => b.score - a.score);
+  }
 
-    benchmarkRankings[benchmarkKey] = rankings;
+  for (const [page, entries] of Object.entries(byPage)) {
+    // Single-benchmark pages
+    const benchmarkKey = pageToBenchmark[page];
+    if (benchmarkKey) {
+      benchmarkRankings[benchmarkKey] = buildRankings(entries);
+      continue;
+    }
+
+    // Multi-benchmark pages
+    const multiKeys = multiBenchmarkPages[page];
+    if (multiKeys) {
+      for (const key of multiKeys) {
+        benchmarkRankings[key] = buildRankings(entries, key);
+      }
+    }
   }
 
   // Build benchmarks array

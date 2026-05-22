@@ -65,9 +65,18 @@ export const leaderboardCategories: Record<string, LeaderboardCategory> = {
     benchmarks: ["mmluPro", "elo"],
     icon: Gauge,
   },
+  openclaw: {
+    slug: "openclaw",
+    title: "OpenClawランキング",
+    titleEn: "OpenClaw Ranking",
+    description: "Claw Bench、Pinch Bench によるOpenClawエージェント性能評価。",
+    descriptionEn: "OpenClaw agent performance: Claw Bench and Pinch Bench.",
+    benchmarks: ["clawBench", "pinchBench"],
+    icon: Bot,
+  },
 };
 
-export const categoryOrder = ["comprehensive", "code", "math", "agent", "reasoning", "general"];
+export const categoryOrder = ["comprehensive", "code", "math", "agent", "reasoning", "general", "openclaw"];
 
 export function getCategoryBySlug(slug: string): LeaderboardCategory | undefined {
   return leaderboardCategories[slug];
