@@ -1,5 +1,19 @@
 [
   {
+    "slug": "xai-grok-37-agent-ai",
+    "title": "xAI、37万星のオープンソースエージェントプラットフォームOpenClawにGrokを全面統合：サブスクライバーは追加コストなしで利用可能に",
+    "tag": "xAI",
+    "excerpt": "xAIはGrokモデルをオープンソースエージェントプラットフォームOpenClawに統合した。SuperGrokやX Premiumのサブスクライバーは追加コストなしで利用でき、会話や画像・動画生成、X投稿検索が可能になる。これはGrokがXプラットフォーム外に進出し、AI配布戦略を拡大する動きだ。",
+    "topics": [
+      "xAI",
+      "Anthropic",
+      "OpenAI",
+      "xAI/Grok",
+      "AIエージェント"
+    ],
+    "date": "2026-05-22"
+  },
+  {
     "slug": "chatgpt-80-ai",
     "title": "ChatGPTが80年未解決の数学的予想を覆す：フィールズ賞受賞者も『AI数学のマイルストーン』と絶賛",
     "tag": "OpenAI",
@@ -39,6 +53,19 @@
     "date": "2026-05-21"
   },
   {
+    "slug": "google-io-2026gemini-omni",
+    "title": "Google I/O 2026詳説：Gemini Omniと「エージェント特化型」開発プラットフォームが切り拓く新時代",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026で発表されたGemini OmniやGemini 3.5 Flash、そして新プラットフォーム「Google Antigravity」を解説。単なるAIツールから「行動するエージェント」へ移行するGoogleの最新戦略をエンジニア視点で分析します。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "セキュリティ",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-21"
+  },
+  {
     "slug": "google-io-2026gemini-omniantigravity",
     "title": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
     "tag": "Google",
@@ -62,6 +89,31 @@
       "AIエージェント",
       "マルチモーダル",
       "コーディング"
+    ],
+    "date": "2026-05-21"
+  },
+  {
+    "slug": "google-workspacegemini-sparkaiai",
+    "title": "Google Workspaceに「Gemini Spark」が登場：AIアシスタントから「AIエージェント」への転換点",
+    "tag": "Google",
+    "excerpt": "Google Workspaceに統合される新機能「Gemini Spark」や「Google Pics」などの最新アップデートを解説。単なる回答生成にとどまらず、ユーザーに代わってアクションを実行する「エージェント時代」の到来について考察します。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "マルチモーダル",
+      "音声"
+    ],
+    "date": "2026-05-21"
+  },
+  {
+    "slug": "googleai-mode",
+    "title": "Google「AI Mode」が変える検索体験：キーワードから自然言語クエリへの移行と開発者が意識すべきトレンド",
+    "tag": "解説",
+    "excerpt": "米国のユーザー行動分析から、AI Modeによる検索クエリの変化が明らかになりました。検索の長文化やマルチモーダル利用の急増など、RAGやAI SEOに取り組む開発者が注目すべき最新トレンドを解説します。",
+    "topics": [
+      "Google",
+      "マルチモーダル",
+      "音声"
     ],
     "date": "2026-05-21"
   },
