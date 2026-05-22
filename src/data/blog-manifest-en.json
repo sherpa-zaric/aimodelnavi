@@ -12,8 +12,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-23",
-    "title_en": "Gemini 3.1 Proの詳細解説：ARC-AGI-2で77.1%を記録し推論能力が前世代の2倍に",
-    "excerpt_en": "Googleの最新推論モデルGemini 3.1 ProがARC-AGI-2で77.1%、GPQA Diamondで94.3%を記録。SWE-Bench Verifiedでは80.6%を達成し、Claude Opus 4.6やGPT-5.3-Codexに匹敵する性能を実現した。"
+    "title_en": "Detailed Analysis of Gemini 3.1 Pro: Scoring 77.1% on ARC-AGI-2 and Doubling Reasoning Capabilities",
+    "excerpt_en": "Google's latest reasoning model, Gemini 3.1 Pro, recorded 77.1% on ARC-AGI-2 and 94.3% on GPQA Diamond. It achieved 80.6% on SWE-Bench Verified, delivering performance comparable to Claude Opus 4.6 and GPT-5.3-Codex."
   },
   {
     "slug": "openaiai",
@@ -87,8 +87,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-22",
-    "title_en": "AIエコシステム構築から学ぶ戦略的視点：国家レベルでの導入事例を考察する",
-    "excerpt_en": "国家戦略としてAIを導入し、エコシステムを構築しようとする諸国の事例から、日本が参照すべきポイントを考察します。"
+    "title_en": "Strategic Perspectives Learned from Building AI Ecosystems: Examining National-Level Implementation Cases",
+    "excerpt_en": "We examine key points Japan should reference based on cases from various countries attempting to implement AI as a national strategy and build AI ecosystems."
   },
   {
     "slug": "gemini-35aiaction",
@@ -103,8 +103,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-22",
-    "title_en": "Gemini 3.5登場：AIエージェント時代の幕開けと「実行力（Action）」が変えるアプリ設計",
-    "excerpt_en": "Googleが発表した新モデル「Gemini 3.5」は、単なる推論を超えた「実行力（Action）」への飛躍を遂げました。高速・低コストながら複雑なエージェントワークフローを実現する、次世代AIアプリのアーキテクチャを解説します。"
+    "title_en": "Introducing Gemini 3.5: The Dawn of the AI Agent Era and How \"Action\" Changes App Design",
+    "excerpt_en": "Google's newly announced \"Gemini 3.5\" represents a leap toward \"Action\" beyond simple reasoning. We explain the architecture of next-generation AI applications that achieve complex agent workflows with high speed and low cost."
   },
   {
     "slug": "google-io-2026100ai-ultra",
@@ -119,8 +119,8 @@
       "音声"
     ],
     "date": "2026-05-22",
-    "title_en": "Google I/O 2026速報：月額100ドルから始まる新プラン「AI Ultra」の衝撃と開発者への価値",
-    "excerpt_en": "Google I/O 2026にて、月額100ドルおよび200ドルの新プラン「AI Ultra」が発表されました。大幅な利用制限の緩和や、次世代AIエージェント「Gemini Spark」の提供など、ビジネス・開発者向けに特化した価値を分析します。"
+    "title_en": "Google I/O 2026 Breaking News: The Impact of the New \"AI Ultra\" Plan Starting at $100/Month and Value for Developers",
+    "excerpt_en": "At Google I/O 2026, new \"AI Ultra\" plans priced at $100 and $200 per month were announced. We analyze the specific value for businesses and developers, including significantly relaxed usage limits and the provision of the next-generation AI agent, \"Gemini Spark.\""
   },
   {
     "slug": "openaiadventhealth",
@@ -133,8 +133,8 @@
       "LLM"
     ],
     "date": "2026-05-22",
-    "title_en": "OpenAI活用で医療現場はどう変わるか？AdventHealthによる「対人ケア最大化」へのアプローチ",
-    "excerpt_en": "米国の大手医療プロバイダーAdventHealthがOpenAIを導入し、事務作業の効率化を通じて患者への向き合い時間を増やす取り組みを分析します。LLMを医療現場に実装する具体例を紹介します。"
+    "title_en": "How OpenAI Changes the Medical Field: AdventHealth's Approach to \"Maximizing Interpersonal Care\"",
+    "excerpt_en": "We analyze how major US healthcare provider AdventHealth implements OpenAI to increase patient face-time by streamlining administrative tasks. We introduce concrete examples of deploying LLMs in medical settings."
   },
   {
     "slug": "rampcodexai",
@@ -147,8 +147,8 @@
       "コーディング"
     ],
     "date": "2026-05-22",
-    "title_en": "Ramp社がCodexで実現したコードレビューの高速化：AIによる自動レビューの活用事例",
-    "excerpt_en": "Fintech企業Ramp社が、OpenAIのCodexを活用してコードレビューの効率を大幅に向上させた事例を紹介します。AIによる自動レビューワークフローの構築方法と、開発効率化のポイントを解説します。"
+    "title_en": "How Ramp Accelerated Code Reviews with Codex: A Case Study on AI-Powered Automated Reviews",
+    "excerpt_en": "We introduce a case study of how fintech company Ramp significantly improved code review efficiency using OpenAI's Codex. We explain how to build an automated AI review workflow and key points for improving development efficiency."
   },
   {
     "slug": "chatgpt-80-ai",
@@ -316,8 +316,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
-    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
+    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -563,8 +563,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
-    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
+    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
+    "excerpt_en": "AI agent design philosophy for 2026 is shifting from \"all-powerful single models\" to \"configurable, observable, and constrained systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and enhancing real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
