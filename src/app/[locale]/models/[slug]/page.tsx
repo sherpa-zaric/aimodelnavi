@@ -43,6 +43,7 @@ function tv(value: string, locale: string): string {
     "オープンソース": "Open Source",
     "条件付オープン": "Conditional Open",
     "非公開": "Undisclosed",
+    "個人": "Individual",
     "標準": "Standard",
     "バッチ": "Batch",
     "キャッシュ": "Cache",
@@ -87,6 +88,10 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
   if (!model) notFound();
 
   const desc = locale === "en" ? (model.descriptionEn || model.descriptionJa) : model.descriptionJa;
+  const devName = locale === "en" ? (model.developerEn || model.developer) : model.developer;
+  const strengths = locale === "en" && model.strengthsEn?.length ? model.strengthsEn : model.strengths;
+  const weaknesses = locale === "en" && model.weaknessesEn?.length ? model.weaknessesEn : model.weaknesses;
+  const useCases = locale === "en" && model.useCasesEn?.length ? model.useCasesEn : model.useCases;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -95,7 +100,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
       </Link>
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
-          <span className="text-sm text-gray-500">{model.developer}</span>
+          <span className="text-sm text-gray-500">{devName}</span>
           {model.openSource === "open" ? (
             <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">{t("openSource", locale)}</span>
           ) : model.openSource === "open-nc" ? (
@@ -150,15 +155,15 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
           <h3 className="text-sm font-bold text-emerald-800 mb-3 flex items-center gap-1.5"><CheckCircle className="w-4 h-4" />{t("strengths", locale)}</h3>
-          <ul className="space-y-1.5">{model.strengths.map((s: string) => (<li key={s} className="text-sm text-emerald-700">・{s}</li>))}</ul>
+          <ul className="space-y-1.5">{strengths.map((s: string) => (<li key={s} className="text-sm text-emerald-700">・{s}</li>))}</ul>
         </div>
         <div className="bg-amber-50 border border-amber-100 rounded-xl p-5">
           <h3 className="text-sm font-bold text-amber-800 mb-3 flex items-center gap-1.5"><AlertTriangle className="w-4 h-4" />{t("weaknesses", locale)}</h3>
-          <ul className="space-y-1.5">{model.weaknesses.map((w: string) => (<li key={w} className="text-sm text-amber-700">・{w}</li>))}</ul>
+          <ul className="space-y-1.5">{weaknesses.map((w: string) => (<li key={w} className="text-sm text-amber-700">・{w}</li>))}</ul>
         </div>
         <div className="bg-sky-50 border border-sky-100 rounded-xl p-5">
           <h3 className="text-sm font-bold text-sky-800 mb-3 flex items-center gap-1.5"><Lightbulb className="w-4 h-4" />{t("useCases", locale)}</h3>
-          <ul className="space-y-1.5">{model.useCases.map((u: string) => (<li key={u} className="text-sm text-sky-700">・{u}</li>))}</ul>
+          <ul className="space-y-1.5">{useCases.map((u: string) => (<li key={u} className="text-sm text-sky-700">・{u}</li>))}</ul>
         </div>
       </div>
     </div>

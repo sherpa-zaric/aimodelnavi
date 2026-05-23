@@ -77,8 +77,47 @@ const developerJaMap: Record<string, string> = {
   "个人": "個人",
 };
 
+// Translate developer names to English for EN locale
+const developerEnMap: Record<string, string> = {
+  "阿里巴巴": "Alibaba",
+  "アリババ": "Alibaba",
+  "智谱AI": "Zhipu AI",
+  "百度": "Baidu",
+  "バイドゥ": "Baidu",
+  "腾讯AI实验室": "Tencent AI Lab",
+  "テンセントAI研究所": "Tencent AI Lab",
+  "华为": "Huawei",
+  "ファーウェイ": "Huawei",
+  "亚马逊": "Amazon",
+  "アマゾン": "Amazon",
+  "上海人工智能实验室": "Shanghai AI Lab",
+  "上海人工知能研究所": "Shanghai AI Lab",
+  "普林斯顿大学": "Princeton University",
+  "プリンストン大学": "Princeton University",
+  "Facebook AI研究实验室": "Meta AI",
+  "DeepSeek-AI": "DeepSeek",
+  "小米": "Xiaomi",
+  "字节跳动": "ByteDance",
+  "字节跳动Seed团队": "ByteDance Seed",
+  "网易": "NetEase",
+  "科大讯飞": "iFlytek",
+  "商汤": "SenseTime",
+  "旷视": "Megvii",
+  "百川智能": "Baichuan AI",
+  "元象XVERSE": "XVERSE",
+  "昆仑万维": "Kunlun Tech",
+  "富士通": "Fujitsu",
+  "个人": "Individual",
+  "個人": "Individual",
+};
+
 function translateDeveloper(dev: string): string {
   return developerJaMap[dev] || dev;
+}
+
+function translateDeveloperEn(dev: string): string {
+  // Try Japanese name first, then original
+  return developerEnMap[dev] || dev;
 }
 
 export function generateDataFiles(): GenerateResult {
@@ -89,10 +128,19 @@ export function generateDataFiles(): GenerateResult {
 
   const models = db.prepare(
     `SELECT m.*,
-      mt_en.translated_text as description_en
+      mt_en.translated_text as description_en,
+      mt_s.translated_text as strengths_en,
+      mt_w.translated_text as weaknesses_en,
+      mt_u.translated_text as use_cases_en
     FROM models m
     LEFT JOIN model_translations mt_en ON mt_en.model_id = m.id
       AND mt_en.language = 'en' AND mt_en.field_name = 'description'
+    LEFT JOIN model_translations mt_s ON mt_s.model_id = m.id
+      AND mt_s.language = 'en' AND mt_s.field_name = 'strengths'
+    LEFT JOIN model_translations mt_w ON mt_w.model_id = m.id
+      AND mt_w.language = 'en' AND mt_w.field_name = 'weaknesses'
+    LEFT JOIN model_translations mt_u ON mt_u.model_id = m.id
+      AND mt_u.language = 'en' AND mt_u.field_name = 'use_cases'
     ORDER BY m.priority DESC, m.is_japanese ASC, m.release_date DESC NULLS LAST, m.name`
   ).all() as ModelRow[];
 
@@ -109,6 +157,9 @@ export function generateDataFiles(): GenerateResult {
     const strengths = parseJSON<string[]>(m.strengths, []);
     const weaknesses = parseJSON<string[]>(m.weaknesses, []);
     const useCases = parseJSON<string[]>(m.use_cases, []);
+    const strengthsEn = parseJSON<string[]>((m as any).strengths_en, []);
+    const weaknessesEn = parseJSON<string[]>((m as any).weaknesses_en, []);
+    const useCasesEn = parseJSON<string[]>((m as any).use_cases_en, []);
 
     // Map category to the type field expected by the website
     const typeMap: Record<string, string> = {
@@ -126,6 +177,7 @@ export function generateDataFiles(): GenerateResult {
     slug: "${escapeStr(m.slug)}",
     name: "${escapeStr(m.name)}",
     developer: "${escapeStr(translateDeveloper(m.developer))}",
+    developerEn: "${escapeStr(translateDeveloperEn(m.developer))}",
     developerUrl: "${escapeStr(m.developer_url || "")}",
     params: "${escapeStr(m.params || "非公開")}",
     contextWindow: "${escapeStr(m.context_window || "")}",
@@ -143,8 +195,11 @@ export function generateDataFiles(): GenerateResult {
     descriptionJa: "${escapeStr(m.description_ja || "")}",
     descriptionEn: "${escapeStr(m.description_en || "")}",
     strengths: ${JSON.stringify(strengths)},
+    strengthsEn: ${JSON.stringify(strengthsEn)},
     weaknesses: ${JSON.stringify(weaknesses)},
+    weaknessesEn: ${JSON.stringify(weaknessesEn)},
     useCases: ${JSON.stringify(useCases)},
+    useCasesEn: ${JSON.stringify(useCasesEn)},
     links: {
       ${links.official ? `official: "${escapeStr(links.official)}",` : ""}
       ${links.huggingface ? `huggingface: "${escapeStr(links.huggingface)}",` : ""}
@@ -163,6 +218,7 @@ export interface ModelDetail {
   slug: string;
   name: string;
   developer: string;
+  developerEn: string;
   developerUrl: string;
   params: string;
   contextWindow: string;
@@ -180,8 +236,11 @@ export interface ModelDetail {
   descriptionJa: string;
   descriptionEn: string;
   strengths: string[];
+  strengthsEn: string[];
   weaknesses: string[];
+  weaknessesEn: string[];
   useCases: string[];
+  useCasesEn: string[];
   links: {
     official?: string;
     huggingface?: string;
