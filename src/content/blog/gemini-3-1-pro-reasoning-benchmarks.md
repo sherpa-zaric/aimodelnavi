@@ -1,8 +1,10 @@
 ---
-title: "Gemini 3.1 Proの詳細解説：ARC-AGI-2で77.1%を記録し推論能力が前世代の2倍に"
-date: "2026-05-23"
-tag: "Google"
-excerpt: "Googleの最新推論モデルGemini 3.1 ProがARC-AGI-2で77.1%、GPQA Diamondで94.3%を記録。SWE-Bench Verifiedでは80.6%を達成し、Claude Opus 4.6やGPT-5.3-Codexに匹敵する性能を実現した。"
+title: Gemini 3.1 Proの詳細解説：ARC-AGI-2で77.1%を記録し推論能力が前世代の2倍に
+date: '2026-05-23'
+tag: Google
+excerpt: >-
+  Googleの最新推論モデルGemini 3.1 ProがARC-AGI-2で77.1%、GPQA Diamondで94.3%を記録。SWE-Bench
+  Verifiedでは80.6%を達成し、Claude Opus 4.6やGPT-5.3-Codexに匹敵する性能を実現した。
 ---
 
 ## Gemini 3.1 Proとは
@@ -124,3 +126,11 @@ Gemini 3.1 Proは、Gemini 3 Proから推論能力を大幅に引き上げたモ
 4. **MCP Atlas**: 69.2%（エージェント能力で他モデルを凌駕）
 5. **1Mトークン**のコンテキストウィンドウ
 6. **MEDIUM思考レベル**の追加でコスト最適化が容易に
+
+---
+
+## 関連記事
+
+- [ARC-AGI-3登場：AIの「真の推論能力」を測る初のインタラクティブ・ベンチマークとは](/blog/arc-agi-3-benchmark-launch-2026)
+- [Google I/O 2026詳解：Gemini 3.5 Flashと「Agentic Gemini era」がもたらすAIエージェントへの転換点](/blog/google-io-2026gemini-35-flashagentic-gemini-eraai)
+- [OpenAIが「GPT-5.5（コードネーム：Spud）」をリリース：エージェント能力が大幅向上、API提供は安全審査のため順次開始へ](/blog/openai-gpt-5-5-spud-release)

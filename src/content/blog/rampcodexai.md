@@ -1,9 +1,10 @@
 ---
-title: "Ramp社がCodexで実現したコードレビューの高速化：AIによる自動レビューの活用事例"
-date: "2026-05-22"
-tag: "AIエージェント"
-excerpt: "Fintech企業Ramp社が、OpenAIのCodexを活用してコードレビューの効率を大幅に向上させた事例を紹介します。AIによる自動レビューワークフローの構築方法と、開発効率化のポイントを解説します。"
-source: "https://openai.com/index/ramp"
+title: Ramp社がCodexで実現したコードレビューの高速化：AIによる自動レビューの活用事例
+date: '2026-05-22'
+tag: AIエージェント
+excerpt: >-
+  Fintech企業Ramp社が、OpenAIのCodexを活用してコードレビューの効率を大幅に向上させた事例を紹介します。AIによる自動レビューワークフローの構築方法と、開発効率化のポイントを解説します。
+source: 'https://openai.com/index/ramp'
 ---
 
 ## コードレビューのボトルネックをAIで解消する
@@ -47,3 +48,11 @@ Ramp社の事例は、AI（Codex）を適切にワークフローに組み込む
 参考：
 How Ramp engineers accelerate code review with Codex
 https://openai.com/index/ramp
+
+---
+
+## 関連記事
+
+- [Virgin AtlanticがCodexで実現した「P1バグの削減」とテスト自動化の成果](/blog/virgin-atlanticcodexp1)
+- [Codex Subagent初心者ガイド：並列処理で開発効率を向上させる実践的手法](/blog/codex-subagent)
+- [OpenAIとDellが提携：Codexをハイブリッド・オンプレミス環境で提供へ。エンタープライズAIの新たな選択肢](/blog/openaidellcodexai)

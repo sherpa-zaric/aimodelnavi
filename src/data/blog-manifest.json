@@ -14,6 +14,42 @@
     "date": "2026-05-23"
   },
   {
+    "slug": "google-beam",
+    "title": "Google Beamが切り拓くハイブリッド会議の未来：空間オーディオと等身大映像による体験向上",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026にて発表された「Google Beam」の最新実験について解説します。AIによる空間オーディオと等身大レンダリングにより、リモート参加者の存在感を劇的に向上させ、社会的なつながりを強化するアプローチに迫ります。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "音声"
+    ],
+    "date": "2026-05-23"
+  },
+  {
+    "slug": "google-io-2026geminiai",
+    "title": "【Google I/O 2026】「エージェント時代のGemini」と物理AI・量子計算が切り拓く次世代スタック",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026のDialoguesステージにて、Geminiの「エージェント化」や物理AI、量子コンピューティングの統合戦略が発表されました。開発者が注目すべき次世代の技術トレンドを解説します。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "LLM"
+    ],
+    "date": "2026-05-23"
+  },
+  {
+    "slug": "virgin-atlanticcodexp1",
+    "title": "Virgin AtlanticがCodexで実現した「P1バグの削減」とテスト自動化の成果",
+    "tag": "OpenAI",
+    "excerpt": "Virgin AtlanticがOpenAI Codexを導入し、ユニットテストの作成効率化を通じて開発速度と品質をいかに向上させたかを解説します。テスト作成の高速化と重要バグの削減という、実利的な成果に注目します。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "コーディング"
+    ],
+    "date": "2026-05-23"
+  },
+  {
     "slug": "ai",
     "title": "AIエコシステム構築から学ぶ戦略的視点：国家レベルでの導入事例を考察する",
     "tag": "OpenAI",
@@ -53,6 +89,20 @@
     "date": "2026-05-22"
   },
   {
+    "slug": "google-io-2026gemini-omni35-flash",
+    "title": "Google I/O 2026まとめ：Gemini Omniと3.5 Flashがもたらすマルチモーダル開発の新時代",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026で発表されたGemini 3.5 FlashやGemini Omniなど、開発者が注目すべき最新モデルとエージェント基盤を解説。低コスト・低遅延でフロントエンド級の知能を実現する新エコシステムに迫ります。",
+    "topics": [
+      "Google",
+      "ベンチマーク",
+      "AIエージェント",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-22"
+  },
+  {
     "slug": "openaiadventhealth",
     "title": "OpenAI活用で医療現場はどう変わるか？AdventHealthによる「対人ケア最大化」へのアプローチ",
     "tag": "OpenAI",
@@ -73,6 +123,19 @@
       "OpenAI",
       "推論",
       "LLM"
+    ],
+    "date": "2026-05-22"
+  },
+  {
+    "slug": "openaigartner",
+    "title": "OpenAIがGartner社の「エンタープライズ向けコーディングエージェント」リーダーに選出：開発トレンドの転換点とは",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIがGartner社の評価において、エンタープライズ向けコーディングエージェントのリーダーに選出されました。単なるコード補完ツールから、自律的にタスクを遂行する「エージェント」へと進化する最新トレンドを解説します。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "セキュリティ",
+      "コーディング"
     ],
     "date": "2026-05-22"
   },

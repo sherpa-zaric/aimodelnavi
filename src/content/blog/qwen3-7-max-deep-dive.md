@@ -1,8 +1,10 @@
 ---
-title: "Qwen3.7完全ガイド：Max・Plusの性能・料金・API利用法を徹底解説"
-date: "2026-05-22"
-tag: "Alibaba"
-excerpt: "アリババの最新旗舰モデルQwen3.7-MaxがArena総合国产1位を獲得。35時間の自律実験で10倍性能向上を達成し、Claude Opus 4.6やGPT-5.5を凌駕。全ベンチマーク比較、API料金、統合方法を完全解説する。"
+title: Qwen3.7完全ガイド：Max・Plusの性能・料金・API利用法を徹底解説
+date: '2026-05-22'
+tag: Alibaba
+excerpt: >-
+  アリババの最新旗舰モデルQwen3.7-MaxがArena総合国产1位を獲得。35時間の自律実験で10倍性能向上を達成し、Claude Opus
+  4.6やGPT-5.5を凌駕。全ベンチマーク比較、API料金、統合方法を完全解説する。
 ---
 
 ## Qwen3.7とは何か
@@ -293,3 +295,11 @@ Qwen3.7-Maxは、エージェント能力に特化したアリババの最新旗
 7. **統合**: Claude Code、OpenClaw、Qwen Codeに対応
 
 エージェント時代の基盤モデルとして、Qwen3.7-Maxは「賢い」だけでなく「長時間働き続けられる」という点で新しい基準を打ち出している。
+
+---
+
+## 関連記事
+
+- [Qwen3.7-Max発表：35時間の自律的カーネル最適化で推論性能が10倍に](/blog/qwen37-max-35-10)
+- [【2026年5月版】主要AIモデルAPI料金の完全比較一覧](/blog/api-pricing-may-2026)
+- [OpenAIが「GPT-5.5（コードネーム：Spud）」をリリース：エージェント能力が大幅向上、API提供は安全審査のため順次開始へ](/blog/openai-gpt-5-5-spud-release)
