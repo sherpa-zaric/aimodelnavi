@@ -172,7 +172,7 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
 
       {/* Deep Analysis Section */}
       {(() => {
-        const analysis = getModelAnalysis(slug);
+        const analysis = getModelAnalysis(slug, locale);
         if (!analysis) return null;
         return <ModelAnalysisSection analysis={analysis} locale={locale} />;
       })()}

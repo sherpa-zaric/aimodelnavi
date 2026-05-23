@@ -17,7 +17,17 @@ interface SearchResult {
   snippet: string;
 }
 
+interface KeyMetric {
+  label: string;
+  value: string;
+  context?: string;
+}
+
 interface Analysis {
+  keyMetrics: KeyMetric[];
+  pros: string[];
+  cons: string[];
+  competitorTable: { name: string; arena?: string; swe?: string; gpqa?: string; price?: string }[];
   summary: string;
   performance: string;
   comparisons: string;
@@ -78,6 +88,39 @@ async function searchModelInfo(modelName: string, developer: string): Promise<Se
   }).slice(0, 10);
 }
 
+// ── JSON sanitization ──
+
+function normalizeCompetitorTable(rows: any[]): any[] {
+  return rows.map(r => ({
+    name: r.name,
+    arena: r.arena,
+    swe: r.swe || r.swe_verified || r.swe_bench || r.sweBench || undefined,
+    gpqa: r.gpqa || r.gpqa_diamond || undefined,
+    price: r.price || undefined,
+  }));
+}
+
+function sanitizeJson(s: string): string {
+  // Fix bad escape sequences: backslash not followed by valid JSON escape char
+  // Valid: " \ / b f n r t uXXXX
+  let result = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "\\" && i + 1 < s.length) {
+      const next = s[i + 1];
+      if ('"\\/bfnrtu'.includes(next)) {
+        result += s[i] + next;
+        i++; // skip next
+      } else {
+        result += "\\\\" + next; // escape the backslash
+        i++;
+      }
+    } else {
+      result += s[i];
+    }
+  }
+  return result;
+}
+
 // ── LLM Analysis ──
 
 async function generateAnalysis(
@@ -95,6 +138,17 @@ Use the provided web search results for the most current data. If search results
 
 Output JSON with these fields (all in English):
 {
+  "keyMetrics": [
+    {"label": "Arena Elo", "value": "1485", "context": "#3 overall"},
+    {"label": "SWE-Bench Verified", "value": "80.8%", "context": "vs GPT-5.2: 80.0%"},
+    {"label": "Input Price", "value": "$15/1M", "context": "premium tier"}
+  ],
+  "pros": ["One-line strength 1", "One-line strength 2", "One-line strength 3"],
+  "cons": ["One-line weakness 1", "One-line weakness 2", "One-line weakness 3"],
+  "competitorTable": [
+    {"name": "Model A", "arena": "1475", "swe": "80.4%", "gpqa": "92.4%", "price": "$2.50/$7.50"},
+    {"name": "Model B", "arena": "1480", "swe": "80.8%", "gpqa": "91.3%", "price": "$15/$75"}
+  ],
   "summary": "2-3 paragraph overview of the model, its positioning, and key innovations",
   "performance": "Detailed benchmark comparison with specific scores (GPQA, SWE-Bench, Arena Elo, etc). Use markdown tables where appropriate.",
   "comparisons": "Head-to-head comparison with 2-3 main competitors. Include pricing, context window, and strengths/weaknesses.",
@@ -103,6 +157,10 @@ Output JSON with these fields (all in English):
   "latestNews": "Recent developments: pricing changes, new features, API updates, partnerships.",
   "sources": [{"title": "Source title", "url": "https://..."}]
 }
+
+keyMetrics: 4-6 most important metrics. Each has a label, value, and optional context (short comparison or note).
+pros/cons: 3 each, concise one-line descriptions.
+competitorTable: 2-3 main competitors with benchmark scores.
 
 Be specific with numbers. Cite sources where possible. Write in a professional but accessible tone.`;
 
@@ -119,13 +177,24 @@ ${context}`;
     .replace(/\s*```$/i, "")
     .trim();
 
+  function normalize(result: any): Analysis {
+    if (result.competitorTable) result.competitorTable = normalizeCompetitorTable(result.competitorTable);
+    return result;
+  }
+
   try {
-    return JSON.parse(cleaned);
+    return normalize(JSON.parse(sanitizeJson(cleaned)));
   } catch {
-    // Try to extract JSON from the response
     const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      return JSON.parse(jsonMatch[0]);
+      try {
+        return normalize(JSON.parse(sanitizeJson(jsonMatch[0])));
+      } catch {
+        const fixed = jsonMatch[0]
+          .replace(/[\x00-\x1f]/g, "")
+          .replace(/,\s*([}\]])/g, "$1");
+        return normalize(JSON.parse(sanitizeJson(fixed)));
+      }
     }
     throw new Error("Failed to parse LLM response as JSON");
   }
@@ -175,10 +244,10 @@ Latest: ${analysis.latestNews}`;
     .trim();
 
   try {
-    return JSON.parse(cleaned);
+    return JSON.parse(sanitizeJson(cleaned));
   } catch {
     const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-    if (jsonMatch) return JSON.parse(jsonMatch[0]);
+    if (jsonMatch) return JSON.parse(sanitizeJson(jsonMatch[0]));
     throw new Error("Failed to parse blog article JSON");
   }
 }
@@ -247,8 +316,14 @@ export async function generateModelAnalyses(opts?: {
 
   const insertAnalysis = db.prepare(`
     INSERT OR REPLACE INTO model_analyses
-      (model_id, language, summary, performance, comparisons, community, use_case_deep, latest_news, sources_json, generated_at)
-      VALUES (?, 'en', ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+      (model_id, language, key_metrics_json, pros_json, cons_json, competitors_json, summary, performance, comparisons, community, use_case_deep, latest_news, sources_json, generated_at)
+      VALUES (?, 'en', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+  `);
+
+  const insertAnalysisJa = db.prepare(`
+    INSERT OR REPLACE INTO model_analyses
+      (model_id, language, key_metrics_json, pros_json, cons_json, competitors_json, summary, performance, comparisons, community, use_case_deep, latest_news, sources_json, generated_at)
+      VALUES (?, 'ja', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `);
 
   for (const model of models) {
@@ -265,9 +340,13 @@ export async function generateModelAnalyses(opts?: {
       const description = model.description_en || model.description_ja || "";
       const analysis = await generateAnalysis(model.name, model.developer, description, searchResults);
 
-      // Step 3: Store in DB
+      // Step 3: Store EN in DB
       insertAnalysis.run(
         model.id,
+        JSON.stringify(analysis.keyMetrics || []),
+        JSON.stringify(analysis.pros || []),
+        JSON.stringify(analysis.cons || []),
+        JSON.stringify(analysis.competitorTable || []),
         analysis.summary,
         analysis.performance,
         analysis.comparisons,
@@ -276,6 +355,51 @@ export async function generateModelAnalyses(opts?: {
         analysis.latestNews,
         JSON.stringify(analysis.sources || [])
       );
+
+      // Step 3.5: Generate JA translation
+      try {
+        console.log(`    Translating to Japanese...`);
+        const jaSystem = `Translate these model analysis fields to natural Japanese. Keep model names, benchmark names, and numbers in English. Output JSON with the same structure.
+Translate: keyMetrics (label+context only, keep value as-is), pros, cons, competitorTable (name stays), summary, performance, comparisons, community, useCaseDeep, latestNews.`;
+        const jaResult = await callLLM(jaSystem, JSON.stringify(analysis), 8192, 120000);
+        const jaCleaned = jaResult.replace(/^```json?\s*/i, "").replace(/\s*```$/i, "").trim();
+        let ja: Analysis;
+        try {
+          ja = JSON.parse(sanitizeJson(jaCleaned));
+        } catch {
+          const jm = jaCleaned.match(/\{[\s\S]*\}/);
+          if (jm) {
+            try {
+              // Fix trailing commas and control chars
+              const fixed = jm[0].replace(/,\s*([}\]])/g, "$1").replace(/[\x00-\x1f]/g, "");
+              ja = JSON.parse(sanitizeJson(fixed));
+            } catch {
+              console.warn("    ⚠ JA JSON parse failed, using EN fallback");
+              ja = analysis;
+            }
+          } else {
+            ja = analysis;
+          }
+        }
+
+        insertAnalysisJa.run(
+          model.id,
+          JSON.stringify(ja.keyMetrics || analysis.keyMetrics || []),
+          JSON.stringify(ja.pros || analysis.pros || []),
+          JSON.stringify(ja.cons || analysis.cons || []),
+          JSON.stringify(ja.competitorTable || analysis.competitorTable || []),
+          ja.summary || analysis.summary,
+          ja.performance || analysis.performance,
+          ja.comparisons || analysis.comparisons,
+          ja.community || analysis.community,
+          ja.useCaseDeep || analysis.useCaseDeep,
+          ja.latestNews || analysis.latestNews,
+          JSON.stringify(analysis.sources || [])
+        );
+        console.log(`    ✓ JA translation saved`);
+      } catch (err) {
+        console.warn(`    ⚠ JA translation failed: ${err}`);
+      }
 
       console.log(`    ✓ Analysis saved`);
       result.analyzed++;
