@@ -87,8 +87,8 @@
       "AIエージェント"
     ],
     "date": "2026-05-22",
-    "title_en": "Strategic Perspectives Learned from Building AI Ecosystems: Examining National-Level Implementation Cases",
-    "excerpt_en": "We examine key points Japan should reference based on cases from various countries attempting to implement AI as a national strategy and build AI ecosystems."
+    "title_en": "Strategic Perspectives on AI Ecosystem Construction: Analyzing National-Level Implementation Cases",
+    "excerpt_en": "We examine cases from various countries attempting to introduce AI as a national strategy and build ecosystems. The article discusses key points that Japan should reference from these examples."
   },
   {
     "slug": "gemini-35aiaction",
@@ -103,8 +103,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-22",
-    "title_en": "Introducing Gemini 3.5: The Dawn of the AI Agent Era and How \"Action\" Changes App Design",
-    "excerpt_en": "Google's newly announced \"Gemini 3.5\" represents a leap toward \"Action\" beyond simple reasoning. We explain the architecture of next-generation AI applications that achieve complex agent workflows with high speed and low cost."
+    "title_en": "Introducing Gemini 3.5: The Dawn of the AI Agent Era and How \"Actionability\" Changes App Design",
+    "excerpt_en": "Google's new model, Gemini 3.5, represents a leap beyond simple reasoning toward \"Actionability.\" We explain next-generation AI app architectures that enable complex agent workflows while remaining high-speed and low-cost."
   },
   {
     "slug": "google-io-2026100ai-ultra",
@@ -119,8 +119,8 @@
       "音声"
     ],
     "date": "2026-05-22",
-    "title_en": "Google I/O 2026 Breaking News: The Impact of the New \"AI Ultra\" Plan Starting at $100/Month and Value for Developers",
-    "excerpt_en": "At Google I/O 2026, new \"AI Ultra\" plans priced at $100 and $200 per month were announced. We analyze the specific value for businesses and developers, including significantly relaxed usage limits and the provision of the next-generation AI agent, \"Gemini Spark.\""
+    "title_en": "Google I/O 2026 Breaking News: The Impact of the New $100/Month \"AI Ultra\" Plan and Its Value for Developers",
+    "excerpt_en": "New \"AI Ultra\" plans costing $100 and $200 per month were announced at Google I/O 2026. We analyze the specific value for businesses and developers, including significant relaxation of usage limits and the provision of the next-generation AI agent, \"Gemini Spark.\""
   },
   {
     "slug": "openaiadventhealth",
@@ -133,8 +133,8 @@
       "LLM"
     ],
     "date": "2026-05-22",
-    "title_en": "How OpenAI Changes the Medical Field: AdventHealth's Approach to \"Maximizing Interpersonal Care\"",
-    "excerpt_en": "We analyze how major US healthcare provider AdventHealth implements OpenAI to increase patient face-time by streamlining administrative tasks. We introduce concrete examples of deploying LLMs in medical settings."
+    "title_en": "How OpenAI is Transforming Healthcare: AdventHealth's Approach to \"Maximizing Interpersonal Care\"",
+    "excerpt_en": "We analyze how major US healthcare provider AdventHealth is using OpenAI to increase patient face-time by streamlining administrative tasks. The article provides concrete examples of implementing LLMs in clinical settings."
   },
   {
     "slug": "rampcodexai",
@@ -147,8 +147,8 @@
       "コーディング"
     ],
     "date": "2026-05-22",
-    "title_en": "How Ramp Accelerated Code Reviews with Codex: A Case Study on AI-Powered Automated Reviews",
-    "excerpt_en": "We introduce a case study of how fintech company Ramp significantly improved code review efficiency using OpenAI's Codex. We explain how to build an automated AI review workflow and key points for improving development efficiency."
+    "title_en": "Accelerating Code Reviews with Codex at Ramp: A Case Study on AI-Driven Automated Review",
+    "excerpt_en": "This article introduces how Fintech company Ramp significantly improved code review efficiency using OpenAI's Codex. We explain how to build an AI-driven automated review workflow and key points for enhancing development efficiency."
   },
   {
     "slug": "chatgpt-80-ai",
@@ -316,7 +316,7 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
+    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Usher in a New Era of Agent Development",
     "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
@@ -564,7 +564,7 @@
     ],
     "date": "2026-05-20",
     "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "AI agent design philosophy for 2026 is shifting from \"all-powerful single models\" to \"configurable, observable, and constrained systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and enhancing real-world robustness."
+    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constraint-based systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and latest architectures for increasing real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
