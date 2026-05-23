@@ -79,7 +79,7 @@ async function main() {
   // Get existing English posts
   const enFiles = new Set(
     fs.existsSync(BLOG_EN_DIR)
-      ? fs.readdirSync(BLOG_EN_DIR).filter(f => f.endsWith(".md"))
+      ? fs.readdirSync(BLOG_EN_DIR).filter(f => f.endsWith(".md")).map(f => f.replace(/\.md$/, ""))
       : []
   );
   console.log(`  Found ${enFiles.size} English posts`);
