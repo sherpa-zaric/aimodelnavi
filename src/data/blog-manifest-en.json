@@ -11,8 +11,8 @@
       "LLM"
     ],
     "date": "2026-05-24",
-    "title_en": "Possibilities and Implementation Approaches for Knowledge Graph-Integrated RAG via Local LLMs",
-    "excerpt_en": "This post introduces a configuration proposal for RAG agents combining local LLMs and knowledge graphs for developers wanting to build high-precision knowledge bases without cloud dependency. It explains methods to achieve both privacy protection and advanced context understanding."
+    "title_en": "The Potential and Implementation Approach of Knowledge Graph-Integrated RAG with Local LLMs",
+    "excerpt_en": "This article introduces a configuration proposal for RAG agents combining local LLMs and knowledge graphs for developers who want to build high-precision knowledge bases while avoiding cloud dependency. It explains methods to balance privacy protection with advanced context understanding."
   },
   {
     "slug": "openaigartner",
@@ -27,8 +27,8 @@
       "推論"
     ],
     "date": "2026-05-24",
-    "title_en": "OpenAI Named a Leader in Gartner's \"Enterprise Coding Agents\": A Turning Point Toward Autonomous Development",
-    "excerpt_en": "OpenAI has been recognized as a leader in enterprise coding agents in the latest Gartner evaluation. We explain the trend of transitioning from simple code completion to autonomous agents and the criteria used for this evaluation."
+    "title_en": "OpenAI Named a Leader in Gartner's \"Enterprise Coding Agents\": A Turning Point Toward Development Autonomy",
+    "excerpt_en": "In the latest evaluation by Gartner, OpenAI has been recognized as a leader in enterprise coding agents. We discuss the trend of shifting from simple code completion to autonomous agents and the criteria used for this evaluation."
   },
   {
     "slug": "rag",
@@ -41,8 +41,8 @@
       "LLM"
     ],
     "date": "2026-05-24",
-    "title_en": "The Possibilities of RAG and Knowledge Graph Integration Agents in Local Environments",
-    "excerpt_en": "We introduce implementation examples of RAG and knowledge graph integration agents that operate locally without relying on the cloud, emphasizing privacy and security. The post explains how the utilization of structured data improves response accuracy."
+    "title_en": "Potential of RAG and Knowledge Graph Integrated Agents Implemented in Local Environments",
+    "excerpt_en": "This post presents implementation examples of RAG and knowledge graph integrated agents that operate locally without relying on the cloud, prioritizing privacy and security. It explains how the use of structured data improves answer accuracy."
   },
   {
     "slug": "claude-opus-4-7-deep-dive",
@@ -103,8 +103,8 @@
       "音声"
     ],
     "date": "2026-05-23",
-    "title_en": "The Future of Hybrid Meetings Opened by Google Beam: Enhancing Experience via Spatial Audio and Life-Sized Video",
-    "excerpt_en": "This post explains the latest experiments with \"Google Beam\" announced at Google I/O 2026. We explore an approach to dramatically increase the presence of remote participants and strengthen social connections through AI-driven spatial audio and life-sized rendering."
+    "title_en": "The Future of Hybrid Meetings Opened by Google Beam: Enhancing Experience via Spatial Audio and Life-Sized Imagery",
+    "excerpt_en": "This article discusses the latest experiments with \"Google Beam\" announced at Google I/O 2026. We explore the approach of using AI-driven spatial audio and life-sized rendering to dramatically enhance the presence of remote participants and strengthen social connections."
   },
   {
     "slug": "google-io-2026gemini-35antigravity",
@@ -118,8 +118,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-23",
-    "title_en": "Google I/O 2026 Detailed Report: The Paradigm Shift in Development Brought by Gemini 3.5 and Next-Gen Platform \"Antigravity\"",
-    "excerpt_en": "This report focuses on Gemini 3.5 Flash, Gemini Omni, and the agent-specialized platform \"Google Antigravity\" announced at Google I/O 2026. It explains the technical breakthroughs and their impact on implementation."
+    "title_en": "Google I/O 2026 Detailed Report: Paradigm Shift in Development Brought by Gemini 3.5 and Next-Gen Platform \"Antigravity\"",
+    "excerpt_en": "Focusing on Gemini 3.5 Flash, Gemini Omni, and the agent-specialized platform \"Google Antigravity\" announced at Google I/O 2026, we explain the technical breakthroughs and their impact on implementation."
   },
   {
     "slug": "google-io-2026geminiai",
@@ -132,8 +132,8 @@
       "LLM"
     ],
     "date": "2026-05-23",
-    "title_en": "[Google I/O 2026] \"Gemini in the Age of Agents\" and the Next-Generation Stack Opened by Physical AI and Quantum Computing",
-    "excerpt_en": "Strategies for the \"agentization\" of Gemini, physical AI, and the integration of quantum computing were announced at the Dialogues stage of Google I/O 2026. We explain the next-generation technical trends that developers should watch."
+    "title_en": "[Google I/O 2026] \"Gemini in the Age of Agents\" and the Next-Gen Stack Opened by Physical AI and Quantum Computing",
+    "excerpt_en": "At the Dialogues stage of Google I/O 2026, integration strategies for the \"agentization\" of Gemini, physical AI, and quantum computing were announced. We explain the next-generation technical trends that developers should watch."
   },
   {
     "slug": "virgin-atlanticcodex",
@@ -146,8 +146,8 @@
       "コーディング"
     ],
     "date": "2026-05-23",
-    "title_en": "Behind the Scenes of Virgin Atlantic's Development Efficiency and Accelerated Test Creation via Codex",
-    "excerpt_en": "This post explains a case study where the airline Virgin Atlantic introduced OpenAI's Codex to simultaneously improve development speed and quality. We focus on the approach to reducing developer load through automated unit testing and increasing productivity."
+    "title_en": "Behind the Scenes of Development Efficiency and Accelerated Test Creation at Virgin Atlantic Using Codex",
+    "excerpt_en": "This case study explains how the airline Virgin Atlantic introduced OpenAI Codex to simultaneously improve development speed and quality. We focus on the approach to reducing developer workload through unit test automation and enhancing productivity."
   },
   {
     "slug": "virgin-atlanticcodexp1",
@@ -160,8 +160,8 @@
       "コーディング"
     ],
     "date": "2026-05-23",
-    "title_en": "Results of \"P1 Bug Reduction\" and Test Automation Achieved by Virgin Atlantic using Codex",
-    "excerpt_en": "This post explains how Virgin Atlantic used OpenAI Codex to improve development speed and quality by streamlining unit test creation. We highlight practical results, specifically the acceleration of test creation and the reduction of critical bugs."
+    "title_en": "Results of \"P1 Bug Reduction\" and Test Automation Achieved by Virgin Atlantic Using Codex",
+    "excerpt_en": "This article explains how Virgin Atlantic improved development speed and quality by streamlining unit test creation using OpenAI Codex. We focus on the practical results of accelerating test generation and reducing critical P1 bugs."
   },
   {
     "slug": "ai",
@@ -315,7 +315,7 @@
     ],
     "date": "2026-05-22",
     "title_en": "Google I/O 2026 Summary: A New Era of Multimodal Development with Gemini Omni and 3.5 Flash",
-    "excerpt_en": "We explain the latest models and agent foundations developers should notice, such as Gemini 3.5 Flash and Gemini Omni from Google I/O 2026. We dive into the new ecosystem that achieves frontend-grade intelligence with low cost and low latency."
+    "excerpt_en": "We explain the latest models and agent foundations that developers should note from Google I/O 2026, such as Gemini 3.5 Flash and Gemini Omni. We delve into the new ecosystem that achieves frontend-grade intelligence with low cost and low latency."
   },
   {
     "slug": "chatgpt-80-ai",
@@ -483,8 +483,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Open a New Era of \"Agent Development\"",
-    "excerpt_en": "This post covers Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers must watch."
+    "title_en": "Google I/O 2026 Breaking News: A New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
+    "excerpt_en": "This post explains Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should focus on."
   },
   {
     "slug": "aiprovenance",
@@ -731,7 +731,7 @@
     ],
     "date": "2026-05-20",
     "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "Design philosophy for AI agents toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and increasing real-world robustness."
+    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and increasing robustness in the real world."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
