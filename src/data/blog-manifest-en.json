@@ -58,8 +58,8 @@
       "音声"
     ],
     "date": "2026-05-23",
-    "title_en": "The Future of Hybrid Meetings Pioneered by Google Beam: Enhancing Experience with Spatial Audio and Life-Sized Imagery",
-    "excerpt_en": "This article explains the latest experiments with \"Google Beam\" announced at Google I/O 2026. We explore an approach that dramatically improves the presence of remote participants and strengthens social connections through AI-powered spatial audio and life-sized rendering."
+    "title_en": "Google Beamが切り拓くハイブリッド会議の未来：空間オーディオと等身大映像による体験向上",
+    "excerpt_en": "Google I/O 2026にて発表された「Google Beam」の最新実験について解説します。AIによる空間オーディオと等身大レンダリングにより、リモート参加者の存在感を劇的に向上させ、社会的なつながりを強化するアプローチに迫ります。"
   },
   {
     "slug": "google-io-2026gemini-35antigravity",
@@ -73,8 +73,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-23",
-    "title_en": "Google I/O 2026 Detailed Report: The Shift in Development Paradigm Brought by Gemini 3.5 and the Next-Generation Platform \"Antigravity\"",
-    "excerpt_en": "Focusing on Gemini 3.5 Flash, Gemini Omni, and the agent-specialized platform \"Google Antigravity\" announced at Google I/O 2026. We explain the technical breakthroughs and their impact on implementation."
+    "title_en": "Google I/O 2026詳報：Gemini 3.5と次世代プラットフォーム「Antigravity」がもたらす開発パラダイムの転換",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやGemini Omni、そしてエージェント特化型プラットフォーム「Google Antigravity」に焦点を当て、技術的ブレイクスルーと実装への影響を解説します。"
   },
   {
     "slug": "google-io-2026geminiai",
@@ -87,8 +87,8 @@
       "LLM"
     ],
     "date": "2026-05-23",
-    "title_en": "[Google I/O 2026] \"Gemini in the Era of Agents\" and the Next-Gen Stack Opened by Physical AI and Quantum Computing",
-    "excerpt_en": "Integration strategies for the \"agentization\" of Gemini, physical AI, and quantum computing were announced at the Dialogues stage of Google I/O 2026. We explain the next-generation technical trends that developers should watch."
+    "title_en": "【Google I/O 2026】「エージェント時代のGemini」と物理AI・量子計算が切り拓く次世代スタック",
+    "excerpt_en": "Google I/O 2026のDialoguesステージにて、Geminiの「エージェント化」や物理AI、量子コンピューティングの統合戦略が発表されました。開発者が注目すべき次世代の技術トレンドを解説します。"
   },
   {
     "slug": "virgin-atlanticcodex",
@@ -101,8 +101,8 @@
       "コーディング"
     ],
     "date": "2026-05-23",
-    "title_en": "Behind the Scenes of Virgin Atlantic's Development Efficiency and Accelerated Test Creation Using Codex",
-    "excerpt_en": "This case study explains how the airline Virgin Atlantic introduced OpenAI's Codex to simultaneously improve development speed and quality. We focus on the approach to reducing developer workload and increasing productivity through unit test automation."
+    "title_en": "Virgin AtlanticがCodexで実現した開発効率化とテスト作成加速の舞台裏",
+    "excerpt_en": "航空会社Virgin AtlanticがOpenAIのCodexを導入し、開発スピードと品質を同時に向上させた事例を解説します。ユニットテスト自動化による開発者の負荷軽減と、生産性向上のアプローチに注目します。"
   },
   {
     "slug": "virgin-atlanticcodexp1",
@@ -115,8 +115,8 @@
       "コーディング"
     ],
     "date": "2026-05-23",
-    "title_en": "Reduction of \"P1 Bugs\" and Test Automation Results Achieved by Virgin Atlantic via Codex",
-    "excerpt_en": "We explain how Virgin Atlantic improved development speed and quality by streamlining unit test creation using OpenAI Codex. We highlight the practical results, such as accelerated test creation and the reduction of critical bugs."
+    "title_en": "Virgin AtlanticがCodexで実現した「P1バグの削減」とテスト自動化の成果",
+    "excerpt_en": "Virgin AtlanticがOpenAI Codexを導入し、ユニットテストの作成効率化を通じて開発速度と品質をいかに向上させたかを解説します。テスト作成の高速化と重要バグの削減という、実利的な成果に注目します。"
   },
   {
     "slug": "ai",
@@ -269,8 +269,8 @@
       "マルチモーダル"
     ],
     "date": "2026-05-22",
-    "title_en": "Google I/O 2026 Summary: A New Era of Multimodal Development Brought by Gemini Omni and 3.5 Flash",
-    "excerpt_en": "An explanation of the latest models and agent frameworks developers should notice, such as Gemini 3.5 Flash and Gemini Omni announced at Google I/O 2026. We delve into the new ecosystem that enables frontend-grade intelligence with low cost and low latency."
+    "title_en": "Google I/O 2026まとめ：Gemini Omniと3.5 Flashがもたらすマルチモーダル開発の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやGemini Omniなど、開発者が注目すべき最新モデルとエージェント基盤を解説。低コスト・低遅延でフロントエンド級の知能を実現する新エコシステムに迫ります。"
   },
   {
     "slug": "openaigartner",
@@ -285,8 +285,8 @@
       "コーディング"
     ],
     "date": "2026-05-22",
-    "title_en": "OpenAI Selected as Gartner Leader in \"Enterprise Coding Agents\": The Turning Point in Development Trends",
-    "excerpt_en": "OpenAI has been selected as a leader in enterprise coding agents in Gartner's evaluation. We explain the latest trend of evolving from simple code completion tools to \"agents\" that autonomously execute tasks."
+    "title_en": "OpenAIがGartner社の「エンタープライズ向けコーディングエージェント」リーダーに選出：開発トレンドの転換点とは",
+    "excerpt_en": "OpenAIがGartner社の評価において、エンタープライズ向けコーディングエージェントのリーダーに選出されました。単なるコード補完ツールから、自律的にタスクを遂行する「エージェント」へと進化する最新トレンドを解説します。"
   },
   {
     "slug": "chatgpt-80-ai",
@@ -454,8 +454,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Flash Report: Gemini Omni and Antigravity Open a New Era of \"Agent Development\"",
-    "excerpt_en": "Explaining Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
+    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
   },
   {
     "slug": "aiprovenance",
@@ -701,8 +701,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents moving toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and improving real-world robustness."
+    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
+    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
