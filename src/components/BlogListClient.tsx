@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 
@@ -30,9 +31,19 @@ interface Props {
 const ITEMS_PER_PAGE = 10;
 
 export default function BlogListClient({ posts, locale, labels }: Props) {
+  const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string | null>(
+    searchParams.get("tag")
+  );
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Sync with URL param changes (e.g., navigating from header dropdown)
+  useEffect(() => {
+    const tag = searchParams.get("tag");
+    setSelectedTag(tag);
+    setCurrentPage(1);
+  }, [searchParams]);
 
   const isEn = locale === "en";
 
