@@ -97,9 +97,6 @@ jobs:
           "
 
       - name: Download images
-        if: inputs.images != ''
-        env:
-          IMAGE_URLS: ${{ inputs.images }}
         run: |
           # Find the slug from the newly created blog post
           SLUG=$(ls -t src/content/blog/*.md 2>/dev/null | head -1 | xargs -I{} basename {} .md)
@@ -108,22 +105,38 @@ jobs:
             exit 0
           fi
 
-          echo "Downloading images for slug: $SLUG"
+          BLOG_FILE="src/content/blog/${SLUG}.md"
+          if [ ! -f "$BLOG_FILE" ]; then
+            echo "Blog file not found: $BLOG_FILE"
+            exit 0
+          fi
+
+          echo "Processing images for slug: $SLUG"
+
+          # Extract all image URLs from markdown (both local /images/ and external http(s) URLs)
+          # Match: ![...](url) or <img src="url">
+          URLS=$(grep -oE '!\[[^]]*\]\([^)]+\)|<img[^>]+src="[^"]+' "$BLOG_FILE" \
+            | grep -oE 'https?://[^")\s]+' \
+            | grep -qiE '\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com|mmbiz\.qpic\.cn' \
+            && grep -oE '!\[[^]]*\]\([^)]+\)|<img[^>]+src="[^"]+' "$BLOG_FILE" \
+            | grep -oE 'https?://[^")\s]+' \
+            | grep -iE '\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com|mmbiz\.qpic\.cn' \
+            | sort -u)
+
+          if [ -z "$URLS" ]; then
+            echo "No external image URLs found in markdown"
+            exit 0
+          fi
+
+          IMG_COUNT=$(echo "$URLS" | wc -l | xargs)
+          echo "Found $IMG_COUNT external image URLs"
+
           IMG_DIR="public/images/blog/$SLUG"
           mkdir -p "$IMG_DIR"
 
-          # Process comma-separated URLs
           IMG_INDEX=1
-          IFS=',' read -ra URLS <<< "$IMAGE_URLS"
-          for url in "${URLS[@]}"; do
-            url=$(echo "$url" | xargs)  # trim whitespace
+          while IFS= read -r url; do
             [ -z "$url" ] && continue
-
-            # Skip non-image URLs (web pages without image extensions)
-            if ! echo "$url" | grep -qiE '\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)|images\.unsplash\.com|pbs\.twimg\.com|imgur\.com|cloudinary\.com|cdn\.openai\.com|storage\.googleapis\.com|mmbiz\.qpic\.cn'; then
-              echo "  Skipping non-image URL: $url"
-              continue
-            fi
 
             # Determine extension from URL
             EXT="webp"
@@ -135,13 +148,15 @@ jobs:
             fi
 
             FILENAME="img-${IMG_INDEX}.${EXT}"
-            echo "  Downloading: $url → $IMG_DIR/$FILENAME"
+            echo "  [$IMG_INDEX/$IMG_COUNT] Downloading: $url"
 
-            if curl -sL -o "$IMG_DIR/$FILENAME" \
-              -H "User-Agent: AIModelsNavi/1.0" \
-              --max-time 15 \
-              "$url"; then
-              # Verify it's actually an image (check file size > 1KB)
+            # Determine headers based on URL domain
+            CURL_HEADERS="-H 'User-Agent: AIModelsNavi/1.0'"
+            if echo "$url" | grep -q "mp.weixin.qq.com"; then
+              CURL_HEADERS="-H 'User-Agent: AIModelsNavi/1.0' -H 'Referer: https://mp.weixin.qq.com/'"
+            fi
+
+            if eval curl -sL -o "\"$IMG_DIR/$FILENAME\"" $CURL_HEADERS --max-time 15 "\"$url\""; then
               FILESIZE=$(stat -c%s "$IMG_DIR/$FILENAME" 2>/dev/null || stat -f%z "$IMG_DIR/$FILENAME" 2>/dev/null || echo 0)
               if [ "$FILESIZE" -gt 1024 ]; then
                 echo "    ✓ Downloaded ($FILESIZE bytes)"
@@ -153,31 +168,26 @@ jobs:
             else
               echo "    ✗ Download failed"
             fi
-          done
+          done <<< "$URLS"
 
           # Update markdown image references to local paths
-          BLOG_FILE="src/content/blog/${SLUG}.md"
           if [ "$IMG_INDEX" -gt 1 ]; then
             echo ""
             echo "Updating image references in $BLOG_FILE..."
             # Replace external URLs with local paths
             IMG_NUM=1
-            for url in "${URLS[@]}"; do
-              url=$(echo "$url" | xargs)
+            while IFS= read -r url; do
               [ -z "$url" ] && continue
-
-              # Find the corresponding downloaded file
               DOWNLOADED=$(ls "$IMG_DIR/img-${IMG_NUM}".* 2>/dev/null | head -1)
               if [ -n "$DOWNLOADED" ]; then
                 LOCAL_PATH="/images/blog/$SLUG/$(basename "$DOWNLOADED")"
-                # Escape special chars for sed
                 ESCAPED_URL=$(echo "$url" | sed 's/[&/\]/\\&/g')
                 ESCAPED_PATH=$(echo "$LOCAL_PATH" | sed 's/[&/\]/\\&/g')
                 sed -i "s|$ESCAPED_URL|$ESCAPED_PATH|g" "$BLOG_FILE"
                 echo "  ✓ img-${IMG_NUM}: $LOCAL_PATH"
                 IMG_NUM=$((IMG_NUM + 1))
               fi
-            done
+            done <<< "$URLS"
             echo "  Done: $((IMG_NUM - 1)) images processed"
           fi
 
