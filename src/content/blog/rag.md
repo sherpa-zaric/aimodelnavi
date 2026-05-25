@@ -1,9 +1,10 @@
 ---
-title: "ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ"
-date: "2026-05-24"
-tag: "AIエージェント"
-excerpt: "クラウドに依存せず、ローカル環境で動作するRAGとナレッジグラフを統合したAIエージェントの構築事例を紹介。機密情報の保持と高度な知識抽出を両立させる新しいアプローチを分析します。"
-source: "https://news.ycombinator.com/item?id=48246659"
+title: ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ
+date: '2026-05-24'
+tag: AIエージェント
+excerpt: >-
+  クラウドに依存せず、ローカル環境で動作するRAGとナレッジグラフを統合したAIエージェントの構築事例を紹介。機密情報の保持と高度な知識抽出を両立させる新しいアプローチを分析します。
+source: 'https://news.ycombinator.com/item?id=48246659'
 ---
 
 ## ローカルLLMによるRAGとナレッジグラフの統合とは
@@ -39,3 +40,11 @@ source: "https://news.ycombinator.com/item?id=48246659"
 
 参考：
 https://news.ycombinator.com/item?id=48246659
+
+---
+
+## 関連記事
+
+- [ローカルLLMで実現する知識グラフ(Knowledge Graph)連携RAGの可能性と実装アプローチ](/blog/llmknowledge-graphrag)
+- [ローカルLLMで機密性を確保し、RAGとナレッジグラフで推論力を強化する「Claw-Coder」とは](/blog/llmragclaw-coder)
+- [OpenAIとDellが提携：Codexをハイブリッド・オンプレミス環境で提供へ。エンタープライズAIの新たな選択肢](/blog/openaidellcodexai)

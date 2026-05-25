@@ -1,9 +1,11 @@
 ---
-title: "Virgin AtlanticがCodexで実現した「P1欠陥削減」とテスト網羅率向上へのアプローチ"
-date: "2026-05-24"
-tag: "解説"
-excerpt: "Virgin AtlanticがOpenAIのCodexを導入し、開発速度と品質をいかに向上させたかを分析します。単なるコード生成に留まらず、ユニットテストの拡充を通じてクリティカルな欠陥を削減した実践的な事例を紹介します。"
-source: "https://openai.com/index/virgin-atlantic"
+title: Virgin AtlanticがCodexで実現した「P1欠陥削減」とテスト網羅率向上へのアプローチ
+date: '2026-05-24'
+tag: 解説
+excerpt: >-
+  Virgin
+  AtlanticがOpenAIのCodexを導入し、開発速度と品質をいかに向上させたかを分析します。単なるコード生成に留まらず、ユニットテストの拡充を通じてクリティカルな欠陥を削減した実践的な事例を紹介します。
+source: 'https://openai.com/index/virgin-atlantic'
 ---
 
 ## AIコーディングエージェントを「品質保証」の武器にする
@@ -35,3 +37,11 @@ Virgin Atlanticの事例は、AIコーディングツールの真の価値が「
 
 参考：
 https://openai.com/index/virgin-atlantic
+
+---
+
+## 関連記事
+
+- [OpenAIエンジニアが伝授するCodexを最大限に活用するための実践ガイド](/blog/openai-codex)
+- [【事例】Ramp社はどのようにCodexを活用してコードレビューを高速化したか](/blog/rampcodex)
+- [Sea LimitedがCodexで加速させる「AIネイティブ」なソフトウェア開発の未来](/blog/seas-view-on-the-future-of-agentic-software-development-with-codex)

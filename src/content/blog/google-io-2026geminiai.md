@@ -1,9 +1,11 @@
 ---
-title: "Google I/O 2026レポート：Geminiが切り拓く「エージェント時代」と物理AI・量子コンピューティングの統合展望"
-date: "2026-05-24"
-tag: "Google"
-excerpt: "Google I/O 2026のDialoguesセッションで語られた、Geminiの「エージェント化」や物理AI（ロボティクス）、量子コンピューティングの最新動向を解説。次世代のAIエコシステムが開発者にもたらす影響を分析します。"
-source: "https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/"
+title: Google I/O 2026レポート：Geminiが切り拓く「エージェント時代」と物理AI・量子コンピューティングの統合展望
+date: '2026-05-24'
+tag: Google
+excerpt: >-
+  Google I/O
+  2026のDialoguesセッションで語られた、Geminiの「エージェント化」や物理AI（ロボティクス）、量子コンピューティングの最新動向を解説。次世代のAIエコシステムが開発者にもたらす影響を分析します。
+source: 'https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/'
 ---
 
 ## Geminiが「エージェント時代」へ：プロアクティブな支援の実現
@@ -37,3 +39,11 @@ Googleが描く「エージェント時代」と「物理AI・量子コンピュ
 参考：
 - Google I/O 2026: Highlights from the Dialogues stage (https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/)
 - Official Google AI news and updates | Google Blog (https://blog.google/technology/ai/)
+
+---
+
+## 関連記事
+
+- [Google I/O 2026速報：Geminiが「エージェント時代」へ突入。開発フローはどう変わるか](/blog/google-io-2026gemini)
+- [Google I/O 2026詳説：Gemini Omniと「エージェント特化型」開発プラットフォームが切り拓く新時代](/blog/google-io-2026gemini-omni)
+- [Gemini 3.5登場：単なるチャットから「AIエージェント」へ、開発ワークフローはどう変わるか](/blog/gemini-35ai)
