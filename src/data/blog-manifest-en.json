@@ -1,5 +1,51 @@
 [
   {
+    "slug": "deepseek-v4-100-nvidia",
+    "title": "DeepSeek V4が発表：100万トークンのコンテキストと华为チップへの最適化でNVIDIA独占を打破へ",
+    "tag": "DeepSeek",
+    "excerpt": "DeepSeekがV4シリーズを公開。100万トークンのコンテキストウィンドウと高度な思考モードを搭載し、コーディングや推論でトップレベルの性能を実現した。特筆すべきは、NVIDIAではなく中国国産チップ（昇騰）への最適化を優先し、ハードウェアの脱依存を加速させている点だ。",
+    "topics": [
+      "DeepSeek",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-25",
+    "title_en": "DeepSeek V4 Unveiled: 1M Context Window and a Strategic Shift Toward Non-NVIDIA Hardware",
+    "excerpt_en": "DeepSeek V4 introduces a massive 1M token context window and state-of-the-art agentic coding capabilities that rival top-tier closed models. Crucially, the series is optimized for domestic Chinese hardware, signaling a strategic move to break NVIDIA's market dominance."
+  },
+  {
+    "slug": "gartneropenai",
+    "title": "GartnerがOpenAIを「エンタープライズ向けコーディングエージェント」のリーダーに選出。自律的実装へのシフトが加速",
+    "tag": "AIエージェント",
+    "excerpt": "Gartnerの最新評価において、OpenAIがエンタープライズ向けコーディングエージェントのリーダーとして認定されました。単なるコード補完から、自律的にタスクを完遂する「エージェント」への進化がもたらす開発フローの変化を解説します。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "セキュリティ",
+      "コーディング"
+    ],
+    "date": "2026-05-24",
+    "title_en": "Gartner Names OpenAI a Leader in Enterprise Coding Agents: The Shift Toward Autonomous Implementation",
+    "excerpt_en": "Gartner has recognized OpenAI as a leader in Enterprise Coding Agents, marking a shift from passive code completion to autonomous implementation. This evolution transforms the developer's role from a writer of code to a reviewer of AI-driven workflows."
+  },
+  {
+    "slug": "google-io-2026geminiai",
+    "title": "Google I/O 2026レポート：Geminiが切り拓く「エージェント時代」と物理AI・量子コンピューティングの統合展望",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026のDialoguesセッションで語られた、Geminiの「エージェント化」や物理AI（ロボティクス）、量子コンピューティングの最新動向を解説。次世代のAIエコシステムが開発者にもたらす影響を分析します。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-24",
+    "title_en": "Google I/O 2026: The Agentic Gemini Era, Embodied AI, and the Quantum Computing Stack",
+    "excerpt_en": "Google I/O 2026 unveils a future defined by 'Agentic Gemini,' Embodied AI, and quantum computing. Explore how Managed Agents and robotics partnerships are shifting AI from passive assistants to autonomous physical actors."
+  },
+  {
     "slug": "llmknowledge-graphrag",
     "title": "ローカルLLMで実現する知識グラフ(Knowledge Graph)連携RAGの可能性と実装アプローチ",
     "tag": "AIエージェント",
@@ -13,6 +59,22 @@
     "date": "2026-05-24",
     "title_en": "Unlocking Advanced RAG: Combining Local LLMs with Knowledge Graphs",
     "excerpt_en": "Standard vector RAG often misses the complex relationships within data. By combining local LLMs with Knowledge Graphs, developers can implement multi-hop reasoning and reduce hallucinations while keeping sensitive data entirely on-premises."
+  },
+  {
+    "slug": "llmragclaw-coder",
+    "title": "ローカルLLMで機密性を確保し、RAGとナレッジグラフで推論力を強化する「Claw-Coder」とは",
+    "tag": "AIエージェント",
+    "excerpt": "クラウドAIへのコード流出を防ぎつつ、ローカル環境で高度なコーディング支援を実現する「Claw-Coder」が登場。RAGとナレッジグラフの統合により、小型モデルでも大規模コードベースの解析を可能にする仕組みを解説します。",
+    "topics": [
+      "AIエージェント",
+      "Anthropic",
+      "セキュリティ",
+      "推論",
+      "マルチモーダル"
+    ],
+    "date": "2026-05-24",
+    "title_en": "Claw-Coder: Boosting Local LLM Reasoning with RAG and Knowledge Graphs",
+    "excerpt_en": "Claw-Coder addresses privacy concerns in AI development by running everything locally. It leverages Knowledge Graphs and RAG to give small local LLMs the reasoning capabilities typically reserved for massive cloud models."
   },
   {
     "slug": "openaigartner",
@@ -32,17 +94,32 @@
   },
   {
     "slug": "rag",
-    "title": "ローカル環境で実現するRAGとナレッジグラフ連携エージェントの可能性",
+    "title": "ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ",
     "tag": "AIエージェント",
-    "excerpt": "プライバシーとセキュリティを重視し、クラウドに頼らずローカルで動作するRAGおよびナレッジグラフ連携エージェントの実装例を紹介します。構造化データの活用による回答精度の向上について解説します。",
+    "excerpt": "クラウドに依存せず、ローカル環境で動作するRAGとナレッジグラフを統合したAIエージェントの構築事例を紹介。機密情報の保持と高度な知識抽出を両立させる新しいアプローチを分析します。",
     "topics": [
       "AIエージェント",
+      "セキュリティ",
       "推論",
       "LLM"
     ],
     "date": "2026-05-24",
     "title_en": "Beyond the Cloud: Integrating RAG and Knowledge Graphs for Local AI Agents",
     "excerpt_en": "Explore the potential of combining RAG and Knowledge Graphs within local environments to create secure, high-reasoning AI agents. This approach eliminates cloud dependency, reduces API costs, and significantly mitigates hallucinations through structured data grounding."
+  },
+  {
+    "slug": "virgin-atlanticcodexp1",
+    "title": "Virgin AtlanticがCodexで実現した「P1欠陥削減」とテスト網羅率向上へのアプローチ",
+    "tag": "解説",
+    "excerpt": "Virgin AtlanticがOpenAIのCodexを導入し、開発速度と品質をいかに向上させたかを分析します。単なるコード生成に留まらず、ユニットテストの拡充を通じてクリティカルな欠陥を削減した実践的な事例を紹介します。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "コーディング"
+    ],
+    "date": "2026-05-24",
+    "title_en": "How Virgin Atlantic Leveraged OpenAI Codex to Slash Critical Bugs and Boost Test Coverage",
+    "excerpt_en": "Virgin Atlantic shifted their AI strategy from simple code generation to automated quality assurance using OpenAI Codex. By focusing on test coverage and edge cases, they successfully reduced critical P1 defects while increasing deployment speed."
   },
   {
     "slug": "claude-opus-4-7-deep-dive",
@@ -106,20 +183,6 @@
     "excerpt_en": "Google I/O 2026 introduces Gemini 3.5 Flash and the Antigravity platform, signaling a shift toward autonomous agents and dynamic Generative UI. These updates move AI from simple chat interfaces to proactive tools capable of physical world simulation and background task execution."
   },
   {
-    "slug": "google-io-2026geminiai",
-    "title": "【Google I/O 2026】「エージェント時代のGemini」と物理AI・量子計算が切り拓く次世代スタック",
-    "tag": "Google",
-    "excerpt": "Google I/O 2026のDialoguesステージにて、Geminiの「エージェント化」や物理AI、量子コンピューティングの統合戦略が発表されました。開発者が注目すべき次世代の技術トレンドを解説します。",
-    "topics": [
-      "Google",
-      "AIエージェント",
-      "LLM"
-    ],
-    "date": "2026-05-23",
-    "title_en": "Google I/O 2026: The Agentic Gemini Era, Embodied AI, and the Quantum Computing Stack",
-    "excerpt_en": "Google I/O 2026 unveils a future defined by 'Agentic Gemini,' Embodied AI, and quantum computing. Explore how Managed Agents and robotics partnerships are shifting AI from passive assistants to autonomous physical actors."
-  },
-  {
     "slug": "openai-codex",
     "title": "OpenAIエンジニアが伝授するCodexを最大限に活用するための実践ガイド",
     "tag": "OpenAI",
@@ -148,20 +211,6 @@
     "date": "2026-05-23",
     "title_en": "How Virgin Atlantic Accelerated Development and Testing with OpenAI Codex",
     "excerpt_en": "Virgin Atlantic leveraged OpenAI Codex to transform its development pipeline, focusing on automated quality control and the rapid generation of unit tests. The result was a significant increase in development velocity without compromising the reliability of mission-critical software."
-  },
-  {
-    "slug": "virgin-atlanticcodexp1",
-    "title": "Virgin AtlanticがCodexで実現した「P1バグの削減」とテスト自動化の成果",
-    "tag": "OpenAI",
-    "excerpt": "Virgin AtlanticがOpenAI Codexを導入し、ユニットテストの作成効率化を通じて開発速度と品質をいかに向上させたかを解説します。テスト作成の高速化と重要バグの削減という、実利的な成果に注目します。",
-    "topics": [
-      "OpenAI",
-      "AIエージェント",
-      "コーディング"
-    ],
-    "date": "2026-05-23",
-    "title_en": "How Virgin Atlantic Leveraged OpenAI Codex to Slash Critical Bugs and Boost Test Coverage",
-    "excerpt_en": "Virgin Atlantic shifted their AI strategy from simple code generation to automated quality assurance using OpenAI Codex. By focusing on test coverage and edge cases, they successfully reduced critical P1 defects while increasing deployment speed."
   },
   {
     "slug": "ai",
@@ -483,8 +532,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: A New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
+    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
   },
   {
     "slug": "aiprovenance",
@@ -730,8 +779,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrained systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures to increase real-world robustness."
+    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
+    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
