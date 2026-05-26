@@ -1,69 +1,5 @@
 [
   {
-    "slug": "2026-5-ai-api",
-    "title": "2026年5月 AI API料金完全比較：全フロンティアモデルの価格一覧",
-    "tag": "ベンチマーク",
-    "excerpt": "2026年5月時点の主要AI API料金を徹底比較。DeepSeek V4 Flashなどの超低コストモデルの台頭により、高性能モデルの民主化が進む一方、最上位モデルとの価格差は100倍以上に拡大している。用途に応じた最適なモデル選択の重要性を解説する。",
-    "topics": [
-      "ベンチマーク",
-      "Anthropic",
-      "OpenAI",
-      "Google",
-      "DeepSeek"
-    ],
-    "date": "2026-05-26",
-    "title_en": "AI API Pricing Guide May 2026: Comparing Every Frontier Model",
-    "excerpt_en": "As of May 2026, the gap between frontier-level performance and affordability has vanished, with 80%+ SWE-bench models now available for as low as $0.30/1M tokens. This guide breaks down the cost-performance ratios and caching strategies for the leading AI models today."
-  },
-  {
-    "slug": "article-2026-05-26-minimax-m3",
-    "title": "MiniMax M3がオフィスAIの未来を変える：1兆パラメータとマルチモーダルでGPTやClaudeに挑戦",
-    "tag": "解説",
-    "excerpt": "MiniMax社の次期フラッグシップモデルM3が2026年5月中にリリース予定。1兆パラメータ、100万トークンのコンテキストウィンドウ、マルチモーダルビジョン機能を搭載し、オフィスシナリオに特化する。M2.5が築いたコスト競争力とコーディング性能を継承し、GPTやClaudeが支配するオフィスAI市場に挑戦する。",
-    "topics": [
-      "Anthropic",
-      "OpenAI",
-      "Google",
-      "DeepSeek",
-      "Qwen/Alibaba"
-    ],
-    "date": "2026-05-26",
-    "title_en": "MiniMax M3: The 1-Trillion-Parameter Model Betting Everything on Office AI",
-    "excerpt_en": "MiniMax's upcoming M3 model targets the office productivity market with ~1 trillion parameters, 1M context windows, and multimodal vision — a strategic pivot away from coding. Building on M2.5's cost leadership ($0.15/M tokens, 1/100th of Claude Opus pricing), M3 aims to challenge GPT and Claude where Chinese models have been virtually absent: Word, Excel, and PowerPoint workflows."
-  },
-  {
-    "slug": "claude-sonnet-48",
-    "title": "Claude Sonnet 4.8のリークから判明した次期主力モデルの全貌と性能予測",
-    "tag": "Anthropic",
-    "excerpt": "Claude Sonnet 4.8の存在がClaude Codeのnpmパッケージ内で発見され、1Mコンテキスト、3.75MP画像対応、SWE-bench 82-84%の性能が予想されている。Opus 4.7の能力を$3/$15の価格帯に持ち込む可能性があり、Sonnetティアで最強のコーディングモデルとなる見通しだ。",
-    "topics": [
-      "Anthropic",
-      "OpenAI",
-      "Google",
-      "DeepSeek",
-      "ベンチマーク"
-    ],
-    "date": "2026-05-26",
-    "title_en": "Claude Sonnet 4.8: What Leaks Reveal About Anthropic's Next Major Model",
-    "excerpt_en": "Based on leaked code and technical analysis, this article examines Claude Sonnet 4.8, Anthropic's upcoming mid-tier model. Predictions suggest it could achieve 82-84% on SWE-bench Verified—surpassing previous Opus versions—while maintaining the $3/$15 price point and adding major vision and coding improvements."
-  },
-  {
-    "slug": "gemini-35-flash-google-i-o-2026",
-    "title": "Gemini 3.5 Flash: Google I/O 2026で発表されたエージェント特化型フロンティアモデルの全貌",
-    "tag": "Google",
-    "excerpt": "GoogleがI/O 2026でGemini 3.5 Flashを発表。エージェント・コーディング特化設計で、GPT-5.5やClaude Opus 4.7と肩を並べる性能をFlashレイテンシで実現。料金はGemini 3.1 Proの60%、キャッシュ利用で90%割引。Gemini Sparkという24/7自律エージェントも同時発表された。",
-    "topics": [
-      "Google",
-      "Anthropic",
-      "OpenAI",
-      "DeepSeek",
-      "ベンチマーク"
-    ],
-    "date": "2026-05-26",
-    "title_en": "Gemini 3.5 Flash: Google's Agent-Optimized Frontier Model, Unveiled at I/O 2026",
-    "excerpt_en": ""
-  },
-  {
     "slug": "ragai",
     "title": "ローカル環境でRAGとナレッジグラフを統合：プライバシーを維持した高度なAIエージェントの実現",
     "tag": "AIエージェント",
@@ -79,6 +15,70 @@
     "excerpt_en": "Explore the benefits of combining RAG with Knowledge Graphs in a fully local environment to enhance AI reasoning while ensuring total data privacy. This approach moves beyond simple vector search to provide structured, transparent, and secure AI agents."
   },
   {
+    "slug": "2026-5-ai-api",
+    "title": "2026年5月 AI API料金完全比較：全フロンティアモデルの価格一覧",
+    "tag": "ベンチマーク",
+    "excerpt": "2026年5月時点の主要AI API料金を徹底比較。DeepSeek V4 Flashなどの超低コストモデルの台頭により、高性能モデルの民主化が進む一方、最上位モデルとの価格差は100倍以上に拡大している。用途に応じた最適なモデル選択の重要性を解説する。",
+    "topics": [
+      "ベンチマーク",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek"
+    ],
+    "date": "2026-05-26",
+    "title_en": "May 2026 AI API Pricing Complete Comparison: Price List for All Frontier Models",
+    "excerpt_en": "A thorough comparison of major AI API pricing as of May 2026. While the rise of ultra-low-cost models like DeepSeek V4 Flash is democratizing high-performance models, the price gap with top-tier models has expanded to over 100x. This post explains the importance of selecting the optimal model based on the application."
+  },
+  {
+    "slug": "article-2026-05-26-minimax-m3",
+    "title": "MiniMax M3がオフィスAIの未来を変える：1兆パラメータとマルチモーダルでGPTやClaudeに挑戦",
+    "tag": "解説",
+    "excerpt": "MiniMax社の次期フラッグシップモデルM3が2026年5月中にリリース予定。1兆パラメータ、100万トークンのコンテキストウィンドウ、マルチモーダルビジョン機能を搭載し、オフィスシナリオに特化する。M2.5が築いたコスト競争力とコーディング性能を継承し、GPTやClaudeが支配するオフィスAI市場に挑戦する。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-26",
+    "title_en": "MiniMax M3 Changes the Future of Office AI: Challenging GPT and Claude with 1 Trillion Parameters and Multimodality",
+    "excerpt_en": "MiniMax's next flagship model, M3, is scheduled for release in May 2026. Featuring 1 trillion parameters, a 1-million-token context window, and multimodal vision capabilities, it specializes in office scenarios. Inheriting the cost competitiveness and coding performance established by M2.5, it aims to challenge the office AI market dominated by GPT and Claude."
+  },
+  {
+    "slug": "claude-sonnet-48",
+    "title": "Claude Sonnet 4.8のリークから判明した次期主力モデルの全貌と性能予測",
+    "tag": "Anthropic",
+    "excerpt": "Claude Sonnet 4.8の存在がClaude Codeのnpmパッケージ内で発見され、1Mコンテキスト、3.75MP画像対応、SWE-bench 82-84%の性能が予想されている。Opus 4.7の能力を$3/$15の価格帯に持ち込む可能性があり、Sonnetティアで最強のコーディングモデルとなる見通しだ。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-26",
+    "title_en": "Leaks Reveal the Full Picture and Performance Predictions for the Next Mainstream Model, Claude Sonnet 4.8",
+    "excerpt_en": "The existence of Claude Sonnet 4.8 was discovered within the Claude Code npm package, with expectations for a 1M context window, 3.75MP image support, and SWE-bench performance of 82-84%. It may bring Opus 4.7 capabilities to the $3/$15 price range, likely becoming the strongest coding model in the Sonnet tier."
+  },
+  {
+    "slug": "gemini-35-flash-google-i-o-2026",
+    "title": "Gemini 3.5 Flash: Google I/O 2026で発表されたエージェント特化型フロンティアモデルの全貌",
+    "tag": "Google",
+    "excerpt": "GoogleがI/O 2026でGemini 3.5 Flashを発表。エージェント・コーディング特化設計で、GPT-5.5やClaude Opus 4.7と肩を並べる性能をFlashレイテンシで実現。料金はGemini 3.1 Proの60%、キャッシュ利用で90%割引。Gemini Sparkという24/7自律エージェントも同時発表された。",
+    "topics": [
+      "Google",
+      "Anthropic",
+      "OpenAI",
+      "DeepSeek",
+      "ベンチマーク"
+    ],
+    "date": "2026-05-26",
+    "title_en": "Gemini 3.5 Flash: Full Details of the Agent-Specialized Frontier Model Announced at Google I/O 2026",
+    "excerpt_en": "Google announced Gemini 3.5 Flash at I/O 2026. Specifically designed for agents and coding, it achieves performance on par with GPT-5.5 and Claude Opus 4.7 with Flash-level latency. Pricing is 60% of Gemini 3.1 Pro, with a 90% discount for cache usage. Gemini Spark, a 24/7 autonomous agent, was also announced."
+  },
+  {
     "slug": "swe-bench-verified-2026-90",
     "title": "SWE-bench Verified 2026最新ランキング：90モデルのコーディング性能を徹底比較",
     "tag": "ベンチマーク",
@@ -91,8 +91,8 @@
       "DeepSeek"
     ],
     "date": "2026-05-26",
-    "title_en": "SWE-bench Verified 2026 Leaderboard: Analyzing the Coding Prowess of 90 AI Models",
-    "excerpt_en": "The May 2026 SWE-bench Verified leaderboard shows Anthropic dominating the top tier with the Mythos model, while Chinese LLMs make a massive leap into the top 10. The data reveals a significant shift toward high-performance, low-cost open-source coding models."
+    "title_en": "Latest 2026 SWE-bench Verified Rankings: Thorough Comparison of Coding Performance Across 90 Models",
+    "excerpt_en": "An analysis of the May 2026 latest rankings of SWE-bench Verified, the gold standard for AI coding ability. While Claude Mythos Preview takes the top spot at 93.9%, the rapid rise of Chinese models such as DeepSeek and MiniMax and their overwhelming cost-performance improvements have become evident."
   },
   {
     "slug": "ai-agent-engineer-report-2026-05",
@@ -673,8 +673,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
+    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Open a New Era of \"Agent Development\"",
+    "excerpt_en": "Explaining Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -920,8 +920,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: System Architecture and Technology Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents moving toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and improving real-world robustness."
+    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
+    "excerpt_en": "AI agent design philosophy for 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constraint-based systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and enhancing robustness in real-world environments."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
