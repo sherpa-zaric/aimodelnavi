@@ -1,5 +1,21 @@
 [
   {
+    "slug": "2026-5-ai-api",
+    "title": "2026年5月 AI API料金完全比較：全フロンティアモデルの価格一覧",
+    "tag": "ベンチマーク",
+    "excerpt": "2026年5月時点の主要AI API料金を徹底比較。DeepSeek V4 Flashなどの超低コストモデルの台頭により、高性能モデルの民主化が進む一方、最上位モデルとの価格差は100倍以上に拡大している。用途に応じた最適なモデル選択の重要性を解説する。",
+    "topics": [
+      "ベンチマーク",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek"
+    ],
+    "date": "2026-05-26",
+    "title_en": "AI API Pricing Guide May 2026: Comparing Every Frontier Model",
+    "excerpt_en": "As of May 2026, the gap between frontier-level performance and affordability has vanished, with 80%+ SWE-bench models now available for as low as $0.30/1M tokens. This guide breaks down the cost-performance ratios and caching strategies for the leading AI models today."
+  },
+  {
     "slug": "article-2026-05-26-minimax-m3",
     "title": "MiniMax M3がオフィスAIの未来を変える：1兆パラメータとマルチモーダルでGPTやClaudeに挑戦",
     "tag": "解説",
@@ -657,8 +673,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: A New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should keep an eye on."
+    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -904,8 +920,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constraint-based systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and enhancing robustness in real-world applications."
+    "title_en": "The Forefront of AI Agent Design: System Architecture and Technology Trend Report for 2026",
+    "excerpt_en": "The design philosophy for AI agents moving toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and improving real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
