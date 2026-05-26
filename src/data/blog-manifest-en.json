@@ -578,7 +578,7 @@
     ],
     "date": "2026-05-21",
     "title_en": "Google I/O 2026 Breaking News: A New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
-    "excerpt_en": "This article explains Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. It summarizes the impact of multimodal integration and autonomous agents that developers should watch."
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -824,8 +824,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrained systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and enhancing real-world robustness."
+    "title_en": "The Forefront of AI Agent Design: System Architecture and Technology Trend Report for 2026",
+    "excerpt_en": "The design philosophy for AI agents moving toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constraint-based systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures for increasing real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
