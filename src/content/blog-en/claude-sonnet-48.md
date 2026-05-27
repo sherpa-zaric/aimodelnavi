@@ -1,48 +1,48 @@
 ---
-title: "Leaked: Everything We Know About the Upcoming Claude Sonnet 4.8"
+title: "Claude Sonnet 4.8: What Leaks Reveal About Anthropic's Next Major Model"
 date: "2026-05-26"
 tag: "Anthropic"
-excerpt: "Leaked data from Claude Code suggests the upcoming Sonnet 4.8 will bridge the gap between mid-tier pricing and top-tier performance. Expected upgrades include 3.75MP vision resolution and a significant jump in SWE-bench coding scores to 82-84%."
+excerpt: "Based on leaked code and technical analysis, this article examines Claude Sonnet 4.8, Anthropic's upcoming mid-tier model. Predictions suggest it could achieve 82-84% on SWE-bench Verified—surpassing previous Opus versions—while maintaining the $3/$15 price point and adding major vision and coding improvements."
 ---
 
-On March 31, 2026, the string "sonnet-4-8" was discovered within the npm package for Claude Code (v2.1.88). While Anthropic has not officially announced the model, this leak provides a clear outline of what to expect from the next flagship iteration of the Sonnet series.
+## The Mystery of the Version Number: Why Skip 4.7?
 
-## The Versioning Mystery: Why 4.8 instead of 4.7?
+The Anthropic Sonnet series has progressed at a steady pace:
 
-Anthropic's Sonnet series has followed a consistent release cadence:
-
-| Model | Release Date | API String |
-| :--- | :--- | :--- |
+| Model | Release | API String |
+|-------|---------|------------|
 | Claude 3.5 Sonnet | June 2024 | claude-3-5-sonnet-20240620 |
 | Claude 3.7 Sonnet | February 2025 | claude-3-7-sonnet-20250219 |
 | Claude 4 Sonnet | May 2025 | claude-sonnet-4-0 |
 | Claude Sonnet 4.5 | September 2025 | claude-sonnet-4-5 |
 | Claude Sonnet 4.6 | February 2026 | claude-sonnet-4-6 |
-| **Claude Sonnet 4.8** | **May 2026 (Est.)** | **claude-sonnet-4-8** |
+| **Claude Sonnet 4.8** | **May 2026 (Expected)** | claude-sonnet-4-8 |
 
-Skipping 4.7 suggests that this is not a simple port of Opus 4.7. It implies a different development timeline or a distinct training run tailored for the Sonnet line.
+Skipping version 4.7 suggests this is **not a simple port from Opus 4.7**. It likely originates from a different development timeline and training run.
 
-## Predicted Specifications
+## Expected Specifications
 
-Based on leak data and the improvement rates seen in Opus 4.7, here is the projected spec sheet:
+Based on leaked information and extrapolating from Opus 4.7's improvements:
 
-| Feature | Sonnet 4.6 (Current) | Sonnet 4.8 (Predicted) |
-| :--- | :--- | :--- |
+| Feature | Sonnet 4.6 (Current) | Sonnet 4.8 (Expected) |
+|---------|----------------------|------------------------|
 | SWE-bench Verified | 79.6% | **82-84%** |
 | GPQA Diamond | 74.1% | **76-78%** |
-| Max Image Resolution | ~1.25MP | **3.75MP** (3x increase) |
-| Context Window | 1M (Beta) | 1M (Potential GA) |
-| Pricing (Input/Output) | $3 / $15 | $3 / $15 (Likely unchanged) |
-| Knowledge Cutoff | August 2025 | Late 2025 to Early 2026 |
+| Image Resolution Limit | ~1.25MP | **3.75MP** (3x) |
+| Context Window | 1M (beta) | 1M (possible GA) |
+| Price (Input/Output) | $3/$15 | $3/$15 (likely unchanged) |
+| Knowledge Cutoff | August 2025 | Late 2025 – Early 2026 |
 
-### Analyzing the SWE-bench Forecast: 82-84%
+### SWE-bench Verified: Basis for the 82-84% Estimate
 
-Sonnet 4.6 currently sits at 79.6% on SWE-bench Verified, nearly matching Opus 4.6 (80.8%). However, Opus 4.7 reached 87.6%, a jump of roughly 7 percentage points over its predecessor. If Sonnet 4.8 sees a similar gain of 6-8 points, a score of **82-84%** is a reasonable estimate.
+Sonnet 4.6 scored 79.6% on SWE-bench Verified, nearly matching Opus 4.6 (80.8%). Opus 4.7 reached 87.6%, showing a ~7-point improvement over Opus 4.6.
 
-For context, here are the top SWE-bench Verified rankings as of May 25, 2026:
+If Sonnet 4.8 achieves a similar improvement margin (6-8 points) from Sonnet 4.6, **82-84%** becomes a reasonable estimate.
+
+For context, the top SWE-bench Verified scores as of May 25, 2026:
 
 | Rank | Model | Score |
-| :--- | :--- | :--- |
+|------|-------|-------|
 | 1 | Claude Mythos Preview | 93.9% |
 | 2 | Claude Opus 4.7 | 87.6% |
 | 3 | GPT-5.3 Codex | 85.0% |
@@ -54,68 +54,125 @@ For context, here are the top SWE-bench Verified rankings as of May 25, 2026:
 | 8 | MiniMax M2.5 | 80.2% |
 | 10 | Claude Sonnet 4.6 | 79.6% |
 
-At 82-84%, Sonnet 4.8 would leapfrog Opus 4.5 and 4.6, bringing Opus-level coding capabilities to the more affordable Sonnet pricing tier.
+Achieving 82-84% would place Sonnet 4.8 **ahead of Opus 4.5 and 4.6, and close to Opus 4.7**. This would deliver near-Opus level coding performance at the Sonnet price tier ($3/$15).
 
-### Vision: 3.75MP Resolution
+### Vision: 3.75MP Image Support
 
-Opus 4.7 achieved "98.5% visual accuracy" with a 3.75MP resolution limit. It is expected that Sonnet 4.8 will inherit this capability. Moving from 1.25MP to 3.75MP—a **threefold increase in resolution**—will significantly enhance the model's ability to analyze complex documents, UI mockups, and detailed charts.
+Opus 4.7 achieved "98.5% visual accuracy" and supports 3.75MP image resolution. Sonnet 4.8 is expected to bring this capability to the mid-tier price point.
 
-### The New "xhigh" Effort Level
+Moving from Sonnet 4.6's ~1.25MP to 3.75MP—a **3x increase in resolution**—would significantly boost practicality for document analysis, UI mockup understanding, and chart interpretation.
 
-We expect the "xhigh" effort level (positioned between "high" and "max") introduced in Opus 4.7 to be ported to Sonnet 4.8. This provides developers with finer control over the trade-off between cost, latency, and reasoning depth.
+### New "xhigh" Effort Level
 
-### Tokenizer Updates
+The "xhigh" effort level (between "high" and "max") introduced with Opus 4.7 is also expected to be ported to Sonnet 4.8.
 
-The new tokenizer used in Opus 4.7 generates 1.0 to 1.35 times more tokens depending on the content type:
+Current levels: low / medium / high / max
+
+Adding **xhigh** allows for finer control over the cost-performance tradeoff.
+
+### Tokenizer Update
+
+Opus 4.7's new tokenizer generates between 1.0x to 1.35x more tokens depending on content type:
 
 | Content Type | Token Increase Rate |
-| :--- | :--- |
-| English Prose | ~1.0x (No change) |
+|--------------|---------------------|
+| English Prose | ~1.0x (unchanged) |
 | Code | ~1.1-1.2x |
 | Structured Data (JSON, XML) | Up to 1.35x |
 
-If Sonnet 4.8 adopts this tokenizer, **effective costs could rise by 10-35%**, even if the nominal API price remains $3/$15, simply because the same content will be split into more tokens.
+If Sonnet 4.8 adopts this tokenizer, **effective costs could rise by 10-35%**. Even if the API price remains $3/$15, the same content would be split into more tokens.
 
 ## Key Improvements Over Sonnet 4.6
 
-1. **Massive Vision Upgrade**: Transitioning to 3.75MP resolution for superior understanding of screenshots and charts.
-2. **Coding Performance**: Leveraging the gains seen in Opus 4.7 (e.g., CursorBench jumping from 58% to 70%) to offer high-end autonomous coding at a mid-tier price.
-3. **Prompt Interpretation**: Likely moving toward the "more literal" interpretation style of Opus 4.7, improving instruction following while potentially reducing flexibility with ambiguous prompts.
+### 1. Dramatically Enhanced Vision Capabilities
 
-## Pricing Stability
+Expected visual abilities inherited from Opus 4.7:
+- Image resolution: 1.25MP → 3.75MP
+- Visual accuracy: 98.5% (measured on Opus 4.7)
+- High-accuracy understanding of document screenshots, UI mockups, and charts
 
-The Sonnet line has remarkably maintained a consistent $3/$15 price point since version 3.5. If Sonnet 4.8 holds this price, it will offer roughly 82-84% SWE-bench performance at 60% of the cost of Opus 4.7.
+### 2. Improved Coding Performance
 
-## Other Related Leaks
+Opus 4.7's improvement track record:
+- CursorBench: 58% → 70% (+12 points)
+- 93-task coding benchmark: +13%
+- Production task resolution: 3x increase
 
-*   **KAIROS**: Mentioned over 150 times in the Claude Code leaks. KAIROS appears to be a persistent daemon agent featuring autonomous monitoring, memory integration ("autoDream"), preemptive actions, and push notifications.
-*   **Mythos**: Released April 7, 2026, scoring 93.9% on SWE-bench. Currently restricted to cybersecurity applications (Project Glasswing).
-*   **numbat**: An unreleased model mentioned in the code with currently unknown details.
+Sonnet 4.8 is expected to bring these gains to the $3/$15 price tier.
+
+### 3. Shift in Prompt Interpretation
+
+Opus 4.7 is described as interpreting prompts "more literally than 4.6." A similar behavioral shift is anticipated for Sonnet 4.8. While this means more precise instruction following, it may reduce flexibility for ambiguous prompts.
+
+## Pricing: Stability in the Sonnet Tier
+
+The Sonnet series has consistently maintained the $3/$15 pricing from 3.5 through 4.6:
+
+| Model | Input/1M | Output/1M |
+|-------|----------|------------|
+| Claude 3.5 Sonnet | $3 | $15 |
+| Claude 4 Sonnet | $3 | $15 |
+| Claude Sonnet 4.5 | $3 | $15 |
+| Claude Sonnet 4.6 | $3 | $15 |
+| Claude Sonnet 4.8 (Expected) | $3 | $15 |
+
+Meanwhile, the Opus tier saw a significant price cut with version 4.6 (from $15/$75 to $5/$25). If Sonnet 4.8 maintains $3/$15, it would be a model with **82-84% SWE-bench performance at 60% of Opus 4.7's price**.
+
+## Related Leak Information
+
+### KAIROS
+
+Mentioned over 150 times in leaked Claude Code files, **KAIROS** appears to be a persistent daemon agent. Features include autonomous monitoring, memory consolidation ("autoDream"), preemptive actions, and push notifications.
+
+### Mythos
+
+Released April 7, 2026. Achieved 93.9% on SWE-bench Verified. Its use is limited to cybersecurity (Project Glasswing).
+
+### numbat
+
+Mentioned in leaked code but details are unknown for this unreleased model.
 
 ## Developer Expectations
 
-Community anticipation for Sonnet 4.8 focuses on:
-*   Reliable generation of longer outputs.
-*   Reduction in "over-engineering" (avoiding unnecessary complexity in code).
-*   Improved Time-to-First-Token (TTFT).
-*   Better multi-file awareness across large codebases.
-*   Stable JSON/structured output with constrained decoding.
+Consolidating developer hopes for Sonnet 4.8:
+
+1. **More reliable long-form output generation**
+2. **Reduced over-engineering** (less addition of unnecessary complexity)
+3. **Improved Time-to-First-Token (TTFT)**
+4. **Better multi-file awareness in large codebases**
+5. **Stable JSON/structured output and constrained decoding**
 
 ## Release Timeline
 
-Based on the patterns seen with Opus 4.7 (released April 16), Sonnet 4.8 typically follows 3-4 weeks later. The most likely release window is **mid-May 2026**.
+Predictions based on leaked information:
+
+| Scenario | Timing | Probability |
+|----------|--------|-------------|
+| Best Case | Late April 2026 | Low |
+| Most Likely | May 5-16, 2026 | Medium |
+| Worst Case | Late May 2026 | Medium |
+
+Given Opus 4.7 launched on April 16, Sonnet versions typically follow 3-4 weeks later. **Mid-May 2026** is the most probable release window.
 
 ## Competitive Landscape
 
-| Model | Input/1M | Output/1M | SWE-bench | Key Feature |
-| :--- | :--- | :--- | :--- | :--- |
-| **Claude Sonnet 4.8 (Est.)** | **$3** | **$15** | **82-84%** | **3.75MP Vision, 1M Context** |
-| Claude Sonnet 4.6 | $3 | $15 | 79.6% | Current flagship |
-| GPT-5.2 | $1.25 | $10.00 | 80.0% | OpenAI Mainstream |
-| DeepSeek V4 Pro (Max) | $1.74 | $3.48 | 80.6% | Low-cost frontier |
-| Gemini 3.1 Pro | $2.50 | $15.00 | 80.6% | Google Mainstream |
-| MiniMax M2.5 | $0.15 | $1.15 | 80.2% | Coding spec/Budget |
+Sonnet 4.8's positioning:
 
-## Summary
+| Model | Input/1M | Output/1M | SWE-bench | Highlights |
+|-------|----------|-----------|-----------|------------|
+| Claude Sonnet 4.8 (Expected) | $3 | $15 | 82-84% | Vision 3.75MP, 1M context |
+| Claude Sonnet 4.6 | $3 | $15 | 79.6% | Current workhorse |
+| GPT-5.2 | $1.25 | $10.00 | 80.0% | OpenAI mainstay |
+| DeepSeek V4 Pro (Max) | $1.74 | $3.48 | 80.6% | Most affordable frontier |
+| Gemini 3.1 Pro | $2.50 | $15.00 | 80.6% | Google mainstay |
+| MiniMax M2.5 | $0.15 | $1.15 | 80.2% | Coding-focused, cheapest |
 
-Claude Sonnet 4.8 could represent the biggest leap in the Sonnet series to date. By bringing the vision capabilities and coding prowess of the Opus line to the $3/$15 price bracket, Anthropic is positioning it as the strongest coding model in its tier. While we await official confirmation, the leak suggests a model that delivers Opus-grade performance at a Sonnet price.
+If it hits 82-84%, Sonnet 4.8 would become **the strongest coding model in the Sonnet tier**. It would outperform Opus 4.5 (80.9%) and Opus 4.6 (80.8%) at a fraction of the cost.
+
+## Conclusion
+
+Claude Sonnet 4.8 has the potential to be Anthropic's most significant leap in the Sonnet line yet.
+
+It promises to bring Opus 4.7's Vision capabilities, coding performance, and effort levels to the $3/$15 price bracket. Should it achieve 82-84% on SWE-bench Verified, it would deliver **Opus-level performance at Sonnet pricing**.
+
+While these predictions are based on leaks, reviewing Anthropic's Sonnet series history suggests such an improvement is entirely plausible. We'll have to wait for the official announcement, but this is undoubtedly one of the most anticipated models for developers.

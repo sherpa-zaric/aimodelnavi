@@ -1,5 +1,19 @@
 [
   {
+    "slug": "qwen37-max-35",
+    "title": "Qwen3.7-Maxが35時間の自律実行を達成。中国製モデルのエージェント性能がフロンティアに迫る",
+    "tag": "DeepSeek",
+    "excerpt": "AlibabaのQwen3.7-Maxが、未知のハードウェア上でのカーネル最適化において35時間の自律実行と10倍の性能向上を達成。タスク・ハーネス・検証器を分離した訓練手法により、高い汎化性能とエージェント能力を実現している。",
+    "topics": [
+      "DeepSeek",
+      "Anthropic",
+      "Qwen/Alibaba",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-27"
+  },
+  {
     "slug": "qwen37-vs-claude-opus-47-vs-gpt-55-2026",
     "title": "Qwen3.7 vs Claude Opus 4.7 vs GPT-5.5：2026年のフロンティアモデル性能比較",
     "tag": "ベンチマーク",
@@ -76,6 +90,7 @@
     "excerpt": "OpenAIがブラジルの大手メディアであるGrupo FolhaおよびGrupo UOLとの戦略的コンテンツ提携を発表しました。本記事では、この提携がAI検索における信頼性の向上と、メディア企業のRAG最適化にどのような影響を与えるか分析します。",
     "topics": [
       "OpenAI",
+      "Google",
       "AIエージェント",
       "LLM"
     ],
@@ -143,7 +158,8 @@
     "topics": [
       "DeepSeek",
       "オープンソース",
-      "推論"
+      "推論",
+      "LLM"
     ],
     "date": "2026-05-25"
   },

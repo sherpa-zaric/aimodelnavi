@@ -16,6 +16,22 @@
     "excerpt_en": "A detailed comparison of 2026's leading frontier models, including Qwen3.7-Max, Claude Opus 4.7, and GPT-5.5. We analyze coding, reasoning, and agentic performance to determine which model wins in specific use cases."
   },
   {
+    "slug": "qwen37-max-35",
+    "title": "Qwen3.7-Maxが35時間の自律実行を達成。中国製モデルのエージェント性能がフロンティアに迫る",
+    "tag": "DeepSeek",
+    "excerpt": "AlibabaのQwen3.7-Maxが、未知のハードウェア上でのカーネル最適化において35時間の自律実行と10倍の性能向上を達成。タスク・ハーネス・検証器を分離した訓練手法により、高い汎化性能とエージェント能力を実現している。",
+    "topics": [
+      "DeepSeek",
+      "Anthropic",
+      "Qwen/Alibaba",
+      "ベンチマーク",
+      "AIエージェント"
+    ],
+    "date": "2026-05-27",
+    "title_en": "Qwen3.7-Max Achieves 35 Hours of Autonomous Execution: Chinese Model Agent Performance Approaches the Frontier",
+    "excerpt_en": "Alibaba's Qwen3.7-Max achieved 35 hours of autonomous execution and a 10x performance increase in kernel optimization on unknown hardware. High generalization and agent capabilities were realized through a training method that separates the task, harness, and verifier."
+  },
+  {
     "slug": "2026-5-ai-api",
     "title": "2026年5月 AI API料金完全比較：全フロンティアモデルの価格一覧",
     "tag": "ベンチマーク",
@@ -78,6 +94,21 @@
     "date": "2026-05-26",
     "title_en": "Gemini 3.5 Flash: Google's Agent-Optimized Frontier Model, Unveiled at I/O 2026",
     "excerpt_en": ""
+  },
+  {
+    "slug": "openaiai",
+    "title": "OpenAIがブラジルの大手メディアグループと提携：AI検索における「信頼できる情報源」の重要性と影響",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIがブラジルの大手メディアであるGrupo FolhaおよびGrupo UOLとの戦略的コンテンツ提携を発表しました。本記事では、この提携がAI検索における信頼性の向上と、メディア企業のRAG最適化にどのような影響を与えるか分析します。",
+    "topics": [
+      "OpenAI",
+      "Google",
+      "AIエージェント",
+      "LLM"
+    ],
+    "date": "2026-05-26",
+    "title_en": "OpenAI's AI Model Disproves Key Discrete Geometry Conjecture: Pioneering Mathematical Discovery",
+    "excerpt_en": "OpenAI's AI model has disproved a major conjecture in discrete geometry by constructing a counterexample, demonstrating advanced reasoning that goes beyond computation. This marks a significant step towards AI-driven mathematical discovery, with the potential to transform scientific research by acting as a collaborative partner in hypothesis testing and theory refinement."
   },
   {
     "slug": "ragai",
@@ -149,7 +180,8 @@
     "topics": [
       "DeepSeek",
       "オープンソース",
-      "推論"
+      "推論",
+      "LLM"
     ],
     "date": "2026-05-25",
     "title_en": "Huawei's 'τ Law': Achieving 1.4nm Equivalent Density in a 7nm Fab with 'Logic Folding'",
@@ -445,22 +477,6 @@
     "excerpt_en": "AdventHealth leverages OpenAI to streamline administrative tasks in healthcare, freeing up time for professionals to focus on patient-centered care. This approach not only boosts efficiency but also enables whole-person care by prioritizing human interaction and emotional support. It highlights how AI can strategically enhance human roles rather than replace them."
   },
   {
-    "slug": "openaiai",
-    "title": "OpenAIのモデルが離散幾何学の主要な予想を反証：AIによる数学的証明の突破口とその意義",
-    "tag": "OpenAI",
-    "excerpt": "OpenAIのモデルが、離散幾何学における中心的な予想を反証することに成功しました。単なるテキスト生成を超え、高度な論理推論によって未知の定理を証明した今回の事例が、AIの「思考プロセス」にどのような進化をもたらすかを解説します。",
-    "topics": [
-      "OpenAI",
-      "ベンチマーク",
-      "AIエージェント",
-      "推論",
-      "LLM"
-    ],
-    "date": "2026-05-22",
-    "title_en": "OpenAI's AI Model Disproves Key Discrete Geometry Conjecture: Pioneering Mathematical Discovery",
-    "excerpt_en": "OpenAI's AI model has disproved a major conjecture in discrete geometry by constructing a counterexample, demonstrating advanced reasoning that goes beyond computation. This marks a significant step towards AI-driven mathematical discovery, with the potential to transform scientific research by acting as a collaborative partner in hypothesis testing and theory refinement."
-  },
-  {
     "slug": "qwen3-7-max-deep-dive",
     "title": "Qwen3.7完全ガイド：Max・Plusの性能・料金・API利用法を徹底解説",
     "tag": "Alibaba",
@@ -689,8 +705,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: The New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should focus on."
+    "title_en": "Google I/O 2026 Quick Report: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. This summarizes the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -937,7 +953,7 @@
     ],
     "date": "2026-05-20",
     "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents moving toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures for improving real-world robustness."
+    "excerpt_en": "The design philosophy for AI agents toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrainable systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures to increase real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
