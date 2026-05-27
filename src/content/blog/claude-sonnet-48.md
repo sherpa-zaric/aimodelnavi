@@ -1,8 +1,11 @@
 ---
-title: "Claude Sonnet 4.8のリークから判明した次期主力モデルの全貌と性能予測"
-date: "2026-05-26"
-tag: "Anthropic"
-excerpt: "Claude Sonnet 4.8の存在がClaude Codeのnpmパッケージ内で発見され、1Mコンテキスト、3.75MP画像対応、SWE-bench 82-84%の性能が予想されている。Opus 4.7の能力を$3/$15の価格帯に持ち込む可能性があり、Sonnetティアで最強のコーディングモデルとなる見通しだ。"
+title: Claude Sonnet 4.8のリークから判明した次期主力モデルの全貌と性能予測
+date: '2026-05-26'
+tag: Anthropic
+excerpt: >-
+  Claude Sonnet 4.8の存在がClaude Codeのnpmパッケージ内で発見され、1Mコンテキスト、3.75MP画像対応、SWE-bench
+  82-84%の性能が予想されている。Opus
+  4.7の能力を$3/$15の価格帯に持ち込む可能性があり、Sonnetティアで最強のコーディングモデルとなる見通しだ。
 ---
 
 2026年3月31日、Claude Codeのnpmパッケージ（v2.1.88）の中に「sonnet-4-8」という文字列が発見された。
@@ -180,3 +183,11 @@ Claude Sonnet 4.8は、AnthropicのSonnet系列にとって最大の飛躍にな
 Opus 4.7のVision能力、コーディング性能、エフォートレベルを$3/$15の価格帯に持ち込む。SWE-bench Verifiedで82-84%を達成すれば、**Opus級の性能をSonnet価格で提供するモデル**が誕生する。
 
 リーク情報に基づく予測だが、AnthropicのSonnet系列の歴史を振り返れば、この程度の改善は十分に現実的だ。正式発表を待つしかないが、開発者にとって最も注目すべきモデルの一つだ。
+
+---
+
+## 関連記事
+
+- [Anthropicが「Claude Opus 4.7」をリリース：コーディング能力と視覚解像度が大幅向上、初のサイバーセキュリティ保護機能を搭載](/blog/anthropic-claude-opus-4-7-software-engineering)
+- [SWE-bench Verified 2026最新ランキング：90モデルのコーディング性能を徹底比較](/blog/swe-bench-verified-2026-90)
+- [【2026年5月版】主要AIモデルAPI料金の完全比較一覧](/blog/api-pricing-may-2026)

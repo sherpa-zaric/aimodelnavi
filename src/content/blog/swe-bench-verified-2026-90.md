@@ -1,8 +1,10 @@
 ---
-title: "SWE-bench Verified 2026最新ランキング：90モデルのコーディング性能を徹底比較"
-date: "2026-05-26"
-tag: "ベンチマーク"
-excerpt: "AIコーディング能力のゴールドスタンダードであるSWE-bench Verifiedの2026年5月最新ランキングを分析。Claude Mythos Previewが93.9%で首位に立つ一方、DeepSeekやMiniMaxといった中国勢モデルの急激な台頭と、圧倒的なコストパフォーマンスの向上が明らかになった。"
+title: SWE-bench Verified 2026最新ランキング：90モデルのコーディング性能を徹底比較
+date: '2026-05-26'
+tag: ベンチマーク
+excerpt: >-
+  AIコーディング能力のゴールドスタンダードであるSWE-bench Verifiedの2026年5月最新ランキングを分析。Claude Mythos
+  Previewが93.9%で首位に立つ一方、DeepSeekやMiniMaxといった中国勢モデルの急激な台頭と、圧倒的なコストパフォーマンスの向上が明らかになった。
 ---
 
 SWE-bench Verifiedは、AIのコーディング能力を測定するベンチマークの中で最も信頼されている指標の一つだ。
@@ -118,3 +120,11 @@ SWE-bench Verified 2026の結果は、AIコーディングの世界における3
 **第三に**、コストパフォーマンスの劇的な改善だ。極めて低価格なMiniMax M2.5が80.2%を達成したことは、AIコーディングの民主化を意味している。
 
 SWE-bench Verifiedは一つの指標に過ぎないが、AIが現実のソフトウェアエンジニアリング問題をどれだけ解決できるかを測る尺度として、極めて信頼性の高いベンチマークである。
+
+---
+
+## 関連記事
+
+- [Anthropicの次世代モデル「Claude Mythos」がリーク、Opusを凌駕する性能で「飛躍的な進化」へ](/blog/anthropic-information-leak-strongest-model)
+- [DeepSeek V4が発表：100万トークンのコンテキストと华为チップへの最適化でNVIDIA独占を打破へ](/blog/deepseek-v4-100-nvidia)
+- [2026年5月 AI API料金完全比較：全フロンティアモデルの価格一覧](/blog/2026-5-ai-api)

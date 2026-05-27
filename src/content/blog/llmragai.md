@@ -1,9 +1,10 @@
 ---
-title: "ローカルLLMで完結するRAGとナレッジグラフ導入の手法：プライバシー重視のAIエージェント構築へ"
-date: "2026-05-25"
-tag: "オープンソース"
-excerpt: "外部APIに依存せず、ローカル環境でRAG（検索拡張生成）とナレッジグラフを組み合わせたAIエージェントを構築する手法について解説します。データプライバシーを最優先しつつ、高度な知識管理を実現したい開発者向けのアプローチです。"
-source: "https://news.ycombinator.com/item?id=48246659"
+title: ローカルLLMで完結するRAGとナレッジグラフ導入の手法：プライバシー重視のAIエージェント構築へ
+date: '2026-05-25'
+tag: オープンソース
+excerpt: >-
+  外部APIに依存せず、ローカル環境でRAG（検索拡張生成）とナレッジグラフを組み合わせたAIエージェントを構築する手法について解説します。データプライバシーを最優先しつつ、高度な知識管理を実現したい開発者向けのアプローチです。
+source: 'https://news.ycombinator.com/item?id=48246659'
 ---
 
 ## ローカルLLMによるRAGとナレッジグラフの統合とは
@@ -40,3 +41,11 @@ source: "https://news.ycombinator.com/item?id=48246659"
 参考：
 GraphRAG等の実装に関する議論（Hacker News）
 https://news.ycombinator.com/item?id=48246659
+
+---
+
+## 関連記事
+
+- [ローカルLLMで実現する知識グラフ(Knowledge Graph)連携RAGの可能性と実装アプローチ](/blog/llmknowledge-graphrag)
+- [ローカルLLMで機密性を確保し、RAGとナレッジグラフで推論力を強化する「Claw-Coder」とは](/blog/llmragclaw-coder)
+- [ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ](/blog/rag)

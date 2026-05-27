@@ -64,6 +64,20 @@
     "excerpt_en": "Google's new Gemini 3.5 Flash is a frontier model specifically optimized for AI agents, offering 4x faster speeds and aggressive pricing. It outperforms the Pro version in coding and tool-use benchmarks, signaling a shift toward operational efficiency over pure academic reasoning."
   },
   {
+    "slug": "openaiai",
+    "title": "OpenAIがブラジルの大手メディアグループと提携：AI検索における「信頼できる情報源」の重要性と影響",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIがブラジルの大手メディアであるGrupo FolhaおよびGrupo UOLとの戦略的コンテンツ提携を発表しました。本記事では、この提携がAI検索における信頼性の向上と、メディア企業のRAG最適化にどのような影響を与えるか分析します。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "LLM"
+    ],
+    "date": "2026-05-26",
+    "title_en": "OpenAI's AI Model Disproves Key Discrete Geometry Conjecture: Pioneering Mathematical Discovery",
+    "excerpt_en": "OpenAI's AI model has disproved a major conjecture in discrete geometry by constructing a counterexample, demonstrating advanced reasoning that goes beyond computation. This marks a significant step towards AI-driven mathematical discovery, with the potential to transform scientific research by acting as a collaborative partner in hypothesis testing and theory refinement."
+  },
+  {
     "slug": "ragai",
     "title": "ローカル環境でRAGとナレッジグラフを統合：プライバシーを維持した高度なAIエージェントの実現",
     "tag": "AIエージェント",
@@ -429,22 +443,6 @@
     "excerpt_en": "AdventHealth leverages OpenAI to streamline administrative tasks in healthcare, freeing up time for professionals to focus on patient-centered care. This approach not only boosts efficiency but also enables whole-person care by prioritizing human interaction and emotional support. It highlights how AI can strategically enhance human roles rather than replace them."
   },
   {
-    "slug": "openaiai",
-    "title": "OpenAIのモデルが離散幾何学の主要な予想を反証：AIによる数学的証明の突破口とその意義",
-    "tag": "OpenAI",
-    "excerpt": "OpenAIのモデルが、離散幾何学における中心的な予想を反証することに成功しました。単なるテキスト生成を超え、高度な論理推論によって未知の定理を証明した今回の事例が、AIの「思考プロセス」にどのような進化をもたらすかを解説します。",
-    "topics": [
-      "OpenAI",
-      "ベンチマーク",
-      "AIエージェント",
-      "推論",
-      "LLM"
-    ],
-    "date": "2026-05-22",
-    "title_en": "OpenAI's AI Model Disproves Key Discrete Geometry Conjecture: Pioneering Mathematical Discovery",
-    "excerpt_en": "OpenAI's AI model has disproved a major conjecture in discrete geometry by constructing a counterexample, demonstrating advanced reasoning that goes beyond computation. This marks a significant step towards AI-driven mathematical discovery, with the potential to transform scientific research by acting as a collaborative partner in hypothesis testing and theory refinement."
-  },
-  {
     "slug": "qwen3-7-max-deep-dive",
     "title": "Qwen3.7完全ガイド：Max・Plusの性能・料金・API利用法を徹底解説",
     "tag": "Alibaba",
@@ -673,8 +671,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Open a New Era of \"Agent Development\"",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should keep an eye on."
+    "title_en": "Google I/O 2026 Breaking News: A New Era of \"Agent Development\" Opened by Gemini Omni and Antigravity",
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -920,8 +918,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Front Line of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "The design philosophy for AI agents heading toward 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrained systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures for increasing real-world robustness."
+    "title_en": "The Frontline of AI Agent Design: System Architecture and Technical Trend Report for 2026",
+    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrained systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures to increase robustness in the real world."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",

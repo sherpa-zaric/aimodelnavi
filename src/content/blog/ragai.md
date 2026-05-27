@@ -1,9 +1,10 @@
 ---
-title: "ローカル環境でRAGとナレッジグラフを統合：プライバシーを維持した高度なAIエージェントの実現"
-date: "2026-05-26"
-tag: "AIエージェント"
-excerpt: "クラウド依存を排除し、ローカル環境でRAG（検索拡張生成）とナレッジグラフを統合させたAIエージェントの実装事例を紹介します。プライバシー確保と高度な文脈理解を両立させる新しいアプローチについて解説します。"
-source: "https://news.ycombinator.com/item?id=48248801"
+title: ローカル環境でRAGとナレッジグラフを統合：プライバシーを維持した高度なAIエージェントの実現
+date: '2026-05-26'
+tag: AIエージェント
+excerpt: >-
+  クラウド依存を排除し、ローカル環境でRAG（検索拡張生成）とナレッジグラフを統合させたAIエージェントの実装事例を紹介します。プライバシー確保と高度な文脈理解を両立させる新しいアプローチについて解説します。
+source: 'https://news.ycombinator.com/item?id=48248801'
 ---
 
 ## ローカル環境でのRAGとナレッジグラフの統合とは
@@ -38,3 +39,11 @@ source: "https://news.ycombinator.com/item?id=48248801"
 
 参考：
 [Show HN: I built a RAG and knowledge graph agent that runs locally](https://news.ycombinator.com/item?id=48248801)
+
+---
+
+## 関連記事
+
+- [ローカルLLMで完結するRAGとナレッジグラフ導入の手法：プライバシー重視のAIエージェント構築へ](/blog/llmragai)
+- [ローカルLLMで実現する知識グラフ(Knowledge Graph)連携RAGの可能性と実装アプローチ](/blog/llmknowledge-graphrag)
+- [ローカルLLMで機密性を確保し、RAGとナレッジグラフで推論力を強化する「Claw-Coder」とは](/blog/llmragclaw-coder)
