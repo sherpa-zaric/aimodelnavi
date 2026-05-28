@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -50,6 +51,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-P9SZZKJ2T4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P9SZZKJ2T4');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <OrganizationSchema />
         {children}
