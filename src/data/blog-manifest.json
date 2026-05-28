@@ -1,5 +1,19 @@
 [
   {
+    "slug": "qwen37-plus-qwen37-max",
+    "title": "Qwen3.7-PlusとQwen3.7-Maxの違いとは？画像理解が必要な場合の選択指針",
+    "tag": "オープンソース",
+    "excerpt": "Alibabaが発表したQwen3.7シリーズのMaxとPlusモデルを詳細比較。テキスト推論・コーディングに特化したMaxと、マルチモーダル対応のPlusの性能、価格、ユースケースの違いを解説し、最適な選択基準を提示する。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "DeepSeek",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-28"
+  },
+  {
     "slug": "qwen37-max-35",
     "title": "Qwen3.7-Maxが35時間の自律実行を達成。中国製モデルのエージェント性能がフロンティアに迫る",
     "tag": "DeepSeek",

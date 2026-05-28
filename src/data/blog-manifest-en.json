@@ -1,5 +1,21 @@
 [
   {
+    "slug": "qwen37-plus-qwen37-max",
+    "title": "Qwen3.7-PlusとQwen3.7-Maxの違いとは？画像理解が必要な場合の選択指針",
+    "tag": "オープンソース",
+    "excerpt": "Alibabaが発表したQwen3.7シリーズのMaxとPlusモデルを詳細比較。テキスト推論・コーディングに特化したMaxと、マルチモーダル対応のPlusの性能、価格、ユースケースの違いを解説し、最適な選択基準を提示する。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "DeepSeek",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-28",
+    "title_en": "Qwen 3.7 Max vs. Plus: Which Model Should You Use for Your Project?",
+    "excerpt_en": "Alibaba Cloud's Qwen 3.7 series introduces Max and Plus models, splitting the focus between extreme text reasoning and multimodal capabilities. Learn how to choose between them based on benchmarks, pricing, and vision requirements."
+  },
+  {
     "slug": "qwen37-vs-claude-opus-47-vs-gpt-55-2026",
     "title": "Qwen3.7 vs Claude Opus 4.7 vs GPT-5.5：2026年のフロンティアモデル性能比較",
     "tag": "ベンチマーク",
@@ -28,7 +44,7 @@
       "AIエージェント"
     ],
     "date": "2026-05-27",
-    "title_en": "Qwen3.7-Max Achieves 35 Hours of Autonomous Execution: Chinese Model's Agent Performance Approaches Frontier Levels",
+    "title_en": "Qwen3.7-Max Achieves 35 Hours of Autonomous Execution: Chinese Model's Agent Performance Approaches the Frontier",
     "excerpt_en": "Alibaba's Qwen3.7-Max achieved 35 hours of autonomous execution and a 10x performance increase in kernel optimization on unknown hardware. Its training method, which separates the task, harness, and verifier, enables high generalization performance and agent capabilities."
   },
   {
@@ -706,7 +722,7 @@
     ],
     "date": "2026-05-21",
     "title_en": "Google I/O 2026 Breaking News: Gemini Omni and Antigravity Open a New Era of \"Agent Development\"",
-    "excerpt_en": "An overview of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
+    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
   },
   {
     "slug": "aiprovenance",
@@ -953,7 +969,7 @@
     ],
     "date": "2026-05-20",
     "title_en": "The Forefront of AI Agent Design: System Architecture and Technical Trend Report for 2026",
-    "excerpt_en": "AI agent design philosophy for 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constraint-based systems.\" This report details the latest architectures for separating planners from executors, trajectory-based evaluation, and increasing robustness in real-world applications."
+    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"all-purpose single models\" to \"configurable, observable, and constrained systems.\" This report details the separation of planners and executors, trajectory-based evaluation, and the latest architectures for improving real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
