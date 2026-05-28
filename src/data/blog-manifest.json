@@ -1,5 +1,19 @@
 [
   {
+    "slug": "qwen37-plus-ai",
+    "title": "Qwen3.7-Plusが登場：画像理解能力を備えたマルチモーダルAIの最前線",
+    "tag": "オープンソース",
+    "excerpt": "Alibabaは、高いテキスト推論能力を持つQwen3.7-Maxに続き、画像理解を備えたマルチモーダルモデル「Qwen3.7-Plus」を公開した。100万トークンの広大なコンテキストウィンドウを活かしたスクリーンショット解析やUIエージェントへの応用など、新たな可能性を解説する。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba"
+    ],
+    "date": "2026-05-28"
+  },
+  {
     "slug": "qwen37-plus-qwen37-max",
     "title": "Qwen3.7-PlusとQwen3.7-Maxの違いとは？画像理解が必要な場合の選択指針",
     "tag": "オープンソース",
