@@ -8,7 +8,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LangSwitcher from "@/components/LangSwitcher";
-import SidebarAd from "@/components/SidebarAd";
+import AdSlot from "@/components/AdSlot";
+import MobileAd from "@/components/MobileAd";
 
 export async function generateMetadata({
   params,
@@ -60,11 +61,17 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
+      <AdSlot position="header-banner" className="w-full flex justify-center py-2" />
       <div className="flex max-w-[1400px] mx-auto">
         <main className="flex-1 min-w-0">{children}</main>
-        <SidebarAd />
+        <AdSlot
+          position="sidebar"
+          className="hidden xl:block w-[160px] shrink-0 sticky top-24"
+        />
       </div>
+      <AdSlot position="footer-banner" className="w-full flex justify-center py-2" />
       <Footer />
+      <MobileAd position="mobile-banner" />
       <LangSwitcher />
       <Analytics />
       <SpeedInsights />

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FileText, MessageCircle, LogOut } from "lucide-react";
+import { FileText, MessageCircle, Megaphone, LogOut } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -45,6 +45,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           >
             <MessageCircle className="w-4 h-4" />
             コメント管理
+          </Link>
+          <Link
+            href="/admin/ads"
+            className={`flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-md transition-colors ${
+              pathname.startsWith("/admin/ads")
+                ? "bg-primary-50 text-primary-700"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            <Megaphone className="w-4 h-4" />
+            広告管理
           </Link>
           <button
             onClick={logout}

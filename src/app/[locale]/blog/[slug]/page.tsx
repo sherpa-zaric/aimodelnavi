@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { setRequestLocale } from "next-intl/server";
 import { CommentSection } from '@/components/comments';
 import ModelLinkMarkdown from '@/components/ModelLinkMarkdown';
+import AdSlot from '@/components/AdSlot';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
@@ -116,6 +117,8 @@ export default async function BlogDetailPage({
       <div className="blog-content">
         <ModelLinkMarkdown content={post.content} locale={locale} />
       </div>
+
+      <AdSlot position="blog-bottom" className="my-8 flex justify-center" />
 
       <CommentSection slug={post.slug} title={post.title} />
 

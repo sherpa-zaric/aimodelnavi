@@ -48,6 +48,21 @@ export async function initializeDatabase() {
     )
   `);
   await query(`CREATE INDEX IF NOT EXISTS idx_likes_slug ON likes(slug, target)`);
+
+  await query(`
+    CREATE TABLE IF NOT EXISTS ads (
+      id         SERIAL PRIMARY KEY,
+      name       VARCHAR(200) NOT NULL,
+      position   VARCHAR(50) NOT NULL,
+      ad_code    TEXT NOT NULL,
+      width      INTEGER,
+      height     INTEGER,
+      enabled    BOOLEAN DEFAULT true,
+      created_at TIMESTAMPTZ DEFAULT NOW(),
+      updated_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `);
+  await query(`CREATE INDEX IF NOT EXISTS idx_ads_position ON ads(position, enabled)`);
 }
 
 export function hashIp(ip: string): string {

@@ -8,6 +8,7 @@ import { ArrowLeft, ExternalLink, CheckCircle, AlertTriangle, Lightbulb, Languag
 import type { Metadata } from "next";
 import ModelAnalysisSection from "@/components/ModelAnalysisSection";
 import JpCapabilityBadge from "@/components/JpCapabilityBadge";
+import AdSlot from "@/components/AdSlot";
 
 function t(key: string, locale: string): string {
   const dict: Record<string, Record<string, string>> = {
@@ -307,6 +308,8 @@ export default async function ModelDetailPage({ params }: { params: Promise<{ sl
           <p className="text-sm text-gray-500">{t("pricingUnavailable", locale)}</p>
         </div>
       )}
+
+      <AdSlot position="model-inline" className="my-6 flex justify-center" />
 
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
