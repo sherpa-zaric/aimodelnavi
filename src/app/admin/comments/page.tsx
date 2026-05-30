@@ -54,7 +54,7 @@ export default function AdminCommentsPage() {
   }
 
   async function deleteComment(id: number) {
-    if (!confirm("このコメントを削除しますか？")) return;
+    if (!confirm("Delete this comment?")) return;
     await fetch(`/api/admin/comments/${id}`, { method: "DELETE" });
     fetchComments();
   }
@@ -63,24 +63,24 @@ export default function AdminCommentsPage() {
     const diff = Date.now() - new Date(dateStr).getTime();
     const hour = 60 * 60 * 1000;
     const day = 24 * hour;
-    if (diff < hour) return `${Math.floor(diff / 60000)}分前`;
-    if (diff < day) return `${Math.floor(diff / hour)}時間前`;
-    return `${Math.floor(diff / day)}日前`;
+    if (diff < hour) return `${Math.floor(diff / 60000)}m ago`;
+    if (diff < day) return `${Math.floor(diff / hour)}h ago`;
+    return `${Math.floor(diff / day)}d ago`;
   }
 
   const counts = data?.counts || { all: 0, pending: 0, approved: 0, rejected: 0 };
 
   return (
     <div>
-      <h1 className="text-lg font-bold text-gray-900 mb-6">コメント管理</h1>
+      <h1 className="text-lg font-bold text-gray-900 mb-6">Comment Management</h1>
 
       {/* Status filter tabs */}
       <div className="flex gap-1 mb-6 border-b border-gray-200">
         {[
-          { key: "pending", label: "承認待ち", count: counts.pending },
-          { key: "approved", label: "承認済み", count: counts.approved },
-          { key: "rejected", label: "却下", count: counts.rejected },
-          { key: "all", label: "すべて", count: counts.all },
+          { key: "pending", label: "Pending", count: counts.pending },
+          { key: "approved", label: "Approved", count: counts.approved },
+          { key: "rejected", label: "Rejected", count: counts.rejected },
+          { key: "all", label: "All", count: counts.all },
         ].map((tab) => (
           <button
             key={tab.key}
@@ -99,9 +99,9 @@ export default function AdminCommentsPage() {
 
       {/* Comment list */}
       {loading ? (
-        <p className="text-sm text-gray-400">読み込み中...</p>
+        <p className="text-sm text-gray-400">Loading...</p>
       ) : !data || data.comments.length === 0 ? (
-        <p className="text-sm text-gray-400">コメントがありません</p>
+        <p className="text-sm text-gray-400">No comments</p>
       ) : (
         <div className="space-y-3">
           {data.comments.map((comment) => (
@@ -122,9 +122,9 @@ export default function AdminCommentsPage() {
                         ? "bg-red-50 text-red-700"
                         : "bg-yellow-50 text-yellow-700"
                     }`}>
-                      {comment.status === "approved" ? "承認済み"
-                        : comment.status === "rejected" ? "却下"
-                        : "承認待ち"}
+                      {comment.status === "approved" ? "Approved"
+                        : comment.status === "rejected" ? "Rejected"
+                        : "Pending"}
                     </span>
                     <span className="text-xs text-gray-400">
                       {relativeTime(comment.created_at)}
@@ -137,7 +137,7 @@ export default function AdminCommentsPage() {
 
                   {comment.parent_name && (
                     <p className="text-xs text-gray-400 mb-2">
-                      返信先: {comment.parent_name}「{comment.parent_content?.slice(0, 50)}...」
+                      Reply to: {comment.parent_name} "{comment.parent_content?.slice(0, 50)}..."
                     </p>
                   )}
 
@@ -161,7 +161,7 @@ export default function AdminCommentsPage() {
                     <button
                       onClick={() => updateStatus(comment.id, "approved")}
                       className="p-1.5 text-green-600 hover:bg-green-50 rounded transition-colors"
-                      title="承認"
+                      title="Approve"
                     >
                       <Check className="w-4 h-4" />
                     </button>
@@ -170,7 +170,7 @@ export default function AdminCommentsPage() {
                     <button
                       onClick={() => updateStatus(comment.id, "rejected")}
                       className="p-1.5 text-orange-600 hover:bg-orange-50 rounded transition-colors"
-                      title="却下"
+                      title="Reject"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -178,7 +178,7 @@ export default function AdminCommentsPage() {
                   <button
                     onClick={() => deleteComment(comment.id)}
                     className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
-                    title="削除"
+                    title="Delete"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

@@ -24,10 +24,10 @@ export default function AdminLoginPage() {
       if (res.ok) {
         router.push("/admin/comments");
       } else {
-        setError("パスワードが正しくありません");
+        setError("Incorrect password");
       }
     } catch {
-      setError("エラーが発生しました");
+      setError("An error occurred");
     } finally {
       setLoading(false);
     }
@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="パスワード"
+              placeholder="Password"
               required
               autoFocus
               className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
             disabled={loading}
             className="w-full py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 disabled:opacity-50 transition-colors"
           >
-            {loading ? "ログイン中..." : "ログイン"}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>

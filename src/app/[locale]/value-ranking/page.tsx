@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = T[locale as keyof typeof T] || T.ja;
   return {
-    title: `${t.title} — AI Models Navi`,
+    title: t.title,
     description: t.desc,
     alternates: { canonical: "https://aimodelsnavi.com/value-ranking" },
   };

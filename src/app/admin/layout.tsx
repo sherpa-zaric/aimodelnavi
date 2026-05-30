@@ -33,7 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             }`}
           >
             <FileText className="w-4 h-4" />
-            ブログ管理
+            Blog
           </Link>
           <Link
             href="/admin/comments"
@@ -44,7 +44,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             }`}
           >
             <MessageCircle className="w-4 h-4" />
-            コメント管理
+            Comments
           </Link>
           <Link
             href="/admin/ads"
@@ -55,14 +55,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             }`}
           >
             <Megaphone className="w-4 h-4" />
-            広告管理
+            Ads
           </Link>
           <button
             onClick={logout}
             className="flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 transition-colors"
           >
             <LogOut className="w-4 h-4" />
-            ログアウト
+            Logout
           </button>
         </div>
       </header>

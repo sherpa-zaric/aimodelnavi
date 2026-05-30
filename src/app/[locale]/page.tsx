@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = T[locale as keyof typeof T] || T.ja;
   return {
-    title: PAGE_TITLES[locale as keyof typeof PAGE_TITLES] || PAGE_TITLES.ja,
+    title: { absolute: PAGE_TITLES[locale as keyof typeof PAGE_TITLES] || PAGE_TITLES.ja },
     description: t.heroSub,
     alternates: {
       canonical: `https://aimodelsnavi.com${locale === "ja" ? "" : `/${locale}`}`,

@@ -300,6 +300,14 @@ export function getModelBySlug(slug: string): ModelDetail | undefined {
     `SELECT ma.*, m.slug FROM model_analyses ma JOIN models m ON m.id = ma.model_id WHERE ma.language = 'ja'`
   ).all() as any[];
 
+  // Fix literal \\n (backslash-n text) that LLMs sometimes produce in JSON strings.
+  // After JSON.parse these become the two characters \ and n instead of actual newlines.
+  function fixEscapedNewlines(s: string | null): string {
+    if (!s) return "";
+    // Replace literal \n (two chars: backslash + n) with actual newline
+    return s.replace(/\\n/g, "\n");
+  }
+
   const buildAnalysisEntry = (a: any) => {
     const rawCompetitors = parseJSON<any[]>(a.competitors_json, []);
     const normalizedCompetitors = rawCompetitors.map((c: any) => ({
@@ -315,12 +323,12 @@ export function getModelBySlug(slug: string): ModelDetail | undefined {
     pros: parseJSON<string[]>(a.pros_json, []),
     cons: parseJSON<string[]>(a.cons_json, []),
     competitorTable: normalizedCompetitors,
-    summary: a.summary,
-    performance: a.performance,
-    comparisons: a.comparisons,
-    community: a.community,
-    useCaseDeep: a.use_case_deep,
-    latestNews: a.latest_news,
+    summary: fixEscapedNewlines(a.summary),
+    performance: fixEscapedNewlines(a.performance),
+    comparisons: fixEscapedNewlines(a.comparisons),
+    community: fixEscapedNewlines(a.community),
+    useCaseDeep: fixEscapedNewlines(a.use_case_deep),
+    latestNews: fixEscapedNewlines(a.latest_news),
     sources: parseJSON<{ title: string; url: string }[]>(a.sources_json, []),
     generatedAt: a.generated_at,
     };

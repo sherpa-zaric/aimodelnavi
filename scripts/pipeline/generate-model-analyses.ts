@@ -177,8 +177,18 @@ ${context}`;
     .replace(/\s*```$/i, "")
     .trim();
 
+  function fixNewlines(obj: any): void {
+    const textFields = ["summary", "performance", "comparisons", "community", "useCaseDeep", "latestNews"];
+    for (const field of textFields) {
+      if (typeof obj[field] === "string") {
+        obj[field] = obj[field].replace(/\\n/g, "\n");
+      }
+    }
+  }
+
   function normalize(result: any): Analysis {
     if (result.competitorTable) result.competitorTable = normalizeCompetitorTable(result.competitorTable);
+    fixNewlines(result);
     return result;
   }
 

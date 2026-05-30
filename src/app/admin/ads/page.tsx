@@ -16,13 +16,13 @@ interface Ad {
 }
 
 const POSITIONS = [
-  { value: "sidebar", label: "サイドバー", size: "160x600" },
-  { value: "header-banner", label: "ヘッダーバナー", size: "728x90" },
-  { value: "blog-inline", label: "ブログ内挿入", size: "300x250" },
-  { value: "blog-bottom", label: "ブログ下部", size: "728x90" },
-  { value: "model-inline", label: "モデル詳細内", size: "300x250" },
-  { value: "footer-banner", label: "フッターバナー", size: "728x90" },
-  { value: "mobile-banner", label: "モバイル固定", size: "320x50" },
+  { value: "sidebar", label: "Sidebar", size: "160x600" },
+  { value: "header-banner", label: "Header Banner", size: "728x90" },
+  { value: "blog-inline", label: "In-blog Insert", size: "300x250" },
+  { value: "blog-bottom", label: "Blog Bottom", size: "728x90" },
+  { value: "model-inline", label: "Model Detail Page", size: "300x250" },
+  { value: "footer-banner", label: "Footer Banner", size: "728x90" },
+  { value: "mobile-banner", label: "Mobile Fixed", size: "320x50" },
 ];
 
 const POSITION_LABELS: Record<string, string> = Object.fromEntries(
@@ -51,7 +51,7 @@ export default function AdminAdsPage() {
       const data = await res.json();
       setAds(data.ads || []);
     } catch {
-      setError("広告の取得に失敗しました");
+      setError("Failed to fetch ads");
     } finally {
       setLoading(false);
     }
@@ -82,7 +82,7 @@ export default function AdminAdsPage() {
 
   async function handleSave() {
     if (!form.name || !form.ad_code) {
-      setError("名前と広告コードは必須です");
+      setError("Name and ad code are required");
       return;
     }
     setSaving(true);
@@ -112,19 +112,19 @@ export default function AdminAdsPage() {
       setShowForm(false);
       fetchAds();
     } catch {
-      setError("保存に失敗しました");
+      setError("Failed to save");
     } finally {
       setSaving(false);
     }
   }
 
   async function handleDelete(id: number) {
-    if (!confirm("この広告を削除しますか？")) return;
+    if (!confirm("Delete this ad?")) return;
     try {
       await fetch(`/api/admin/ads/${id}`, { method: "DELETE" });
       fetchAds();
     } catch {
-      setError("削除に失敗しました");
+      setError("Failed to delete");
     }
   }
 
@@ -137,7 +137,7 @@ export default function AdminAdsPage() {
       });
       fetchAds();
     } catch {
-      setError("更新に失敗しました");
+      setError("Failed to update");
     }
   }
 
@@ -145,9 +145,9 @@ export default function AdminAdsPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-bold text-gray-900">広告管理</h1>
+          <h1 className="text-lg font-bold text-gray-900">Ad Management</h1>
           <span className="text-sm text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
-            {ads.length} 件
+            {ads.length} ads
           </span>
         </div>
         <button
@@ -155,7 +155,7 @@ export default function AdminAdsPage() {
           className="flex items-center gap-1.5 text-sm bg-primary-600 text-white px-3 py-1.5 rounded-md hover:bg-primary-700 transition-colors"
         >
           <Plus className="w-4 h-4" />
-          新規作成
+          Create New
         </button>
       </div>
 
@@ -167,7 +167,7 @@ export default function AdminAdsPage() {
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-bold text-gray-900">
-              {editing ? "広告を編集" : "新規広告"}
+              {editing ? "Edit Ad" : "New Ad"}
             </h2>
             <button onClick={() => setShowForm(false)} className="text-gray-400 hover:text-gray-600">
               <X className="w-4 h-4" />
@@ -176,17 +176,17 @@ export default function AdminAdsPage() {
 
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">名前 *</label>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Name *</label>
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-primary-500"
-                placeholder="例: サイドバー広告"
+                placeholder="e.g., Sidebar Ad"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">ポジション *</label>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Position *</label>
               <select
                 value={form.position}
                 onChange={(e) => setForm({ ...form, position: e.target.value })}
@@ -200,7 +200,7 @@ export default function AdminAdsPage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">幅 (px)</label>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Width (px)</label>
               <input
                 type="number"
                 value={form.width}
@@ -210,7 +210,7 @@ export default function AdminAdsPage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">高さ (px)</label>
+              <label className="block text-xs font-medium text-gray-600 mb-1">Height (px)</label>
               <input
                 type="number"
                 value={form.height}
@@ -222,7 +222,7 @@ export default function AdminAdsPage() {
           </div>
 
           <div className="mb-4">
-            <label className="block text-xs font-medium text-gray-600 mb-1">広告コード *</label>
+            <label className="block text-xs font-medium text-gray-600 mb-1">Ad Code *</label>
             <textarea
               value={form.ad_code}
               onChange={(e) => setForm({ ...form, ad_code: e.target.value })}
@@ -240,14 +240,14 @@ export default function AdminAdsPage() {
                 onChange={(e) => setForm({ ...form, enabled: e.target.checked })}
                 className="rounded border-gray-300"
               />
-              有効
+              Enabled
             </label>
             <div className="flex-1" />
             <button
               onClick={() => setShowForm(false)}
               className="text-sm text-gray-500 hover:text-gray-700 px-3 py-1.5"
             >
-              キャンセル
+              Cancel
             </button>
             <button
               onClick={handleSave}
@@ -255,16 +255,16 @@ export default function AdminAdsPage() {
               className="flex items-center gap-1.5 text-sm bg-primary-600 text-white px-4 py-1.5 rounded-md hover:bg-primary-700 transition-colors disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
-              {saving ? "保存中..." : "保存"}
+              {saving ? "Saving..." : "Save"}
             </button>
           </div>
         </div>
       )}
 
       {loading ? (
-        <p className="text-sm text-gray-400">読み込み中...</p>
+        <p className="text-sm text-gray-400">Loading...</p>
       ) : ads.length === 0 ? (
-        <p className="text-sm text-gray-400">広告がありません。「新規作成」で追加してください。</p>
+        <p className="text-sm text-gray-400">No ads yet. Click "Create New" to add one.</p>
       ) : (
         <div className="space-y-2">
           {ads.map((ad) => (
@@ -283,7 +283,7 @@ export default function AdminAdsPage() {
                       ad.enabled ? "bg-green-50 text-green-700" : "bg-gray-100 text-gray-400"
                     }`}
                   >
-                    {ad.enabled ? "有効" : "無効"}
+                    {ad.enabled ? "Enabled" : "Disabled"}
                   </span>
                 </div>
                 <p className="text-xs text-gray-400 truncate font-mono">
@@ -293,7 +293,7 @@ export default function AdminAdsPage() {
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => handleToggle(ad)}
-                  title={ad.enabled ? "無効にする" : "有効にする"}
+                  title={ad.enabled ? "Disable" : "Enable"}
                   className={`p-1.5 rounded transition-colors ${
                     ad.enabled
                       ? "text-green-500 hover:text-green-700 hover:bg-green-50"

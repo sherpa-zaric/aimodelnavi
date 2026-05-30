@@ -28,7 +28,7 @@ export async function generateMetadata({
   const catDesc = locale === "en" ? cat.descriptionEn : cat.description;
 
   return {
-    title: `${catTitle} — AI Models Navi`,
+    title: catTitle,
     description: catDesc,
     openGraph: {
       title: `${catTitle} | AI Models Navi`,

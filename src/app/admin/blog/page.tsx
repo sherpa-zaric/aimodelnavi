@@ -36,7 +36,7 @@ export default function AdminBlogPage() {
   }
 
   async function deletePost(slug: string, title: string) {
-    if (!confirm(`「${title}」を削除しますか？\n\nこの操作は取り消せません。`)) {
+    if (!confirm(`Delete "${title}"?\n\nThis action cannot be undone.`)) {
       return;
     }
 
@@ -50,10 +50,10 @@ export default function AdminBlogPage() {
       if (res.ok) {
         setPosts((prev) => prev.filter((p) => p.slug !== slug));
       } else {
-        setError(data.error || "削除に失敗しました");
+        setError(data.error || "Failed to delete");
       }
     } catch {
-      setError("ネットワークエラーが発生しました");
+      setError("Network error occurred");
     } finally {
       setDeleting(null);
     }
@@ -68,8 +68,8 @@ export default function AdminBlogPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-lg font-bold text-gray-900">ブログ管理</h1>
-        <span className="text-sm text-gray-400">{posts.length} 件</span>
+        <h1 className="text-lg font-bold text-gray-900">Blog Management</h1>
+        <span className="text-sm text-gray-400">{posts.length} posts</span>
       </div>
 
       {/* Search */}
@@ -79,7 +79,7 @@ export default function AdminBlogPage() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="タイトル・スラッグで検索"
+          placeholder="Search by title or slug"
           className="w-full pl-9 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
         />
       </div>
@@ -91,9 +91,9 @@ export default function AdminBlogPage() {
       )}
 
       {loading ? (
-        <p className="text-sm text-gray-400">読み込み中...</p>
+        <p className="text-sm text-gray-400">Loading...</p>
       ) : filtered.length === 0 ? (
-        <p className="text-sm text-gray-400">記事が見つかりません</p>
+        <p className="text-sm text-gray-400">No articles found</p>
       ) : (
         <div className="space-y-2">
           {filtered.map((post) => (
@@ -124,7 +124,7 @@ export default function AdminBlogPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-1.5 text-gray-400 hover:text-primary-600 rounded transition-colors"
-                  title="プレビュー"
+                  title="Preview"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -132,7 +132,7 @@ export default function AdminBlogPage() {
                   onClick={() => deletePost(post.slug, post.title)}
                   disabled={deleting === post.slug}
                   className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors disabled:opacity-50"
-                  title="削除"
+                  title="Delete"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
