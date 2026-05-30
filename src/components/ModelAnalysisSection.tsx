@@ -56,7 +56,7 @@ function Collapsible({ title, icon, children, defaultOpen = false }: {
         </span>
         {open ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
       </button>
-      {open && <div className="px-4 py-4 prose prose-sm max-w-none">{children}</div>}
+      {open && <div className="px-4 py-4 analysis-content">{children}</div>}
     </div>
   );
 }
