@@ -26,6 +26,7 @@ const T = {
 
 // High-value comparison pairs for "vs" keyword SEO
 const COMPARE_PAIRS: { a: string; b: string; highlight?: string }[] = [
+  { a: "claude-opus-4-8", b: "gpt-5-5", highlight: "SWE-Bench Pro" },
   { a: "gpt-5-2", b: "claude-opus-4-7", highlight: "GPQA Diamond" },
   { a: "gpt-5-2", b: "gemini-3-0-pro", highlight: "ARC-AGI-2" },
   { a: "claude-opus-4-7", b: "gemini-3-0-pro", highlight: "Agentic" },
