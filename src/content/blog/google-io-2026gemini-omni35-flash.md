@@ -1,9 +1,12 @@
 ---
-title: "Google I/O 2026まとめ：Gemini Omniと3.5 Flashがもたらすマルチモーダル開発の新時代"
-date: "2026-05-28"
-tag: "Google"
-excerpt: "Google I/O 2026で発表されたGemini OmniやGemini 3.5 Flashは、AIアプリのアーキテクチャを根本的に変える可能性を秘めています。最新モデルの性能向上とAIエージェントへの展開について、技術的な視点から解説します。"
-source: "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/"
+title: Google I/O 2026まとめ：Gemini Omniと3.5 Flashがもたらすマルチモーダル開発の新時代
+date: '2026-05-28'
+tag: Google
+excerpt: >-
+  Google I/O 2026で発表されたGemini OmniやGemini 3.5
+  Flashは、AIアプリのアーキテクチャを根本的に変える可能性を秘めています。最新モデルの性能向上とAIエージェントへの展開について、技術的な視点から解説します。
+source: >-
+  https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/
 ---
 
 ## マルチモーダル性能の飛躍：Gemini Omniの登場
@@ -41,3 +44,11 @@ Google I/O 2026の内容を俯瞰すると、今後のAIアプリ開発は「Omn
 
 参考：
 Watch 12 Google I/O 2026 keynote videos of the top announcements and updates — https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/
+
+---
+
+## 関連記事
+
+- [Gemini 3.5 Flash: Google I/O 2026で発表されたエージェント特化型フロンティアモデルの全貌](/blog/gemini-35-flash-google-i-o-2026)
+- [Google I/O 2026詳説：Gemini Omniと「エージェント特化型」開発プラットフォームが切り拓く新時代](/blog/google-io-2026gemini-omni)
+- [Google I/O 2026詳解：Gemini 3.5 Flashと「Agentic Gemini era」がもたらすAIエージェントへの転換点](/blog/google-io-2026gemini-35-flashagentic-gemini-eraai)

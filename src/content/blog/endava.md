@@ -1,9 +1,10 @@
 ---
-title: "Endavaが実践する「エージェント組織」への変革：要件定義を数週間から数時間に短縮した戦略"
-date: "2026-05-29"
-tag: "AIエージェント"
-excerpt: "OpenAIのCodexを活用し、開発フローを根本から再定義したEndavaの事例を紹介します。単なるコード生成に留まらず、要件定義などの上流工程を劇的に高速化した「エージェント組織」へのアプローチを分析します。"
-source: "https://openai.com/index/endava"
+title: Endavaが実践する「エージェント組織」への変革：要件定義を数週間から数時間に短縮した戦略
+date: '2026-05-29'
+tag: AIエージェント
+excerpt: >-
+  OpenAIのCodexを活用し、開発フローを根本から再定義したEndavaの事例を紹介します。単なるコード生成に留まらず、要件定義などの上流工程を劇的に高速化した「エージェント組織」へのアプローチを分析します。
+source: 'https://openai.com/index/endava'
 ---
 
 ## AIによる「開発フローの再定義」とは
@@ -38,3 +39,11 @@ Endavaの取り組みは、AI導入の目的を「個人の生産性向上」か
 
 参考：
 https://openai.com/index/endava
+
+---
+
+## 関連記事
+
+- [CiscoがOpenAI Codexを導入し、エンタープライズ開発を再定義：欠陥修正の自動化へのアプローチ](/blog/ciscoopenai-codex)
+- [Virgin AtlanticがCodexで実現した開発効率化とテスト作成加速の舞台裏](/blog/virgin-atlanticcodex)
+- [AIネイティブ企業の構築術：効率化ではなく「能力」を最大化し、自己進化する組織へ](/blog/blog-2026-05-20-ozahmz)

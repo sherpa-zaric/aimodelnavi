@@ -1,8 +1,10 @@
 ---
-title: "NVIDIA RTX Spark発表：統合メモリとCUDAで個人PCの新時代を切り開く"
-date: "2026-06-01"
-tag: "解説"
-excerpt: "NVIDIAがGTC Taipei 2026で消費者向けAIチップ「RTX Spark」を発表した。128GBの統合メモリとフルCUDAエコシステムを搭載し、従来不可だった大規模モデルのローカル実行を可能にする。Microsoftとの協力によりWindows上のエージェント環境も再構築され、パーソナルコンピューティングの新時代が始まる。"
+title: NVIDIA RTX Spark発表：統合メモリとCUDAで個人PCの新時代を切り開く
+date: '2026-06-01'
+tag: 解説
+excerpt: >-
+  NVIDIAがGTC Taipei 2026で消費者向けAIチップ「RTX
+  Spark」を発表した。128GBの統合メモリとフルCUDAエコシステムを搭載し、従来不可だった大規模モデルのローカル実行を可能にする。Microsoftとの協力によりWindows上のエージェント環境も再構築され、パーソナルコンピューティングの新時代が始まる。
 ---
 
 ## PCの新時代：NVIDIA GTC Taipei 2026
@@ -160,3 +162,11 @@ A New Line, A New Beginning.
 これが、パーソナルPCの新時代だ。
 
 それは、人間のためだけでなく、Agentのためにも設計されている。過去と互換性を持ちながら、過去を携えて、次の未来へと歩み出す。
+
+---
+
+## 関連記事
+
+- [Sakana AIとNVIDIAが共同開発：非構造化スパース性を活用しLLMの推論・学習を20%高速化する「TwELL」とは](/blog/sparser-faster-lighter-transformer-language-models)
+- [ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ](/blog/rag)
+- [ローカルLLMで完結するRAGとナレッジグラフ導入の手法：プライバシー重視のAIエージェント構築へ](/blog/llmragai)

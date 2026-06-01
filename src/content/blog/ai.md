@@ -1,9 +1,10 @@
 ---
-title: "【技術解説】高精度ドメインにおける「自己改善型AIエージェント」の構築アプローチと精度担保の仕組み"
-date: "2026-05-29"
-tag: "AIエージェント"
-excerpt: "極めて高い精度が求められる税務などの専門ドメインにおいて、どのように自己改善型エージェントを構築するか。RAGとフィードバックループを組み合わせた技術的アプローチを解説します。"
-source: "https://openai.com/index/building-self-improving-tax-agents-with-codex"
+title: 【技術解説】高精度ドメインにおける「自己改善型AIエージェント」の構築アプローチと精度担保の仕組み
+date: '2026-05-29'
+tag: AIエージェント
+excerpt: >-
+  極めて高い精度が求められる税務などの専門ドメインにおいて、どのように自己改善型エージェントを構築するか。RAGとフィードバックループを組み合わせた技術的アプローチを解説します。
+source: 'https://openai.com/index/building-self-improving-tax-agents-with-codex'
 ---
 
 ## 高精度ドメインにおけるAIエージェントの課題
@@ -38,3 +39,11 @@ source: "https://openai.com/index/building-self-improving-tax-agents-with-codex"
 ## まとめ
 
 税務エージェントのような高精度ドメインのAI開発では、LLMを単なる「チャットボット」としてではなく、外部ツールと検証ループを制御する「推論エンジン」として活用することが鍵となります。RAGと自己改善メカニズムの組み合わせこそが、実務レベルの信頼性を獲得するための現実的な解であると言えるでしょう。
+
+---
+
+## 関連記事
+
+- [Codexを用いた「自己改善型」税務AIエージェントの構築手法：専門ドメインへのAI適用パターン](/blog/codexaiai)
+- [ローカル環境でRAGとナレッジグラフを統合：プライバシーを維持した高度なAIエージェントの実現](/blog/ragai)
+- [LLM Agentの信頼性はモデルだけで決まらない：Harness EngineeringからState-Aware Runtimeへ](/blog/article-2026-05-30-8t5151)

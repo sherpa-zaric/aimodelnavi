@@ -16,6 +16,54 @@
     "excerpt_en": "MiniMax M3 introduces a groundbreaking architecture that processes up to 1 million tokens with 15.6x faster decoding speeds, making it highly competitive in benchmarks against models like GPT-5.2 and Claude Opus 4.7. With its affordable pricing, starting at $0.30 per 1 million tokens during launch, it offers a cost-effective alternative for developers seeking powerful multimodal capabilities."
   },
   {
+    "slug": "braintrustcodex",
+    "title": "Braintrustが実践するCodexを活用した「期待される挙動から評価コードへの自動変換」ワークフロー",
+    "tag": "AIエージェント",
+    "excerpt": "Braintrust社がCodexを用いて、AIモデルの期待される挙動（evals）をどのように効率的にコード化し、品質管理を高速化しているか。その評価パイプラインの仕組みと実用的アプローチを解説します。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "xAI/Grok",
+      "ベンチマーク",
+      "LLM"
+    ],
+    "date": "2026-06-01",
+    "title_en": "Automating AI Evals: How Braintrust Uses Codex to Turn Expectations into Test Code",
+    "excerpt_en": "Braintrust leverages OpenAI's Codex to automate the creation of AI evaluation code from natural language requirements. This workflow accelerates the development cycle by turning unstructured behavioral expectations into structured, verifiable test cases."
+  },
+  {
+    "slug": "gemini-omnigemini-35ai",
+    "title": "Gemini OmniとGemini 3.5発表：マルチモーダル生成と「AIエージェント」が切り拓く次世代アプリ実装",
+    "tag": "Google",
+    "excerpt": "Google I/O 2026で発表されたGemini OmniとGemini 3.5ファミリーの実用的なユースケースを解説。高度なビデオ生成能力と、自律的にタスクを遂行する「Antigravity」エンジンによるエージェント機能の衝撃に迫ります。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "推論",
+      "マルチモーダル",
+      "音声"
+    ],
+    "date": "2026-06-01",
+    "title_en": "Gemini Omni and Gemini 3.5: Ushering in the Era of Multimodal Generation and Autonomous AI Agents",
+    "excerpt_en": "Google's new Gemini Omni and Gemini 3.5 models shift the AI landscape from simple chatbots to autonomous agents. With the new Antigravity engine and consistent multimodal generation, Google is enabling complex workflow automation and professional-grade video creation."
+  },
+  {
+    "slug": "llm",
+    "title": "LLMはなぜビデオゲームを攻略できないのか？動的環境における技術的限界と課題",
+    "tag": "AIエージェント",
+    "excerpt": "LLMは高度なコーディング能力を持つ一方で、ビデオゲームのような動的環境では単純な探索アルゴリズムに劣る性能しか発揮できないと指摘されています。本記事では、空間推論や報酬系の設計など、LLMがゲーム攻略に苦戦する技術的要因を考察します。",
+    "topics": [
+      "AIエージェント",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "ベンチマーク"
+    ],
+    "date": "2026-06-01",
+    "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Gameplay",
+    "excerpt_en": "Despite their coding prowess, LLMs struggle with the spatial reasoning and real-time adaptation required for video games. This gap reveals a fundamental difference between the 'well-behaved' environment of programming and the unpredictable nature of dynamic gameplay."
+  },
+  {
     "slug": "rtx-spark-pc",
     "title": "NVIDIA RTX Spark発表：統合メモリとCUDAで個人PCの新時代を切り開く",
     "tag": "解説",
@@ -28,8 +76,22 @@
       "セキュリティ"
     ],
     "date": "2026-06-01",
-    "title_en": "NVIDIA Announces RTX Spark: Pioneering a New Era of Personal Computing with Unified Memory and CUDA",
-    "excerpt_en": "NVIDIA unveiled the consumer AI chip \"RTX Spark\" at GTC Taipei 2026. Featuring 128GB of unified memory and a full CUDA ecosystem, it enables the local execution of large-scale models previously impossible. In collaboration with Microsoft, the agent environment on Windows has been rebuilt, beginning a new era of personal computing."
+    "title_en": "NVIDIA RTX Spark Unveiled: Redefining the Personal Computer with Unified Memory and CUDA",
+    "excerpt_en": "NVIDIA's new RTX Spark chip combines a massive 128GB of unified memory with the power of the CUDA ecosystem. This breakthrough allows professional-grade AI models and agents to run locally on Windows PCs with unprecedented efficiency."
+  },
+  {
+    "slug": "vibe-codinggoogle-ai-studio",
+    "title": "「Vibe Coding」とは何か？Google AI Studioが切り拓く設計書不要の高速プロトタイプ開発",
+    "tag": "解説",
+    "excerpt": "Google I/O 2026で提示された「Vibe Coding」という新しい開発アプローチを解説。Google AI StudioとAntigravityの連携により、厳密な設計なしにアイデアを形にする次世代の開発フローを分析します。",
+    "topics": [
+      "Google",
+      "AIエージェント",
+      "コーディング"
+    ],
+    "date": "2026-06-01",
+    "title_en": "What is 'Vibe Coding'? How Google AI Studio is Enabling Rapid Prototyping Without Design Docs",
+    "excerpt_en": "Google AI Studio is introducing 'Vibe Coding,' a paradigm shift that replaces rigid design documents with intuitive, agentic prototyping. Powered by the Antigravity agent, this approach allows both developers and non-coders to build applications through high-level intent and rapid iteration."
   },
   {
     "slug": "ai-nsfw-ai",
@@ -41,7 +103,7 @@
       "OpenAI",
       "Qwen/Alibaba",
       "オープンソース",
-      "推論"
+      "セキュリティ"
     ],
     "date": "2026-05-30",
     "title_en": "How NSFW AI Chat Services Bypass Safety Filters: A Technical Deep Dive",
@@ -70,6 +132,8 @@
     "excerpt": "極めて高い精度が求められる税務などの専門ドメインにおいて、どのように自己改善型エージェントを構築するか。RAGとフィードバックループを組み合わせた技術的アプローチを解説します。",
     "topics": [
       "AIエージェント",
+      "OpenAI",
+      "xAI/Grok",
       "推論",
       "LLM"
     ],
@@ -175,8 +239,9 @@
     "topics": [
       "オープンソース",
       "xAI/Grok",
+      "AIエージェント",
       "推論",
-      "LLM"
+      "MoE"
     ],
     "date": "2026-05-28",
     "title_en": "BioPetals: Scaling Biological LLMs via BitTorrent-Style Distributed Inference",
@@ -284,6 +349,7 @@
     "excerpt": "モダンターミナルのWarpが、AIを統合した「Warp AI」を通じて、オープンソース開発を加速させる新たなアプローチを提示しています。ローカル環境からクラウドまでを跨ぐ自動化が、エンジニアリングの効率をどう変えるのかを分析します。",
     "topics": [
       "AIエージェント",
+      "ベンチマーク",
       "オープンソース",
       "コーディング",
       "LLM"
@@ -968,8 +1034,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Recap: The Dawn of an \"Agent Development\" New Era with Gemini Omni and Antigravity",
-    "excerpt_en": "An explanation of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch."
+    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
   },
   {
     "slug": "aiprovenance",
@@ -1215,8 +1281,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Cutting Edge of AI Agent Design: A 2026 System Architecture and Technology Trend Report",
-    "excerpt_en": "For 2026, the design philosophy of AI agents is shifting from \"all-powerful single models\" to \"composable, observable, and constraint-aware systems.\" This report details the latest architectures focused on the separation of planners and executors, trajectory-based evaluation, and enhancing robustness in real-world environments."
+    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
+    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
