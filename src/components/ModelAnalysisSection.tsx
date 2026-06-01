@@ -1,10 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ChevronUp, TrendingUp, TrendingDown, BarChart3, Users, Lightbulb, Newspaper, BookOpen } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { TrendingUp, TrendingDown } from "lucide-react";
+import AnalysisTabs from "@/components/AnalysisTabs";
 
 interface KeyMetric {
   label: string;
@@ -41,53 +37,33 @@ interface Props {
   modelNameToSlug?: Record<string, string>;
 }
 
-function Collapsible({ title, icon, children, defaultOpen = false }: {
-  title: string; icon: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean;
-}) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
-      >
-        <span className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-          {icon} {title}
-        </span>
-        {open ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
-      </button>
-      {open && <div className="px-4 py-4 analysis-content">{children}</div>}
-    </div>
-  );
-}
-
 export default function ModelAnalysisSection({ analysis, locale, modelNameToSlug }: Props) {
   const l = locale === "en" ? {
     title: "Deep Analysis",
     pros: "Strengths",
     cons: "Weaknesses",
     compare: "Competitor Comparison",
+    sources: "Sources",
+    generated: "Analysis generated",
     summary: "Overview",
     performance: "Benchmarks & Performance",
     comparisons: "Detailed Comparison",
     community: "Community Feedback",
     useCases: "Use Cases",
     news: "Latest News",
-    sources: "Sources",
-    generated: "Analysis generated",
   } : {
     title: "深度分析",
     pros: "強み",
     cons: "弱み",
     compare: "競合比較",
+    sources: "出典",
+    generated: "分析生成日",
     summary: "概要",
     performance: "ベンチマーク＆性能",
     comparisons: "詳細比較",
     community: "コミュニティ評価",
     useCases: "ユースケース",
     news: "最新ニュース",
-    sources: "出典",
-    generated: "分析生成日",
   };
 
   const hasMetrics = analysis.keyMetrics?.length > 0;
@@ -177,27 +153,35 @@ export default function ModelAnalysisSection({ analysis, locale, modelNameToSlug
         </div>
       )}
 
-      {/* Collapsible detailed sections */}
-      <div className="space-y-2">
-        <Collapsible title={l.summary} icon={<BookOpen className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.summary}</ReactMarkdown>
-        </Collapsible>
-        <Collapsible title={l.performance} icon={<BarChart3 className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.performance}</ReactMarkdown>
-        </Collapsible>
-        <Collapsible title={l.comparisons} icon={<BarChart3 className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.comparisons}</ReactMarkdown>
-        </Collapsible>
-        <Collapsible title={l.community} icon={<Users className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.community}</ReactMarkdown>
-        </Collapsible>
-        <Collapsible title={l.useCases} icon={<Lightbulb className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.useCaseDeep}</ReactMarkdown>
-        </Collapsible>
-        <Collapsible title={l.news} icon={<Newspaper className="w-4 h-4" />}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{analysis.latestNews}</ReactMarkdown>
-        </Collapsible>
-      </div>
+      {/* Noscript fallback: render all sections as plain text for non-JS crawlers */}
+      <noscript>
+        <div className="space-y-6 mt-4">
+          {[
+            { title: l.summary, content: analysis.summary },
+            { title: l.performance, content: analysis.performance },
+            { title: l.comparisons, content: analysis.comparisons },
+            { title: l.community, content: analysis.community },
+            { title: l.useCases, content: analysis.useCaseDeep },
+            { title: l.news, content: analysis.latestNews },
+          ].map((section) => (
+            <div key={section.title}>
+              <h3 className="text-base font-semibold text-gray-900 mb-2">{section.title}</h3>
+              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{section.content}</p>
+            </div>
+          ))}
+        </div>
+      </noscript>
+
+      {/* Interactive tab-based analysis sections */}
+      <AnalysisTabs
+        summary={analysis.summary}
+        performance={analysis.performance}
+        comparisons={analysis.comparisons}
+        community={analysis.community}
+        useCaseDeep={analysis.useCaseDeep}
+        latestNews={analysis.latestNews}
+        locale={locale}
+      />
 
       {/* Sources */}
       {analysis.sources?.length > 0 && (

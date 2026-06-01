@@ -37,6 +37,25 @@ interface Analysis {
   sources: { title: string; url: string }[];
 }
 
+// ── URL Domain Blocklist ──
+
+const BLOCKED_DOMAINS = [
+  "qwen-ai.com",
+  "blog.laozhang.ai",
+  "avenchat.com",
+  "kimi-k2.org",
+  "glm46v.com",
+];
+
+function isBlockedUrl(url: string): boolean {
+  try {
+    const host = new URL(url).hostname;
+    return BLOCKED_DOMAINS.some((d) => host === d || host.endsWith("." + d));
+  } catch {
+    return true;
+  }
+}
+
 // ── Web Search ──
 
 async function webSearch(query: string): Promise<SearchResult[]> {
@@ -79,11 +98,12 @@ async function searchModelInfo(modelName: string, developer: string): Promise<Se
     await new Promise(r => setTimeout(r, 500));
   }
 
-  // Deduplicate by URL
+  // Deduplicate by URL and filter out blocked domains
   const seen = new Set<string>();
   return allResults.filter(r => {
     if (seen.has(r.url)) return false;
     seen.add(r.url);
+    if (isBlockedUrl(r.url)) return false;
     return true;
   }).slice(0, 10);
 }
@@ -162,7 +182,21 @@ keyMetrics: 4-6 most important metrics. Each has a label, value, and optional co
 pros/cons: 3 each, concise one-line descriptions.
 competitorTable: 2-3 main competitors with benchmark scores.
 
-Be specific with numbers. Cite sources where possible. Write in a professional but accessible tone.`;
+Be specific with numbers. Cite sources where possible. Write in a professional but accessible tone.
+
+CRITICAL — Source authority rules:
+Only cite authoritative sources. Use official domains:
+- OpenAI: openai.com, developers.openai.com
+- Anthropic: anthropic.com
+- Google: blog.google, deepmind.google, ai.google.dev
+- Alibaba/Qwen: qwen.ai, alibabacloud.com, github.com/QwenLM
+- Moonshot/Kimi: moonshot.ai, kimi.com, platform.moonshot.ai
+- Zhipu/GLM: z.ai, docs.bigmodel.cn, github.com/zai-org
+- Meta: ai.meta.com
+- HuggingFace: huggingface.co
+- GitHub repos: github.com/{org}/{repo}
+- ArXiv: arxiv.org
+Never use brand-squatting domains (e.g. qwen-ai.com, kimi-k2.org, avenchat.com).`;
 
   const user = `Model: ${modelName} (${developer})
 Description: ${description}

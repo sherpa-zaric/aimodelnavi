@@ -15,7 +15,7 @@ const MODEL_PATTERN = new RegExp(
 );
 
 // Replace model names with markdown links in content string
-function addModelLinks(content: string, locale: string): string {
+export function addModelLinks(content: string, locale: string): string {
   const prefix = locale === "ja" ? "" : `/${locale}`;
   return content.replace(MODEL_PATTERN, (match) => {
     const model = modelDetails.find((m) => m.name === match);
