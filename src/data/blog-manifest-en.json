@@ -1,6 +1,6 @@
 [
   {
-    "slug": "claude-opus-46-1-9-flash",
+    "slug": "step-37-flash-agent",
     "title": "階躍星辰のStep 3.7 Flash：Claude Opus 4.6の1/9コストで実現するAgent向け高効率モデル",
     "tag": "オープンソース",
     "excerpt": "階躍星辰がリリースしたStep 3.7 Flashは、Claude Opus 4.6の約1/9のコストで同等のコーディング能力を実現し、プロダクションレベルのエージェント向けに設計された高効率モデルだ。スパースMoEアーキテクチャでアクティベーションパラメータ11B、400 Tokens/sの高速生成を特徴に、マルチモーダル理解、ツール呼び出し安定性、ワークフロー適応性を強化し、エージェントのスケーラブルな商用化を推進する。",
@@ -14,6 +14,22 @@
     "date": "2026-06-02",
     "title_en": "How Step-3.7 Flash Cuts Agent Costs to 1/9 of Claude Opus While Boosting Performance",
     "excerpt_en": "Step-3.7 Flash redefines the role of a 'Flash' model for the agent era, prioritizing production-ready features like high throughput, low cost, and robust tool calling over mere benchmark performance. With an active parameter count of just 11B, it achieves near-flagship coding capabilities at approximately 1/9th the per-task cost of Claude Opus 4.6. This makes it a foundational, agentic model designed for the high-frequency, multi-step demands of real-world AI agent workflows."
+  },
+  {
+    "slug": "claude-opus-46-1-9-flash",
+    "title": "階躍星辰のStep 3.7 Flash：Claude Opus 4.6の1/9コストで実現するAgent向け高効率モデル",
+    "tag": "オープンソース",
+    "excerpt": "階躍星辰がリリースしたStep 3.7 Flashは、Claude Opus 4.6の約1/9のコストで同等のコーディング能力を実現し、プロダクションレベルのエージェント向けに設計された高効率モデルだ。スパースMoEアーキテクチャでアクティベーションパラメータ11B、400 Tokens/sの高速生成を特徴に、マルチモーダル理解、ツール呼び出し安定性、ワークフロー適応性を強化し、エージェントのスケーラブルな商用化を推進する。",
+    "topics": [
+      "オープンソース",
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "DeepSeek"
+    ],
+    "date": "2026-06-02",
+    "title_en": "階躍星辰のStep 3.7 Flash：Claude Opus 4.6の1/9コストで実現するAgent向け高効率モデル",
+    "excerpt_en": "階躍星辰がリリースしたStep 3.7 Flashは、Claude Opus 4.6の約1/9のコストで同等のコーディング能力を実現し、プロダクションレベルのエージェント向けに設計された高効率モデルだ。スパースMoEアーキテクチャでアクティベーションパラメータ11B、400 Tokens/sの高速生成を特徴に、マルチモーダル理解、ツール呼び出し安定性、ワークフロー適応性を強化し、エージェントのスケーラブルな商用化を推進する。"
   },
   {
     "slug": "article-2026-05-26-minimax-m3",
@@ -78,6 +94,37 @@
     "date": "2026-06-01",
     "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Gameplay",
     "excerpt_en": "Despite their coding prowess, LLMs struggle with the spatial reasoning and real-time adaptation required for video games. This gap reveals a fundamental difference between the 'well-behaved' environment of programming and the unpredictable nature of dynamic gameplay."
+  },
+  {
+    "slug": "llmai",
+    "title": "LLMはなぜビデオゲームに弱いのか？動的環境における技術的限界とAIエージェントの課題",
+    "tag": "AIエージェント",
+    "excerpt": "LLMはコーディングでは高い能力を発揮しますが、ビデオゲームのような動的環境では苦戦します。空間推論の欠如や学習データの不足など、AIが「ゲーム」という環境で直面している技術的課題を分析します。",
+    "topics": [
+      "AIエージェント",
+      "Anthropic",
+      "Google",
+      "推論",
+      "コーディング"
+    ],
+    "date": "2026-06-01",
+    "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Dynamic Environments",
+    "excerpt_en": "While LLMs excel at coding due to structured feedback, they struggle with the spatial reasoning and diverse rule sets of video games. This article explores the technical gap between static text processing and the dynamic 'World Models' required for gaming."
+  },
+  {
+    "slug": "openaimicrosoft1gwstargateai",
+    "title": "OpenAIとMicrosoftが計画する1GW規模のデータセンター「Stargate」がAI開発に与える影響",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIとMicrosoftが計画しているとされる1GW規模の巨大データセンターについて解説します。前例のない計算資源の投入が、今後のLLMの学習規模や推論コストにどのような変化をもたらすのかを考察します。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "推論",
+      "LLM"
+    ],
+    "date": "2026-06-01",
+    "title_en": "Inside 'Stargate': How the OpenAI and Microsoft 1GW Supercomputer Will Accelerate AI Evolution",
+    "excerpt_en": "OpenAI and Microsoft are reportedly planning 'Stargate,' a 1GW data center designed to shatter current scaling limits. This massive investment aims to accelerate model evolution and slash inference costs, enabling more complex agentic workflows."
   },
   {
     "slug": "rtx-spark-pc",
