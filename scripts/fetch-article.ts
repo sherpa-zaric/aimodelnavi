@@ -10,6 +10,7 @@
  *   npx tsx scripts/fetch-article.ts <URL>
  *   npx tsx scripts/fetch-article.ts <URL> --no-images
  *   npx tsx scripts/fetch-article.ts <URL> --tag "Anthropic"
+ *   npx tsx scripts/fetch-article.ts <URL> --slug "step-37-flash-agent"  # custom slug
  *   npx tsx scripts/fetch-article.ts <URL> --llm          # force LLM cleanup
  *
  * Output: _drafts/<slug>.md (Chinese Markdown with frontmatter)
@@ -33,9 +34,11 @@ const FILTER_IMAGES = !NO_FILTER; // filter by default
 const BLUR_WATERMARK = args.includes("--blur-watermark");
 const tagIdx = args.indexOf("--tag");
 const TAG = tagIdx !== -1 ? args[tagIdx + 1] : "";
+const slugIdx = args.indexOf("--slug");
+const CUSTOM_SLUG = slugIdx !== -1 ? args[slugIdx + 1] : "";
 
 if (!url) {
-  console.error("Usage: npx tsx scripts/fetch-article.ts <URL> [--no-images] [--tag Tag] [--llm] [--no-filter-images]");
+  console.error("Usage: npx tsx scripts/fetch-article.ts <URL> [--no-images] [--tag Tag] [--slug name] [--llm] [--no-filter-images]");
   process.exit(1);
 }
 
@@ -424,7 +427,7 @@ async function main() {
     let article = await extractFromDom(page, url!);
     article = await llmCleanup(article);
 
-    const slug = generateSlug(article.title);
+    const slug = CUSTOM_SLUG || generateSlug(article.title);
     console.log(`\n  Slug: ${slug}`);
 
     // Filter images before downloading
