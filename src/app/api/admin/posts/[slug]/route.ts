@@ -40,6 +40,9 @@ export async function DELETE(
     if (!fileRes.ok) {
       const err = await fileRes.text();
       console.error("GitHub API error (get file):", err);
+      if (fileRes.status === 404) {
+        return NextResponse.json({ error: "記事が見つかりません（リモートで既に削除済み）" }, { status: 404 });
+      }
       return NextResponse.json({ error: "GitHub API エラー" }, { status: 500 });
     }
 
