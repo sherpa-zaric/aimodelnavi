@@ -12,6 +12,18 @@
     "date": "2026-06-02"
   },
   {
+    "slug": "claude-code-workflows",
+    "title": "Claude Code /workflows に任せるべき作業とは？並列エージェントで効率を爆上げる活用法",
+    "tag": "Anthropic",
+    "excerpt": "Claude Codeの/workflows機能は、並列エージェントを使って大規模なタスクを効率的に処理する。コードベースの古いバグ検索や調査報告書の作成に適しており、AIの「体力」を増強し、苦労する作業を自動化する。难题に直面したら、/workflowsと/deep-researchを組み合わせることで、驚異的な効果が得られる。",
+    "topics": [
+      "Anthropic",
+      "AIエージェント",
+      "マルチモーダル"
+    ],
+    "date": "2026-06-02"
+  },
+  {
     "slug": "codex-mac-cleanup-skill",
     "title": "CleanMyMacの費用を節約するために、PCクリーニング機能をオープンソースのAIスキルにした話",
     "tag": "解説",

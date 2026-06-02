@@ -46,6 +46,20 @@
     "excerpt_en": "Step-3.7 Flash redefines the role of a 'Flash' model for the agent era, prioritizing production-ready features like high throughput, low cost, and robust tool calling over mere benchmark performance. With an active parameter count of just 11B, it achieves near-flagship coding capabilities at approximately 1/9th the per-task cost of Claude Opus 4.6. This makes it a foundational, agentic model designed for the high-frequency, multi-step demands of real-world AI agent workflows."
   },
   {
+    "slug": "claude-code-workflows",
+    "title": "Claude Code /workflows に任せるべき作業とは？並列エージェントで効率を爆上げる活用法",
+    "tag": "Anthropic",
+    "excerpt": "Claude Codeの/workflows機能は、並列エージェントを使って大規模なタスクを効率的に処理する。コードベースの古いバグ検索や調査報告書の作成に適しており、AIの「体力」を増強し、苦労する作業を自動化する。难题に直面したら、/workflowsと/deep-researchを組み合わせることで、驚異的な効果が得られる。",
+    "topics": [
+      "Anthropic",
+      "AIエージェント",
+      "マルチモーダル"
+    ],
+    "date": "2026-06-02",
+    "title_en": "Claude Code /workflows に任せるべき作業とは？並列エージェントで効率を爆上げる活用法",
+    "excerpt_en": "Claude Codeの/workflows機能は、並列エージェントを使って大規模なタスクを効率的に処理する。コードベースの古いバグ検索や調査報告書の作成に適しており、AIの「体力」を増強し、苦労する作業を自動化する。难题に直面したら、/workflowsと/deep-researchを組み合わせることで、驚異的な効果が得られる。"
+  },
+  {
     "slug": "article-2026-05-26-minimax-m3",
     "title": "MiniMax M3レビュー：100万トークン対応と15倍高速デコードが実現する次世代マルチモーダルAI",
     "tag": "解説",
@@ -1111,8 +1125,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Breaking News from Google I/O 2026: The New Era of Agent Development Shaped by Gemini Omni and Antigravity",
-    "excerpt_en": "This overview covers the Gemini 3.5 Flash and Omni models announced at Google I/O 2026, along with the new agent development platform \"Google Antigravity.\" We summarize the impactful developments in multimodal integration and autonomous agents that developers should take note of."
+    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
   },
   {
     "slug": "aiprovenance",
@@ -1358,8 +1372,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Frontier of AI Agent Design: A 2026 Report on System Architecture and Technical Trends",
-    "excerpt_en": "The design philosophy for AI agents moving into 2026 is shifting from \"versatile single models\" to \"composable, observable, and controllable systems.\" This report provides a detailed explanation of the latest architectures aimed at improving robustness in the real world, including the separation of planners and executors and trajectory-based evaluation."
+    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
+    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
