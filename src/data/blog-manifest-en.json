@@ -28,8 +28,8 @@
       "ベンチマーク"
     ],
     "date": "2026-06-03",
-    "title_en": "From \"Open-Source Hero\" to \"Closed Model\": The Qwen3.7-Max Closed-Source Issue Reveals a Structural Shift in the AI Industry",
-    "excerpt_en": "Alibaba's Qwen was hailed as the \"last bastion of open source\" with 942 million downloads and 200,000 derivative models. However, the announcement of Qwen3.7-Max as a completely closed-source model has left the community in shock and disappointment. This piece explores the implications of this shift, historical parallels, and the options remaining for developers."
+    "title_en": "「オープンソースの英雄」から「クローズドモデル」へ：Qwen3.7-Max閉源問題が明かすAI業界の構造変化",
+    "excerpt_en": "9.42億回のダウンロードと20万の派生モデルで「オープンソースの最後の砦」と称されたAlibabaのQwen。しかしQwen3.7-Maxは完全クローズドモデルとして発表され、コミュニティは驚きと失望に包まれた。この転換が意味するもの、歴史上の類似事例、そして開発者に残された選択肢を深掘りする。"
   },
   {
     "slug": "awsopenaiai",
@@ -74,8 +74,8 @@
       "オープンソース"
     ],
     "date": "2026-06-02",
-    "title_en": "How I Built an Open-Source AI Skill to Clean My Mac and Save $120",
-    "excerpt_en": "Inspired by an AI prompt on X, I created an open-source skill using Codex to analyze and clean computer storage, offering a free, transparent alternative to paid tools like CleanMyMac. The skill works on both Mac and Windows, providing an interactive HTML report with color-coded cleanup suggestions and one-click actions, proving how AI agents can disrupt traditional utility software."
+    "title_en": "Replacing Specialized Utility Software: Turning Mac Cleanup into an Open-Source AI Skill",
+    "excerpt_en": "The author transforms a Mac storage analysis prompt into a full-fledged open-source AI skill that outperforms professional cleanup software. By leveraging AI Agents, the tool provides transparent, personalized, and safe system cleaning that challenges the necessity of traditional utility apps."
   },
   {
     "slug": "codex",
@@ -104,6 +104,51 @@
     "date": "2026-06-02",
     "title_en": "Google I/O 2026: The Agentic Gemini Era, Embodied AI, and the Quantum Computing Stack",
     "excerpt_en": "Google I/O 2026 unveils a future defined by 'Agentic Gemini,' Embodied AI, and quantum computing. Explore how Managed Agents and robotics partnerships are shifting AI from passive assistants to autonomous physical actors."
+  },
+  {
+    "slug": "llm",
+    "title": "LLMはなぜビデオゲームが苦手なのか？推論能力とリアルタイム制御の乖離を分析",
+    "tag": "解説",
+    "excerpt": "コード生成には長けているLLMが、なぜゲームプレイという動的なタスクに苦戦するのか。IEEE Spectrumの分析に基づき、空間認識の欠如や報酬系の違いなど、技術的な限界と次世代AIへの課題を考察します。",
+    "topics": [
+      "Anthropic",
+      "Google",
+      "ベンチマーク",
+      "推論",
+      "コーディング"
+    ],
+    "date": "2026-06-02",
+    "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Gameplay",
+    "excerpt_en": "Despite their coding prowess, LLMs struggle with the spatial reasoning and real-time adaptation required for video games. This gap reveals a fundamental difference between the 'well-behaved' environment of programming and the unpredictable nature of dynamic gameplay."
+  },
+  {
+    "slug": "openaiawsai",
+    "title": "OpenAIの最新モデルをAWS環境で活用する方法：エンタープライズAI導入の障壁をどう下げるか",
+    "tag": "OpenAI",
+    "excerpt": "OpenAIのモデルをAWS上のインフラと組み合わせて活用するための戦略について解説します。セキュリティやガバナンス基準への適合を維持しつつ、強力なクラウドエコシステム内でAIを導入する方法を探ります。",
+    "topics": [
+      "OpenAI",
+      "AIエージェント",
+      "セキュリティ",
+      "推論"
+    ],
+    "date": "2026-06-02",
+    "title_en": "Integrating OpenAI Models into AWS: Overcoming Enterprise AI Adoption Barriers",
+    "excerpt_en": "Learn how enterprises can bridge the gap between AWS infrastructure and OpenAI's frontier models. This guide explores strategies for maintaining security and governance while leveraging high-performance AI."
+  },
+  {
+    "slug": "openaicodex",
+    "title": "OpenAIが提示する「あらゆる役割・ツール・ワークフローのためのCodex」：コード生成から業務効率化へのアプローチ",
+    "tag": "AIエージェント",
+    "excerpt": "OpenAIが提唱する、コード生成AIをあらゆる職種やツールに適用するアプローチを解説。単なるコーディング支援に留まらず、分析などのワークフローに活用する次世代のAI活用の方向性を探ります。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "コーディング"
+    ],
+    "date": "2026-06-02",
+    "title_en": "Beyond Code Generation: How OpenAI Codex is Transforming Business Workflows",
+    "excerpt_en": "OpenAI is evolving Codex from a developer's assistant into a universal interface for all business roles. This shift focuses on translating natural language into actionable workflows, democratizing data analysis and tool automation."
   },
   {
     "slug": "step-37-flash-agent",
@@ -168,22 +213,6 @@
     "date": "2026-06-01",
     "title_en": "Gemini Omni and Gemini 3.5: Ushering in the Era of Multimodal Generation and Autonomous AI Agents",
     "excerpt_en": "Google's new Gemini Omni and Gemini 3.5 models shift the AI landscape from simple chatbots to autonomous agents. With the new Antigravity engine and consistent multimodal generation, Google is enabling complex workflow automation and professional-grade video creation."
-  },
-  {
-    "slug": "llm",
-    "title": "LLMはなぜビデオゲームを攻略できないのか？動的環境における技術的限界と課題",
-    "tag": "AIエージェント",
-    "excerpt": "LLMは高度なコーディング能力を持つ一方で、ビデオゲームのような動的環境では単純な探索アルゴリズムに劣る性能しか発揮できないと指摘されています。本記事では、空間推論や報酬系の設計など、LLMがゲーム攻略に苦戦する技術的要因を考察します。",
-    "topics": [
-      "AIエージェント",
-      "Anthropic",
-      "OpenAI",
-      "Google",
-      "ベンチマーク"
-    ],
-    "date": "2026-06-01",
-    "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Gameplay",
-    "excerpt_en": "Despite their coding prowess, LLMs struggle with the spatial reasoning and real-time adaptation required for video games. This gap reveals a fundamental difference between the 'well-behaved' environment of programming and the unpredictable nature of dynamic gameplay."
   },
   {
     "slug": "llmai",
@@ -1173,8 +1202,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Flash Report: The New Era of \"Agent Development\" Pioneered by Gemini Omni and Antigravity",
-    "excerpt_en": "A breakdown of Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. This summary covers the impact of multimodal integration and autonomous agents that developers should be paying attention to."
+    "title_en": "Google I/O 2026速報：Gemini OmniとAntigravityが切り拓く「エージェント開発」の新時代",
+    "excerpt_en": "Google I/O 2026で発表されたGemini 3.5 FlashやOmni、そしてエージェント開発プラットフォーム「Google Antigravity」を解説。開発者が注目すべきマルチモーダル統合と自律型エージェントの衝撃をまとめます。"
   },
   {
     "slug": "aiprovenance",
@@ -1420,8 +1449,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Cutting Edge of AI Agent Design: A Report on System Architecture and Technology Trends for 2026",
-    "excerpt_en": "The design philosophy for AI agents is shifting towards \"systems that can be composed, observed, and constrained\" for 2026, moving away from a \"single, general-purpose model.\" This report details the latest architectures aimed at increasing robustness in the real world, including planner-executor separation and trace-based evaluation."
+    "title_en": "AIエージェント設計の最前線：2026年に向けたシステムアーキテクチャと技術トレンド報告書",
+    "excerpt_en": "2026年に向けたAIエージェントの設計思想は、「万能な単体モデル」から「構成・観測・制約可能なシステム」へと転換しています。本レポートでは、プランナーと実行者の分離、軌跡ベースの評価、そして現実世界での堅牢性を高めるための最新アーキテクチャを詳説します。"
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",

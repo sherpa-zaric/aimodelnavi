@@ -287,7 +287,10 @@ if [ "$LOCAL_MODE" = true ]; then
   # Regenerate blog manifest so the article appears on the site
   npx tsx scripts/blog-manifest.ts 2>/dev/null || true
 
-  FILES_TO_ADD="src/content/blog/$SLUG.md src/data/blog-manifest.json"
+  FILES_TO_ADD="src/content/blog/$SLUG.md src/data/blog-manifest.json src/data/blog-manifest-en.json"
+  if [ -f "src/content/blog-en/$SLUG.md" ]; then
+    FILES_TO_ADD="$FILES_TO_ADD src/content/blog-en/$SLUG.md"
+  fi
   if [ -d "public/images/blog/$SLUG" ]; then
     FILES_TO_ADD="$FILES_TO_ADD public/images/blog/$SLUG"
   fi
