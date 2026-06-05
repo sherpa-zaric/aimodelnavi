@@ -78,7 +78,7 @@
   "tools": {
     "costCalculator": "API Cost Calculator",
     "modelCompare": "Model Comparison",
-    "tokenCounter": "Token Counter"
+    "tokenCounter": "Token Counter & Cost Calculator"
   },
   "recommend": {
     "title": "Scenario-Based Recommendations",

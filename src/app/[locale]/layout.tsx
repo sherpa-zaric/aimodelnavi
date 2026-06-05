@@ -59,6 +59,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <body>
       <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
       <AdSlot position="header-banner" className="w-full flex justify-center py-2" />
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
       <Analytics />
       <SpeedInsights />
     </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

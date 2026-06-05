@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 const META: Record<string, { title: string; description: string; ogTitle: string; ogDesc: string }> = {
   ja: {
     title: "ツール",
-    description: "AIモデル選定のための無料ツール：コスト計算機、モデル比較、トークンカウンター。",
+    description: "AIモデル選定のための無料ツール：コスト計算機、モデル比較、トークンカウンター＆プロンプトコスト計算機。",
     ogTitle: "ツール | AI Models Navi",
-    ogDesc: "AIモデル選定のための無料ツール：コスト計算機、モデル比較、トークンカウンター。",
+    ogDesc: "AIモデル選定のための無料ツール：コスト計算機、モデル比較、トークンカウンター＆プロンプトコスト計算機。",
   },
   en: {
     title: "Tools",
-    description: "Free tools for AI model selection: cost calculator, model comparison, and token counter.",
+    description: "Free tools for AI model selection: cost calculator, model comparison, and token counter & prompt cost calculator.",
     ogTitle: "Tools | AI Models Navi",
-    ogDesc: "Free tools for AI model selection: cost calculator, model comparison, and token counter.",
+    ogDesc: "Free tools for AI model selection: cost calculator, model comparison, and token counter & prompt cost calculator.",
   },
 };
 

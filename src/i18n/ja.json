@@ -78,7 +78,7 @@
   "tools": {
     "costCalculator": "APIコスト計算",
     "modelCompare": "モデル比較",
-    "tokenCounter": "トークンカウンター"
+    "tokenCounter": "トークンカウンター＆コスト計算機"
   },
   "recommend": {
     "title": "用途別おすすめモデル",
