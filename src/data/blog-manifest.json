@@ -1,5 +1,43 @@
 [
   {
+    "slug": "endavaai",
+    "title": "Endava事例に学ぶAIエージェント導入のベストプラクティスと日本企業の課題",
+    "tag": "AIエージェント",
+    "excerpt": "OpenAIの事例記事「How Endava is redesigning software delivery around AI agents」を基に、EndavaがAIエージェント（Codex、ChatGPT Enterprise）を活用してソフトウェアデリバリーを再設計した取り組みを紹介。日本企業が同様の導入を進める際の文化的・組織的課題について考察する。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI",
+      "セキュリティ",
+      "コーディング"
+    ],
+    "date": "2026-06-05"
+  },
+  {
+    "slug": "gpt-rosalind-",
+    "title": "GPT-Rosalind新機能がもたらす創薬とゲノム解析の未来 – 未確認情報を基に専門家視点で解説",
+    "tag": "分析",
+    "excerpt": "OpenAIが生命科学向けモデル「GPT-Rosalind」の新機能を発表したとの情報があるが、提供されたURLの内容は確認できなかった。本記事では、仮に新機能が存在する場合の日本の創薬やゲノム解析への応用可能性と、日本語データを取り扱う際の注意点について、専門家の視点から考察する。",
+    "topics": [
+      "分析",
+      "OpenAI",
+      "ベンチマーク",
+      "AIエージェント",
+      "推論"
+    ],
+    "date": "2026-06-05"
+  },
+  {
+    "slug": "wasmercodexedgenodejs",
+    "title": "WasmerがCodexでEdge向けNode.jsランタイムを構築：日本開発者への示唆",
+    "tag": "AIエージェント",
+    "excerpt": "WasmerがOpenAIのCodexを活用し、エッジ環境で動作するNode.jsランタイムを開発した事例を解説。GPT-4などの大規模言語モデルを実際の実装に活かす手法と、日本市場での応用可能性を考察する。",
+    "topics": [
+      "AIエージェント",
+      "OpenAI"
+    ],
+    "date": "2026-06-05"
+  },
+  {
     "slug": "ai",
     "title": "AIコーディングの次なるパラダイムは「オントロジー」か？自然言語から概念定義への転換",
     "tag": "解説",
