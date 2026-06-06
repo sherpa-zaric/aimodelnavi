@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { X, Search } from "lucide-react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import type { ModelDetail } from "@/data/models";
 import type { ModelRanking } from "@/data/leaderboard";
 
@@ -43,13 +44,31 @@ function findRanking(rankings: ModelRanking[], name: string): ModelRanking | und
 }
 
 export default function CustomCompare({ models, rankings, locale, labels }: Props) {
-  const [selected, setSelected] = useState<ModelDetail[]>([]);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [selected, setSelected] = useState<ModelDetail[]>(() => {
+    const slugs = searchParams.get("models");
+    if (!slugs) return [];
+    return slugs.split(",").filter(Boolean).map((s) => models.find((m) => m.slug === s)).filter(Boolean) as ModelDetail[];
+  });
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isEn = locale === "en";
+
+  const updateUrl = useCallback((slugs: string[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (slugs.length > 0) {
+      params.set("models", slugs.join(","));
+    } else {
+      params.delete("models");
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [router, pathname, searchParams]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -77,14 +96,18 @@ export default function CustomCompare({ models, rankings, locale, labels }: Prop
 
   function addModel(m: ModelDetail) {
     if (selected.length < 4) {
-      setSelected([...selected, m]);
+      const next = [...selected, m];
+      setSelected(next);
+      updateUrl(next.map((x) => x.slug));
       setSearch("");
       setOpen(false);
     }
   }
 
   function removeModel(slug: string) {
-    setSelected(selected.filter((m) => m.slug !== slug));
+    const next = selected.filter((m) => m.slug !== slug);
+    setSelected(next);
+    updateUrl(next.map((x) => x.slug));
   }
 
   const bestValues = useMemo(() => {
@@ -234,13 +257,21 @@ export default function CustomCompare({ models, rankings, locale, labels }: Prop
                 });
                 if (!hasAny) return null;
 
+                const values = selected.map((m) => {
+                  const r = findRanking(rankings, m.name);
+                  return r ? (r[bm.key] as number | null) : null;
+                });
+                const nonNull = values.filter((v) => v != null) as number[];
+                const maxVal = nonNull.length > 0 ? Math.max(...nonNull) : null;
+                const winnerIdx = nonNull.length >= 2 ? values.findIndex((v) => v === maxVal) : -1;
+
                 return (
                   <tr key={bm.key as string} className="border-b border-gray-100">
                     <td className="py-2 pr-4 text-gray-600">{bm.label}</td>
-                    {selected.map((m) => {
-                      const r = findRanking(rankings, m.name);
-                      const val = r ? (r[bm.key] as number | null) : null;
+                    {selected.map((m, i) => {
+                      const val = values[i];
                       const isBest = val != null && val === bestValues[bm.key as string] && selected.length > 1;
+                      const isWinner = i === winnerIdx && selected.length > 1;
                       return (
                         <td
                           key={m.slug}
@@ -253,6 +284,9 @@ export default function CustomCompare({ models, rankings, locale, labels }: Prop
                           }`}
                         >
                           {val != null ? val : labels.noData}
+                          {isWinner && (
+                            <span className="ml-1 text-[10px] font-bold text-primary-600">★</span>
+                          )}
                         </td>
                       );
                     })}
