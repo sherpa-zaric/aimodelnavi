@@ -126,8 +126,8 @@
       "ベンチマーク"
     ],
     "date": "2026-06-03",
-    "title_en": "From \"Open-Source Hero\" to \"Closed Model\": The Structural Shift in the AI Industry Revealed by the Qwen3.7-Max Closed-Source Controversy",
-    "excerpt_en": "Alibaba's Qwen, hailed as \"the last bastion of open source\" with 9.42 billion downloads and 200,000 derivative models, announced Qwen3.7-Max as a fully closed-source model, shocking and disappointing the community. This article delves into what this shift signifies, historical parallels, and the options remaining for developers."
+    "title_en": "From \"Open Source Hero\" to \"Closed Model\": What the Qwen3.7-Max Closed-Source Issue Reveals About the AI Industry's Structural Shift",
+    "excerpt_en": "With 942 million downloads and 200,000 derivative models, Alibaba's Qwen was hailed as \"the last bastion of open source.\" However, Qwen3.7-Max was announced as a completely closed model, leaving the community shocked and disappointed. We delve into what this shift signifies, historical parallels, and the choices remaining for developers."
   },
   {
     "slug": "awsopenaiai",
@@ -1271,8 +1271,8 @@
       "コーディング"
     ],
     "date": "2026-05-21",
-    "title_en": "Google I/O 2026 Highlights: Gemini Omni and Antigravity Pioneer a New Era of \"Agent Development\"",
-    "excerpt_en": "This article explains the announcements at Google I/O 2026, including Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity.\" It summarizes the impact of multimodal integration and autonomous agents that developers should focus on."
+    "title_en": "Google I/O 2026 Highlights: Gemini Omni and Antigravity Usher in a New Era of \"Agent Development\"",
+    "excerpt_en": "We break down Gemini 3.5 Flash, Omni, and the agent development platform \"Google Antigravity\" announced at Google I/O 2026. We summarize the impact of multimodal integration and autonomous agents that developers should watch closely."
   },
   {
     "slug": "aiprovenance",
@@ -1518,8 +1518,8 @@
       "ベンチマーク"
     ],
     "date": "2026-05-20",
-    "title_en": "The Forefront of AI Agent Design: A Report on System Architecture and Technology Trends for 2026",
-    "excerpt_en": "The design philosophy for AI agents is shifting towards \"composable, observable, and constrained systems\" from \"all-in-one monolithic models\" for 2026. This report details the latest architectures, including the separation of planners and executors, trace-based evaluation, and enhancing robustness in the real world."
+    "title_en": "The Cutting Edge of AI Agent Design: A Report on System Architectures and Technology Trends for 2026",
+    "excerpt_en": "The design philosophy for AI agents heading into 2026 is shifting from \"monolithic, all-capable models\" to \"composable, observable, and constrainable systems.\" This report details the latest architectures, including planner-executor separation, trajectory-based evaluation, and approaches to enhancing real-world robustness."
   },
   {
     "slug": "blog-2026-05-19-3nmfsz",
