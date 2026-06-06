@@ -14,7 +14,6 @@ const blogTags = [
 const toolLinks = [
   { slug: "cost-calculator", labelJa: "APIコスト計算", labelEn: "API Cost Calculator", icon: Calculator },
   { slug: "token-counter", labelJa: "トークンカウンター＆コスト計算機", labelEn: "Token Counter & Cost Calculator", icon: BarChart3 },
-  { slug: "model-compare", labelJa: "モデル比較", labelEn: "Model Comparison", icon: GitCompare },
 ];
 
 export default function Header() {
