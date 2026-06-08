@@ -75,6 +75,17 @@ On SWE-Bench Pro, M3 slightly outperforms GPT-5.5 and nearly matches Claude Opus
 
 **Benchmark Credibility Note**: All of M3's launch benchmarks were run on MiniMax's own infrastructure using their configured agent scaffolding. Independent evaluations from Artificial Analysis and LMArena were still pending at publication. Developers should run their own evaluations before committing production workloads.
 
+### Grok's Evaluation Perspective
+
+According to Grok's assessment, M3 represents "a big leap over prior MiniMax models (e.g., M2.7), competitive with or beating mid-to-high frontier tiers on select metrics, but not fully matching the absolute leaders like Claude Opus 4.8 in complex coding or consistency."
+
+**Grok's Key Insights:**
+- **Real-world performance**: Users report ~77 tok/s in tests, making it dramatically cheaper than US frontier models
+- **Practical strengths**: Positive feedback for debugging (catching many bugs cheaply), mockup/design tasks, and certain coding projects
+- **Benchmark reality gap**: Vendor-reported numbers are strong, but some independent tests (e.g., DeepSWE ~20% pass@1, BridgeBench) show it lagging leaders or being "unreliable/slow/verbose in production workflows"
+- **Consistency issues**: Can be "chatty" (higher output tokens) and occasionally stalls or produces lower-quality refactoring
+- **Agent value**: Some users rank it near GLM-5.1/Kimi in targeted tests; strong value for agents
+
 ### Agent Capabilities
 
 M3 also excels in agent applications:
