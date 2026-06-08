@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BarChart3, Calculator, Coins, Search, ArrowRight, TrendingUp, BookOpen } from "lucide-react";
+import { BarChart3, Calculator, Coins, Search, ArrowRight, TrendingUp, BookOpen, Wrench, ArrowLeftRight, FileText } from "lucide-react";
 import blogManifest from "@/data/blog-manifest.json";
 import blogManifestEn from "@/data/blog-manifest-en.json";
 
@@ -16,6 +16,11 @@ const T = {
     step2Title: "詳細を比較する", step2Desc: "パラメータ数、コンテキスト長、API料金など、気になるモデルの詳細情報を確認。",
     step3Title: "コストを試算する", step3Desc: "API料金と使用量を元に、月額コストを試算。予算に合ったモデル選定をサポート。",
     latestBlog: "最新ブログ", viewAll: "すべて見る",
+    toolsTitle: "便利ツール", toolsSub: "AIモデルの選定とコスト計算をサポートするツール集",
+    tool1Title: "Token Counter", tool1Desc: "テキストのトークン数を計算。プロンプトコストを事前に見積もり。",
+    tool2Title: "コスト計算機", tool2Desc: "API使用量から月額コストを自動計算。予算に合ったモデルを選択。",
+    tool3Title: "モデル比較", tool3Desc: "2つのモデルを並列比較。ベンチマーク・料金・性能を一目で確認。",
+    tryNow: "使ってみる",
   },
   en: {
     hero: "Find the Best AI Model,", heroBr: "", hero2: "Fast",
@@ -27,6 +32,11 @@ const T = {
     step2Title: "Compare Details", step2Desc: "Check parameters, context windows, API pricing, and detailed specs side by side.",
     step3Title: "Calculate Costs", step3Desc: "Estimate monthly costs based on API pricing and your usage. Make budget-smart model choices.",
     latestBlog: "Latest Blog", viewAll: "View All",
+    toolsTitle: "Developer Tools", toolsSub: "Tools to help you choose the right AI model and estimate costs",
+    tool1Title: "Token Counter", tool1Desc: "Count tokens in your text. Estimate prompt costs before you run.",
+    tool2Title: "Cost Calculator", tool2Desc: "Calculate monthly API costs based on your usage. Pick models that fit your budget.",
+    tool3Title: "Model Compare", tool3Desc: "Compare two models side by side. Benchmarks, pricing, and performance at a glance.",
+    tryNow: "Try Now",
   },
 };
 
@@ -95,6 +105,34 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <div className="absolute top-6 right-6 p-2 bg-primary-50 rounded-lg"><Icon className="w-5 h-5 text-primary-600" /></div>
                 <h3 className="text-lg font-bold text-gray-900 mt-4 mb-2">{s.title}</h3><p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
               </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">{t.toolsTitle}</h2>
+          <p className="mt-3 text-gray-500 max-w-xl mx-auto">{t.toolsSub}</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: t.tool1Title, desc: t.tool1Desc, icon: FileText, href: `/${locale === "ja" ? "" : locale + "/"}tools/token-counter` },
+            { title: t.tool2Title, desc: t.tool2Desc, icon: Calculator, href: `/${locale === "ja" ? "" : locale + "/"}tools/cost-calculator` },
+            { title: t.tool3Title, desc: t.tool3Desc, icon: ArrowLeftRight, href: `/${locale === "ja" ? "" : locale + "/"}compare` },
+          ].map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <Link key={tool.title} href={tool.href} className="group p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-300 hover:shadow-md transition-all">
+                <div className="p-3 bg-primary-50 rounded-lg w-fit mb-4 group-hover:bg-primary-100 transition-colors">
+                  <Icon className="w-6 h-6 text-primary-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{tool.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{tool.desc}</p>
+                <span className="text-sm font-medium text-primary-600 flex items-center gap-1">
+                  {t.tryNow} <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
             );
           })}
         </div>
