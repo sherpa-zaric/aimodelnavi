@@ -66,12 +66,14 @@ M3 has achieved top-tier results in code generation benchmarks:
 
 ![Benchmark comparison](/images/blog/article-2026-05-26-minimax-m3/img-2-benchmark.jpg)
 
-| Benchmark | M3 | GPT-5.5 | Claude Opus 4.7 | DeepSeek V3.2 |
-|-----------|-----|---------|-----------------|---------------|
-| SWE-Bench Pro | **59.0%** | 58.6% | 64.3% | 49.2% |
-| Terminal-Bench 2.1 | **66.0%** | 62.1% | 68.5% | 54.8% |
+| Benchmark | M3 | GPT-5.5 | Claude Opus 4.7 | Claude Opus 4.8 | DeepSeek V3.2 |
+|-----------|-----|---------|-----------------|-----------------|---------------|
+| SWE-Bench Pro | **59.0%** | 58.6% | 64.3% | 69.2% | 49.2% |
+| Terminal-Bench 2.1 | **66.0%** | 62.1% | 68.5% | 74.6% | 54.8% |
 
-On SWE-Bench Pro, M3 slightly outperforms GPT-5.5 and nearly matches Claude Opus 4.7, marking an unprecedented achievement for a Chinese-developed model.
+On SWE-Bench Pro, M3 slightly outperforms GPT-5.5 and nearly matches Claude Opus 4.7, marking an unprecedented achievement for a Chinese-developed model. However, it's important to note that Claude Opus 4.8, released just three days before M3's launch, shows significantly higher scores (69.2% vs 59.0% on SWE-Bench Pro).
+
+**Benchmark Credibility Note**: All of M3's launch benchmarks were run on MiniMax's own infrastructure using their configured agent scaffolding. Independent evaluations from Artificial Analysis and LMArena were still pending at publication. Developers should run their own evaluations before committing production workloads.
 
 ### Agent Capabilities
 
@@ -115,12 +117,16 @@ M3's API pricing is highly competitive compared to models of similar quality:
 | MiniMax M3 (Regular) | $0.60 | $2.40 | After discount ends |
 | GPT-5.2 | $2.50 | $10.00 | OpenAI |
 | Claude Opus 4.7 | $15.00 | $75.00 | Anthropic |
+| Claude Opus 4.8 | $5.00 | $25.00 | Anthropic |
 | Gemini 3.0 Pro | $1.25 | $5.00 | Google |
+| Grok 4 | $3.00 | $15.00 | xAI |
 | DeepSeek V3.2 | $0.27 | $1.10 | DeepSeek |
 
 With the launch discount, M3 is about 1/8 the cost of GPT-5.2, and even at regular pricing, it's about 1/4. Compared to DeepSeek V3.2, M3 maintains much higher benchmark scores while achieving comparable pricing levels.
 
-Token plans are also available, with monthly subscriptions at $20, $50, and $120. The $50 plan, in particular, offers sufficient quota for daily usage of around 100,000 tokens.
+**Pricing Reality Check**: The widely circulated "$0.27 vs $5.00" comparison comes from launch-week promotional pricing (50% discount). At standard rates ($0.60/M input), M3 is roughly 10x cheaper than Claude Opus 4.8 ($5-6/M input at volume) — still a meaningful advantage, but not the 15-25x headline figure.
+
+Token plans are also available, with monthly subscriptions at $20, $50, and $120. The $20 plan offers approximately 1.7 billion M3 tokens per month, making it particularly attractive for high-volume usage.
 
 ## Real-World Use Cases and Experiences
 
@@ -174,6 +180,28 @@ While these use cases were possible with previous models, M3's 1 million token c
 
 - **Conclusion**: Choose Claude for highest quality, M3 for cost-performance ratio.
 
+### Claude Opus 4.8 vs. M3
+
+- **Accuracy**: Claude Opus 4.8 shows significant improvements over 4.7 (SWE-Bench Pro 69.2% vs 59.0%).
+
+- **Speed**: M3 is still faster with MSA architecture.
+
+- **Price**: M3 is about 10x cheaper at standard pricing.
+
+- **Conclusion**: Opus 4.8 is the clear winner on autonomous software tasks, but M3 offers dramatically better cost efficiency.
+
+### Grok 4 vs. M3
+
+- **Accuracy**: Grok 4 excels in reasoning tasks (Humanity's Last Exam: 44.4% with tools), while M3 leads in coding benchmarks.
+
+- **Context Window**: Both support 1M tokens, but M3's MSA architecture provides faster processing.
+
+- **Price**: Grok 4 is significantly more expensive ($3.00/$15.00 per 1M tokens).
+
+- **Multimodal**: M3 natively supports video processing; Grok 4 does not.
+
+- **Conclusion**: Choose Grok for advanced reasoning tasks, M3 for cost-effective coding and long-context work.
+
 ### DeepSeek V3.2 vs. M3
 
 - **Accuracy**: M3 clearly outperforms.
@@ -186,8 +214,19 @@ While these use cases were possible with previous models, M3's 1 million token c
 
 ## Conclusion
 
-As of June 2026, MiniMax M3 is one of the most cost-effective multimodal models available. Its MSA architecture enabling 1 million token support and 15.6x faster decoding speeds provide significant practical advantages. With code generation capability of 59.0% on SWE-Bench Pro and agent capability of 74.2% on MCP Atlas, it rivals top models like GPT-5.2 and Claude Opus 4.7.
+As of June 2026, MiniMax M3 represents the most interesting cost-efficiency bet on the frontier coding market. Its MSA architecture enabling 1 million token support and 15.6x faster decoding speeds provide significant practical advantages. With code generation capability of 59.0% on SWE-Bench Pro and agent capability of 74.2% on MCP Atlas, it sits in the same tier as GPT-5.5 on coding benchmarks.
 
-Particularly noteworthy is its pricing. The $0.30/$1.20 per 1M tokens with launch discount is about 1/8 of GPT-5.2 and 1/50 of Claude Opus 4.7. Open weights are also planned, making on-premises deployment feasible.
+**What M3 delivers:**
+- Competitive SWE-Bench Pro score (59%) at a fraction of frontier pricing
+- MSA architecture with genuine long-context efficiency gains
+- Native multimodal training (not a fine-tuned add-on)
+- BrowseComp score of 83.5 beats published Opus 4.7 figures on autonomous web tasks
 
-For developers considering processing large codebases, analyzing long documents, or developing cost-efficient agents, M3 is one of the most promising models to watch this summer.
+**What M3 is not:**
+- A validated drop-in replacement for Opus 4.8 (59% vs 69.2% on SWE-Bench Pro)
+- Independently verified (all benchmarks are vendor-run)
+- Fully open-source yet (weights promised by ~June 11)
+
+**Practical recommendation:** Watch for the open weights around June 11. If the technical report confirms the MSA efficiency claims and the license permits commercial use, M3 becomes a serious option for teams doing cost-sensitive long-context agentic work on non-sensitive data. For teams with compliance exposure to Chinese data jurisdiction, wait for the open weights and self-host.
+
+For developers considering processing large codebases, analyzing long documents, or developing cost-efficient agents, M3 is one of the most promising models to watch this summer — but run your own evaluations before committing production workloads.
