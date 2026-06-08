@@ -2,7 +2,27 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ArrowLeft, BookOpen, Code, MessageSquare, FileText } from "lucide-react";
+
+const T = {
+  ja: { back: "ツール一覧に戻る", title: "コンテキストウィンドウ比較", subtitle: "各モデルのコンテキストサイズを視覚的に比較", modelCompare: "モデル比較", whatFits: "何が入る？", tokens: "トークン",
+    items: [
+      { name: "チャット100往復", tokens: 50000 },
+      { name: "小説1冊", tokens: 80000 },
+      { name: "技術ドキュメント", tokens: 120000 },
+      { name: "コードベース(5万行)", tokens: 150000 },
+    ],
+  },
+  en: { back: "Back to Tools", title: "Context Window Visualizer", subtitle: "Visually compare context window sizes across models", modelCompare: "Model Comparison", whatFits: "What Fits?", tokens: "tokens",
+    items: [
+      { name: "100 Chat Exchanges", tokens: 50000 },
+      { name: "1 Novel", tokens: 80000 },
+      { name: "Technical Docs", tokens: 120000 },
+      { name: "Codebase (50K lines)", tokens: 150000 },
+    ],
+  },
+};
 
 const models = [
   { name: "DeepSeek V3.2", tokens: 128000, color: "bg-red-500" },
@@ -12,33 +32,27 @@ const models = [
   { name: "MiniMax M3", tokens: 1000000, color: "bg-orange-500" },
 ];
 
-const items = [
-  { icon: MessageSquare, name: "チャット100往復", tokens: 50000 },
-  { icon: BookOpen, name: "小説1冊", tokens: 80000 },
-  { icon: FileText, name: "技術ドキュメント", tokens: 120000 },
-  { icon: Code, name: "コードベース(5万行)", tokens: 150000 },
-];
+const icons = [MessageSquare, BookOpen, FileText, Code];
 
-function fmt(n: number) {
-  return n >= 1000000 ? `${(n / 1000000).toFixed(0)}M` : `${(n / 1000).toFixed(0)}K`;
-}
+function fmt(n: number) { return n >= 1000000 ? `${(n / 1000000).toFixed(0)}M` : `${(n / 1000).toFixed(0)}K`; }
 
 export default function ContextVisualizerPage() {
+  const params = useParams();
+  const locale = (params.locale as string) === "en" ? "en" : "ja";
+  const t = T[locale];
   const [selected, setSelected] = useState(models[0]);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6">
-          <ArrowLeft className="w-4 h-4" />ツール一覧に戻る
+        <Link href={`/${locale === "ja" ? "" : locale + "/"}tools`} className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6">
+          <ArrowLeft className="w-4 h-4" />{t.back}
         </Link>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t.title}</h1>
+        <p className="text-gray-500 mb-8">{t.subtitle}</p>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">コンテキストウィンドウ比較</h1>
-        <p className="text-gray-500 mb-8">各モデルのコンテキストサイズを視覚的に比較</p>
-
-        {/* Model bars */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">モデル比較</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-4">{t.modelCompare}</h2>
           <div className="space-y-3">
             {models.map((m) => {
               const pct = (m.tokens / 1000000) * 100;
@@ -58,13 +72,12 @@ export default function ContextVisualizerPage() {
           </div>
         </div>
 
-        {/* What fits */}
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-1">何が入る？ {selected.name}</h2>
-          <p className="text-sm text-gray-500 mb-6">{fmt(selected.tokens)} トークン</p>
+          <h2 className="text-lg font-bold text-gray-900 mb-1">{t.whatFits} {selected.name}</h2>
+          <p className="text-sm text-gray-500 mb-6">{fmt(selected.tokens)} {t.tokens}</p>
           <div className="grid sm:grid-cols-2 gap-4">
-            {items.map((item) => {
-              const Icon = item.icon;
+            {t.items.map((item, idx) => {
+              const Icon = icons[idx];
               const fits = Math.floor(selected.tokens / item.tokens);
               const pct = (item.tokens / selected.tokens) * 100;
               return (
