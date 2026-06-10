@@ -1,5 +1,19 @@
 [
   {
+    "slug": "local-vs-paid-models-2026",
+    "title": "ローカルLLMは有料モデルを置き換えられるか？2026年の現実的な答え",
+    "tag": "解説",
+    "excerpt": "Reddit上で激しい議論が行われているテーマ、ローカルLLMはClaudeやGPTなどの有料モデルを本当に置き換えられるのか？287個のモデルの実データに基づき、2026年の現実的な答えを提示する。ローカルモデルは簡単なタスクでは十分に使えるが、複雑な推論や長文処理では有料モデルにまだ差がある。",
+    "topics": [
+      "Anthropic",
+      "OpenAI",
+      "Google",
+      "Qwen/Alibaba",
+      "ベンチマーク"
+    ],
+    "date": "2026-06-10"
+  },
+  {
     "slug": "anthropic-released-opus-4_8",
     "title": "Anthropic、Claude Opus 4.8を公開──価格据え置き、性能と誠実性を小幅ながらも実質的に改善",
     "tag": "Anthropic",
