@@ -174,8 +174,8 @@
       "ベンチマーク"
     ],
     "date": "2026-06-03",
-    "title_en": "「オープンソースの英雄」から「クローズドモデル」へ：Qwen3.7-Max閉源問題が明かすAI業界の構造変化",
-    "excerpt_en": "9.42億回のダウンロードと20万の派生モデルで「オープンソースの最後の砦」と称されたAlibabaのQwen。しかしQwen3.7-Maxは完全クローズドモデルとして発表され、コミュニティは驚きと失望に包まれた。この転換が意味するもの、歴史上の類似事例、そして開発者に残された選択肢を深掘りする。"
+    "title_en": "From \"Open Source Hero\" to \"Closed Model\": The Structural Shift in the AI Industry Revealed by the Qwen3.7-Max Closure Controversy",
+    "excerpt_en": "Alibaba's Qwen, once hailed as the \"last bastion of open source\" with 942 million downloads and 200,000 derived models, shocked and disappointed the community by releasing Qwen3.7-Max as a fully closed-source model. This piece delves into the implications of this shift, historical parallels, and the remaining options for developers."
   },
   {
     "slug": "awsopenaiai",
