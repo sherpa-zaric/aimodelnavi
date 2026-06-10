@@ -57,8 +57,8 @@ const T = {
 const models = [
   { name: "DeepSeek V3.2", tokens: 128000, color: "bg-red-500", tier: "Budget" },
   { name: "GPT-4.1", tokens: 1000000, color: "bg-green-400", tier: "Standard" },
-  { name: "GPT-5.2", tokens: 256000, color: "bg-green-500", tier: "Standard" },
-  { name: "Claude Sonnet 4.6", tokens: 200000, color: "bg-purple-400", tier: "Standard" },
+  { name: "GPT-5.2", tokens: 400000, color: "bg-green-500", tier: "Standard" },
+  { name: "Claude Sonnet 4.6", tokens: 1000000, color: "bg-purple-400", tier: "Standard" },
   { name: "Claude Opus 4.7", tokens: 1000000, color: "bg-purple-500", tier: "Premium" },
   { name: "Claude Opus 4.8", tokens: 1000000, color: "bg-purple-600", tier: "Premium" },
   { name: "Gemini 3.0 Pro", tokens: 1000000, color: "bg-blue-500", tier: "Standard" },
