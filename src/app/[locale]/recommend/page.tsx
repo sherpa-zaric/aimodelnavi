@@ -19,7 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t.title,
     description: t.desc,
-    alternates: { canonical: "https://aimodelsnavi.com/recommend" },
+    alternates: {
+      canonical: "https://aimodelsnavi.com/recommend",
+      languages: { ja: "https://aimodelsnavi.com/recommend", en: "https://aimodelsnavi.com/en/recommend", "x-default": "https://aimodelsnavi.com/recommend" },
+    },
   };
 }
 

@@ -48,8 +48,8 @@ const T = {
 };
 
 const PAGE_TITLES: Record<string, string> = {
-  ja: "AI Models Navi — AIモデルの比較・料金・ランキング",
-  en: "AI Models Navi — AI Model Comparison, Pricing & Rankings",
+  ja: "AIモデル比較・料金・ランキング — AI Models Navi",
+  en: "AI Model Comparison, Pricing & Rankings — AI Models Navi",
 };
 
 const popularModels = [

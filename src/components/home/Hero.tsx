@@ -41,6 +41,8 @@ export function Hero({ locale, t }: HeroProps) {
               placeholder={t.searchPlaceholder}
               className="w-full pl-11 pr-4 py-3.5 bg-white rounded-xl text-gray-900 placeholder-gray-400 shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               readOnly
+              tabIndex={-1}
+              aria-hidden="true"
             />
           </div>
 

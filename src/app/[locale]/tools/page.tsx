@@ -1,5 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { Calculator, FileText, ArrowLeft, ArrowLeftRight, Sparkles, LayoutGrid, BarChart3 } from "lucide-react";
+
+const T = {
+  ja: {
+    back: "ホームに戻る", title: "AIモデル無料ツール", desc: "AIモデル選定をサポートする無料ツール集",
+  },
+  en: {
+    back: "Back to Home", title: "Free AI Model Tools", desc: "Free tools to help you choose the right AI model and estimate costs",
+  },
+};
 
 const tools = [
   {
@@ -41,14 +53,18 @@ const tools = [
 ];
 
 export default function ToolsPage() {
+  const params = useParams();
+  const locale = (params.locale as string) === "en" ? "en" : "ja";
+  const t = T[locale];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6">
-          <ArrowLeft className="w-4 h-4" />ホームに戻る
+        <Link href={`/${locale === "ja" ? "" : locale}`} className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6">
+          <ArrowLeft className="w-4 h-4" />{t.back}
         </Link>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">ツール</h1>
-        <p className="text-gray-500 mb-8">AIモデル選定をサポートする無料ツール集</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t.title}</h1>
+        <p className="text-gray-500 mb-8">{t.desc}</p>
 
         <div className="grid sm:grid-cols-2 gap-4">
           {tools.map((tool) => {
@@ -60,8 +76,8 @@ export default function ToolsPage() {
                     <Icon className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{tool.title.ja}</h3>
-                    <p className="text-sm text-gray-500 mt-1">{tool.desc.ja}</p>
+                    <h3 className="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{tool.title[locale as keyof typeof tool.title]}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{tool.desc[locale as keyof typeof tool.desc]}</p>
                   </div>
                 </div>
               </Link>

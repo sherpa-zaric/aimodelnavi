@@ -1,4 +1,5 @@
 import { Pool, type QueryResult } from "pg";
+import { createHash } from "crypto";
 
 const globalForPool = globalThis as unknown as { pgPool: Pool };
 
@@ -66,12 +67,7 @@ export async function initializeDatabase() {
 }
 
 export function hashIp(ip: string): string {
-  let hash = 0;
-  for (let i = 0; i < ip.length; i++) {
-    hash = ((hash << 5) - hash) + ip.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash).toString(36);
+  return createHash("sha256").update(ip).digest("hex").slice(0, 16);
 }
 
 export function getClientIp(request: Request): string {
