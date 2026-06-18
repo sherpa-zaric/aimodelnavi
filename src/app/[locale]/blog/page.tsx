@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import blogManifest from "@/data/blog-manifest.json";
 import blogManifestEn from "@/data/blog-manifest-en.json";
 import type { Metadata } from "next";
-import BlogListClient from "@/components/BlogListClient";
+import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -23,24 +23,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-const jaLabels = {
-  searchPlaceholder: "記事を検索...",
-  all: "すべて",
-  previous: "前へ",
-  next: "次へ",
-  noResults: "該当する記事が見つかりません",
-  page: "ページ",
-};
-
-const enLabels = {
-  searchPlaceholder: "Search articles...",
-  all: "All",
-  previous: "Previous",
-  next: "Next",
-  noResults: "No articles found",
-  page: "page",
-};
-
 export default async function BlogListPage({
   params,
 }: {
@@ -58,11 +40,28 @@ export default async function BlogListPage({
       <h1 className="text-3xl font-bold text-gray-900 mb-8">
         {isEn ? "Blog" : "ブログ"}
       </h1>
-      <BlogListClient
-        posts={sorted}
-        locale={locale}
-        labels={isEn ? enLabels : jaLabels}
-      />
+      <div className="space-y-6">
+        {sorted.map((post) => (
+          <Link
+            key={post.slug}
+            href={`${isEn ? "/en" : ""}/blog/${post.slug}`}
+            className="block p-4 sm:p-6 bg-white border border-gray-200 rounded-xl hover:border-primary-300 hover:shadow-sm transition-all"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <span className="px-2 py-0.5 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+                {post.tag}
+              </span>
+              <time className="text-sm text-gray-400">{post.date}</time>
+            </div>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">
+              {post.title}
+            </h2>
+            <p className="text-sm text-gray-500 line-clamp-2">
+              {post.excerpt || ""}
+            </p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
