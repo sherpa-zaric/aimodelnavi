@@ -1,7 +1,7 @@
-import blogManifest from "@/data/blog-manifest.json";
-import blogManifestEn from "@/data/blog-manifest-en.json";
 import type { Metadata } from "next";
 import Link from "next/link";
+import jaManifest from "@/data/blog-manifest.json";
+import enManifest from "@/data/blog-manifest-en.json";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -29,8 +29,8 @@ export default async function BlogListPage({
 }) {
   const { locale } = await params;
   const isEn = locale === "en";
-  const manifest = isEn ? blogManifestEn : blogManifest;
-  const sorted = [...manifest].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const manifest = isEn ? enManifest : jaManifest;
+  const sorted = [...manifest].sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
