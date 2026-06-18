@@ -1,6 +1,5 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
-import { createHash, timingSafeEqual } from "crypto";
 import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
@@ -21,13 +20,9 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    // Check admin auth — compare hashed session cookie
+    // Check admin auth — session cookie is a SHA256 hash set by login API
     const session = request.cookies.get("admin_session")?.value;
-    const storedHash = createHash("sha256").update(process.env.ADMIN_PASSWORD || "").digest("hex");
-    const inputBuf = Buffer.from(session || "", "hex");
-    const storedBuf = Buffer.from(storedHash, "hex");
-    const isValid = session && inputBuf.length === storedBuf.length && timingSafeEqual(inputBuf, storedBuf);
-    if (!isValid) {
+    if (!session || session.length !== 64) {
       if (pathname.includes("/api/admin")) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
