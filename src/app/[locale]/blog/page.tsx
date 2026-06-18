@@ -36,7 +36,7 @@ export default function BlogListPage() {
   // Load manifest on mount
   useMemo(() => {
     if (loaded) return;
-    const url = `/api/blog-manifest?locale=${locale}`;
+    const url = isEn ? "/blog-manifest-en.json" : "/blog-manifest.json";
     fetch(url).then(r => r.json()).then((data: BlogPost[]) => {
       setManifest(data);
       setLoaded(true);
