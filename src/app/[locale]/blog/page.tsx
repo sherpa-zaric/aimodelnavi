@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { setRequestLocale } from "next-intl/server";
 import blogManifest from "@/data/blog-manifest.json";
 import blogManifestEn from "@/data/blog-manifest-en.json";
@@ -59,13 +58,11 @@ export default async function BlogListPage({
       <h1 className="text-3xl font-bold text-gray-900 mb-8">
         {isEn ? "Blog" : "ブログ"}
       </h1>
-      <Suspense fallback={<div className="py-12 text-center text-gray-400">Loading...</div>}>
-        <BlogListClient
-          posts={sorted}
-          locale={locale}
-          labels={isEn ? enLabels : jaLabels}
-        />
-      </Suspense>
+      <BlogListClient
+        posts={sorted}
+        locale={locale}
+        labels={isEn ? enLabels : jaLabels}
+      />
     </div>
   );
 }
