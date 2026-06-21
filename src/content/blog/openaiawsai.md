@@ -1,9 +1,11 @@
 ---
-title: "OpenAIの最新モデルをAWS環境で活用する方法：エンタープライズAI導入の障壁をどう下げるか"
-date: "2026-06-02"
-tag: "OpenAI"
-excerpt: "OpenAIのモデルをAWS上のインフラと組み合わせて活用するための戦略について解説します。セキュリティやガバナンス基準への適合を維持しつつ、強力なクラウドエコシステム内でAIを導入する方法を探ります。"
-source: "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws"
+title: OpenAIの最新モデルをAWS環境で活用する方法：エンタープライズAI導入の障壁をどう下げるか
+date: '2026-06-02'
+tag: OpenAI
+excerpt: >-
+  OpenAIのモデルをAWS上のインフラと組み合わせて活用するための戦略について解説します。セキュリティやガバナンス基準への適合を維持しつつ、強力なクラウドエコシステム内でAIを導入する方法を探ります。
+source: >-
+  https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws
 ---
 
 ## OpenAIモデルとAWSエコシステムの連携
@@ -31,3 +33,11 @@ OpenAIのモデル（GPT-4等）はプログラミング言語の理解と生成
 最適なAIモデルを選択し、それを信頼されたインフラ環境（AWS）から適切に制御して利用することは、企業にとって極めて重要な戦略です。「モデルの性能」と「インフラの安全性」の両立を目指すことで、AI実装を加速させることができます。
 
 特に厳しいセキュリティ基準を持つ日本のエンタープライズ開発において、AWSという堅牢な基盤をベースにOpenAIの最先端モデルをいかに安全に連携させるかという設計思想が、今後のAI導入の鍵となるでしょう。
+
+---
+
+## 関連記事
+
+- [Google I/O 2026まとめ：Gemini Omniと3.5 Flashがもたらすマルチモーダル開発の新時代](/blog/google-io-2026gemini-omni35-flash)
+- [OpenAIがGartnerの「エンタープライズ向けコーディングエージェント」リーダーに選出：開発自律化への転換点](/blog/openaigartner)
+- [ローカル環境で動作するRAGとナレッジグラフ統合エージェントの可能性：クラウド依存を脱却した知見管理へ](/blog/rag)

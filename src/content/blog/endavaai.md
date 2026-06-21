@@ -1,9 +1,12 @@
 ---
-title: "Endava事例に学ぶAIエージェント導入のベストプラクティスと日本企業の課題"
-date: "2026-06-05"
-tag: "AIエージェント"
-excerpt: "OpenAIの事例記事「How Endava is redesigning software delivery around AI agents」を基に、EndavaがAIエージェント（Codex、ChatGPT Enterprise）を活用してソフトウェアデリバリーを再設計した取り組みを紹介。日本企業が同様の導入を進める際の文化的・組織的課題について考察する。"
-source: "https://openai.com/index/endava-frontiers"
+title: Endava事例に学ぶAIエージェント導入のベストプラクティスと日本企業の課題
+date: '2026-06-05'
+tag: AIエージェント
+excerpt: >-
+  OpenAIの事例記事「How Endava is redesigning software delivery around AI
+  agents」を基に、EndavaがAIエージェント（Codex、ChatGPT
+  Enterprise）を活用してソフトウェアデリバリーを再設計した取り組みを紹介。日本企業が同様の導入を進める際の文化的・組織的課題について考察する。
+source: 'https://openai.com/index/endava-frontiers'
 ---
 
 ## はじめに
@@ -34,3 +37,11 @@ OpenAIの事例記事は、Endavaのような先進企業がAIエージェント
 
 ## 参考
 - [How Endava is redesigning software delivery around AI agents - OpenAI](https://openai.com/index/endava-frontiers)
+
+---
+
+## 関連記事
+
+- [GartnerがOpenAIを「エンタープライズ向けコーディングエージェント」のリーダーに選出。自律的実装へのシフトが加速](/blog/gartneropenai)
+- [Codex Subagent初心者ガイド：並列処理で開発効率を向上させる実践的手法](/blog/codex-subagent)
+- [AIネイティブ企業の構築術：効率化ではなく「能力」を最大化し、自己進化する組織へ](/blog/blog-2026-05-20-ozahmz)

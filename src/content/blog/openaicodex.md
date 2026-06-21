@@ -1,9 +1,10 @@
 ---
-title: "OpenAIが提示する「あらゆる役割・ツール・ワークフローのためのCodex」：コード生成から業務効率化へのアプローチ"
-date: "2026-06-02"
-tag: "AIエージェント"
-excerpt: "OpenAIが提唱する、コード生成AIをあらゆる職種やツールに適用するアプローチを解説。単なるコーディング支援に留まらず、分析などのワークフローに活用する次世代のAI活用の方向性を探ります。"
-source: "https://openai.com/index/codex-for-every-role-tool-workflow"
+title: OpenAIが提示する「あらゆる役割・ツール・ワークフローのためのCodex」：コード生成から業務効率化へのアプローチ
+date: '2026-06-02'
+tag: AIエージェント
+excerpt: >-
+  OpenAIが提唱する、コード生成AIをあらゆる職種やツールに適用するアプローチを解説。単なるコーディング支援に留まらず、分析などのワークフローに活用する次世代のAI活用の方向性を探ります。
+source: 'https://openai.com/index/codex-for-every-role-tool-workflow'
 ---
 
 ## 「コード生成」の枠を超えたCodexの可能性
@@ -36,3 +37,11 @@ Codexの能力を汎用的なワークフローに適用することで、プロ
 OpenAIが示す方向性は、AIが単なる「コード作成の道具」であるだけでなく、あらゆるビジネスプロセスのデジタル操作を支援するインターフェースになることです。開発者にとってのチャンスは、AIをいかにして実務のワークフローに深く統合し、非エンジニアがAIの力を借りて価値を創造できる環境を構築できるかにあると言えるでしょう。
 
 参考：[Codex for every role, tool, and workflow](https://openai.com/index/codex-for-every-role-tool-workflow)
+
+---
+
+## 関連記事
+
+- [Endava事例に学ぶAIエージェント導入のベストプラクティスと日本企業の課題](/blog/endavaai)
+- [Codexが切り拓く「ナレッジワーク自動化」の未来：コーディング補助から汎用生産性ツールへ](/blog/codex)
+- [CiscoがOpenAI Codexを導入し、エンタープライズ開発を再定義：欠陥修正の自動化へのアプローチ](/blog/ciscoopenai-codex)

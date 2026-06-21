@@ -1,8 +1,10 @@
 ---
-title: "CodexにDeepSeek V4、GLM 5.1、K2.6を接続する方法｜プロトコル変換と2つの解決策"
-date: "2026-06-03"
-tag: "解説"
-excerpt: "CodexにDeepSeek V4、GLM 5.1、K2.6などの第三者モデルを接続する方法を解説する。OpenAI Responses APIとChat Completions APIのプロトコル不一致を解決するため、CC-SwitchとCodex++という2つの主要なアプローチとその選択ガイドを説明する。"
+title: CodexにDeepSeek V4、GLM 5.1、K2.6を接続する方法｜プロトコル変換と2つの解決策
+date: '2026-06-03'
+tag: 解説
+excerpt: >-
+  CodexにDeepSeek V4、GLM 5.1、K2.6などの第三者モデルを接続する方法を解説する。OpenAI Responses APIとChat
+  Completions APIのプロトコル不一致を解決するため、CC-SwitchとCodex++という2つの主要なアプローチとその選択ガイドを説明する。
 ---
 
 CodexでDeepSeek、GLM、Kimiのような第三者大規模モデルのAPI Keyを直接入力したい場合、おそらく思っているようには動作しないだろう。
@@ -218,3 +220,11 @@ Codex++はより**Codex Appデスクトップアプリの強化 ＋ プロバイ
 - 軽量なコードQ&A、テキストタスク、簡単なスクリプト：DeepSeekなどのコストの低いモデルには、明確な価格優位性がある。
 - 複雑なエンジニアリングプロジェクト：まずより強力なGPTで計画を立て、その後、第三者モデルで簡単なサブタスクを処理する。
 - もしGPT Plus / Proの利用枠が十分にあるなら：ネイティブ体験が依然として最も安定しており、必ずしも余計な設定を行う必要はない。
+
+---
+
+## 関連記事
+
+- [AnthropicがFableを意図的に制限？AIモデルの信頼性危機が問われる](/blog/anthropic-fable-nerfing-2026)
+- [オープンソースLLMがAI独占を阻止する：2026年の關鍵戦争](/blog/open-source-llm-monopoly-2026)
+- [MiniMax M3レビュー：100万トークン対応と15倍高速デコードが実現する次世代マルチモーダルAI](/blog/article-2026-05-26-minimax-m3)

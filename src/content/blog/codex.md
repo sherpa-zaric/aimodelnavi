@@ -1,9 +1,10 @@
 ---
-title: "Codexが切り拓く「ナレッジワーク自動化」の未来：コーディング補助から汎用生産性ツールへ"
-date: "2026-06-03"
-tag: "OpenAI"
-excerpt: "OpenAIのCodexが、単なるエンジニア向けのコード補完ツールを超え、データ分析やワークフロー自動化などのナレッジワーク全般を効率化するツールへと進化しています。本記事では、非エンジニアへの展開を見据えたAIツール戦略について解説します。"
-source: "https://openai.com/index/codex-for-knowledge-work"
+title: Codexが切り拓く「ナレッジワーク自動化」の未来：コーディング補助から汎用生産性ツールへ
+date: '2026-06-03'
+tag: OpenAI
+excerpt: >-
+  OpenAIのCodexが、単なるエンジニア向けのコード補完ツールを超え、データ分析やワークフロー自動化などのナレッジワーク全般を効率化するツールへと進化しています。本記事では、非エンジニアへの展開を見据えたAIツール戦略について解説します。
+source: 'https://openai.com/index/codex-for-knowledge-work'
 ---
 
 ## Codexの役割の変化：コード生成からナレッジワークの自動化へ
@@ -36,3 +37,11 @@ Codexの進化は、プログラミングという行為を「専門家の特権
 
 参考：
 - Codex for knowledge work (https://openai.com/index/codex-for-knowledge-work)
+
+---
+
+## 関連記事
+
+- [Endava事例に学ぶAIエージェント導入のベストプラクティスと日本企業の課題](/blog/endavaai)
+- [OpenAIが提示する「あらゆる役割・ツール・ワークフローのためのCodex」：コード生成から業務効率化へのアプローチ](/blog/openaicodex)
+- [CiscoがOpenAI Codexを導入し、エンタープライズ開発を再定義：欠陥修正の自動化へのアプローチ](/blog/ciscoopenai-codex)

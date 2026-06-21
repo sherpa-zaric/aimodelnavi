@@ -1,8 +1,9 @@
 ---
-title: "ローカルLLMは有料モデルを置き換えられるか？2026年の現実的な答え"
-date: "2026-06-10"
-tag: "解説"
-excerpt: "Reddit上で激しい議論が行われているテーマ、ローカルLLMはClaudeやGPTなどの有料モデルを本当に置き換えられるのか？287個のモデルの実データに基づき、2026年の現実的な答えを提示する。ローカルモデルは簡単なタスクでは十分に使えるが、複雑な推論や長文処理では有料モデルにまだ差がある。"
+title: ローカルLLMは有料モデルを置き換えられるか？2026年の現実的な答え
+date: '2026-06-10'
+tag: 解説
+excerpt: >-
+  Reddit上で激しい議論が行われているテーマ、ローカルLLMはClaudeやGPTなどの有料モデルを本当に置き換えられるのか？287個のモデルの実データに基づき、2026年の現実的な答えを提示する。ローカルモデルは簡単なタスクでは十分に使えるが、複雑な推論や長文処理では有料モデルにまだ差がある。
 ---
 
 ![ローカルAIモデル vs クラウドAIモデル](/images/blog/local-vs-paid-models-2026/img-1-hero.jpg)
@@ -93,3 +94,11 @@ Reddit上での最も賢いやり方は混合使用だ：
 - ローカル最適：Qwen3.6-27B、Gemma 4
 - 有料最適：Claude Opus 4.8、GPT-5.5
 - コストパフォーマンス選択：MiniMax M3（API呼び出し、コストが非常に低い）
+
+---
+
+## 関連記事
+
+- [Gemini 3.1 Proの詳細解説：ARC-AGI-2で77.1%を記録し推論能力が前世代の2倍に](/blog/gemini-3-1-pro-reasoning-benchmarks)
+- [LLMの「真の」長文コンテキスト能力をどう測るか？新ベンチマーク「AA-LCR」の全貌](/blog/aa-lcr-knowledge-worker-document-benchmark)
+- [AnthropicがFableを意図的に制限？AIモデルの信頼性危機が問われる](/blog/anthropic-fable-nerfing-2026)
