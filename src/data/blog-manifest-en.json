@@ -88,8 +88,8 @@
       "OpenAI",
       "Anthropic",
       "Google",
-      "xAI/Grok",
-      "AIエージェント"
+      "DeepSeek",
+      "xAI/Grok"
     ],
     "date": "2026-06-07",
     "title_en": "ChatGPT's Biggest Overhaul Yet: OpenAI Merges Codex to Build an AI Super-App",
@@ -103,6 +103,7 @@
     "topics": [
       "Anthropic",
       "OpenAI",
+      "DeepSeek",
       "AIエージェント"
     ],
     "date": "2026-06-05",
@@ -147,6 +148,7 @@
     "excerpt": "WasmerがOpenAIのCodexを活用し、エッジ環境で動作するNode.jsランタイムを開発した事例を解説。GPT-4などの大規模言語モデルを実際の実装に活かす手法と、日本市場での応用可能性を考察する。",
     "topics": [
       "AIエージェント",
+      "Anthropic",
       "OpenAI"
     ],
     "date": "2026-06-05",
@@ -159,6 +161,7 @@
     "tag": "解説",
     "excerpt": "LLMによる単純なコード生成から、概念的な定義（オントロジー）を媒介とした開発へのシフトが進もうとしています。仕様と実装の乖離をどう埋めるか、新たなAIコーディングの在り方を考察します。",
     "topics": [
+      "OpenAI",
       "AIエージェント",
       "コーディング",
       "LLM"
@@ -203,7 +206,10 @@
     "tag": "解説",
     "excerpt": "米国保険大手のTravelers社が、OpenAIの技術を用いて保険金請求処理を全米規模で展開しています。厳格な業務領域である保険業界において、AIをどのように実務に統合し、効率化を実現したのかを解説します。",
     "topics": [
-      "OpenAI"
+      "Anthropic",
+      "OpenAI",
+      "オープンソース",
+      "LLM"
     ],
     "date": "2026-06-03",
     "title_en": "Enterprise AI in Action: How Travelers Automates Insurance Claims with OpenAI",
@@ -295,8 +301,8 @@
       "Anthropic",
       "Google",
       "ベンチマーク",
-      "推論",
-      "コーディング"
+      "AIエージェント",
+      "推論"
     ],
     "date": "2026-06-02",
     "title_en": "Why LLMs Struggle with Video Games: The Gap Between Coding and Gameplay",
@@ -309,6 +315,7 @@
     "excerpt": "OpenAIのモデルをAWS上のインフラと組み合わせて活用するための戦略について解説します。セキュリティやガバナンス基準への適合を維持しつつ、強力なクラウドエコシステム内でAIを導入する方法を探ります。",
     "topics": [
       "OpenAI",
+      "Google",
       "AIエージェント",
       "セキュリティ",
       "推論"
